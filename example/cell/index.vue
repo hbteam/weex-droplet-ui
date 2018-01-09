@@ -1,9 +1,8 @@
 <template>
-    <div>
+    <div class="cell">
         <wx-cell 
             text="文字描述"
             icon=""
-            width="750px"
             height="200px"
             textColor="#333"
             textFontSize="32px"
@@ -15,7 +14,6 @@
         <wx-cell 
             text="文字描述" 
             icon="http://ww2.sinaimg.cn/large/0060lm7Tgw1fb5paqsppfj302v02gmwx.jpg"
-            width="750px"
             height="100px"
             textColor="#333"
             textFontSize="32px"
@@ -23,7 +21,6 @@
 
         <wx-cell 
             text="文字描述" 
-            width="750px"
             height="100px"
             textColor="#333"
             textFontSize="32px"
@@ -31,7 +28,6 @@
 
         <wx-cell
                 text="文字描述"
-                width="750px"
                 height="100px"
                 textColor="#333"
                 textFontSize="32px"
@@ -45,6 +41,10 @@
 </template>
 
 <style>
+    .cell {
+        width: 650px;
+        margin-left: 50px;
+    }
     .hb-content {
         position: absolute;
         left: 200px;

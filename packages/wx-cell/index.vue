@@ -17,8 +17,8 @@
         background-color: #fff;
         flex-direction: row;
         align-items: center;
-        padding-right: 20px;
-        padding-left: 20px;
+        /*padding-right: 20px;*/
+        /*padding-left: 20px;*/
     }
 
     .wx-text {
@@ -50,8 +50,7 @@
     export default {
         props: {
             width: {
-                type: String,
-                default: '750px'
+                type: String
             },
             height: {
                 type: String,
