@@ -3,6 +3,7 @@
         <div class="wx-input-icon" v-if="icon">
             <image :style="iconStyle" :src="icon"></image>
         </div>
+        <slot name="left"></slot>
         <input 
             class="wx-input-text" 
             :type="type" 
