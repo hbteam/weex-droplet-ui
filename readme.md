@@ -3,7 +3,7 @@
 ## install
 npm i weex-droplet-ui -S
 
-## run
+## 运行查看example
 npm start
 
 ## 联系我们
