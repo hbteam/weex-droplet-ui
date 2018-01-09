@@ -11,6 +11,7 @@ import WxInput from './packages/wx-input/index.vue';
 import WxPopup from './packages/wx-popup/index.vue';
 import WxActionsheet from './packages/wx-actionsheet/index.vue';
 import WxLoading from './packages/wx-loading/index.vue';
+import WxSearch from './packages/wx-search/index.vue';
 
 export {
     WxButton,
@@ -25,5 +26,6 @@ export {
     WxInput,
     WxPopup,
     WxActionsheet,
-    WxLoading
+    WxLoading,
+    WxSearch
 };

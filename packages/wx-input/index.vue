@@ -65,15 +65,18 @@
             return {
                 style: {
                     width: this.width
-                }
+                },
+                inputValue: '',
             }
         },
         methods: {
             blur () {
-                this.$emit('blur')
+                this.$emit('wxBlur', this.inputValue);
             },
             input (e) {
+                this.inputValue = e.value;
                 this.$emit('input', e.value)
+                this.$emit('wxInput', this.inputValue);
             }
         }
     }

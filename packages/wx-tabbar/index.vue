@@ -4,13 +4,13 @@
             <slot></slot>
         </div>
         <div class="tabbar" 
-            :style="{'bottom': bottom}">
+            :style="getStyles()">
             <div class="tabbar-item" 
                 v-for="item in tabItems" 
                 @click="changeTab(item)">
-                <image v-if="selectedTab.index === item.index" :src="item.selectedImage" class="icon"></image>
-                <image v-if="selectedTab.index !== item.index" :src="item.image" class="icon"></image>
-                <text class="wx-text">{{ item.title }}</text>
+                <image :style="getIconStyle(item)" v-if="selectedTab.index === item.index" :src="item.selectedImage" class="icon"></image>
+                <image :style="getIconStyle(item)" v-if="selectedTab.index !== item.index" :src="item.image" class="icon"></image>
+                <text class="wx-text" :style="getTitleStyle(item)" >{{ item.title }}</text>
             </div>
         </div>
     </div>
@@ -50,7 +50,6 @@
         margin-bottom: 10px;
         width: 38px;
         height: 38px;
-        line-height: 38px;
     }
 
     .wx-text {
@@ -72,10 +71,23 @@
                 required: true
             },
 
+            styles: {
+                type: Object,
+                default: function () {
+                    return {}
+                },
+                required: false
+            },
+
             bottom: {
                 type: String,
                 default: '0px'
-            }
+            },
+
+            height: {
+                type: String,
+                default: '128px'
+            },
         },
 
         data () {
@@ -83,6 +95,7 @@
                 selectedTab: {index: 0},
                 translateX: 'translateX(0px)', 
                 deviceWidth: 750,
+                titleStyle: {},
             }
         },
 
@@ -101,6 +114,28 @@
             setTranslateX () {
                 const x = this.selectedTab.index * this.deviceWidth;
                 this.translateX = `translateX(-${x}px)`;
+            },
+
+            getStyles () {
+                const baseStyle =  {
+                    'bottom': this.bottom, 
+                    'height': this.height
+                };
+                return Object.assign({}, baseStyle, this.styles);
+            },
+
+            getIconStyle (item) {
+                return {
+                    width: item.iconWdith || '38px',
+                    height: item.iconHeight || '38px',
+                }
+            },
+
+            getTitleStyle (item) {
+                return {
+                    'font-size': item.fontSize || '28px',
+                    'color': this.selectedTab.index === item.index ? item.selectedColor : item.titleColor,
+                }
             },
         }
     }

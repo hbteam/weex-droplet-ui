@@ -1,14 +1,14 @@
 <template>
-    <div class="wx-header">
+    <div class="wx-header" :class="[hasBottom ? 'bottom-border': 'no-border']">
         <!-- default -->
         <slot>
             <div class="header-title">
-                <text class="title">{{ text }}</text>
+                <text class="title" :style="getTitleStyle()">{{ text }}</text>
             </div>
             <div class="header-arrow" 
                 @click="handleClick" 
                 v-if="hasBackIcon">
-                <text class="icon-arrow-left"></text>
+                <text :style="getArrowStyle()" class="icon-arrow-left"></text>
             </div>
         </slot>
         <!-- customer slot layout 'left center right' -->
@@ -19,11 +19,18 @@
 </template>
 <style scoped>
     .wx-header {
+        height: 100px;
+        background-color: #fff;
+    }
+
+    .bottom-border {
         border-bottom-width: 1px;  
         border-style: solid;  
         border-color:  #DCDCDC;  
-        height: 100px;
-        background-color: #fff;
+    }
+
+    .no-border {
+        border-bottom-width: 0px; 
     }
 
     .header-arrow {
@@ -34,20 +41,18 @@
         z-index: 100;
         width: 100px;
         height: 100px;
+        justify-content: center;
     }
 
     .icon-arrow-left {
         border-right-width:3px ;
         border-right-style: solid;
-        border-right-color: #000;
+        border-right-color: #4676FF;
         border-bottom-style: solid;
         border-bottom-width: 3px;  
-        border-bottom-color:  #000; 
-        width: 32px;
-        height: 32px;  
+        border-bottom-color:  #4676FF; 
         transform: rotate(135deg); 
         margin-left: 46px;
-        margin-top: 34px;
     }
 
     .header-title {
@@ -57,7 +62,7 @@
 
     .title {
         width: 750px;
-        font-size: 40px;
+        font-size: 44px;
         text-align: center;
         color: #333333;
         height: 100px;
@@ -80,6 +85,30 @@
                 type: Boolean,
                 default: true
             },
+            hasBottom: {
+                type: Boolean,
+                default: true
+            },
+
+            textColor: {
+                type: String,
+                default: '#333333'
+            },
+
+            textFontSize: {
+                type: String,
+                default: '44px'
+            },
+
+            arrowColor: {
+                type: String,
+                default: '#4676FF'
+            },
+
+            arrowSize: {
+                type: String,
+                default: '32px'
+            },
         },
 
         created () {
@@ -87,6 +116,22 @@
         },
 
         methods: {
+            getTitleStyle () {
+                return {
+                    color: this.textColor,
+                    'font-size': this.textFontSize,
+                };
+            },
+
+            getArrowStyle () {
+                return {
+                    'border-right-color': this.arrowColor,
+                    'border-bottom-color': this.arrowColor,
+                    width: this.arrowSize,
+                    height: this.arrowSize,
+                }
+            },
+
             handleClick () {
                 if (this.useDefaultBack) {
                     this.$router.back()

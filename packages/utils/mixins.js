@@ -11,7 +11,7 @@ export default {
             let domModule = weex.requireModule('dom')
             domModule.addRule('fontFace', {
                 'fontFamily': "iconfont",
-                'src': "url('http://at.alicdn.com/t/font_534309_k25t5nvy4lz3erk9.ttf')"
+                'src': "url('http://at.alicdn.com/t/font_534309_5w4ejjouwk3uwhfr.ttf')"
             })
         },
     },
