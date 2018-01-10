@@ -1,5 +1,6 @@
 <template>
-    <div class="wx-dialog" v-if="visible">
+    <div class="wx-dialog" ref="dialog" v-if="visible"
+     :class="[useDefaultFooter? '' : 'opacityFull']">
         <div class="dialog-content">
             <slot name="dialog-header"></slot>
             <slot name="dialog-body"></slot>
@@ -16,6 +17,8 @@
     </div>
 </template>
 <script>
+    const animation = weex.requireModule('animation');
+
     export default {
         props: {
             visible: {
@@ -48,11 +51,60 @@
 
         methods: {
             cancel () {
+                if (this.useDefaultFooter) {
+                    this.hideDialog(() => {
+                        this.$emit('cancel');
+                    });
+                    return;
+                }
+
                 this.$emit('cancel');
             },
 
             confirm () {
+                if (this.useDefaultFooter) {
+                    this.hideDialog(() => {
+                        this.$emit('confirm');
+                    });
+                    return;
+                }
                 this.$emit('confirm');
+            },
+
+            hideDialog (callback) {
+                const timer = setTimeout(() => {
+                    this.displayDialog(false, callback);
+                    clearTimeout(timer);
+                }, 40);
+            },
+
+            showDialog () {
+                const timer = setTimeout(() => {
+                    this.displayDialog(true);
+                    clearTimeout(timer);
+                }, 40);
+            },
+
+            displayDialog (isShow, callback) {
+                const dialogEl = this.$refs.dialog;
+                if (!dialogEl) {
+                    return;
+                }
+                const styles = isShow ? { opacity: 1 } : { opacity: 0 };
+                animation.transition(dialogEl, {
+                    styles: styles,
+                    duration: 200,
+                }, function () {
+                    typeof callback === 'function' && callback();
+                });
+            }
+        },
+
+        watch: {
+            visible () {
+                if (this.visible) {
+                    this.showDialog();
+                }
             }
         }
     }
@@ -65,8 +117,12 @@
         left: 0;
         bottom: 0;
         width: 750px;
+        opacity: 0;
         overflow: hidden;
     }
+
+    .opacityFull { opacity: 1; }
+
     .dialog-content {
         width: 574px;
         background-color: #fff;
