@@ -1,17 +1,18 @@
-import WxButton from './packages/wx-button/index.vue';
-import WxDialog from './packages/wx-dialog/index.vue';
-import WxHeader from './packages/wx-header/index.vue';
-import WxNavbar from './packages/wx-navbar/index.vue';
-import WxTabbar from './packages/wx-tabbar/index.vue';
-import WxCell from './packages/wx-cell/index.vue';
-import WxCheckbox from './packages/wx-checkbox/index.vue';
-import WxRadio from './packages/wx-radio/index.vue';
-import WxField from './packages/wx-field/index.vue';
-import WxInput from './packages/wx-input/index.vue';
-import WxPopup from './packages/wx-popup/index.vue';
-import WxActionsheet from './packages/wx-actionsheet/index.vue';
-import WxLoading from './packages/wx-loading/index.vue';
-import WxSearch from './packages/wx-search/index.vue';
+import WxButton from './packages/wx-button';
+import WxDialog from './packages/wx-dialog';
+import WxHeader from './packages/wx-header';
+import WxNavbar from './packages/wx-navbar';
+import WxTabbar from './packages/wx-tabbar';
+import WxCell from './packages/wx-cell';
+import WxCheckbox from './packages/wx-checkbox';
+import WxRadio from './packages/wx-radio';
+import WxField from './packages/wx-field';
+import WxInput from './packages/wx-input';
+import WxPopup from './packages/wx-popup';
+import WxActionsheet from './packages/wx-actionsheet';
+import WxLoading from './packages/wx-loading';
+import WxSearch from './packages/wx-search';
+import WxIcon from './packages/wx-icon';
 
 export {
     WxButton,
@@ -27,5 +28,6 @@ export {
     WxPopup,
     WxActionsheet,
     WxLoading,
-    WxSearch
+    WxSearch,
+    WxIcon
 };

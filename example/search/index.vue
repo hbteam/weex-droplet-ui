@@ -9,10 +9,10 @@
 
         <wx-search
             v-model="searchContent2"
-            placeholder="自定义搜索..."
+            placeholder="请输入"
             :autofocus="true"
-            bgColor="#ffc900"
-            innerBgColor="#fff6d6"
+            bgColor="#4676FF"
+            innerBgColor="#fff"
             cancelColor="#fff">
         </wx-search>
         <div class="result m-b-20">

@@ -1,7 +1,7 @@
 <template>
     <div class="wx-search" :style="searchStyle">
         <div class="wx-search-inner" :style="innerStyle">
-            <text class="iconfont icon-search">&#xe7d1;</text>
+            <wx-icon name="search" :styles="iconSearchStyle"></wx-icon>
             <input
                 class="search-input"
                 type="text"
@@ -42,16 +42,6 @@
         height: 56px;
     }
 
-    .iconfont{font-family: iconfont;}
-
-    .icon-search {
-        font-size: 32px;
-        color: #ccc;
-        height: 33px;
-        width: 44px;
-        margin-top: 5px;
-    }
-
     .search-input {
         height: 38px;
         width: 642px;
@@ -72,8 +62,7 @@
     .f32 { font-size: 32px; }
 </style>
 <script>
-    import mixins from '../utils/mixins.js'
-    import WxInput from '../wx-input/index'
+    import WxIcon from '../wx-icon'
 
     export default {
         props: {
@@ -102,12 +91,17 @@
             }
         },
 
-        mixins: [mixins],
-
         data () {
             return {
                 searchStyle: {},
-                showCancel: false
+                showCancel: false,
+                iconSearchStyle: {
+                    'font-size': '32px',
+                    'color': '#ccc',
+                    'height': '33px',
+                    'width': '44px',
+                    'margin-top': '5px'
+                }
             }
         },
 
@@ -141,6 +135,6 @@
             this.autofocus && this.$refs.searchInput.focus();
         },
 
-        component: { WxInput }
+        components: { WxIcon }
     }
 </script>
