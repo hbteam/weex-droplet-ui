@@ -1,9 +1,15 @@
 <template>
     <div class="wx-demo">
+
+        <text class="attention">注: 使用自定义button添加有淡入淡出动画</text>
+
+        <text class="wx-text">dialog1: 使用自定义内容与自定义button</text>
         <wx-button class="button" @wxClick="dialogVisible = true">dialog1</wx-button>
 
+        <text class="wx-text">dialog2: 使用自定义内容与默认button</text>
         <wx-button class="button" @wxClick="dialog2Visible = true">dialog2</wx-button>
 
+        <text class="wx-text">dialog1: 使用title作为内容和默认button</text>
         <wx-button class="button" @wxClick="dialog3Visible = true">dialog3</wx-button>
 
         <wx-dialog :visible="dialogVisible" :useDefaultFooter="false">
@@ -39,7 +45,19 @@
 </template>
 <style scoped>
     .button {
-      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .wx-text {
+        font-size: 32px;
+        color: #999;
+    }
+
+    .attention {
+        font-size: 46px;
+        color: #333;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     /*dialog*/
