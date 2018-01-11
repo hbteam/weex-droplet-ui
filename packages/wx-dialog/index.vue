@@ -9,7 +9,7 @@
                 <text class="title" v-if="title">{{ title }}</text>
                 <div class="dialog-footer">
                     <text class="flex-1 btn-cancel" @click="cancel">{{ cancelLabel }}</text>
-                    <text class="flex-1" @click="confirm">{{ confirmLabel }}</text>
+                    <text class="flex-1 btn-confirm" @click="confirm">{{ confirmLabel }}</text>
                 </div>
             </div>
         </div>
@@ -103,13 +103,19 @@
         border-right-width: 1px;
         border-right-style: solid;
         border-right-color: #DEDEDE;
-        color: #939393;
+        color: #7A818B;
+        font-size: 36px;
+    }
+
+    .btn-confirm {
+        color: #4676FF;
+        font-size: 36px;
     }
 
     .title {
         width: 574px;
         font-size: 40px;
-        color: #939393;
+        color: #7A818B;
         text-align: center;
         padding-top: 96px;
         padding-bottom: 76px;
