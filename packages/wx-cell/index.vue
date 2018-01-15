@@ -4,8 +4,8 @@
         <image class="icon" v-if="icon" :src="icon"></image>
         <text :style="textStyles" class="wx-text">{{ text }}</text>
         <!--<slot></slot>-->
-        <div v-if="hasArrow" class="right-arrow"></div>
         <slot name="right"></slot>
+        <div v-if="hasArrow" class="right-arrow"></div>
     </div>
 </template>
 <style scoped>
