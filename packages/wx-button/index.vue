@@ -22,7 +22,7 @@
         props: {
             width: {
                 type: String,
-                default: '450px'
+                default: '670px'
             },
             height: {
                 type: String,
@@ -30,7 +30,7 @@
             },
             borderRadius: {
                 type: String,
-                default: '100px'
+                default: '12px'
             },
             disabled: {
                 type: Boolean,
@@ -59,6 +59,13 @@
         },
         created () {
              this.setStyle();
+        },
+        watch: {
+          'buttonStyles':function () {
+              if(this.disabled){
+                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
+              }
+          }
         },
         methods: {
             setStyle () {
