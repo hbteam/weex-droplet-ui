@@ -61,6 +61,7 @@
 
 </style>
 <script>
+    import '../utils';
     export default {
         props: {
             tabItems: {
@@ -77,11 +78,6 @@
                     return {}
                 },
                 required: false
-            },
-
-            bottom: {
-                type: String,
-                default: '0px'
             },
 
             height: {
@@ -118,7 +114,7 @@
 
             getStyles () {
                 const baseStyle =  {
-                    'bottom': this.bottom, 
+                    'bottom': this.getPosition().bottom, 
                     'height': this.height
                 };
                 return Object.assign({}, baseStyle, this.styles);

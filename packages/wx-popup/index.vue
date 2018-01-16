@@ -25,8 +25,6 @@
 </style>
 <script>
     const animation = weex.requireModule('animation');
-    const modal = weex.requireModule('modal');
-
     export default {
         props: {
             width: {

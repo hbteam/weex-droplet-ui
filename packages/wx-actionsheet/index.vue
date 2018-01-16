@@ -2,7 +2,7 @@
     <div class="wx-actionsheet">
         <div
             class="wx-actionsheet-mask"
-            :style="pos"
+            :style="getPosition()"
             v-if="showActionsheet"
             ref="sheetMask"
             @click="close"></div>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-    const modal = weex.requireModule('modal');
+    import '../utils';
     const animation = weex.requireModule('animation');
 
     export default {
@@ -77,17 +77,7 @@
             cancelFontSize: {
                 type: String,
                 default: '40px'
-            },
-            // 在ios中有头部状态栏，pos可以设置top、bottom为负值（±40px），覆盖全屏。以及内容底部可设置为40px，以至于内容位置正常显示
-            pos: {
-                type: Object,
-                default: function () {
-                    return {
-                        top: '0px',
-                        bottom: '0px',
-                    }
-                }
-            },
+            }
         },
 
         data () {
@@ -113,7 +103,7 @@
                     totalHeight += itemHeight + this.mbHeight;
                 }
 
-                const posBottom = Number(this.pos.bottom.replace('px', ''));
+                const posBottom = Number(this.getPosition().bottom.replace('px', ''));
                 const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+(totalHeight - posBottom) + 'px'};
 
                 return styleObj;

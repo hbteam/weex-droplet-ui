@@ -1,6 +1,6 @@
 <template>
     <div class="wx-dialog" ref="dialog" v-if="visible"
-     :class="[useDefaultFooter? '' : 'opacityFull']">
+     :class="[useDefaultFooter ? '' : 'opacityFull']" :style="getPosition()">
         <div class="dialog-content">
             <slot name="dialog-header"></slot>
             <slot name="dialog-body"></slot>
@@ -17,6 +17,7 @@
     </div>
 </template>
 <script>
+    import '../utils';
     const animation = weex.requireModule('animation');
 
     export default {
@@ -113,9 +114,7 @@
     .wx-dialog {
         background-color: rgba(0,0,0,0.35);
         position: fixed;
-        top: 0;
         left: 0;
-        bottom: 0;
         width: 750px;
         opacity: 0;
         overflow: hidden;
