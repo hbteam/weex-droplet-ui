@@ -9,6 +9,7 @@
         <wx-actionsheet
             v-model="showSheet1"
             :actions="actions1"
+            :pos="{top: '0px', bottom: '0px'}"
             cancelText=""
             titleText=""
             actionColor="#f00"

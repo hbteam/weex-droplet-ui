@@ -2,6 +2,7 @@
     <div class="wx-actionsheet">
         <div
             class="wx-actionsheet-mask"
+            :style="pos"
             v-if="showActionsheet"
             ref="sheetMask"
             @click="close"></div>
@@ -57,7 +58,9 @@
             },
             actions: {
                 type: Array,
-                default: () => []
+                default: function () {
+                    return []
+                },
             },
             actionColor: {
                 type: String,
@@ -74,7 +77,17 @@
             cancelFontSize: {
                 type: String,
                 default: '40px'
-            }
+            },
+            // 在ios中有头部状态栏，pos可以设置top、bottom为负值（±40px），覆盖全屏。以及内容底部可设置为40px，以至于内容位置正常显示
+            pos: {
+                type: Object,
+                default: function () {
+                    return {
+                        top: '0px',
+                        bottom: '0px',
+                    }
+                }
+            },
         },
 
         data () {
@@ -82,7 +95,7 @@
                 showActionsheet: false,
                 mbHeight: 20,
                 actionStyle: {},
-                cancelStyle: {}
+                cancelStyle: {},
             }
         },
 
@@ -100,7 +113,8 @@
                     totalHeight += itemHeight + this.mbHeight;
                 }
 
-                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+totalHeight+'px'};
+                const posBottom = Number(this.pos.bottom.replace('px', ''));
+                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+(totalHeight - posBottom) + 'px'};
 
                 return styleObj;
             }
@@ -120,6 +134,7 @@
                                     'color': this.cancelColor,
                                     'font-size': this.cancelFontSize
                                 });
+
             },
 
             itemsClass (index) {
@@ -232,9 +247,7 @@
     .wx-actionsheet-mask {
         background-color: rgba(0, 0, 0, 0.4);
         position: fixed;
-        top: 0;
         left: 0;
-        bottom: 0;
         width: 750px;
         opacity: 0;
     }
