@@ -77,7 +77,7 @@
     }
 
     .line {
-        height: 1px;
+        height: 2px;
         position: absolute;
         left: 0;
         z-index: 100;
