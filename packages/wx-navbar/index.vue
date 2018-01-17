@@ -14,6 +14,9 @@
         <div v-if="!vif" class="tab-component" :style="{'transform': translateX, width: contentTotalWidth + 'px'}">
             <slot></slot>
         </div>
+        <div v-if="vif">
+            <slot></slot>
+        </div>
         <text class="line" ref="selectedLine" :style="defaultLineStyle"></text>
     </div>
 </template>

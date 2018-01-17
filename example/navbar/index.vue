@@ -6,12 +6,10 @@
             <text class="tab-page">3申请流程</text>
         </wx-navbar>
         <wx-navbar :vif="true" :hasBottom="false" :animated="true" :tabItems="tabItems" @wxChange="handleChange2">
-        </wx-navbar>
-        <div class="content">
             <text v-if="selectedTab.index === 0" class="tab-page">v-if-1</text>
             <text v-if="selectedTab.index === 1" class="tab-page">v-if-2</text>
             <text v-if="selectedTab.index === 2" class="tab-page">v-if-3</text>
-        </div>
+        </wx-navbar>
     </div>
 </template>
 <style>
