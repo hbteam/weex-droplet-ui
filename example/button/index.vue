@@ -6,7 +6,7 @@
           borderRadius="200px"
           textColor="#fff"
           textFontSize="32px"
-          :disabled="false"
+          :disabled="true"
           @wxClick="wxClickHandle">测试1</wx-button>
 
         <wx-button 

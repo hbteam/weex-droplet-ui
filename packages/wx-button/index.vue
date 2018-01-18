@@ -60,15 +60,6 @@
         created () {
              this.setStyle();
         },
-        watch: {
-          'disabled':function () {
-              if(this.disabled){
-                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
-              }else {
-                  this.buttonStyles['background-color'] = '#4676FF'
-              }
-          }
-        },
         methods: {
             setStyle () {
                 const baseCss = {
@@ -78,6 +69,11 @@
                 };
                 let style = Object.assign({}, baseCss, this.styles);
                 this.buttonStyles = style;
+                if(this.disabled){
+                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
+                }else {
+                    this.buttonStyles['background-color'] = '#4676FF'
+                }
                 this.textStyles = {
                     color: this.textColor,
                     fontSize: this.textFontSize
