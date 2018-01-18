@@ -71,8 +71,6 @@
                 this.buttonStyles = style;
                 if(this.disabled){
                     this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
-                }else {
-                    this.buttonStyles['background-color'] = '#4676FF'
                 }
                 this.textStyles = {
                     color: this.textColor,
