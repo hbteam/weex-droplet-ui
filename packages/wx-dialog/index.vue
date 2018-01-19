@@ -44,7 +44,12 @@
             title: {
                 type: String,
                 default: ''
-            }
+            },
+
+            clickConfirmHide:  {
+                type: Boolean,
+                default: true
+            },
         },
 
         created () {
@@ -63,6 +68,13 @@
             },
 
             confirm () {
+                if (this.useDefaultFooter && this.clickConfirmHide) {
+                    this.hideDialog(() => {
+                        this.$emit('confirm');
+                    });
+                    return;
+                }
+
                 this.$emit('confirm');
             },
 

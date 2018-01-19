@@ -36,6 +36,7 @@
         </wx-dialog>
 
         <wx-dialog 
+            :clickConfirmHide="true"
             title="您确认删除吗？"
             :visible="dialog3Visible" 
             @confirm="dialog3Visible = false"
