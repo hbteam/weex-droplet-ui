@@ -32,8 +32,7 @@
     .wx-text {
         font-size: 32px;
         color: #4D4D4D;
-        min-width: 200px;
-        padding-left: 20px;
+        width: 180px;
         flex-wrap: nowrap;
     }
 
