@@ -60,6 +60,15 @@
         created () {
              this.setStyle();
         },
+        watch: {
+          'disabled': function () {
+              if(this.disabled){
+                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
+              }else{
+                    this.setStyle()
+              }
+          }
+        },
         methods: {
             setStyle () {
                 const baseCss = {
