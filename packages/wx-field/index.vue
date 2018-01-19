@@ -30,15 +30,15 @@
     }
 
     .wx-text {
-        font-size: 32px;
-        color: #4D4D4D;
+        font-size: 34px;
+        color: #333333;
         width: 180px;
         flex-wrap: nowrap;
     }
 
     .wx-input {
         font-size: 32px;
-        color: #4D4D4D;
+        color: #333333;
         height: 60px;
         flex: 3;
         text-align: left;
@@ -71,6 +71,8 @@
         width: 750px;
         padding-top: 40px;
         padding-bottom: 40px;
+        font-size: 34px;
+        color: #333333;
     }
 
 </style>
