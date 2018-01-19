@@ -63,12 +63,6 @@
             },
 
             confirm () {
-                if (this.useDefaultFooter) {
-                    this.hideDialog(() => {
-                        this.$emit('confirm');
-                    });
-                    return;
-                }
                 this.$emit('confirm');
             },
 
