@@ -112,6 +112,9 @@
         width: 750px;
         opacity: 0;
         overflow: hidden;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .opacityFull { opacity: 1; }
@@ -120,9 +123,6 @@
         width: 574px;
         background-color: #fff;
         border-radius: 6px;
-        position: absolute;
-        left: 88px;
-        top: 300px;
     }
 
     .dialog-default {
