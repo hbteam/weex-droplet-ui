@@ -11,7 +11,7 @@ const mixins = {
             const isProd = (platform === 'ios' && appName !== 'WeexDemo');
             return {
                 top: isProd ? '-40px' : '0px',
-                bottom: isProd ? '40px' : '0px',
+                bottom: isProd ? '36px' : '0px',
             };
         },
     }
