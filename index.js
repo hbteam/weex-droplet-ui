@@ -13,6 +13,7 @@ import WxActionsheet from './packages/wx-actionsheet';
 import WxLoading from './packages/wx-loading';
 import WxSearch from './packages/wx-search';
 import WxIcon from './packages/wx-icon';
+import WxIndexlist from './packages/wx-indexlist';
 import WxScrollerbar from './packages/wx-scrollerbar';
 
 export {
@@ -31,5 +32,6 @@ export {
     WxLoading,
     WxSearch,
     WxIcon,
+    WxIndexlist,
     WxScrollerbar
 };

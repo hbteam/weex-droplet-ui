@@ -51,11 +51,13 @@
 
     .wx-unit {
         width: 50px;
+        margin-top: 10px;
     }
 
     .right-arrow {
         width: 22px;
         height: 22px;
+        margin-top: 20px;
         border-bottom-width: 2px;
         border-bottom-style: solid;
         border-bottom-color: #DCDCDC;
