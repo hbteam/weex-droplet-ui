@@ -1,8 +1,9 @@
 <template>
-    <div class="wx-field" :style="fieldStyles">
-        <text :class="[labelPosition=='top'?'wx-text-top':'wx-text']">{{ label }}</text>
-        <div class="wx-content" @click="clickHandler">
+    <div class="wx-field" :style="fieldStyles" @click="clickHandler">
+        <text :class="[labelPosition=='top'?'wx-text-top':'wx-text']" :style="textTitleStyles">{{ label }}</text>
+        <div class="wx-content">
             <input
+                    v-if="!disabled"
                     @input="handleChange"
                     class="wx-input"
                     :type="type"
@@ -12,8 +13,9 @@
                     :disabled="disabled"
                     :value="value"
                     :placeholder="placeholder"/>
+            <text v-if="disabled" class="wx-cli-text" :style="cliTextStyles">{{value=='' ? placeholder : value}}</text>
             <text class="wx-unit" v-if="unit">{{unit}}</text>
-            <div v-if="hasArrow" class="right-arrow"></div>
+            <text v-if="hasArrow" class="iconfont wx-enter">&#xe65d;</text>
         </div>
     </div>
 </template>
@@ -49,9 +51,22 @@
         flex: 1;
     }
 
+    .wx-cli-text {
+        color: #999999;
+        font-size: 32px;
+        flex-wrap: nowrap;
+    }
+
     .wx-unit {
+        font-size: 32px;
         width: 50px;
-        margin-top: 10px;
+        /*margin-top: 10px;*/
+    }
+
+    .wx-enter {
+        color: #7A818B;
+        font-size: 32px;
+        margin-top: 5px;
     }
 
     .right-arrow {
@@ -64,7 +79,7 @@
         border-right-width: 2px;
         border-right-style: solid;
         border-right-color: #DCDCDC;
-        margin-right: 4px;
+        /*margin-right: 4px;*/
         transform: rotate(-45deg);
     }
 
@@ -77,14 +92,25 @@
         color: #333333;
     }
 
+    .iconfont {
+        font-family: iconfont;
+    }
 </style>
 <script>
+    import mixins from '../utils/mixins'
     const modal = weex.requireModule('modal')
     export default {
+        mixins:[mixins],
         props: {
             width: {
                 type: String,
                 default: '750px'
+            },
+            cliWidth: {
+                type: String
+            },
+            titleWidth: {
+                type: String
             },
             height: {
                 type: String,
@@ -148,15 +174,52 @@
         created () {
             this.setStyle()
         },
+        watch: {
+            'value': function () {
+                if(this.value != ''){
+                    this.cliTextStyles.color = '#333333'
+                }else{
+                    this.cliTextStyles.color = '#999999'
+                }
+            }
+        },
 
         methods: {
             setStyle () {
+
+                // fieldStyles 样式
                 const baseCss = {
                     height: this.height,
                     width: this.width,
                 }
-
                 this.fieldStyles = Object.assign({},  baseCss, this.styles)
+
+//                if(this.disabled){
+//                    modal.toast({
+//                        message: this.width.replace('px','') - 26 + 'px'
+//                    })
+//                }
+
+                // cliTextStyles样式
+                let width = ''
+                if(this.cliWidth != null){
+                    width = this.cliWidth
+                }else{
+                    width = this.width
+                }
+                const cliTextCss = {
+                    width: width.replace('px','') - 26 + 'px',
+                    color: this.value == '' ? '#999999' : '#333333'
+                }
+                this.cliTextStyles = Object.assign({},  cliTextCss)
+
+                if(this.titleWidth != null ){
+                    // textTitleStyles 样式
+                    const titleStyles = {
+                        width: this.titleWidth
+                    }
+                    this.textTitleStyles = Object.assign({},  titleStyles)
+                }
 
             },
 

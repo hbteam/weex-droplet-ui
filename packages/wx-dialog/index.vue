@@ -1,7 +1,7 @@
 <template>
     <div class="wx-dialog" ref="dialog" v-if="visible"
-     :class="[useDefaultFooter ? '' : 'opacityFull']" :style="getPosition()">
-        <div class="dialog-content">
+         :class="[useDefaultFooter ? '' : 'opacityFull']" :style="getPosition()">
+        <div class="dialog-content" :style="dialogContentStyles">
             <slot name="dialog-header"></slot>
             <slot name="dialog-body"></slot>
             <slot name="dialog-footer"></slot>
@@ -26,6 +26,11 @@
                 type: Boolean,
                 required: true,
                 default: false
+            },
+
+            width: {
+                type: String,
+                default: '574px'
             },
 
             cancelLabel: {
@@ -53,9 +58,16 @@
         },
 
         created () {
+            this.setStyles()
         },
 
         methods: {
+            setStyles(){
+                let baseCss = {
+                    width: this.width
+                }
+                this.dialogContentStyles = Object.assign({}, baseCss)
+            },
             cancel () {
                 if (this.useDefaultFooter) {
                     this.hideDialog(() => {
