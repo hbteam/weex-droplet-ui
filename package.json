@@ -1,6 +1,6 @@
 {
   "name": "weex-droplet-ui",
-  "version": "1.0.0-alpha.65",
+  "version": "1.0.0-alpha.66",
   "description": "weex ui",
   "main": "index.js",
   "lib": "vue",
