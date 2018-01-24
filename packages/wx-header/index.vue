@@ -87,7 +87,7 @@
             },
             hasBottom: {
                 type: Boolean,
-                default: true
+                default: false
             },
 
             textColor: {

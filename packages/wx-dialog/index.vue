@@ -1,6 +1,6 @@
 <template>
     <div class="wx-dialog" ref="dialog" v-if="visible"
-     :class="[useDefaultFooter? '' : 'opacityFull']">
+     :class="[useDefaultFooter ? '' : 'opacityFull']" :style="getPosition()">
         <div class="dialog-content">
             <slot name="dialog-header"></slot>
             <slot name="dialog-body"></slot>
@@ -17,6 +17,7 @@
     </div>
 </template>
 <script>
+    import '../utils';
     const animation = weex.requireModule('animation');
 
     export default {
@@ -43,7 +44,12 @@
             title: {
                 type: String,
                 default: ''
-            }
+            },
+
+            clickConfirmHide:  {
+                type: Boolean,
+                default: true
+            },
         },
 
         created () {
@@ -62,12 +68,13 @@
             },
 
             confirm () {
-                if (this.useDefaultFooter) {
+                if (this.useDefaultFooter && this.clickConfirmHide) {
                     this.hideDialog(() => {
                         this.$emit('confirm');
                     });
                     return;
                 }
+
                 this.$emit('confirm');
             },
 
@@ -113,12 +120,13 @@
     .wx-dialog {
         background-color: rgba(0,0,0,0.35);
         position: fixed;
-        top: 0;
         left: 0;
-        bottom: 0;
         width: 750px;
         opacity: 0;
         overflow: hidden;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .opacityFull { opacity: 1; }
@@ -127,9 +135,6 @@
         width: 574px;
         background-color: #fff;
         border-radius: 6px;
-        position: absolute;
-        left: 88px;
-        top: 300px;
     }
 
     .dialog-default {

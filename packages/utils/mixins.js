@@ -1,21 +1,19 @@
-/**
- * Created by yinshipeng on 2018/1/8
- */
 
-export default {
+const mixins = {
     methods: {
         /**
-         * 初始化字体文件
+         * ios和安卓的定位不同，所以导致定位位置不一样
+         * @return {Object} top and bottom
          */
-        initIconFont () {
-            let domModule = weex.requireModule('dom')
-            domModule.addRule('fontFace', {
-                'fontFamily': "iconfont",
-                'src': "url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')"
-            })
+        getPosition () {
+            const platform = weex.config.env.platform.toLowerCase();
+            const appName = weex.config.env.appName;
+            const isProd = (platform === 'ios' && appName !== 'WeexDemo');
+            return {
+                top: isProd ? '-40px' : '0px',
+                bottom: isProd ? '36px' : '0px',
+            };
         },
-    },
-    created(){
-        this.initIconFont()
     }
 }
+Vue.mixin(mixins)

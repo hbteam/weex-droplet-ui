@@ -2,6 +2,7 @@
     <div class="wx-actionsheet">
         <div
             class="wx-actionsheet-mask"
+            :style="getPosition()"
             v-if="showActionsheet"
             ref="sheetMask"
             @click="close"></div>
@@ -34,7 +35,7 @@
 </template>
 
 <script>
-    const modal = weex.requireModule('modal');
+    import '../utils';
     const animation = weex.requireModule('animation');
 
     export default {
@@ -57,7 +58,9 @@
             },
             actions: {
                 type: Array,
-                default: () => []
+                default: function () {
+                    return []
+                },
             },
             actionColor: {
                 type: String,
@@ -82,7 +85,7 @@
                 showActionsheet: false,
                 mbHeight: 20,
                 actionStyle: {},
-                cancelStyle: {}
+                cancelStyle: {},
             }
         },
 
@@ -100,7 +103,8 @@
                     totalHeight += itemHeight + this.mbHeight;
                 }
 
-                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+totalHeight+'px'};
+                const posBottom = Number(this.getPosition().bottom.replace('px', ''));
+                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+(totalHeight - posBottom) + 'px'};
 
                 return styleObj;
             }
@@ -120,6 +124,7 @@
                                     'color': this.cancelColor,
                                     'font-size': this.cancelFontSize
                                 });
+
             },
 
             itemsClass (index) {
@@ -232,9 +237,7 @@
     .wx-actionsheet-mask {
         background-color: rgba(0, 0, 0, 0.4);
         position: fixed;
-        top: 0;
         left: 0;
-        bottom: 0;
         width: 750px;
         opacity: 0;
     }
