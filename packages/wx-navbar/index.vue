@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-tabbar">
+    <div class="wx-tabbar"  :style="{width: this.width}">
         <div class="tabbar" :style="{width: this.width, height: this.height}">
             <div class="tabbar-item" 
                 :class="[hasBottom ? 'has-bottom-1' : 'no-bottom-1']"
