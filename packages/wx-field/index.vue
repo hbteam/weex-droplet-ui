@@ -5,6 +5,7 @@
             <input
                     v-if="!disabled"
                     @input="handleChange"
+                    @blur="blur"
                     class="wx-input"
                     :type="type"
                     :style="inputStyles"
@@ -225,6 +226,10 @@
 
             handleChange (e) {
                 this.$emit('input', e.value)
+            },
+
+            blur () {
+                this.$emit('wxBlur', this.inputValue);
             },
 
             clickHandler(){
