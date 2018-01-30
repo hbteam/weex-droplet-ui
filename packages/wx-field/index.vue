@@ -42,7 +42,8 @@
     .wx-input {
         font-size: 32px;
         color: #333333;
-        height: 60px;
+        height: 110px;
+        line-height: 110px;
         flex: 3;
         text-align: left;
     }
@@ -56,6 +57,7 @@
         color: #999999;
         font-size: 32px;
         flex-wrap: nowrap;
+        padding-top: 30px;
     }
 
     .wx-unit {
@@ -67,7 +69,7 @@
     .wx-enter {
         color: #7A818B;
         font-size: 32px;
-        margin-top: 5px;
+        margin-top: 30px;
     }
 
     .right-arrow {
@@ -88,7 +90,7 @@
     .wx-text-top {
         width: 750px;
         padding-top: 40px;
-        padding-bottom: 40px;
+        /*padding-bottom: 40px;*/
         font-size: 34px;
         color: #333333;
     }
