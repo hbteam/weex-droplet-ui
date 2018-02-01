@@ -14,6 +14,8 @@
                 </div>
             </div>
         </div>
+        <!--添加dialog区域外布局-->
+        <slot name="dialog-outer"></slot>
     </div>
 </template>
 <script>

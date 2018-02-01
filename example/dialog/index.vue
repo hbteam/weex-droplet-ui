@@ -41,12 +41,21 @@
             :visible="dialog3Visible" 
             @confirm="dialog3Visible = false"
             @cancel="dialog3Visible = false">
+            <div slot="dialog-outer">
+                <text class="outer" @click="test">这里是dialog内容之外区域</text>
+            </div>
         </wx-dialog>
     </div>
 </template>
 <style scoped>
     .button {
       margin-bottom: 100px;
+    }
+
+    .outer {
+        margin-top: 100px;
+        background-color: rgba(0,0,0,0);
+        font-size: 34px;
     }
 
     .wx-text {
@@ -133,6 +142,10 @@
       methods: {
           handleConfirmConsult () {
               this.dialogVisible = false;
+          },
+
+          test () {
+                modal.alert({message: 'test'})
           }
         }
     }
