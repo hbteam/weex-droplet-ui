@@ -14,7 +14,7 @@ npm start
 文档后续会补充，我们还会补充很多常用的组件
 
 ## preview 
-[扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png)
+![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png)
 
 ## Usage
   
