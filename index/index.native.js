@@ -5009,7 +5009,7 @@ exports.default = {
     components: { WxCell: _index.WxCell },
     data: function data() {
         return {
-            url: 'http://192.168.21.32/',
+            url: 'https://hbteam.github.io/weex-droplet-ui/',
             componentNameArr: componentNameArr
         };
     },
@@ -5018,7 +5018,7 @@ exports.default = {
     methods: {
         go: function go(componentName) {
             navigator.push({
-                url: this.url + ('/' + componentName + '/index.native.js')
+                url: this.url + (componentName + '/index.native.js')
             });
         }
     }

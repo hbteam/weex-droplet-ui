@@ -5868,7 +5868,7 @@ exports.default = {
     components: { WxCell: _index.WxCell },
     data: function data() {
         return {
-            url: 'http://192.168.21.32/',
+            url: 'https://hbteam.github.io/weex-droplet-ui/',
             componentNameArr: componentNameArr
         };
     },
@@ -5877,7 +5877,7 @@ exports.default = {
     methods: {
         go: function go(componentName) {
             navigator.push({
-                url: this.url + ('/' + componentName + '/index.native.js')
+                url: this.url + (componentName + '/index.native.js')
             });
         }
     }
@@ -5942,7 +5942,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.cell {\n    width: 9.2rem;\n    margin-left: 0.4rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/index/index.vue?7e5ffd14"],"names":[],"mappings":";AAcA;IACA,cAAA;IACA,oBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <scroller class=\"cell\" show-scrollbar=\"false\">\n        <wx-cell \n            v-for=\"name in componentNameArr\"\n            :text=\"name\" \n            icon=\"\"\n            height=\"100px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"go(name)\">\n        </wx-cell>\n    </scroller>\n</template>\n<style type=\"text/css\">\n    .cell {\n        width: 690px;\n        margin-left: 30px;\n    }\n</style>\n<script>\n    import { WxCell } from '../../index';\n    import * as all from '../../index';\n    const navigator = weex.requireModule('navigator');\n\n    const componentNameArr = Object.keys(all).map(item => {\n        return item.toLowerCase().replace('wx', '');\n    });\n    \n    export default {\n        components: { WxCell },\n        data () {\n            return {\n                url: 'http://192.168.21.32/',\n                componentNameArr: componentNameArr,\n            }\n        },\n\n        methods: {\n            go (componentName) {\n                navigator.push({\n                    url: this.url + `/${componentName}/index.native.js`\n                });\n            }\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.cell {\n    width: 9.2rem;\n    margin-left: 0.4rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/index/index.vue?6a2447a5"],"names":[],"mappings":";AAcA;IACA,cAAA;IACA,oBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <scroller class=\"cell\" show-scrollbar=\"false\">\n        <wx-cell \n            v-for=\"name in componentNameArr\"\n            :text=\"name\" \n            icon=\"\"\n            height=\"100px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"go(name)\">\n        </wx-cell>\n    </scroller>\n</template>\n<style type=\"text/css\">\n    .cell {\n        width: 690px;\n        margin-left: 30px;\n    }\n</style>\n<script>\n    import { WxCell } from '../../index';\n    import * as all from '../../index';\n    const navigator = weex.requireModule('navigator');\n\n    const componentNameArr = Object.keys(all).map(item => {\n        return item.toLowerCase().replace('wx', '');\n    });\n    \n    export default {\n        components: { WxCell },\n        data () {\n            return {\n                url: 'https://hbteam.github.io/weex-droplet-ui/',\n                componentNameArr: componentNameArr,\n            }\n        },\n\n        methods: {\n            go (componentName) {\n                navigator.push({\n                    url: this.url + `${componentName}/index.native.js`\n                });\n            }\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
