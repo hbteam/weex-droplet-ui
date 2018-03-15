@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90,7 +90,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(9);
+var _index = __webpack_require__(4);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -103,21 +103,42 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 10:
+/***/ 117:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(99);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
+
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(19)
+__vue_styles__.push(__webpack_require__(21)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(15)
+__vue_exports__ = __webpack_require__(17)
 
 /* template */
-var __vue_template__ = __webpack_require__(24)
+var __vue_template__ = __webpack_require__(25)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -148,27 +169,6 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 117:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(99);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
-
 /***/ 135:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -179,11 +179,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(4);
+var _index = __webpack_require__(9);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(1);
+var _index3 = __webpack_require__(0);
 
 var _index4 = _interopRequireDefault(_index3);
 
@@ -232,72 +232,64 @@ exports.default = {
 
 /***/ }),
 
-/***/ 14:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 150:
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _alias = __webpack_require__(7);
-
-var _alias2 = _interopRequireDefault(_alias);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var dom = weex.requireModule('dom'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    props: {
-        name: {
-            type: String,
-            default: 'success'
-        },
-        styles: {
-            type: Object,
-            default: {}
-        }
-    },
-
-    data: function data() {
-        return {
-            iconStyle: {},
-            Icon: _alias2.default
-        };
-    },
-    beforeCreate: function beforeCreate() {
-        dom.addRule('fontFace', {
-            'fontFamily': "dropletUiIconfont",
-            'src': "url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')"
-        });
-    },
-    created: function created() {
-        this.setStyle();
-    },
-
-
-    methods: {
-        setStyle: function setStyle() {
-            this.iconStyle = Object.assign({}, this.styles);
-        }
-    }
-};
+module.exports = {
+  "demo": {
+    "marginTop": "52",
+    "marginLeft": "40",
+    "marginRight": "40"
+  },
+  "icon": {
+    "fontSize": "44",
+    "color": "#DEDEDE",
+    "width": "100",
+    "height": "100",
+    "textAlign": "center",
+    "lineHeight": "100"
+  }
+}
 
 /***/ }),
 
-/***/ 15:
+/***/ 166:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-input', {
+    staticClass: ["demo"],
+    attrs: {
+      "placeholder": "请输入手机号"
+    }
+  }, [_c('wx-icon', {
+    staticClass: ["icon"],
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1), _c('wx-input', {
+    staticClass: ["demo"],
+    attrs: {
+      "width": "500px",
+      "type": "password",
+      "placeholder": "请输入密码"
+    }
+  }, [_c('wx-icon', {
+    staticClass: ["icon"],
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1)], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -395,64 +387,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 150:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "demo": {
-    "marginTop": "52",
-    "marginLeft": "40",
-    "marginRight": "40"
-  },
-  "icon": {
-    "fontSize": "44",
-    "color": "#DEDEDE",
-    "width": "100",
-    "height": "100",
-    "textAlign": "center",
-    "lineHeight": "100"
-  }
-}
-
-/***/ }),
-
-/***/ 166:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-input', {
-    staticClass: ["demo"],
-    attrs: {
-      "placeholder": "请输入手机号"
-    }
-  }, [_c('wx-icon', {
-    staticClass: ["icon"],
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1), _c('wx-input', {
-    staticClass: ["demo"],
-    attrs: {
-      "width": "500px",
-      "type": "password",
-      "placeholder": "请输入密码"
-    }
-  }, [_c('wx-icon', {
-    staticClass: ["icon"],
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 19:
+/***/ 21:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -475,20 +410,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 20:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "icon-font": {
-    "fontFamily": "dropletUiIconfont",
-    "color": "#4d4d4d",
-    "fontSize": "32"
-  }
-}
-
-/***/ }),
-
-/***/ 24:
+/***/ 25:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -529,43 +451,7 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 25:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('text', {
-    staticClass: ["icon-font"],
-    style: _vm.iconStyle
-  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(10);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 7:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -577,26 +463,28 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     'roundclose': '\uE659',
     'success': '\uE717',
-    'search': '\uE7D1'
+    'search': '\uE7D1',
+    'enter': '\uE65D',
+    'back': '\uE661'
 };
 
 /***/ }),
 
-/***/ 9:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(20)
+__vue_styles__.push(__webpack_require__(6)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(14)
+__vue_exports__ = __webpack_require__(5)
 
 /* template */
-var __vue_template__ = __webpack_require__(25)
+var __vue_template__ = __webpack_require__(7)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -624,6 +512,120 @@ if (typeof __register_static_styles__ === "function") {
 
 module.exports = __vue_exports__
 
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _alias = __webpack_require__(3);
+
+var _alias2 = _interopRequireDefault(_alias);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var dom = weex.requireModule('dom'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    props: {
+        name: {
+            type: String,
+            default: 'success'
+        },
+        styles: {
+            type: Object,
+            default: {}
+        }
+    },
+
+    data: function data() {
+        return {
+            iconStyle: {},
+            Icon: _alias2.default
+        };
+    },
+    beforeCreate: function beforeCreate() {
+        dom.addRule('fontFace', {
+            'fontFamily': "dropletUiIconfont",
+            'src': "url('http://at.alicdn.com/t/font_534309_4czzlr17zdw2vs4i.ttf')"
+        });
+    },
+    created: function created() {
+        this.setStyle();
+    },
+
+
+    methods: {
+        setStyle: function setStyle() {
+            this.iconStyle = Object.assign({}, this.styles);
+        }
+    }
+};
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "icon-font": {
+    "fontFamily": "dropletUiIconfont",
+    "color": "#4d4d4d",
+    "fontSize": "32"
+  }
+}
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('text', {
+    staticClass: ["icon-font"],
+    style: _vm.iconStyle
+  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(13);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 

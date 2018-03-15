@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90,7 +90,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(9);
+var _index = __webpack_require__(4);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -148,48 +148,26 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 12:
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
+"use strict";
 
-/* styles */
-__vue_styles__.push(__webpack_require__(22)
-)
 
-/* script */
-__vue_exports__ = __webpack_require__(17)
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-/* template */
-var __vue_template__ = __webpack_require__(27)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-search/index.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-ce8f844e"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
+var _index = __webpack_require__(15);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
   }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
+});
 
-module.exports = __vue_exports__
-
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 
@@ -214,71 +192,6 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 14:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _alias = __webpack_require__(7);
-
-var _alias2 = _interopRequireDefault(_alias);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var dom = weex.requireModule('dom'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    props: {
-        name: {
-            type: String,
-            default: 'success'
-        },
-        styles: {
-            type: Object,
-            default: {}
-        }
-    },
-
-    data: function data() {
-        return {
-            iconStyle: {},
-            Icon: _alias2.default
-        };
-    },
-    beforeCreate: function beforeCreate() {
-        dom.addRule('fontFace', {
-            'fontFamily': "dropletUiIconfont",
-            'src': "url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')"
-        });
-    },
-    created: function created() {
-        this.setStyle();
-    },
-
-
-    methods: {
-        setStyle: function setStyle() {
-            this.iconStyle = Object.assign({}, this.styles);
-        }
-    }
-};
-
-/***/ }),
-
 /***/ 141:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -289,7 +202,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(6);
+var _index = __webpack_require__(11);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -333,6 +246,51 @@ exports.default = {
 
 /***/ }),
 
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(23)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(19)
+
+/* template */
+var __vue_template__ = __webpack_require__(27)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-search/index.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-ce8f844e"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+
 /***/ 155:
 /***/ (function(module, exports) {
 
@@ -351,7 +309,48 @@ module.exports = {
 
 /***/ }),
 
-/***/ 17:
+/***/ 173:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-search', {
+    model: {
+      value: (_vm.searchContent1),
+      callback: function($$v) {
+        _vm.searchContent1 = $$v
+      },
+      expression: "searchContent1"
+    }
+  }), _c('div', {
+    staticClass: ["result", "m-b-20"]
+  }, [_c('text', {
+    staticClass: ["f32"]
+  }, [_vm._v(_vm._s(_vm.searchContent1))])]), _c('wx-search', {
+    attrs: {
+      "placeholder": "请输入",
+      "autofocus": true,
+      "bgColor": "#4676FF",
+      "innerBgColor": "#fff",
+      "cancelColor": "#fff"
+    },
+    model: {
+      value: (_vm.searchContent2),
+      callback: function($$v) {
+        _vm.searchContent2 = $$v
+      },
+      expression: "searchContent2"
+    }
+  }), _c('div', {
+    staticClass: ["result", "m-b-20"]
+  }, [_c('text', {
+    staticClass: ["f32"]
+  }, [_vm._v(_vm._s(_vm.searchContent2))])])], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -361,7 +360,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(1);
+var _wxIcon = __webpack_require__(0);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -503,61 +502,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 173:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-search', {
-    model: {
-      value: (_vm.searchContent1),
-      callback: function($$v) {
-        _vm.searchContent1 = $$v
-      },
-      expression: "searchContent1"
-    }
-  }), _c('div', {
-    staticClass: ["result", "m-b-20"]
-  }, [_c('text', {
-    staticClass: ["f32"]
-  }, [_vm._v(_vm._s(_vm.searchContent1))])]), _c('wx-search', {
-    attrs: {
-      "placeholder": "请输入",
-      "autofocus": true,
-      "bgColor": "#4676FF",
-      "innerBgColor": "#fff",
-      "cancelColor": "#fff"
-    },
-    model: {
-      value: (_vm.searchContent2),
-      callback: function($$v) {
-        _vm.searchContent2 = $$v
-      },
-      expression: "searchContent2"
-    }
-  }), _c('div', {
-    staticClass: ["result", "m-b-20"]
-  }, [_c('text', {
-    staticClass: ["f32"]
-  }, [_vm._v(_vm._s(_vm.searchContent2))])])], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 20:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "icon-font": {
-    "fontFamily": "dropletUiIconfont",
-    "color": "#4d4d4d",
-    "fontSize": "32"
-  }
-}
-
-/***/ }),
-
-/***/ 22:
+/***/ 23:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -600,19 +545,6 @@ module.exports = {
     "fontSize": "32"
   }
 }
-
-/***/ }),
-
-/***/ 25:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('text', {
-    staticClass: ["icon-font"],
-    style: _vm.iconStyle
-  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
 
 /***/ }),
 
@@ -661,30 +593,7 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(12);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 7:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -696,26 +605,28 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     'roundclose': '\uE659',
     'success': '\uE717',
-    'search': '\uE7D1'
+    'search': '\uE7D1',
+    'enter': '\uE65D',
+    'back': '\uE661'
 };
 
 /***/ }),
 
-/***/ 9:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(20)
+__vue_styles__.push(__webpack_require__(6)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(14)
+__vue_exports__ = __webpack_require__(5)
 
 /* template */
-var __vue_template__ = __webpack_require__(25)
+var __vue_template__ = __webpack_require__(7)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -743,6 +654,97 @@ if (typeof __register_static_styles__ === "function") {
 
 module.exports = __vue_exports__
 
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _alias = __webpack_require__(3);
+
+var _alias2 = _interopRequireDefault(_alias);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var dom = weex.requireModule('dom'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    props: {
+        name: {
+            type: String,
+            default: 'success'
+        },
+        styles: {
+            type: Object,
+            default: {}
+        }
+    },
+
+    data: function data() {
+        return {
+            iconStyle: {},
+            Icon: _alias2.default
+        };
+    },
+    beforeCreate: function beforeCreate() {
+        dom.addRule('fontFace', {
+            'fontFamily': "dropletUiIconfont",
+            'src': "url('http://at.alicdn.com/t/font_534309_4czzlr17zdw2vs4i.ttf')"
+        });
+    },
+    created: function created() {
+        this.setStyle();
+    },
+
+
+    methods: {
+        setStyle: function setStyle() {
+            this.iconStyle = Object.assign({}, this.styles);
+        }
+    }
+};
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "icon-font": {
+    "fontFamily": "dropletUiIconfont",
+    "color": "#4d4d4d",
+    "fontSize": "32"
+  }
+}
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('text', {
+    staticClass: ["icon-font"],
+    style: _vm.iconStyle
+  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 
 /***/ })
 

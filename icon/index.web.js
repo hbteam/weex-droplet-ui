@@ -485,20 +485,11 @@ function applyToTag (styleElement, obj) {
 "use strict";
 
 
-__webpack_require__(5);
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(23);
+var _index = __webpack_require__(10);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -508,6 +499,15 @@ Object.defineProperty(exports, 'default', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(5);
 
 /***/ }),
 /* 5 */
@@ -578,19 +578,61 @@ module.exports = function listToStyles(parentId, list) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
-var _index = __webpack_require__(22);
+var _alias = __webpack_require__(8);
 
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
+var _alias2 = _interopRequireDefault(_alias);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var dom = weex.requireModule('dom'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    props: {
+        name: {
+            type: String,
+            default: 'success'
+        },
+        styles: {
+            type: Object,
+            default: {}
+        }
+    },
+
+    data: function data() {
+        return {
+            iconStyle: {},
+            Icon: _alias2.default
+        };
+    },
+    beforeCreate: function beforeCreate() {
+        dom.addRule('fontFace', {
+            'fontFamily': "dropletUiIconfont",
+            'src': "url('http://at.alicdn.com/t/font_534309_4czzlr17zdw2vs4i.ttf')"
+        });
+    },
+    created: function created() {
+        this.setStyle();
+    },
+
+
+    methods: {
+        setStyle: function setStyle() {
+            this.iconStyle = Object.assign({}, this.styles);
+        }
+    }
+};
 
 /***/ }),
 /* 8 */
@@ -600,22 +642,121 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-
-var _index = __webpack_require__(24);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+exports.default = {
+    'roundclose': '\uE659',
+    'success': '\uE717',
+    'search': '\uE7D1',
+    'enter': '\uE65D',
+    'back': '\uE661'
+};
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.icon-font[data-v-7bfc623c] {\n    font-family: dropletUiIconfont;\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-icon/index.vue?580fdcee"],"names":[],"mappings":";AAIA;IACA,+BAAA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <text class=\"icon-font\" :style=\"iconStyle\">{{Icon[name]}}</text>\n</template>\n<style scoped>\n    .icon-font {\n        font-family: dropletUiIconfont;\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n</style>\n<script>\n    import Icon from './alias';\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            name: {\n                type: String,\n                default: 'success'\n            },\n            styles: {\n                type: Object,\n                default: {}\n            }\n        },\n\n        data () {\n            return {\n                iconStyle: {},\n                Icon: Icon\n            }\n        },\n\n        beforeCreate () {\n            dom.addRule('fontFace', {\n                'fontFamily': \"dropletUiIconfont\",\n                'src': \"url('http://at.alicdn.com/t/font_534309_4czzlr17zdw2vs4i.ttf')\"\n            })\n        },\n\n        created () {\n            this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                this.iconStyle = Object.assign({}, this.styles);\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(12)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(7),
+  /* template */
+  __webpack_require__(11),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  "data-v-7bfc623c",
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-icon/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7bfc623c", Component.options)
+  } else {
+    hotAPI.reload("data-v-7bfc623c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', {
+    staticClass: "icon-font weex-el weex-text",
+    style: (_vm._processExclusiveStyle(_vm.iconStyle, 75, 'text')),
+    attrs: {}
+  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7bfc623c", module.exports)
+  }
+}
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(9);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("46f5a80f", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7bfc623c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7bfc623c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -637,7 +778,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 10 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -659,7 +800,51 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 11 */
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(27);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(28);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -765,71 +950,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _alias = __webpack_require__(16);
-
-var _alias2 = _interopRequireDefault(_alias);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var dom = weex.requireModule('dom'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    props: {
-        name: {
-            type: String,
-            default: 'success'
-        },
-        styles: {
-            type: Object,
-            default: {}
-        }
-    },
-
-    data: function data() {
-        return {
-            iconStyle: {},
-            Icon: _alias2.default
-        };
-    },
-    beforeCreate: function beforeCreate() {
-        dom.addRule('fontFace', {
-            'fontFamily': "dropletUiIconfont",
-            'src': "url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')"
-        });
-    },
-    created: function created() {
-        this.setStyle();
-    },
-
-
-    methods: {
-        setStyle: function setStyle() {
-            this.iconStyle = Object.assign({}, this.styles);
-        }
-    }
-};
-
-/***/ }),
-/* 13 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -926,7 +1047,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 14 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1005,7 +1126,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 15 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1015,7 +1136,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(4);
+var _wxIcon = __webpack_require__(3);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -1156,23 +1277,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    'roundclose': '\uE659',
-    'success': '\uE717',
-    'search': '\uE7D1'
-};
-
-/***/ }),
-/* 17 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1186,7 +1291,7 @@ exports.push([module.i, "\n.wx-input {\n    display: -webkit-box;\n    display: 
 
 
 /***/ }),
-/* 18 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1200,7 +1305,7 @@ exports.push([module.i, "\n.wx-button {\n    background-color: #4676FF;\n    /*b
 
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1214,7 +1319,7 @@ exports.push([module.i, "\n.wx-search[data-v-5d51c45e] {\n    display: -webkit-b
 
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1228,33 +1333,19 @@ exports.push([module.i, "\n.loading[data-v-712e0c09] {\n    position: fixed;\n  
 
 
 /***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.icon-font[data-v-7bfc623c] {\n    font-family: dropletUiIconfont;\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-icon/index.vue?55c9dc4f"],"names":[],"mappings":";AAIA;IACA,+BAAA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <text class=\"icon-font\" :style=\"iconStyle\">{{Icon[name]}}</text>\n</template>\n<style scoped>\n    .icon-font {\n        font-family: dropletUiIconfont;\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n</style>\n<script>\n    import Icon from './alias';\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            name: {\n                type: String,\n                default: 'success'\n            },\n            styles: {\n                type: Object,\n                default: {}\n            }\n        },\n\n        data () {\n            return {\n                iconStyle: {},\n                Icon: Icon\n            }\n        },\n\n        beforeCreate () {\n            dom.addRule('fontFace', {\n                'fontFamily': \"dropletUiIconfont\",\n                'src': \"url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')\"\n            })\n        },\n\n        created () {\n            this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                this.iconStyle = Object.assign({}, this.styles);\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(33)
+  __webpack_require__(34)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(11),
+  __webpack_require__(17),
   /* template */
-  __webpack_require__(28),
+  __webpack_require__(30),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1286,63 +1377,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(36)
+  __webpack_require__(33)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(12),
+  __webpack_require__(18),
   /* template */
-  __webpack_require__(31),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  "data-v-7bfc623c",
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-icon/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7bfc623c", Component.options)
-  } else {
-    hotAPI.reload("data-v-7bfc623c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(32)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(13),
-  /* template */
-  __webpack_require__(27),
+  __webpack_require__(29),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1374,19 +1421,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(35)
+  __webpack_require__(36)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(14),
+  __webpack_require__(19),
   /* template */
-  __webpack_require__(30),
+  __webpack_require__(32),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1418,19 +1465,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(34)
+  __webpack_require__(35)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(15),
+  __webpack_require__(20),
   /* template */
-  __webpack_require__(29),
+  __webpack_require__(31),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1462,7 +1509,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1541,7 +1588,7 @@ if (false) {
 }
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1578,7 +1625,7 @@ if (false) {
 }
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1663,7 +1710,7 @@ if (false) {
 }
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1694,32 +1741,13 @@ if (false) {
 }
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', {
-    staticClass: "icon-font weex-el weex-text",
-    style: (_vm._processExclusiveStyle(_vm.iconStyle, 75, 'text')),
-    attrs: {}
-  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7bfc623c", module.exports)
-  }
-}
-
-/***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(17);
+var content = __webpack_require__(21);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1739,13 +1767,13 @@ if(false) {
 }
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(18);
+var content = __webpack_require__(22);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1765,13 +1793,13 @@ if(false) {
 }
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(19);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1791,13 +1819,13 @@ if(false) {
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(20);
+var content = __webpack_require__(24);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1808,32 +1836,6 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-712e0c09\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
      var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-712e0c09\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(21);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("46f5a80f", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7bfc623c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7bfc623c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -2117,7 +2119,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-__webpack_require__(3);
+__webpack_require__(4);
 
 var animation = weex.requireModule('animation'); //
 //
@@ -2593,7 +2595,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-__webpack_require__(3);
+__webpack_require__(4);
 
 var animation = weex.requireModule('animation'); //
 //
@@ -2744,6 +2746,10 @@ var _mixins = __webpack_require__(5);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
+var _wxIcon = __webpack_require__(3);
+
+var _wxIcon2 = _interopRequireDefault(_wxIcon);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var modal = weex.requireModule('modal'); //
@@ -2850,6 +2856,7 @@ var modal = weex.requireModule('modal'); //
 
 exports.default = {
     mixins: [_mixins2.default],
+    components: { WxIcon: _wxIcon2.default },
     props: {
         width: {
             type: String,
@@ -3824,7 +3831,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-__webpack_require__(3);
+__webpack_require__(4);
 
 exports.default = {
     props: {
@@ -3969,7 +3976,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.WxScrollerbar = exports.WxIndexlist = exports.WxIcon = exports.WxSearch = exports.WxLoading = exports.WxActionsheet = exports.WxPopup = exports.WxInput = exports.WxField = exports.WxRadio = exports.WxCheckbox = exports.WxCell = exports.WxTabbar = exports.WxNavbar = exports.WxHeader = exports.WxDialog = exports.WxButton = undefined;
 
-var _wxButton = __webpack_require__(7);
+var _wxButton = __webpack_require__(13);
 
 var _wxButton2 = _interopRequireDefault(_wxButton);
 
@@ -4005,7 +4012,7 @@ var _wxField = __webpack_require__(41);
 
 var _wxField2 = _interopRequireDefault(_wxField);
 
-var _wxInput = __webpack_require__(8);
+var _wxInput = __webpack_require__(14);
 
 var _wxInput2 = _interopRequireDefault(_wxInput);
 
@@ -4017,15 +4024,15 @@ var _wxActionsheet = __webpack_require__(37);
 
 var _wxActionsheet2 = _interopRequireDefault(_wxActionsheet);
 
-var _wxLoading = __webpack_require__(9);
+var _wxLoading = __webpack_require__(15);
 
 var _wxLoading2 = _interopRequireDefault(_wxLoading);
 
-var _wxSearch = __webpack_require__(10);
+var _wxSearch = __webpack_require__(16);
 
 var _wxSearch2 = _interopRequireDefault(_wxSearch);
 
-var _wxIcon = __webpack_require__(4);
+var _wxIcon = __webpack_require__(3);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -4206,7 +4213,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-field[data-v-a3bc8a72] {\n    width: 10rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    -webkit-flex-wrap: wrap;\n            flex-wrap: wrap;\n}\n.wx-text[data-v-a3bc8a72] {\n    font-size: 0.45333rem;\n    color: #333333;\n    width: 2.4rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n}\n.wx-input[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    color: #333333;\n    height: 1.46667rem;\n    line-height: 1.46667rem;\n    -webkit-box-flex: 3;\n    -webkit-flex: 3;\n            flex: 3;\n    text-align: left;\n}\n.wx-content[data-v-a3bc8a72] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n.wx-cli-text[data-v-a3bc8a72] {\n    color: #999999;\n    font-size: 0.42667rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n    padding-top: 0.4rem;\n}\n.wx-unit[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    width: 0.66667rem;\n    /*margin-top: 10px;*/\n}\n.wx-enter[data-v-a3bc8a72] {\n    color: #7A818B;\n    font-size: 0.42667rem;\n    margin-top: 0.4rem;\n}\n.right-arrow[data-v-a3bc8a72] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    margin-top: 0.26667rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #DCDCDC;\n    /*margin-right: 4px;*/\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n/*label在上边的情况*/\n.wx-text-top[data-v-a3bc8a72] {\n    width: 10rem;\n    padding-top: 0.53333rem;\n    /*padding-bottom: 40px;*/\n    font-size: 0.45333rem;\n    color: #333333;\n}\n.iconfont[data-v-a3bc8a72] {\n    font-family: iconfont;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-field/index.vue?4a4d3aa7"],"names":[],"mappings":";AAuBA;IACA,aAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,wBAAA;YAAA,gBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,cAAA;IACA,0BAAA;YAAA,kBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,wBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,0BAAA;YAAA,kBAAA;IACA,oBAAA;CACA;AAEA;IACA,sBAAA;IACA,kBAAA;IACA,qBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,uBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,sBAAA;IACA,kCAAA;YAAA,0BAAA;CACA;;AAEA,eAAA;AACA;IACA,aAAA;IACA,wBAAA;IACA,yBAAA;IACA,sBAAA;IACA,eAAA;CACA;AAEA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-field\" :style=\"fieldStyles\" @click=\"clickHandler\">\n        <text :class=\"[labelPosition=='top'?'wx-text-top':'wx-text']\" :style=\"textTitleStyles\">{{ label }}</text>\n        <div class=\"wx-content\">\n            <input\n                    v-if=\"!disabled\"\n                    @input=\"handleChange\"\n                    @blur=\"blur\"\n                    class=\"wx-input\"\n                    :type=\"type\"\n                    :style=\"inputStyles\"\n                    :maxlength=\"maxlength\"\n                    :autofocus=\"autofocus\"\n                    :disabled=\"disabled\"\n                    :value=\"value\"\n                    :placeholder=\"placeholder\"/>\n            <text v-if=\"disabled\" class=\"wx-cli-text\" :style=\"cliTextStyles\">{{value=='' ? placeholder : value}}</text>\n            <text class=\"wx-unit\" v-if=\"unit\">{{unit}}</text>\n            <text v-if=\"hasArrow\" class=\"iconfont wx-enter\">&#xe65d;</text>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-field {\n        width: 750px;\n        height: 100px;\n        flex-direction: row;\n        align-items: center;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        flex-wrap: wrap;\n    }\n\n    .wx-text {\n        font-size: 34px;\n        color: #333333;\n        width: 180px;\n        flex-wrap: nowrap;\n    }\n\n    .wx-input {\n        font-size: 32px;\n        color: #333333;\n        height: 110px;\n        line-height: 110px;\n        flex: 3;\n        text-align: left;\n    }\n\n    .wx-content {\n        flex-direction: row;\n        flex: 1;\n    }\n\n    .wx-cli-text {\n        color: #999999;\n        font-size: 32px;\n        flex-wrap: nowrap;\n        padding-top: 30px;\n    }\n\n    .wx-unit {\n        font-size: 32px;\n        width: 50px;\n        /*margin-top: 10px;*/\n    }\n\n    .wx-enter {\n        color: #7A818B;\n        font-size: 32px;\n        margin-top: 30px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        margin-top: 20px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #DCDCDC;\n        /*margin-right: 4px;*/\n        transform: rotate(-45deg);\n    }\n\n    /*label在上边的情况*/\n    .wx-text-top {\n        width: 750px;\n        padding-top: 40px;\n        /*padding-bottom: 40px;*/\n        font-size: 34px;\n        color: #333333;\n    }\n\n    .iconfont {\n        font-family: iconfont;\n    }\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    const modal = weex.requireModule('modal')\n    export default {\n        mixins:[mixins],\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            cliWidth: {\n                type: String\n            },\n            titleWidth: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            inputStyles: {\n                type: Object\n            },\n            label: {\n                type: String,\n                default: ''\n            },\n            labelPosition: {\n                type: String,\n                default: 'left'\n            },\n            type: {\n                type: String,\n                default: 'text'\n            },\n            maxlength: {\n                type: String,\n                default: '200'\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            placeholder: {\n                type: String,\n                default: ''\n            },\n            unit: {\n                type: String\n            },\n            hasArrow: {\n                type: Boolean,\n                default: false\n            },\n            value: {\n                type: String\n            }\n        },\n\n        data () {\n            return {\n                fieldStyles: {}\n            }\n        },\n\n        created () {\n            this.setStyle()\n        },\n        watch: {\n            'value': function () {\n                if(this.value != ''){\n                    this.cliTextStyles.color = '#333333'\n                }else{\n                    this.cliTextStyles.color = '#999999'\n                }\n            }\n        },\n\n        methods: {\n            setStyle () {\n\n                // fieldStyles 样式\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                }\n                this.fieldStyles = Object.assign({},  baseCss, this.styles)\n\n//                if(this.disabled){\n//                    modal.toast({\n//                        message: this.width.replace('px','') - 26 + 'px'\n//                    })\n//                }\n\n                // cliTextStyles样式\n                let width = ''\n                if(this.cliWidth != null){\n                    width = this.cliWidth\n                }else{\n                    width = this.width\n                }\n                const cliTextCss = {\n                    width: width.replace('px','') - 26 + 'px',\n                    color: this.value == '' ? '#999999' : '#333333'\n                }\n                this.cliTextStyles = Object.assign({},  cliTextCss)\n\n                if(this.titleWidth != null ){\n                    // textTitleStyles 样式\n                    const titleStyles = {\n                        width: this.titleWidth\n                    }\n                    this.textTitleStyles = Object.assign({},  titleStyles)\n                }\n\n            },\n\n            handleChange (e) {\n                this.$emit('input', e.value)\n            },\n\n            blur () {\n                this.$emit('wxBlur', this.inputValue);\n            },\n\n            clickHandler(){\n                if (this.disabled){\n                    this.$emit('wxClick')\n                }else {\n                    return\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-field[data-v-a3bc8a72] {\n    width: 10rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    -webkit-flex-wrap: wrap;\n            flex-wrap: wrap;\n}\n.wx-text[data-v-a3bc8a72] {\n    font-size: 0.45333rem;\n    color: #333333;\n    width: 2.4rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n}\n.wx-input[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    color: #333333;\n    height: 1.46667rem;\n    line-height: 1.46667rem;\n    -webkit-box-flex: 3;\n    -webkit-flex: 3;\n            flex: 3;\n    text-align: left;\n}\n.wx-content[data-v-a3bc8a72] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n.wx-cli-text[data-v-a3bc8a72] {\n    color: #999999;\n    font-size: 0.42667rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n    padding-top: 0.4rem;\n}\n.wx-unit[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    width: 0.66667rem;\n    /*margin-top: 10px;*/\n}\n.wx-enter[data-v-a3bc8a72] {\n    color: #7A818B;\n    font-size: 0.42667rem;\n    margin-top: 0.4rem;\n}\n.right-arrow[data-v-a3bc8a72] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    margin-top: 0.26667rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #DCDCDC;\n    /*margin-right: 4px;*/\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n/*label在上边的情况*/\n.wx-text-top[data-v-a3bc8a72] {\n    width: 10rem;\n    padding-top: 0.53333rem;\n    /*padding-bottom: 40px;*/\n    font-size: 0.45333rem;\n    color: #333333;\n}\n.iconfont[data-v-a3bc8a72] {\n    font-family: iconfont;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-field/index.vue?2afff1e0"],"names":[],"mappings":";AAuBA;IACA,aAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,wBAAA;YAAA,gBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,cAAA;IACA,0BAAA;YAAA,kBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,wBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,0BAAA;YAAA,kBAAA;IACA,oBAAA;CACA;AAEA;IACA,sBAAA;IACA,kBAAA;IACA,qBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,uBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,sBAAA;IACA,kCAAA;YAAA,0BAAA;CACA;;AAEA,eAAA;AACA;IACA,aAAA;IACA,wBAAA;IACA,yBAAA;IACA,sBAAA;IACA,eAAA;CACA;AAEA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-field\" :style=\"fieldStyles\" @click=\"clickHandler\">\n        <text :class=\"[labelPosition=='top'?'wx-text-top':'wx-text']\" :style=\"textTitleStyles\">{{ label }}</text>\n        <div class=\"wx-content\">\n            <input\n                    v-if=\"!disabled\"\n                    @input=\"handleChange\"\n                    @blur=\"blur\"\n                    class=\"wx-input\"\n                    :type=\"type\"\n                    :style=\"inputStyles\"\n                    :maxlength=\"maxlength\"\n                    :autofocus=\"autofocus\"\n                    :disabled=\"disabled\"\n                    :value=\"value\"\n                    :placeholder=\"placeholder\"/>\n            <text v-if=\"disabled\" class=\"wx-cli-text\" :style=\"cliTextStyles\">{{value=='' ? placeholder : value}}</text>\n            <text class=\"wx-unit\" v-if=\"unit\">{{unit}}</text>\n            <wx-icon name=\"enter\" v-if=\"hasArrow\" class=\"iconfont wx-enter\"></wx-icon>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-field {\n        width: 750px;\n        height: 100px;\n        flex-direction: row;\n        align-items: center;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        flex-wrap: wrap;\n    }\n\n    .wx-text {\n        font-size: 34px;\n        color: #333333;\n        width: 180px;\n        flex-wrap: nowrap;\n    }\n\n    .wx-input {\n        font-size: 32px;\n        color: #333333;\n        height: 110px;\n        line-height: 110px;\n        flex: 3;\n        text-align: left;\n    }\n\n    .wx-content {\n        flex-direction: row;\n        flex: 1;\n    }\n\n    .wx-cli-text {\n        color: #999999;\n        font-size: 32px;\n        flex-wrap: nowrap;\n        padding-top: 30px;\n    }\n\n    .wx-unit {\n        font-size: 32px;\n        width: 50px;\n        /*margin-top: 10px;*/\n    }\n\n    .wx-enter {\n        color: #7A818B;\n        font-size: 32px;\n        margin-top: 30px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        margin-top: 20px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #DCDCDC;\n        /*margin-right: 4px;*/\n        transform: rotate(-45deg);\n    }\n\n    /*label在上边的情况*/\n    .wx-text-top {\n        width: 750px;\n        padding-top: 40px;\n        /*padding-bottom: 40px;*/\n        font-size: 34px;\n        color: #333333;\n    }\n\n    .iconfont {\n        font-family: iconfont;\n    }\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    const modal = weex.requireModule('modal')\n    import WxIcon from '../wx-icon'\n\n    export default {\n        mixins:[mixins],\n        components: { WxIcon },\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            cliWidth: {\n                type: String\n            },\n            titleWidth: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            inputStyles: {\n                type: Object\n            },\n            label: {\n                type: String,\n                default: ''\n            },\n            labelPosition: {\n                type: String,\n                default: 'left'\n            },\n            type: {\n                type: String,\n                default: 'text'\n            },\n            maxlength: {\n                type: String,\n                default: '200'\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            placeholder: {\n                type: String,\n                default: ''\n            },\n            unit: {\n                type: String\n            },\n            hasArrow: {\n                type: Boolean,\n                default: false\n            },\n            value: {\n                type: String\n            }\n        },\n\n        data () {\n            return {\n                fieldStyles: {}\n            }\n        },\n\n        created () {\n            this.setStyle()\n        },\n        watch: {\n            'value': function () {\n                if(this.value != ''){\n                    this.cliTextStyles.color = '#333333'\n                }else{\n                    this.cliTextStyles.color = '#999999'\n                }\n            }\n        },\n\n        methods: {\n            setStyle () {\n\n                // fieldStyles 样式\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                }\n                this.fieldStyles = Object.assign({},  baseCss, this.styles)\n\n//                if(this.disabled){\n//                    modal.toast({\n//                        message: this.width.replace('px','') - 26 + 'px'\n//                    })\n//                }\n\n                // cliTextStyles样式\n                let width = ''\n                if(this.cliWidth != null){\n                    width = this.cliWidth\n                }else{\n                    width = this.width\n                }\n                const cliTextCss = {\n                    width: width.replace('px','') - 26 + 'px',\n                    color: this.value == '' ? '#999999' : '#333333'\n                }\n                this.cliTextStyles = Object.assign({},  cliTextCss)\n\n                if(this.titleWidth != null ){\n                    // textTitleStyles 样式\n                    const titleStyles = {\n                        width: this.titleWidth\n                    }\n                    this.textTitleStyles = Object.assign({},  titleStyles)\n                }\n\n            },\n\n            handleChange (e) {\n                this.$emit('input', e.value)\n            },\n\n            blur () {\n                this.$emit('wxBlur', this.inputValue);\n            },\n\n            clickHandler(){\n                if (this.disabled){\n                    this.$emit('wxClick')\n                }else {\n                    return\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5376,10 +5383,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v(_vm._s(_vm.value == '' ? _vm.placeholder : _vm.value))]) : _vm._e(), _vm._v(" "), (_vm.unit) ? _c('p', {
     staticClass: "wx-unit weex-el weex-text",
     attrs: {}
-  }, [_vm._v(_vm._s(_vm.unit))]) : _vm._e(), _vm._v(" "), (_vm.hasArrow) ? _c('p', {
-    staticClass: "iconfont wx-enter weex-el weex-text",
-    attrs: {}
-  }, [_vm._v("")]) : _vm._e()])])
+  }, [_vm._v(_vm._s(_vm.unit))]) : _vm._e(), _vm._v(" "), (_vm.hasArrow) ? _c('wx-icon', {
+    staticClass: "iconfont wx-enter",
+    attrs: {
+      "name": "enter"
+    }
+  }) : _vm._e()], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -5838,7 +5847,7 @@ exports.default = {
 
     data: function data() {
         return {
-            icons: ['success', 'search', 'roundclose']
+            icons: ['success', 'search', 'roundclose', 'enter', 'back']
         };
     },
     created: function created() {},
@@ -5936,7 +5945,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-demo {\n    margin-top: 1.33333rem;\n}\n.icon-list {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n\n    -webkit-box-orient: horizontal;\n\n    -webkit-box-direction: normal;\n\n    -webkit-flex-direction: row;\n\n            flex-direction: row;\n}\n.icon-cell {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    margin-bottom: 0.26667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/icon/index.vue?3c99d4c3"],"names":[],"mappings":";AAcA;IACA,uBAAA;CACA;AACA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;;IAEA,+BAAA;;IAAA,8BAAA;;IAAA,4BAAA;;YAAA,oBAAA;CACA;AACA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <div class=\"icon-list\">\n            <div class=\"icon-cell\" v-for=\"icon in icons\">\n                <wx-icon\n                    :name=\"icon\"\n                    :styles=\"{'font-size':'52px', 'color':'#4d4d4d'}\">\n                </wx-icon>\n                <text>&nbsp;{{icon}}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style type=\"text/css\">\n    .wx-demo {\n        margin-top: 100px;\n    }\n    .icon-list {\n        display: flex;\n\n        flex-direction: row;\n    }\n    .icon-cell {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n        margin-bottom: 20px;\n    }\n</style>\n<script>\n    import { WxIcon } from '../../index';\n\n    export default {\n        components: { WxIcon },\n\n        data () {\n            return {\n                icons: [\n                    'success',\n                    'search',\n                    'roundclose'\n                ]\n            }\n        },\n\n        created () {\n\n        },\n\n        methods: {\n\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-demo {\n    margin-top: 1.33333rem;\n}\n.icon-list {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n\n    -webkit-box-orient: horizontal;\n\n    -webkit-box-direction: normal;\n\n    -webkit-flex-direction: row;\n\n            flex-direction: row;\n}\n.icon-cell {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    margin-bottom: 0.26667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/icon/index.vue?84d538b4"],"names":[],"mappings":";AAcA;IACA,uBAAA;CACA;AACA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;;IAEA,+BAAA;;IAAA,8BAAA;;IAAA,4BAAA;;YAAA,oBAAA;CACA;AACA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <div class=\"icon-list\">\n            <div class=\"icon-cell\" v-for=\"icon in icons\">\n                <wx-icon\n                    :name=\"icon\"\n                    :styles=\"{'font-size':'52px', 'color':'#4d4d4d'}\">\n                </wx-icon>\n                <text>&nbsp;{{icon}}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style type=\"text/css\">\n    .wx-demo {\n        margin-top: 100px;\n    }\n    .icon-list {\n        display: flex;\n\n        flex-direction: row;\n    }\n    .icon-cell {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n        margin-bottom: 20px;\n    }\n</style>\n<script>\n    import { WxIcon } from '../../index';\n\n    export default {\n        components: { WxIcon },\n\n        data () {\n            return {\n                icons: [\n                    'success',\n                    'search',\n                    'roundclose',\n                    'enter',\n                    'back',\n                ]\n            }\n        },\n\n        created () {\n\n        },\n\n        methods: {\n\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
