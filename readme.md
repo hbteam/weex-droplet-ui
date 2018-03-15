@@ -13,7 +13,7 @@ npm start
 ## 关于文档
 文档后续会补充，我们还会补充很多常用的组件
 
-## preview 
+## playground扫一扫 
 ![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png)
 
 ## Usage
