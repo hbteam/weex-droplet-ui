@@ -18,8 +18,7 @@
                     width="700px"
                     labelPosition="top"
                     :value="password2"
-                    :disabled="true"
-                    hasArrow="true"
+                    :hasArrow="true"
                     height="200px"></wx-field>
             <wx-field
                     label="电话"

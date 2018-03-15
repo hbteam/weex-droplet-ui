@@ -38,7 +38,9 @@
                 icons: [
                     'success',
                     'search',
-                    'roundclose'
+                    'roundclose',
+                    'enter',
+                    'back',
                 ]
             }
         },

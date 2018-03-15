@@ -16,7 +16,7 @@
                     :placeholder="placeholder"/>
             <text v-if="disabled" class="wx-cli-text" :style="cliTextStyles">{{value=='' ? placeholder : value}}</text>
             <text class="wx-unit" v-if="unit">{{unit}}</text>
-            <text v-if="hasArrow" class="iconfont wx-enter">&#xe65d;</text>
+            <wx-icon name="enter" v-if="hasArrow" class="iconfont wx-enter"></wx-icon>
         </div>
     </div>
 </template>
@@ -102,8 +102,11 @@
 <script>
     import mixins from '../utils/mixins'
     const modal = weex.requireModule('modal')
+    import WxIcon from '../wx-icon'
+
     export default {
         mixins:[mixins],
+        components: { WxIcon },
         props: {
             width: {
                 type: String,
