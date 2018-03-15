@@ -65,7 +65,7 @@
 <style type="text/css">
     .button {
         margin-top: 100px;
-        margin-left: 150px;
+        margin-left: 50px;
     }
     .cells {
         flex-direction: column;
