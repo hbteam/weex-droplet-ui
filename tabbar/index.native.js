@@ -5044,7 +5044,7 @@ exports.default = {
 
     methods: {
         handleChange: function handleChange(item) {
-            modal.toast({
+            modal.alert({
                 message: item.title
             });
         }

@@ -261,6 +261,71 @@ function toComment(sourceMap) {
 
 /***/ }),
 
+/***/ 12:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _alias = __webpack_require__(16);
+
+var _alias2 = _interopRequireDefault(_alias);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var dom = weex.requireModule('dom'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    props: {
+        name: {
+            type: String,
+            default: 'success'
+        },
+        styles: {
+            type: Object,
+            default: {}
+        }
+    },
+
+    data: function data() {
+        return {
+            iconStyle: {},
+            Icon: _alias2.default
+        };
+    },
+    beforeCreate: function beforeCreate() {
+        dom.addRule('fontFace', {
+            'fontFamily': "dropletUiIconfont",
+            'src': "url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')"
+        });
+    },
+    created: function created() {
+        this.setStyle();
+    },
+
+
+    methods: {
+        setStyle: function setStyle() {
+            this.iconStyle = Object.assign({}, this.styles);
+        }
+    }
+};
+
+/***/ }),
+
 /***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -418,41 +483,52 @@ var _index = __webpack_require__(8);
 
 var _index2 = _interopRequireDefault(_index);
 
+var _index3 = __webpack_require__(4);
+
+var _index4 = _interopRequireDefault(_index3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
-        return {
-            iconStyle: {
-                width: "32px",
-                height: "40px"
-            }
-        };
+        return {};
     },
 
-    components: { WxInput: _index2.default }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+    components: { WxInput: _index2.default, WxIcon: _index4.default }
+};
 
 /***/ }),
 
@@ -477,6 +553,23 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    'roundclose': '\uE659',
+    'success': '\uE717',
+    'search': '\uE7D1'
+};
+
+/***/ }),
+
 /***/ 166:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -485,7 +578,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?a6fe21c6"],"names":[],"mappings":";AAgBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input class=\"demo\"\n                icon=\"http://192.168.21.204:8120/assets/login/phoneIcon.png\"\n                :icon-style=\"iconStyle\"\n                placeholder=\"请输入手机号\"></wx-input>\n                \n        <wx-input class=\"demo\"\n                width=\"500px\"\n                type=\"password\"\n                icon=\"http://192.168.21.204:8120/assets/login/phoneIcon.png\"\n                :icon-style=\"iconStyle\"\n                placeholder=\"请输入密码\"></wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index'\n    export default {\n        data () {\n            return {\n                iconStyle: {\n                    width: \"32px\",\n                    height: \"40px\"\n                }\n            }\n        },\n        components: { WxInput }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n.icon {\n    font-size: 0.58667rem;\n    color:#DEDEDE;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    text-align: center;\n    line-height: 1.33333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?55bd0c31"],"names":[],"mappings":";AAkBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AACA;IACA,sBAAA;IACA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input \n            class=\"demo\"\n            placeholder=\"请输入手机号\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n                \n        <wx-input \n            class=\"demo\"\n            width=\"500px\"\n            type=\"password\"\n            placeholder=\"请输入密码\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n    .icon {\n        font-size: 44px;\n        color:#DEDEDE;\n        width: 100px;\n        height: 100px;\n        text-align: center;\n        line-height: 100px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index';\n    import WxIcon from '../../packages/wx-icon/index';\n\n    export default {\n        data () {\n            return {\n            }\n        },\n        components: { WxInput, WxIcon }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -514,20 +607,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', [_c('wx-input', {
     staticClass: "demo",
     attrs: {
-      "icon": "http://192.168.21.204:8120/assets/login/phoneIcon.png",
-      "icon-style": _vm.iconStyle,
       "placeholder": "请输入手机号"
     }
-  }), _vm._v(" "), _c('wx-input', {
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1), _vm._v(" "), _c('wx-input', {
     staticClass: "demo",
     attrs: {
       "width": "500px",
       "type": "password",
-      "icon": "http://192.168.21.204:8120/assets/login/phoneIcon.png",
-      "icon-style": _vm.iconStyle,
       "placeholder": "请输入密码"
     }
-  })], 1)
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -788,6 +891,66 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.icon-font[data-v-7bfc623c] {\n    font-family: dropletUiIconfont;\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-icon/index.vue?55c9dc4f"],"names":[],"mappings":";AAIA;IACA,+BAAA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <text class=\"icon-font\" :style=\"iconStyle\">{{Icon[name]}}</text>\n</template>\n<style scoped>\n    .icon-font {\n        font-family: dropletUiIconfont;\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n</style>\n<script>\n    import Icon from './alias';\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            name: {\n                type: String,\n                default: 'success'\n            },\n            styles: {\n                type: Object,\n                default: {}\n            }\n        },\n\n        data () {\n            return {\n                iconStyle: {},\n                Icon: Icon\n            }\n        },\n\n        beforeCreate () {\n            dom.addRule('fontFace', {\n                'fontFamily': \"dropletUiIconfont\",\n                'src': \"url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')\"\n            })\n        },\n\n        created () {\n            this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                this.iconStyle = Object.assign({}, this.styles);\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(36)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(12),
+  /* template */
+  __webpack_require__(31),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  "data-v-7bfc623c",
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-icon/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7bfc623c", Component.options)
+  } else {
+    hotAPI.reload("data-v-7bfc623c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -913,6 +1076,26 @@ if (false) {
 
 /***/ }),
 
+/***/ 31:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', {
+    staticClass: "icon-font weex-el weex-text",
+    style: (_vm._processExclusiveStyle(_vm.iconStyle, 75, 'text')),
+    attrs: {}
+  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7bfc623c", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -937,6 +1120,56 @@ if(false) {
  // When the module is disposed, remove the <style> tags
  module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+
+/***/ 36:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(21);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("46f5a80f", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7bfc623c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7bfc623c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(23);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 
