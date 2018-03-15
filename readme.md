@@ -38,3 +38,6 @@ npm start
     };
 </script>
 ```
+
+# preview 
+[https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png]
