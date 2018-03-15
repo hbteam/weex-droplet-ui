@@ -3,6 +3,9 @@
 ## install
 npm i weex-droplet-ui -S
 
+## playground扫一扫 
+![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png)
+
 ## 运行查看example
 npm start  
 所有的组件demo都在example中，npm start运行可查看组件具体使用方法。
@@ -12,9 +15,6 @@ npm start
 
 ## 关于文档
 文档后续会补充，我们还会补充很多常用的组件
-
-## playground扫一扫 
-![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png)
 
 ## Usage
   
