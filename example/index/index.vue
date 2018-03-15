@@ -1,0 +1,46 @@
+<template>
+    <scroller class="cell" show-scrollbar="false">
+        <wx-cell 
+            v-for="name in componentNameArr"
+            :text="name" 
+            icon=""
+            height="100px"
+            textColor="#333"
+            textFontSize="32px"
+            @wxClick="go(name)">
+        </wx-cell>
+    </scroller>
+</template>
+<style type="text/css">
+    .cell {
+        width: 690px;
+        margin-left: 30px;
+    }
+</style>
+<script>
+    import { WxCell } from '../../index';
+    import * as all from '../../index';
+    const navigator = weex.requireModule('navigator');
+
+    const componentNameArr = Object.keys(all).map(item => {
+        return item.toLowerCase().replace('wx', '');
+    });
+    
+    export default {
+        components: { WxCell },
+        data () {
+            return {
+                url: 'http://192.168.21.32/',
+                componentNameArr: componentNameArr,
+            }
+        },
+
+        methods: {
+            go (componentName) {
+                navigator.push({
+                    url: this.url + `/${componentName}/index.native.js`
+                });
+            }
+        }
+    }
+</script>
