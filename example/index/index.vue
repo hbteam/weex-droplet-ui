@@ -30,7 +30,7 @@
         components: { WxCell },
         data () {
             return {
-                url: 'http://192.168.21.32/',
+                url: 'https://hbteam.github.io/weex-droplet-ui/',
                 componentNameArr: componentNameArr,
             }
         },
@@ -38,7 +38,7 @@
         methods: {
             go (componentName) {
                 navigator.push({
-                    url: this.url + `/${componentName}/index.native.js`
+                    url: this.url + `${componentName}/index.native.js`
                 });
             }
         }
