@@ -14,10 +14,10 @@
     "gh-pages": "node_modules/.bin/gh-pages -d build/example"
   },
   "keywords": [
-    "Weex Ui",
-    "Weex",
-    "Vue",
-    "Mobile",
+    "weex",
+    "weex ui",
+    "weex-ui",
+    "vue",
     "Ul Components",
     "UI library"
   ],
