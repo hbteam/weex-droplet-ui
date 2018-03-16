@@ -1,13 +1,12 @@
 <template>
     <div>
         <scroller class="wx-list" show-scrollbar="false">
-            <div class="content" ref="list">
-                <div
-                    :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
-                    v-for="(item, index) in items" @click="changeTab(index)">
-                    <text class="wx-text">{{ item }}</text>
-                </div> 
-            </div>
+            <div
+                :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
+                :ref="'item'+index"
+                v-for="(item, index) in items" @click="changeTab(index)">
+                <text class="wx-text">{{ item }}</text>
+            </div> 
         </scroller>
     </div>
 </template>
@@ -23,7 +22,7 @@
                 count: 0,
                 data: {
                     pwidth: 250,
-                    pheight: 1000,
+                    pheight: 700,
                     cheight: 100,
                 },
                 hiddenCount: 0,
@@ -62,17 +61,27 @@
             },
 
             triggerAnimation(top){
-                let el = this.$refs.list;
-                animation.transition(el, {
-                    styles: {
-                        transform: `translateY(${top}px)`,
-                        transformOrigin: 'center center'
-                    },
-                    duration: 300,
-                    timingFunction: 'ease-out',
-                    needLayout: false,
-                    delay: 0 //ms
-                });
+                const index = top / 100;
+                if (index > 0) {
+                    const el = this.$refs['item' + (13-index)][0]
+                    dom.scrollToElement(el, {})
+                } else {
+                    const el = this.$refs['item' + (0-index)][0]
+                    dom.scrollToElement(el, {});
+                }
+                
+                
+                // let el = this.$refs.list;
+                // animation.transition(el, {
+                //     styles: {
+                //         transform: `translateY(${top}px)`,
+                //         transformOrigin: 'center center'
+                //     },
+                //     duration: 300,
+                //     timingFunction: 'ease-out',
+                //     needLayout: false,
+                //     delay: 0 //ms
+                // });
             }
         }
     }
@@ -81,7 +90,7 @@
     .wx-list {
         width: 250px;
         background-color: #969696;
-        height: 1000px;
+        height: 700px;
         overflow: hidden;
     }
 
