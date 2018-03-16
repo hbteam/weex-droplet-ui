@@ -1,13 +1,14 @@
 <template>
     <div>
-        <list class="wxs-list" ref="list">
-            <cell :class="['wxs-cell', selectIndex == index ? 'select-cell' : 'select-cell-no']"
-                  v-for="(item, index) in items" @click="changeTab(index)" ref="cell">
-                <div class="wxs-div">
-                    <text :class="['wxs-text', selectIndex == index ? 'select-text' : 'select-text-no']">{{item}}</text>
-                </div>
-            </cell>
-        </list>
+        <scroller class="wx-list" show-scrollbar="false">
+            <div class="content" ref="list">
+                <div
+                    :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
+                    v-for="(item, index) in items" @click="changeTab(index)">
+                    <text class="wx-text">{{ item }}</text>
+                </div> 
+            </div>
+        </scroller>
     </div>
 </template>
 <script>
@@ -17,56 +18,51 @@
         data () {
             return {
                 items: ['保单信息1', '保单信息2', '保单信息3', '保单信息4', '保单信息5', '保单信息6',
-                    '保单信息7', '保单信息8', '保单信息9', '保单信息10', '保单信息11', '保单信息12'],
+                    '保单信息7', '保单信息8', '保单信息9', '保单信息10', '保单信息11', '保单信息12','保单信息13'],
                 selectIndex: 0,
-                bottom: 1,
-                top: 1
+                count: 0,
+                data: {
+                    pwidth: 250,
+                    pheight: 1000,
+                    cheight: 100,
+                },
+                hiddenCount: 0,
+                maxHidden: 0,
             }
         },
+
+        created () {
+            // this.deviceHeight = weex.config.env.deviceHeight
+            this.count = Math.floor(this.data.pheight / this.data.cheight);
+            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
+            this.maxHidden = this.items.length - this.count;
+        },
+
         methods: {
             changeTab (index) {
-                this.selectIndex = index
-
-                let c = this.deviceHeight / 2, m = 125
-                let selectItemRef = this.$refs['cell'][index]
-                dom.getComponentRect(selectItemRef, item => {
-                    let selectItemTop = item.size.top
-
-                    if(selectItemTop > c){
-                        dom.getComponentRect(this.$refs['cell'][this.items.length - 1], option => {
-                            let listBottom = option.size.bottom
-                            if(listBottom - 64 > this.deviceHeight){
-                                let q = listBottom - this.deviceHeight
-                                this.triggerAnimation(q - c)
-                            }
-                        })
-                    }else{
-                        dom.getComponentRect(this.$refs['cell'][0], option => {
-                            let listBottom = option.size.bottom - 150
-                            console.log('listBottom:',listBottom)
-                            console.log('selectItemTop:',selectItemTop)
-                            if(listBottom + selectItemTop <= 0){
-                                this.triggerAnimation(listBottom + selectItemTop)
-                            }
-                        })
-                    }
-
-                })
+                this.selectIndex = index;
+                if (!index) return;
+                const middle = Math.floor(this.count / 2);
+                if (index >= middle) {
+                    this.hiddenCount = index - middle;
+                    console.log(index - middle)
+                    this.hiddenCount = this.getCanMove();
+                    this.triggerAnimation(-this.hiddenCount * this.data.cheight);
+                } else {
+                    this.hiddenCount = 0;
+                    this.triggerAnimation(0);
+                }
             },
 
-            scroller(index){
-                let mid = this.deviceHeight / 2
-                let move = 125
-//                let q =
-                let selectItemRef = this.$refs['item'][index]
-                dom.getComponentRect(selectItemRef, option => {
-                    let selectItemTop = option.size.top
-                })
+            /**
+             * 获取能移动多少条，不能超过总条数
+             */
+            getCanMove () {
+                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
             },
-
 
             triggerAnimation(top){
-                let el = this.$refs['list']
+                let el = this.$refs.list;
                 animation.transition(el, {
                     styles: {
                         transform: `translateY(${top}px)`,
@@ -78,42 +74,35 @@
                     delay: 0 //ms
                 });
             }
-        },
-        created(){
-            this.deviceHeight = weex.config.env.deviceHeight
         }
     }
 </script>
 <style scoped>
-    .wxs-list {
+    .wx-list {
         width: 250px;
         background-color: #969696;
+        height: 1000px;
+        overflow: hidden;
     }
 
-    .wxs-cell {
-        height: 150px;
-        align-items: center;
-        justify-content: center;
+    .wx-cell {
+        width: 250px;
+        height: 100px;
     }
 
-    .wxs-text {
-        color: #ffffff;
+    .wx-text {
+        color: #4d4d4d;
         font-size: 32px;
+        width: 250px;
+        height: 160px;
+        text-align: center;
+        line-height: 100px;
     }
 
     .select-cell {
+        width: 250px;
+        height: 100px;
+        font-size: 32px;
         background-color: #ffffff;
-    }
-
-    .select-cell-no {
-        background-color: #969696;
-    }
-
-    .select-text {
-        color: #ff8800;
-    }
-
-    .select-text-no {
-        color: #ffffff;
     }
 </style>
