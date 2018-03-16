@@ -3809,12 +3809,107 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+var dom = weex.requireModule('dom');
+var animation = weex.requireModule('animation');
 exports.default = {
+    props: {
+        items: {
+            type: Array,
+            default: function _default() {
+                return [];
+            },
+            required: true
+        },
+        wxChange: {
+            type: Function,
+            required: true
+        },
+        width: {
+            type: String,
+            default: '250px'
+        },
+        height: {
+            type: String,
+            default: '700px'
+        },
+        itemHeight: {
+            type: String,
+            default: '100px'
+        }
+    },
+
     data: function data() {
         return {
-            msg: 'hello vue'
+            selectIndex: 0,
+            count: 0,
+            data: {
+                pwidth: 0,
+                pheight: 0,
+                cheight: 0
+            },
+            hiddenCount: 0,
+            maxHidden: 0
         };
+    },
+    created: function created() {
+        this.getData();
+        // this.deviceHeight = weex.config.env.deviceHeight
+        this.count = Math.floor(this.data.pheight / this.data.cheight);
+        // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
+        this.maxHidden = this.items.length - this.count;
+    },
+
+
+    methods: {
+        getData: function getData() {
+            this.data = {
+                pwidth: Number(this.width.replace('px', '')),
+                pheight: Number(this.height.replace('px', '')),
+                cheight: Number(this.itemHeight.replace('px', ''))
+            };
+        },
+        changeTab: function changeTab(index) {
+            this.selectIndex = index;
+            if (!index) return;
+            var middle = Math.floor(this.count / 2);
+            if (index >= middle) {
+                this.hiddenCount = index - middle;
+                this.hiddenCount = this.getCanMoves();
+                this.triggerAnimation(-this.hiddenCount * this.data.cheight);
+            } else {
+                this.hiddenCount = 0;
+                this.triggerAnimation(0);
+            }
+            this.$emit('wxChange', this.items[index]);
+        },
+
+
+        /**
+         * 获取能移动多少条，不能超过总条数
+         */
+        getCanMoves: function getCanMoves() {
+            return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
+        },
+        triggerAnimation: function triggerAnimation(top) {
+            var index = top / 100;
+            if (index > 0) {
+                var el = this.$refs['item' + (13 - index)][0];
+                dom.scrollToElement(el, {});
+            } else {
+                var _el = this.$refs['item' + (0 - index)][0];
+                dom.scrollToElement(_el, {});
+            }
+        }
     }
 };
 
@@ -4167,7 +4262,27 @@ module.exports = {
 /* 69 */
 /***/ (function(module, exports) {
 
-module.exports = {}
+module.exports = {
+  "wx-list": {
+    "backgroundColor": "#969696",
+    "overflow": "hidden"
+  },
+  "wx-cell": {
+    "flexDirection": "row",
+    "justifyContent": "center",
+    "alignItems": "center"
+  },
+  "wx-text": {
+    "color": "#4d4d4d",
+    "fontSize": "32"
+  },
+  "select-cell": {
+    "flexDirection": "row",
+    "justifyContent": "center",
+    "alignItems": "center",
+    "backgroundColor": "#ffffff"
+  }
+}
 
 /***/ }),
 /* 70 */
@@ -4631,7 +4746,33 @@ module.exports.render._withStripped = true
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div')
+  return _c('div', [_c('scroller', {
+    staticClass: ["wx-list"],
+    style: {
+      width: _vm.width,
+      height: _vm.height
+    },
+    attrs: {
+      "showScrollbar": "false"
+    }
+  }, _vm._l((_vm.items), function(item, index) {
+    return _c('div', {
+      ref: 'item' + index,
+      refInFor: true,
+      class: [_vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
+      style: {
+        width: _vm.width,
+        height: _vm.itemHeight
+      },
+      on: {
+        "click": function($event) {
+          _vm.changeTab(index)
+        }
+      }
+    }, [_c('text', {
+      staticClass: ["wx-text"]
+    }, [_vm._v(_vm._s(item))])])
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

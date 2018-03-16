@@ -3811,12 +3811,107 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+var dom = weex.requireModule('dom');
+var animation = weex.requireModule('animation');
 exports.default = {
+    props: {
+        items: {
+            type: Array,
+            default: function _default() {
+                return [];
+            },
+            required: true
+        },
+        wxChange: {
+            type: Function,
+            required: true
+        },
+        width: {
+            type: String,
+            default: '250px'
+        },
+        height: {
+            type: String,
+            default: '700px'
+        },
+        itemHeight: {
+            type: String,
+            default: '100px'
+        }
+    },
+
     data: function data() {
         return {
-            msg: 'hello vue'
+            selectIndex: 0,
+            count: 0,
+            data: {
+                pwidth: 0,
+                pheight: 0,
+                cheight: 0
+            },
+            hiddenCount: 0,
+            maxHidden: 0
         };
+    },
+    created: function created() {
+        this.getData();
+        // this.deviceHeight = weex.config.env.deviceHeight
+        this.count = Math.floor(this.data.pheight / this.data.cheight);
+        // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
+        this.maxHidden = this.items.length - this.count;
+    },
+
+
+    methods: {
+        getData: function getData() {
+            this.data = {
+                pwidth: Number(this.width.replace('px', '')),
+                pheight: Number(this.height.replace('px', '')),
+                cheight: Number(this.itemHeight.replace('px', ''))
+            };
+        },
+        changeTab: function changeTab(index) {
+            this.selectIndex = index;
+            if (!index) return;
+            var middle = Math.floor(this.count / 2);
+            if (index >= middle) {
+                this.hiddenCount = index - middle;
+                this.hiddenCount = this.getCanMoves();
+                this.triggerAnimation(-this.hiddenCount * this.data.cheight);
+            } else {
+                this.hiddenCount = 0;
+                this.triggerAnimation(0);
+            }
+            this.$emit('wxChange', this.items[index]);
+        },
+
+
+        /**
+         * 获取能移动多少条，不能超过总条数
+         */
+        getCanMoves: function getCanMoves() {
+            return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
+        },
+        triggerAnimation: function triggerAnimation(top) {
+            var index = top / 100;
+            if (index > 0) {
+                var el = this.$refs['item' + (13 - index)][0];
+                dom.scrollToElement(el, {});
+            } else {
+                var _el = this.$refs['item' + (0 - index)][0];
+                dom.scrollToElement(_el, {});
+            }
+        }
     }
 };
 
@@ -4149,20 +4244,7 @@ exports.push([module.i, "\n.wx-actionsheet-mask[data-v-2a32de76] {\n    backgrou
 
 
 /***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"index.vue","sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
+/* 68 */,
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4679,17 +4761,17 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(104)
+  __webpack_require__(212)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(59),
   /* template */
-  __webpack_require__(92),
+  __webpack_require__(211),
   /* styles */
   injectStyle,
   /* scopeId */
-  null,
+  "data-v-2c7a5726",
   /* moduleIdentifier (server only) */
   null
 )
@@ -5106,21 +5188,7 @@ if (false) {
 }
 
 /***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div')
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-2c7a5726", module.exports)
-  }
-}
-
-/***/ }),
+/* 92 */,
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5606,32 +5674,7 @@ if(false) {
 }
 
 /***/ }),
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(68);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("38ca7a01", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
+/* 104 */,
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5987,6 +6030,118 @@ if (false) {
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-8b8532b2", module.exports)
   }
+}
+
+/***/ }),
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.wx-list[data-v-2c7a5726] {\n    background-color: #969696;\n    overflow: hidden;\n}\n.wx-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-2c7a5726] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.select-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #ffffff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-scrollerbar/index.vue?94b4cd7c"],"names":[],"mappings":";AAgHA;IACA,0BAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <scroller class=\"wx-list\" \n        :style=\"{width: width, height: height}\" show-scrollbar=\"false\">\n            <div\n                :style=\"{width: width, height: itemHeight}\"\n                :class=\"[selectIndex == index ? 'select-cell' : 'wx-cell']\"\n                :ref=\"'item'+index\"\n                v-for=\"(item, index) in items\" @click=\"changeTab(index)\">\n                <text class=\"wx-text\">{{ item }}</text>\n            </div> \n        </scroller>\n    </div>\n</template>\n<script>\n    var dom = weex.requireModule('dom')\n    var animation = weex.requireModule('animation')\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n            width: {\n                type: String,\n                default: '250px'\n            },\n            height: {\n                type: String,\n                default: '700px'\n            },\n            itemHeight: {\n                type: String,\n                default: '100px'\n            },\n        },\n\n        data () {\n            return {\n                selectIndex: 0,\n                count: 0,\n                data: {\n                    pwidth: 0,\n                    pheight: 0,\n                    cheight: 0,\n                },\n                hiddenCount: 0,\n                maxHidden: 0,\n            }\n        },\n\n        created () {\n            this.getData();\n            // this.deviceHeight = weex.config.env.deviceHeight\n            this.count = Math.floor(this.data.pheight / this.data.cheight);\n            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）\n            this.maxHidden = this.items.length - this.count;\n        },\n\n        methods: {\n\n            getData () {\n                this.data = {\n                    pwidth: Number(this.width.replace('px', '')),\n                    pheight: Number(this.height.replace('px', '')),\n                    cheight: Number(this.itemHeight.replace('px', ''))\n                };\n            },\n\n            changeTab (index) {\n                this.selectIndex = index;\n                if (!index) return;\n                const middle = Math.floor(this.count / 2);\n                if (index >= middle) {\n                    this.hiddenCount = index - middle;\n                    this.hiddenCount = this.getCanMoves();\n                    this.triggerAnimation(-this.hiddenCount * this.data.cheight);\n                } else {\n                    this.hiddenCount = 0;\n                    this.triggerAnimation(0);\n                }\n                this.$emit('wxChange', this.items[index]);\n            },\n\n            /**\n             * 获取能移动多少条，不能超过总条数\n             */\n            getCanMoves () {\n                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;\n            },\n\n            triggerAnimation(top){\n                const index = top / 100;\n                if (index > 0) {\n                    const el = this.$refs['item' + (13-index)][0]\n                    dom.scrollToElement(el, {})\n                } else {\n                    const el = this.$refs['item' + (0-index)][0]\n                    dom.scrollToElement(el, {});\n                }\n            }\n        }\n    }\n</script>\n<style scoped>\n    .wx-list {\n        background-color: #969696;\n        overflow: hidden;\n    }\n\n    .wx-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .wx-text {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .select-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        background-color: #ffffff;\n    }\n</style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('scroller', {
+    staticClass: "wx-list",
+    style: ({
+      width: _vm._px2rem(_vm.width, 75),
+      height: _vm._px2rem(_vm.height, 75)
+    }),
+    attrs: {
+      "show-scrollbar": "false"
+    }
+  }, _vm._l((_vm.items), function(item, index) {
+    return _c('div', {
+      ref: 'item' + index,
+      refInFor: true,
+      staticClass: " weex-ct",
+      class: [_vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
+      style: ({
+        width: _vm._px2rem(_vm.width, 75),
+        height: _vm._px2rem(_vm.itemHeight, 75)
+      }),
+      attrs: {
+        "data-evt-click": ""
+      },
+      on: {
+        "weex$tap": function($event) {
+          $event.stopPropagation();
+          _vm.changeTab(index)
+        }
+      },
+      nativeOn: {
+        "weex$tap": function($event) {
+          $event.stopPropagation();
+          _vm.changeTab(index)
+        }
+      }
+    }, [_c('p', {
+      staticClass: "wx-text weex-el weex-text",
+      attrs: {}
+    }, [_vm._v(_vm._s(item))])])
+  }))], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2c7a5726", module.exports)
+  }
+}
+
+/***/ }),
+/* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(210);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("6afae722", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
 }
 
 /***/ })
