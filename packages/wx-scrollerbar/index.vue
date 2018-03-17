@@ -13,8 +13,8 @@
     </div>
 </template>
 <script>
-    var dom = weex.requireModule('dom')
-    var animation = weex.requireModule('animation')
+    const dom = weex.requireModule('dom');
+
     export default {
         props: {
             items: {
@@ -81,10 +81,10 @@
                 if (index >= middle) {
                     this.hiddenCount = index - middle;
                     this.hiddenCount = this.getCanMoves();
-                    this.triggerAnimation(-this.hiddenCount * this.data.cheight);
+                    this.scrollTo(-this.hiddenCount * this.data.cheight);
                 } else {
                     this.hiddenCount = 0;
-                    this.triggerAnimation(0);
+                    this.scrollTo(0);
                 }
                 this.$emit('wxChange', this.items[index]);
             },
@@ -96,13 +96,13 @@
                 return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
             },
 
-            triggerAnimation(top){
+            scrollTo(top){
                 const index = top / 100;
                 if (index > 0) {
-                    const el = this.$refs['item' + (13-index)][0]
-                    dom.scrollToElement(el, {})
+                    const el = this.$refs['item' + (13-index)][0];
+                    dom.scrollToElement(el, {});
                 } else {
-                    const el = this.$refs['item' + (0-index)][0]
+                    const el = this.$refs['item' + (0-index)][0];
                     dom.scrollToElement(el, {});
                 }
             }

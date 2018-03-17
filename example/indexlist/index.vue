@@ -1,13 +1,14 @@
 <template>
-    <div>
-        <wx-indexlist></wx-indexlist>
+    <div class="wx-demo">
+        <wx-indexlist 
+            :items="getData()" 
+            @wxChange="handleChange">
+        </wx-indexlist>
     </div>
 </template>
-
 <script>
     import { WxIndexlist } from '../../index';
     const modal = weex.requireModule('modal');
-
     export default {
         components: {
             WxIndexlist
@@ -20,14 +21,31 @@
         },
 
         methods: {
-            
-        },
+            handleChange (item) {
+                console.log(item);
+            },
 
-        mounted () {
-            
+            getData () {
+                let list=[];
+                for(let i= 0; i < 26; i++){
+                    list.push({
+                        text: String.fromCharCode(65+i),
+                        list: [
+                            {
+                                text:String.fromCharCode(65+i)+1
+                            },{
+                                text:String.fromCharCode(65+i)+2
+                            },{
+                                text:String.fromCharCode(65+i)+3
+                            },{
+                                text:String.fromCharCode(65+i)+4
+                            }
+                        ]
+                    });
+                }
+                console.log(list);
+                return list; 
+            },
         }
     };
 </script>
-<style type="text/css">
-    
-</style>
