@@ -3900,8 +3900,8 @@ exports.default = {
         getCanMoves: function getCanMoves() {
             return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
         },
-        scrollTo: function scrollTo(top) {
-            var index = top / 100;
+        scrollTo: function scrollTo(elHeight) {
+            var index = elHeight / this.data.cheight;
             if (index > 0) {
                 var el = this.$refs['item' + (13 - index)][0];
                 dom.scrollToElement(el, {});
