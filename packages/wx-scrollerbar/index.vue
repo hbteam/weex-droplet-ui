@@ -96,8 +96,8 @@
                 return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
             },
 
-            scrollTo(top){
-                const index = top / 100;
+            scrollTo(elHeight){
+                const index = elHeight / this.data.cheight;
                 if (index > 0) {
                     const el = this.$refs['item' + (13-index)][0];
                     dom.scrollToElement(el, {});
