@@ -116,15 +116,27 @@ __webpack_require__(2);
 "use strict";
 
 
+var width = weex.config.env.deviceWidth;
+var height = weex.config.env.deviceHeight;
+var platform = weex.config.env.platform.toLowerCase();
+var appName = weex.config.env.appName;
+
 var mixins = {
     methods: {
+        getPageHeight: function getPageHeight() {
+            if (platform === 'android') {
+                return 750 / width * height;
+            }
+            return height;
+        },
+
+
         /**
          * ios和安卓的定位不同，所以导致定位位置不一样
          * @return {Object} top and bottom
          */
         getPosition: function getPosition() {
-            var platform = weex.config.env.platform.toLowerCase();
-            var appName = weex.config.env.appName;
+
             var isProd = platform === 'ios' && appName !== 'WeexDemo';
             return {
                 top: isProd ? '-40px' : '0px',
@@ -3166,53 +3178,41 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
-//
 
 var modal = weex.requireModule('modal');
 var animation = weex.requireModule('animation');
+var dom = weex.requireModule('dom');
 
 exports.default = {
     props: {
-        indexList: {
+        items: {
             type: Array,
             default: function _default() {
-                var list = [];
-                for (var i = 0; i < 26; i++) {
-                    list.push({
-                        text: String.fromCharCode(65 + i),
-                        list: [{
-                            text: String.fromCharCode(65 + i) + 1
-                        }, {
-                            text: String.fromCharCode(65 + i) + 2
-                        }, {
-                            text: String.fromCharCode(65 + i) + 3
-                        }, {
-                            text: String.fromCharCode(65 + i) + 4
-                        }]
-                    });
-                }
-                return list;
-            }
+                return [];
+            },
+            required: true
+        },
+        wxChange: {
+            type: Function,
+            required: true
         }
     },
 
     data: function data() {
         return {};
     },
-
-
-    computed: {},
-
     created: function created() {},
 
 
-    methods: {},
-
-    watch: {}
+    methods: {
+        scrollTo: function scrollTo(text) {
+            var el = this.$refs['item' + text][0];
+            dom.scrollToElement(el, {});
+        },
+        handleClick: function handleClick(item) {
+            this.$emit('wxChange', item);
+        }
+    }
 };
 
 /***/ }),
@@ -3820,7 +3820,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 var dom = weex.requireModule('dom');
-var animation = weex.requireModule('animation');
+
 exports.default = {
     props: {
         items: {
@@ -3885,10 +3885,10 @@ exports.default = {
             if (index >= middle) {
                 this.hiddenCount = index - middle;
                 this.hiddenCount = this.getCanMoves();
-                this.triggerAnimation(-this.hiddenCount * this.data.cheight);
+                this.scrollTo(-this.hiddenCount * this.data.cheight);
             } else {
                 this.hiddenCount = 0;
-                this.triggerAnimation(0);
+                this.scrollTo(0);
             }
             this.$emit('wxChange', this.items[index]);
         },
@@ -3900,7 +3900,7 @@ exports.default = {
         getCanMoves: function getCanMoves() {
             return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
         },
-        triggerAnimation: function triggerAnimation(top) {
+        scrollTo: function scrollTo(top) {
             var index = top / 100;
             if (index > 0) {
                 var el = this.$refs['item' + (13 - index)][0];
@@ -4290,15 +4290,36 @@ module.exports = {
 
 module.exports = {
   "wx-indexlist": {
-    "width": "750",
-    "height": "600",
-    "outline": "1px dashed blue",
-    "position": "relative"
+    "width": "750"
   },
   "indexList": {
     "position": "fixed",
     "right": 0,
     "top": 0
+  },
+  "scroller": {
+    "width": "750"
+  },
+  "category": {
+    "color": "#666666",
+    "width": "750",
+    "height": "60",
+    "lineHeight": "60",
+    "backgroundColor": "#d3d3d3",
+    "fontSize": "36"
+  },
+  "item-text": {
+    "color": "#999999",
+    "width": "750",
+    "height": "60",
+    "lineHeight": "60",
+    "fontSize": "32"
+  },
+  "indexList-right": {
+    "color": "#666666",
+    "fontSize": "32",
+    "paddingLeft": "40",
+    "paddingRight": "10"
   }
 }
 
@@ -4783,22 +4804,42 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wx-indexlist"]
-  }, [_c('div', {
-    staticClass: ["mainList"]
   }, [_c('scroller', {
-    staticClass: ["scrollerContainer"]
-  }, _vm._l((_vm.indexList), function(category) {
+    staticClass: ["scroller"],
+    style: {
+      height: _vm.getPageHeight() + 'px'
+    },
+    attrs: {
+      "showScrollbar": "false"
+    }
+  }, _vm._l((_vm.items), function(category) {
     return _c('div', {
       staticClass: ["eachCategory"]
-    }, [_c('div', [_c('text', [_vm._v(_vm._s(category.text))])]), _vm._l((category.list), function(item) {
-      return _c('text', [_vm._v("\n                " + _vm._s(item.text) + "\n            ")])
+    }, [_c('text', {
+      ref: 'item' + category.text,
+      refInFor: true,
+      staticClass: ["category"]
+    }, [_vm._v(_vm._s(category.text))]), _vm._l((category.list), function(item) {
+      return _c('text', {
+        staticClass: ["item-text"],
+        on: {
+          "click": function($event) {
+            _vm.handleClick(item)
+          }
+        }
+      }, [_vm._v(_vm._s(item.text) + "\n            ")])
     })], 2)
-  }))]), _c('div', {
+  })), _c('div', {
     staticClass: ["indexList"]
-  }, _vm._l((_vm.indexList), function(category) {
-    return _c('div', {
-      staticClass: ["eachIndex"]
-    }, [_c('text', [_vm._v(_vm._s(category.text))])])
+  }, _vm._l((_vm.items), function(category) {
+    return _c('text', {
+      staticClass: ["indexList-right"],
+      on: {
+        "click": function($event) {
+          _vm.scrollTo(category.text)
+        }
+      }
+    }, [_vm._v(_vm._s(category.text))])
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true

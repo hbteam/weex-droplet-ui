@@ -516,15 +516,27 @@ __webpack_require__(5);
 "use strict";
 
 
+var width = weex.config.env.deviceWidth;
+var height = weex.config.env.deviceHeight;
+var platform = weex.config.env.platform.toLowerCase();
+var appName = weex.config.env.appName;
+
 var mixins = {
     methods: {
+        getPageHeight: function getPageHeight() {
+            if (platform === 'android') {
+                return 750 / width * height;
+            }
+            return height;
+        },
+
+
         /**
          * ios和安卓的定位不同，所以导致定位位置不一样
          * @return {Object} top and bottom
          */
         getPosition: function getPosition() {
-            var platform = weex.config.env.platform.toLowerCase();
-            var appName = weex.config.env.appName;
+
             var isProd = platform === 'ios' && appName !== 'WeexDemo';
             return {
                 top: isProd ? '-40px' : '0px',
@@ -3168,53 +3180,41 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
-//
 
 var modal = weex.requireModule('modal');
 var animation = weex.requireModule('animation');
+var dom = weex.requireModule('dom');
 
 exports.default = {
     props: {
-        indexList: {
+        items: {
             type: Array,
             default: function _default() {
-                var list = [];
-                for (var i = 0; i < 26; i++) {
-                    list.push({
-                        text: String.fromCharCode(65 + i),
-                        list: [{
-                            text: String.fromCharCode(65 + i) + 1
-                        }, {
-                            text: String.fromCharCode(65 + i) + 2
-                        }, {
-                            text: String.fromCharCode(65 + i) + 3
-                        }, {
-                            text: String.fromCharCode(65 + i) + 4
-                        }]
-                    });
-                }
-                return list;
-            }
+                return [];
+            },
+            required: true
+        },
+        wxChange: {
+            type: Function,
+            required: true
         }
     },
 
     data: function data() {
         return {};
     },
-
-
-    computed: {},
-
     created: function created() {},
 
 
-    methods: {},
-
-    watch: {}
+    methods: {
+        scrollTo: function scrollTo(text) {
+            var el = this.$refs['item' + text][0];
+            dom.scrollToElement(el, {});
+        },
+        handleClick: function handleClick(item) {
+            this.$emit('wxChange', item);
+        }
+    }
 };
 
 /***/ }),
@@ -3822,7 +3822,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 var dom = weex.requireModule('dom');
-var animation = weex.requireModule('animation');
+
 exports.default = {
     props: {
         items: {
@@ -3887,10 +3887,10 @@ exports.default = {
             if (index >= middle) {
                 this.hiddenCount = index - middle;
                 this.hiddenCount = this.getCanMoves();
-                this.triggerAnimation(-this.hiddenCount * this.data.cheight);
+                this.scrollTo(-this.hiddenCount * this.data.cheight);
             } else {
                 this.hiddenCount = 0;
-                this.triggerAnimation(0);
+                this.scrollTo(0);
             }
             this.$emit('wxChange', this.items[index]);
         },
@@ -3902,7 +3902,7 @@ exports.default = {
         getCanMoves: function getCanMoves() {
             return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
         },
-        triggerAnimation: function triggerAnimation(top) {
+        scrollTo: function scrollTo(top) {
             var index = top / 100;
             if (index > 0) {
                 var el = this.$refs['item' + (13 - index)][0];
@@ -4182,7 +4182,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-indexlist[data-v-07ea1486]{\n    width: 10rem;\n    height: 8rem;\n    outline: 1px dashed blue;\n    position: relative;\n}\n.indexList[data-v-07ea1486]{\n    position: fixed;\n    right: 0;\n    top: 0;\n}\n.scrollerContainer[data-v-07ea1486]{\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-indexlist/index.vue?053f5658"],"names":[],"mappings":";AA2EA;IACA,aAAA;IACA,aAAA;IACA,yBAAA;IACA,mBAAA;CACA;AACA;IACA,gBAAA;IACA,SAAA;IACA,OAAA;CACA;AACA;CAEA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-indexlist\" >\n        <div class='mainList'>\n            <scroller class='scrollerContainer'>\n            <div class='eachCategory' v-for='category in indexList'>\n                <div><text>{{category.text}}</text></div>\n                <text v-for='item in category.list'>\n                    {{item.text}}\n                </text>\n            </div>\n            </scroller>\n        </div>\n        <div class='indexList'>\n            <div class='eachIndex' v-for='category in indexList'>\n                <text>{{category.text}}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<script>\n    const modal = weex.requireModule('modal');\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            indexList: {\n              type: Array,\n              default: function () {\n                let list=[];\n                for(let i=0; i<26; i++){\n                    list.push({\n                        text:String.fromCharCode(65+i),\n                        list:[\n                            {\n                                text:String.fromCharCode(65+i)+1\n                            },{\n                                text:String.fromCharCode(65+i)+2\n                            },{\n                                text:String.fromCharCode(65+i)+3\n                            },{\n                                text:String.fromCharCode(65+i)+4\n                            }\n                        ]\n                    });\n                }\n                return list; \n              }\n            }\n        },\n\n        data () {\n            return {\n                \n            }\n        },\n\n        computed: {\n            \n        },\n\n        created () {\n            \n        },\n\n        methods: {\n            \n        },\n\n        watch: {\n            \n        }\n    }\n</script>\n\n<style scoped>\n    .wx-indexlist{\n        width: 750px;\n        height: 600px;\n        outline: 1px dashed blue;\n        position: relative;\n    }\n    .indexList{\n        position: fixed;\n        right: 0;\n        top: 0;\n    }\n    .scrollerContainer{\n        \n    }\n    \n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-indexlist[data-v-07ea1486]{\n    width: 10rem;\n}\n.indexList[data-v-07ea1486]{\n    position: fixed;\n    right: 0;\n    top: 0;\n}\n.scroller[data-v-07ea1486]{\n    width: 10rem;\n    /*height: 1000px;*/\n}\n.category[data-v-07ea1486] {\n    color: #666;\n    width: 10rem;\n    height: 0.8rem;\n    line-height: 0.8rem;\n    background-color: #d3d3d3;\n    font-size: 0.48rem;\n}\n.item-text[data-v-07ea1486] {\n    color: #999;\n    width: 10rem;\n    height: 0.8rem;\n    line-height: 0.8rem;\n    font-size: 0.42667rem;\n}\n.indexList-right[data-v-07ea1486] {\n    color: #666;\n    font-size: 0.42667rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.13333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-indexlist/index.vue?57e463e1"],"names":[],"mappings":";AA2DA;IACA,aAAA;CACA;AACA;IACA,gBAAA;IACA,SAAA;IACA,OAAA;CACA;AACA;IACA,aAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;IACA,aAAA;IACA,eAAA;IACA,oBAAA;IACA,0BAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;IACA,aAAA;IACA,eAAA;IACA,oBAAA;IACA,sBAAA;CACA;AAEA;IACA,YAAA;IACA,sBAAA;IACA,yBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-indexlist\">\n        <scroller :style=\"{height: getPageHeight() + 'px'}\" class=\"scroller\" show-scrollbar=\"false\">\n            <div class='eachCategory' v-for='category in items' >\n                <text class=\"category\" :ref=\"'item' + category.text\">{{category.text}}</text>\n                <text class=\"item-text\" v-for='item in category.list' @click=\"handleClick(item)\">{{item.text}}\n                </text>\n            </div>\n        </scroller>\n        <div class='indexList'>\n            <text class='indexList-right' @click=\"scrollTo(category.text)\" v-for='category in items'>{{category.text}}</text>\n        </div>\n    </div>\n</template>\n<script>\n    const modal = weex.requireModule('modal');\n    const animation = weex.requireModule('animation');\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return [];\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n        },\n\n        data () {\n            return {\n                \n            }\n        },\n\n        created () {\n\n        },\n\n        methods: {\n            scrollTo (text) {\n                const el = this.$refs['item' + text][0];\n                dom.scrollToElement(el, {})\n            },\n\n            handleClick (item) {\n                this.$emit('wxChange', item);\n            },\n\n        }\n    }\n</script>\n\n<style scoped>\n    .wx-indexlist{\n        width: 750px;\n    }\n    .indexList{\n        position: fixed;\n        right: 0;\n        top: 0;\n    }\n    .scroller{\n        width: 750px;\n        /*height: 1000px;*/\n    }\n\n    .category {\n        color: #666;\n        width: 750px;\n        height: 60px;\n        line-height: 60px;\n        background-color: #d3d3d3;\n        font-size: 36px;\n    }\n\n    .item-text {\n        color: #999;\n        width: 750px;\n        height: 60px;\n        line-height: 60px;\n        font-size: 32px;\n    }\n\n    .indexList-right {\n        color: #666;\n        font-size: 32px;\n        padding-left: 40px;\n        padding-right: 10px;\n    }\n    \n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -4244,7 +4244,20 @@ exports.push([module.i, "\n.wx-actionsheet-mask[data-v-2a32de76] {\n    backgrou
 
 
 /***/ }),
-/* 68 */,
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.wx-list[data-v-2c7a5726] {\n    background-color: #969696;\n    overflow: hidden;\n}\n.wx-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-2c7a5726] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.select-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #ffffff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-scrollerbar/index.vue?a6ce7972"],"names":[],"mappings":";AAgHA;IACA,0BAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <scroller class=\"wx-list\" \n        :style=\"{width: width, height: height}\" show-scrollbar=\"false\">\n            <div\n                :style=\"{width: width, height: itemHeight}\"\n                :class=\"[selectIndex == index ? 'select-cell' : 'wx-cell']\"\n                :ref=\"'item'+index\"\n                v-for=\"(item, index) in items\" @click=\"changeTab(index)\">\n                <text class=\"wx-text\">{{ item }}</text>\n            </div> \n        </scroller>\n    </div>\n</template>\n<script>\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n            width: {\n                type: String,\n                default: '250px'\n            },\n            height: {\n                type: String,\n                default: '700px'\n            },\n            itemHeight: {\n                type: String,\n                default: '100px'\n            },\n        },\n\n        data () {\n            return {\n                selectIndex: 0,\n                count: 0,\n                data: {\n                    pwidth: 0,\n                    pheight: 0,\n                    cheight: 0,\n                },\n                hiddenCount: 0,\n                maxHidden: 0,\n            }\n        },\n\n        created () {\n            this.getData();\n            // this.deviceHeight = weex.config.env.deviceHeight\n            this.count = Math.floor(this.data.pheight / this.data.cheight);\n            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）\n            this.maxHidden = this.items.length - this.count;\n        },\n\n        methods: {\n\n            getData () {\n                this.data = {\n                    pwidth: Number(this.width.replace('px', '')),\n                    pheight: Number(this.height.replace('px', '')),\n                    cheight: Number(this.itemHeight.replace('px', ''))\n                };\n            },\n\n            changeTab (index) {\n                this.selectIndex = index;\n                if (!index) return;\n                const middle = Math.floor(this.count / 2);\n                if (index >= middle) {\n                    this.hiddenCount = index - middle;\n                    this.hiddenCount = this.getCanMoves();\n                    this.scrollTo(-this.hiddenCount * this.data.cheight);\n                } else {\n                    this.hiddenCount = 0;\n                    this.scrollTo(0);\n                }\n                this.$emit('wxChange', this.items[index]);\n            },\n\n            /**\n             * 获取能移动多少条，不能超过总条数\n             */\n            getCanMoves () {\n                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;\n            },\n\n            scrollTo(top){\n                const index = top / 100;\n                if (index > 0) {\n                    const el = this.$refs['item' + (13-index)][0];\n                    dom.scrollToElement(el, {});\n                } else {\n                    const el = this.$refs['item' + (0-index)][0];\n                    dom.scrollToElement(el, {});\n                }\n            }\n        }\n    }\n</script>\n<style scoped>\n    .wx-list {\n        background-color: #969696;\n        overflow: hidden;\n    }\n\n    .wx-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .wx-text {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .select-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        background-color: #ffffff;\n    }\n</style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4761,13 +4774,13 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(212)
+  __webpack_require__(104)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(59),
   /* template */
-  __webpack_require__(211),
+  __webpack_require__(92),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -4922,28 +4935,66 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "wx-indexlist weex-ct",
     attrs: {}
-  }, [_c('div', {
-    staticClass: "mainList weex-ct",
-    attrs: {}
   }, [_c('scroller', {
-    staticClass: "scrollerContainer",
-    attrs: {}
-  }, _vm._l((_vm.indexList), function(category) {
+    staticClass: "scroller",
+    style: ({
+      height: _vm._px2rem(_vm.getPageHeight() + 'px', 75)
+    }),
+    attrs: {
+      "show-scrollbar": "false"
+    }
+  }, _vm._l((_vm.items), function(category) {
     return _c('div', {
       staticClass: "eachCategory weex-ct",
       attrs: {}
-    }, [_c('div', [_c('p', [_vm._v(_vm._s(category.text))])]), _vm._v(" "), _vm._l((category.list), function(item) {
-      return _c('p', [_vm._v("\n                " + _vm._s(item.text) + "\n            ")])
+    }, [_c('p', {
+      ref: 'item' + category.text,
+      refInFor: true,
+      staticClass: "category weex-el weex-text",
+      attrs: {}
+    }, [_vm._v(_vm._s(category.text))]), _vm._v(" "), _vm._l((category.list), function(item) {
+      return _c('p', {
+        staticClass: "item-text weex-el weex-text",
+        attrs: {
+          "data-evt-click": ""
+        },
+        on: {
+          "weex$tap": function($event) {
+            $event.stopPropagation();
+            _vm.handleClick(item)
+          }
+        },
+        nativeOn: {
+          "weex$tap": function($event) {
+            $event.stopPropagation();
+            _vm.handleClick(item)
+          }
+        }
+      }, [_vm._v(_vm._s(item.text) + "\n            ")])
     })], 2)
-  }))], 1), _vm._v(" "), _c('div', {
+  })), _vm._v(" "), _c('div', {
     staticClass: "indexList weex-ct",
     attrs: {}
-  }, _vm._l((_vm.indexList), function(category) {
-    return _c('div', {
-      staticClass: "eachIndex weex-ct",
-      attrs: {}
-    }, [_c('p', [_vm._v(_vm._s(category.text))])])
-  }))])
+  }, _vm._l((_vm.items), function(category) {
+    return _c('p', {
+      staticClass: "indexList-right weex-el weex-text",
+      attrs: {
+        "data-evt-click": ""
+      },
+      on: {
+        "weex$tap": function($event) {
+          $event.stopPropagation();
+          _vm.scrollTo(category.text)
+        }
+      },
+      nativeOn: {
+        "weex$tap": function($event) {
+          $event.stopPropagation();
+          _vm.scrollTo(category.text)
+        }
+      }
+    }, [_vm._v(_vm._s(category.text))])
+  }))], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -5188,7 +5239,59 @@ if (false) {
 }
 
 /***/ }),
-/* 92 */,
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('scroller', {
+    staticClass: "wx-list",
+    style: ({
+      width: _vm._px2rem(_vm.width, 75),
+      height: _vm._px2rem(_vm.height, 75)
+    }),
+    attrs: {
+      "show-scrollbar": "false"
+    }
+  }, _vm._l((_vm.items), function(item, index) {
+    return _c('div', {
+      ref: 'item' + index,
+      refInFor: true,
+      staticClass: " weex-ct",
+      class: [_vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
+      style: ({
+        width: _vm._px2rem(_vm.width, 75),
+        height: _vm._px2rem(_vm.itemHeight, 75)
+      }),
+      attrs: {
+        "data-evt-click": ""
+      },
+      on: {
+        "weex$tap": function($event) {
+          $event.stopPropagation();
+          _vm.changeTab(index)
+        }
+      },
+      nativeOn: {
+        "weex$tap": function($event) {
+          $event.stopPropagation();
+          _vm.changeTab(index)
+        }
+      }
+    }, [_c('p', {
+      staticClass: "wx-text weex-el weex-text",
+      attrs: {}
+    }, [_vm._v(_vm._s(item))])])
+  }))], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2c7a5726", module.exports)
+  }
+}
+
+/***/ }),
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5674,7 +5777,32 @@ if(false) {
 }
 
 /***/ }),
-/* 104 */,
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(68);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("6afae722", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6075,107 +6203,6 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4817c85d\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
      var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4817c85d\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.wx-list[data-v-2c7a5726] {\n    background-color: #969696;\n    overflow: hidden;\n}\n.wx-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-2c7a5726] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.select-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #ffffff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-scrollerbar/index.vue?94b4cd7c"],"names":[],"mappings":";AAgHA;IACA,0BAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <scroller class=\"wx-list\" \n        :style=\"{width: width, height: height}\" show-scrollbar=\"false\">\n            <div\n                :style=\"{width: width, height: itemHeight}\"\n                :class=\"[selectIndex == index ? 'select-cell' : 'wx-cell']\"\n                :ref=\"'item'+index\"\n                v-for=\"(item, index) in items\" @click=\"changeTab(index)\">\n                <text class=\"wx-text\">{{ item }}</text>\n            </div> \n        </scroller>\n    </div>\n</template>\n<script>\n    var dom = weex.requireModule('dom')\n    var animation = weex.requireModule('animation')\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n            width: {\n                type: String,\n                default: '250px'\n            },\n            height: {\n                type: String,\n                default: '700px'\n            },\n            itemHeight: {\n                type: String,\n                default: '100px'\n            },\n        },\n\n        data () {\n            return {\n                selectIndex: 0,\n                count: 0,\n                data: {\n                    pwidth: 0,\n                    pheight: 0,\n                    cheight: 0,\n                },\n                hiddenCount: 0,\n                maxHidden: 0,\n            }\n        },\n\n        created () {\n            this.getData();\n            // this.deviceHeight = weex.config.env.deviceHeight\n            this.count = Math.floor(this.data.pheight / this.data.cheight);\n            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）\n            this.maxHidden = this.items.length - this.count;\n        },\n\n        methods: {\n\n            getData () {\n                this.data = {\n                    pwidth: Number(this.width.replace('px', '')),\n                    pheight: Number(this.height.replace('px', '')),\n                    cheight: Number(this.itemHeight.replace('px', ''))\n                };\n            },\n\n            changeTab (index) {\n                this.selectIndex = index;\n                if (!index) return;\n                const middle = Math.floor(this.count / 2);\n                if (index >= middle) {\n                    this.hiddenCount = index - middle;\n                    this.hiddenCount = this.getCanMoves();\n                    this.triggerAnimation(-this.hiddenCount * this.data.cheight);\n                } else {\n                    this.hiddenCount = 0;\n                    this.triggerAnimation(0);\n                }\n                this.$emit('wxChange', this.items[index]);\n            },\n\n            /**\n             * 获取能移动多少条，不能超过总条数\n             */\n            getCanMoves () {\n                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;\n            },\n\n            triggerAnimation(top){\n                const index = top / 100;\n                if (index > 0) {\n                    const el = this.$refs['item' + (13-index)][0]\n                    dom.scrollToElement(el, {})\n                } else {\n                    const el = this.$refs['item' + (0-index)][0]\n                    dom.scrollToElement(el, {});\n                }\n            }\n        }\n    }\n</script>\n<style scoped>\n    .wx-list {\n        background-color: #969696;\n        overflow: hidden;\n    }\n\n    .wx-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .wx-text {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .select-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        background-color: #ffffff;\n    }\n</style>\n"],"sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
-/* 211 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('scroller', {
-    staticClass: "wx-list",
-    style: ({
-      width: _vm._px2rem(_vm.width, 75),
-      height: _vm._px2rem(_vm.height, 75)
-    }),
-    attrs: {
-      "show-scrollbar": "false"
-    }
-  }, _vm._l((_vm.items), function(item, index) {
-    return _c('div', {
-      ref: 'item' + index,
-      refInFor: true,
-      staticClass: " weex-ct",
-      class: [_vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
-      style: ({
-        width: _vm._px2rem(_vm.width, 75),
-        height: _vm._px2rem(_vm.itemHeight, 75)
-      }),
-      attrs: {
-        "data-evt-click": ""
-      },
-      on: {
-        "weex$tap": function($event) {
-          $event.stopPropagation();
-          _vm.changeTab(index)
-        }
-      },
-      nativeOn: {
-        "weex$tap": function($event) {
-          $event.stopPropagation();
-          _vm.changeTab(index)
-        }
-      }
-    }, [_c('p', {
-      staticClass: "wx-text weex-el weex-text",
-      attrs: {}
-    }, [_vm._v(_vm._s(item))])])
-  }))], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-2c7a5726", module.exports)
-  }
-}
-
-/***/ }),
-/* 212 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(210);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("6afae722", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c7a5726\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
