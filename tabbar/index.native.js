@@ -3817,8 +3817,6 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
 
 var dom = weex.requireModule('dom');
 
@@ -4286,9 +4284,8 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
-  "wx-list": {
-    "backgroundColor": "#969696",
-    "overflow": "hidden"
+  "wx-scroller": {
+    "backgroundColor": "#969696"
   },
   "wx-cell": {
     "flexDirection": "row",
@@ -4790,8 +4787,8 @@ module.exports.render._withStripped = true
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('scroller', {
-    staticClass: ["wx-list"],
+  return _c('scroller', {
+    staticClass: ["wx-scroller"],
     style: _vm.scrollStyle,
     attrs: {
       "scrollDirection": _vm.scrollDirection,
@@ -4814,7 +4811,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('text', {
       staticClass: ["wx-text"]
     }, [_vm._v(_vm._s(item))])])
-  }))])
+  }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
