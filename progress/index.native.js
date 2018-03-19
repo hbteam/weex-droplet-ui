@@ -6,9 +6,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["npm/weex-droplet-ui/example/loading/index"] = factory();
+		exports["npm/weex-droplet-ui/example/progress/index"] = factory();
 	else
-		root["npm/weex-droplet-ui/example/loading/index"] = factory();
+		root["npm/weex-droplet-ui/example/progress/index"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -75,45 +75,26 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 124);
+/******/ 	return __webpack_require__(__webpack_require__.s = 127);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(15);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 105:
+/***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
+/* styles */
+__vue_styles__.push(__webpack_require__(183)
+)
+
 /* script */
-__vue_exports__ = __webpack_require__(143)
+__vue_exports__ = __webpack_require__(146)
 
 /* template */
-var __vue_template__ = __webpack_require__(172)
+var __vue_template__ = __webpack_require__(181)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -125,9 +106,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/loading/index.vue"
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/progress/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-120b1299"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -143,7 +125,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 124:
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -153,7 +135,30 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(105);
+var _index = __webpack_require__(16);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 127:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(108);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -209,7 +214,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 143:
+/***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -219,7 +224,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(10);
+var _index = __webpack_require__(11);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -236,44 +241,51 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
-        return {
-            visible: false
-        };
+        return {};
     },
 
-    components: { WxLoading: _index2.default, WxButton: _index4.default },
-    methods: {
-        openLoading: function openLoading() {
-            var _this = this;
-
-            this.visible = true;
-            setTimeout(function () {
-                _this.visible = false;
-            }, 2000);
-        }
-    }
+    components: {
+        WxProgress: _index2.default,
+        WxButton: _index4.default
+    },
+    methods: {}
 };
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(23)
+__vue_styles__.push(__webpack_require__(26)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(20)
+__vue_exports__ = __webpack_require__(21)
 
 /* template */
-var __vue_template__ = __webpack_require__(28)
+var __vue_template__ = __webpack_require__(31)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -285,10 +297,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-loading/index.vue"
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-progress/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-d41e25fe"
+__vue_options__._scopeId = "data-v-f297eac4"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -301,26 +313,6 @@ if (typeof __register_static_styles__ === "function") {
 
 module.exports = __vue_exports__
 
-
-/***/ }),
-
-/***/ 172:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-button', {
-    on: {
-      "wxClick": _vm.openLoading
-    }
-  }, [_vm._v("打开Loading")]), _c('wx-loading', {
-    attrs: {
-      "opacity": "0.6",
-      "visible": _vm.visible,
-      "top": "0px"
-    }
-  })], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
 
 /***/ }),
 
@@ -431,7 +423,74 @@ exports.default = {
 
 /***/ }),
 
-/***/ 20:
+/***/ 181:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#f5222d',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 100
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#1890ff',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 90
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "animation": true,
+      "percent": 80
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "animation": true,
+      "percent": 70
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "animation": true,
+      "percent": 60
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 183:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "progress": {
+    "marginTop": "60"
+  }
+}
+
+/***/ }),
+
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -465,78 +524,89 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
+
+var animation = weex.requireModule('animation');
 
 exports.default = {
     props: {
-        visible: {
-            type: Boolean,
-            default: false
+        percent: {
+            type: Number,
+            default: 0
         },
-        top: {
-            type: String
-        },
-        opacity: {
-            type: String
-        },
-        url: {
+        width: {
             type: String,
-            default: 'http://p285sfed1.bkt.clouddn.com/loading.gif'
+            default: '750px'
+        },
+        animation: {
+            type: Boolean,
+            default: true
+        },
+        innerStyle: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
+        },
+        outerStyle: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
         }
     },
     data: function data() {
         return {
-            style: {
-                top: '100px',
-                'background-color': 'rgba(0,0,0,0.6)'
-            }
+            progress: ''
         };
     },
     created: function created() {
-        if (this.top !== undefined) {
-            this.style.top = this.top;
+        this.progress = this.getProgress();
+        if (!this.animation) {
+            this.defaultProgress(this.progress);
         }
-        if (this.opacity !== undefined) {
-            this.style['background-color'] = 'rgba(0,0,0,' + this.opacity + ')';
+    },
+    mounted: function mounted() {
+        if (this.animation) {
+            this.animationProgress(this.progress);
+        }
+    },
+
+
+    methods: {
+
+        /**
+         * 计算百分比对应的实际进度
+         * @return {[type]} [description]
+         */
+        getProgress: function getProgress() {
+            var width = Number(this.width.replace('px', ''));
+            return width * (this.percent / 100) + 'px';
+        },
+        defaultProgress: function defaultProgress(progress) {
+            this.innerStyle.width = progress;
+            this.innerStyle.left = '0px';
+        },
+        animationProgress: function animationProgress(progress) {
+            var el = this.$refs.progressBar;
+            animation.transition(el, {
+                styles: {
+                    transform: 'translateX(' + progress + ')',
+                    transformOrigin: 'center center'
+                },
+                duration: 1000,
+                timingFunction: 'ease-out',
+                needLayout: false,
+                delay: 0 //ms
+            });
+        }
+    },
+
+    watch: {
+        percent: function percent() {
+            this.animationProgress(this.getProgress());
         }
     }
 };
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "loading": {
-    "position": "fixed",
-    "left": 0,
-    "bottom": 0,
-    "width": "750",
-    "flexDirection": "row",
-    "justifyContent": "center"
-  },
-  "loading-pane": {
-    "height": "140",
-    "width": "140",
-    "alignItems": "center",
-    "justifyContent": "center",
-    "backgroundColor": "rgba(0,0,0,0.8)",
-    "marginTop": "300",
-    "borderRadius": "20"
-  },
-  "icon-loading": {
-    "width": "84",
-    "height": "84"
-  }
-}
 
 /***/ }),
 
@@ -557,23 +627,27 @@ module.exports = {
 
 /***/ }),
 
-/***/ 28:
+/***/ 26:
 /***/ (function(module, exports) {
 
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.visible) ? _c('div', {
-    staticClass: ["loading"],
-    style: _vm.style
-  }, [_c('div', {
-    staticClass: ["loading-pane"]
-  }, [_c('image', {
-    staticClass: ["icon-loading"],
-    attrs: {
-      "src": _vm.url
-    }
-  })])]) : _vm._e()
-},staticRenderFns: []}
-module.exports.render._withStripped = true
+module.exports = {
+  "wx-progress": {
+    "backgroundColor": "#1890ff",
+    "width": "750",
+    "height": "40",
+    "position": "relative",
+    "overflow": "hidden"
+  },
+  "progress-bar": {
+    "backgroundColor": "#52c41a",
+    "height": "40",
+    "position": "absolute",
+    "top": 0,
+    "left": "-750",
+    "zIndex": 10,
+    "width": "750"
+  }
+}
 
 /***/ }),
 
@@ -591,6 +665,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["wx-text"],
     style: _vm.textStyles
   }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 31:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wx-progress"],
+    style: _vm.outerStyle
+  }, [_c('text', {
+    ref: "progressBar",
+    staticClass: ["progress-bar"],
+    style: _vm.innerStyle
+  })])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

@@ -6,9 +6,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["npm/weex-droplet-ui/example/loading/index"] = factory();
+		exports["npm/weex-droplet-ui/example/progress/index"] = factory();
 	else
-		root["npm/weex-droplet-ui/example/loading/index"] = factory();
+		root["npm/weex-droplet-ui/example/progress/index"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 165);
+/******/ 	return __webpack_require__(__webpack_require__.s = 168);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -261,47 +261,6 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 127:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(146),
-  /* template */
-  __webpack_require__(186),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/loading/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-28615cae", Component.options)
-  } else {
-    hotAPI.reload("data-v-28615cae", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
 /***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -325,7 +284,52 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 146:
+/***/ 130:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(220)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(149),
+  /* template */
+  __webpack_require__(219),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  "data-v-42519091",
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/progress/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-42519091", Component.options)
+  } else {
+    hotAPI.reload("data-v-42519091", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 149:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -335,7 +339,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(16);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -352,30 +356,37 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
-        return {
-            visible: false
-        };
+        return {};
     },
 
-    components: { WxLoading: _index2.default, WxButton: _index4.default },
-    methods: {
-        openLoading: function openLoading() {
-            var _this = this;
-
-            this.visible = true;
-            setTimeout(function () {
-                _this.visible = false;
-            }, 2000);
-        }
-    }
+    components: {
+        WxProgress: _index2.default,
+        WxButton: _index4.default
+    },
+    methods: {}
 };
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -385,7 +396,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(30);
+var _index = __webpack_require__(31);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -398,7 +409,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 165:
+/***/ 168:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -408,7 +419,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(127);
+var _index = __webpack_require__(130);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -523,38 +534,6 @@ exports.default = {
         }
     }
 };
-
-/***/ }),
-
-/***/ 186:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-button', {
-    attrs: {
-      "data-evt-wxClick": ""
-    },
-    on: {
-      "wxClick": _vm.openLoading
-    },
-    nativeOn: {
-      "wxClick": _vm.openLoading
-    }
-  }, [_vm._v("打开Loading")]), _vm._v(" "), _c('wx-loading', {
-    attrs: {
-      "opacity": "0.6",
-      "visible": _vm.visible,
-      "top": "0px"
-    }
-  })], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-28615cae", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -780,7 +759,7 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 20:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -814,49 +793,208 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
+
+var animation = weex.requireModule('animation');
 
 exports.default = {
     props: {
-        visible: {
-            type: Boolean,
-            default: false
+        percent: {
+            type: Number,
+            default: 0
         },
-        top: {
-            type: String
-        },
-        opacity: {
-            type: String
-        },
-        url: {
+        width: {
             type: String,
-            default: 'http://p285sfed1.bkt.clouddn.com/loading.gif'
+            default: '750px'
+        },
+        animation: {
+            type: Boolean,
+            default: true
+        },
+        innerStyle: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
+        },
+        outerStyle: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
         }
     },
     data: function data() {
         return {
-            style: {
-                top: '100px',
-                'background-color': 'rgba(0,0,0,0.6)'
-            }
+            progress: ''
         };
     },
     created: function created() {
-        if (this.top !== undefined) {
-            this.style.top = this.top;
+        this.progress = this.getProgress();
+        if (!this.animation) {
+            this.defaultProgress(this.progress);
         }
-        if (this.opacity !== undefined) {
-            this.style['background-color'] = 'rgba(0,0,0,' + this.opacity + ')';
+    },
+    mounted: function mounted() {
+        if (this.animation) {
+            this.animationProgress(this.progress);
+        }
+    },
+
+
+    methods: {
+
+        /**
+         * 计算百分比对应的实际进度
+         * @return {[type]} [description]
+         */
+        getProgress: function getProgress() {
+            var width = Number(this.width.replace('px', ''));
+            return width * (this.percent / 100) + 'px';
+        },
+        defaultProgress: function defaultProgress(progress) {
+            this.innerStyle.width = progress;
+            this.innerStyle.left = '0px';
+        },
+        animationProgress: function animationProgress(progress) {
+            var el = this.$refs.progressBar;
+            animation.transition(el, {
+                styles: {
+                    transform: 'translateX(' + progress + ')',
+                    transformOrigin: 'center center'
+                },
+                duration: 1000,
+                timingFunction: 'ease-out',
+                needLayout: false,
+                delay: 0 //ms
+            });
+        }
+    },
+
+    watch: {
+        percent: function percent() {
+            this.animationProgress(this.getProgress());
         }
     }
 };
+
+/***/ }),
+
+/***/ 218:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.progress[data-v-42519091] {\n    margin-top: 0.8rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/progress/index.vue?71d01d73"],"names":[],"mappings":";AAyCA;IACA,mBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-progress \n            :outerStyle=\"{'background-color': '#f5f5f5'}\"\n            :innerStyle=\"{'background-color': '#f5222d','border-top-right-radius': '40px','border-bottom-right-radius': '40px'}\"\n            class=\"progress\" \n            :animation=\"true\" \n            :percent=\"100\">\n        </wx-progress>\n        <wx-progress \n            :outerStyle=\"{'background-color': '#f5f5f5'}\"\n            :innerStyle=\"{'background-color': '#1890ff','border-top-right-radius': '40px','border-bottom-right-radius': '40px'}\"\n            class=\"progress\" \n            :animation=\"true\" \n            :percent=\"90\">\n        </wx-progress>\n        <wx-progress class=\"progress\" :animation=\"true\" :percent=\"80\"></wx-progress>\n        <wx-progress class=\"progress\" :animation=\"true\" :percent=\"70\"></wx-progress>\n        <wx-progress class=\"progress\" :animation=\"true\" :percent=\"60\"></wx-progress>\n    </div>\n</template>\n\n<script>\n    import WxProgress from '../../packages/wx-progress/index'\n    import WxButton from '../../packages/wx-button/index'\n\n    export default {\n        data () {\n            return {\n                \n            }\n        },\n        components: {\n            WxProgress,\n            WxButton\n        },\n        methods: {\n        }\n    }\n</script>\n<style type=\"text/css\" scoped>\n    .progress {\n        margin-top: 60px;\n    }\n</style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 219:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#f5222d',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 100
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#1890ff',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 90
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "animation": true,
+      "percent": 80
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "animation": true,
+      "percent": 70
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "animation": true,
+      "percent": 60
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-42519091", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 220:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(218);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("1a34558c", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-42519091\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-42519091\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 24:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.wx-progress[data-v-131acc96] {\n    background-color: #1890ff;\n    width: 10rem;\n    height: 0.53333rem;\n    position: relative;\n    overflow: hidden;\n}\n.progress-bar[data-v-131acc96] {\n    background-color: #52c41a;\n    height: 0.53333rem;\n    position: absolute;\n    top: 0;\n    left: -10rem;\n    z-index: 10;\n    width: 10rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-progress/index.vue?5fe366f1"],"names":[],"mappings":";AAMA;IACA,0BAAA;IACA,aAAA;IACA,mBAAA;IACA,mBAAA;IACA,iBAAA;CACA;AAEA;IACA,0BAAA;IACA,mBAAA;IACA,mBAAA;IACA,OAAA;IACA,aAAA;IACA,YAAA;IACA,aAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-progress\" :style=\"outerStyle\">\n        <text ref=\"progressBar\" class=\"progress-bar\" :style=\"innerStyle\"></text>\n    </div>\n</template>\n<style scoped>\n    .wx-progress {\n        background-color: #1890ff;\n        width: 750px;\n        height: 40px;\n        position: relative;\n        overflow: hidden;\n    }\n\n    .progress-bar {\n        background-color: #52c41a;\n        height: 40px;\n        position: absolute;\n        top: 0;\n        left: -750px;\n        z-index: 10;\n        width: 750px;\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            percent: {\n                type: Number,\n                default: 0\n            },\n            width: {\n                type: String,\n                default: '750px'\n            },\n            animation: {\n                type: Boolean,\n                default: true\n            },\n            innerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            outerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n        },\n        data(){\n            return {\n                progress: '',\n            }\n        },\n\n        created () {\n            this.progress = this.getProgress();\n            if (!this.animation) {\n                this.defaultProgress(this.progress);\n            } \n        },\n\n        mounted () {\n            if (this.animation) {\n                this.animationProgress(this.progress);\n            }\n        },\n\n        methods: {\n\n            /**\n             * 计算百分比对应的实际进度\n             * @return {[type]} [description]\n             */\n            getProgress () {\n                const width = Number(this.width.replace('px', ''));\n                return width * (this.percent / 100) + 'px';\n            },\n\n            defaultProgress (progress) {\n                this.innerStyle.width =  progress;\n                this.innerStyle.left =  '0px';\n            },\n\n            animationProgress (progress) {\n                let el = this.$refs.progressBar;\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${progress})`,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 1000,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            }\n        },\n\n        watch: {\n            percent () {\n                this.animationProgress(this.getProgress());\n            }\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
+
+// exports
+
 
 /***/ }),
 
@@ -869,21 +1007,6 @@ exports = module.exports = __webpack_require__(1)(true);
 
 // module
 exports.push([module.i, "\n.wx-button {\n    background-color: #4676FF;\n    /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-text {\n    color: #ffffff;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue?4b49ffdc"],"names":[],"mappings":";AAQA;IACA,0BAAA;IACA,kDAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AACA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-button\" @click=\"handleClick\" :style=\"buttonStyles\">\n        <text class=\"wx-text\" :style=\"textStyles\">\n            <slot></slot>\n        </text>\n    </div>\n</template>\n<style>\n    .wx-button {\n        background-color: #4676FF;\n        /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n        align-items: center;\n        justify-content: center;\n    }\n    .wx-text {\n        color: #ffffff;\n        font-size: 32px;\n    }\n</style>\n<script type=\"text/javascript\">\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '670px'\n            },\n            height: {\n                type: String,\n                default: '90px'\n            },\n            borderRadius: {\n                type: String,\n                default: '12px'\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '36px'\n            }\n        },\n        data () {\n            return {\n                buttonStyles: {},\n                textStyles: {},\n            }\n        },\n        created () {\n             this.setStyle();\n        },\n        watch: {\n          'disabled': function () {\n              if(this.disabled){\n                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n              }else{\n                  this.buttonStyles['background-color'] = '#4676FF'\n              }\n          }\n        },\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                    'border-radius': this.borderRadius,\n                };\n                let style = Object.assign({}, baseCss, this.styles);\n                this.buttonStyles = style;\n                if(this.disabled){\n                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n                }\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                if (this.disabled) return;\n                this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 27:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.loading[data-v-712e0c09] {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    width: 10rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.loading-pane[data-v-712e0c09] {\n    height: 1.86667rem;\n    width: 1.86667rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    background-color: rgba(0, 0, 0, 0.8);\n    margin-top: 4rem;\n    border-radius: 0.26667rem;\n}\n.icon-loading[data-v-712e0c09] {\n    width: 1.12rem;\n    height: 1.12rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-loading/index.vue?3b19fde6"],"names":[],"mappings":";AAQA;IACA,gBAAA;IACA,QAAA;IACA,UAAA;IACA,aAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,mBAAA;IACA,kBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,qCAAA;IACA,iBAAA;IACA,0BAAA;CACA;AAEA;IACA,eAAA;IACA,gBAAA;CAEA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"loading\" v-if=\"visible\" :style=\"style\">\n        <div class=\"loading-pane\">\n            <image class=\"icon-loading\" :src=\"url\" />\n        </div>\n    </div>\n</template>\n<style scoped>\n    .loading {\n        position: fixed;\n        left: 0;\n        bottom: 0;\n        width: 750px;\n        flex-direction: row;\n        justify-content: center;\n    }\n\n    .loading-pane {\n        height: 140px;\n        width: 140px;\n        align-items: center;\n        justify-content: center;\n        background-color: rgba(0, 0, 0, 0.8);\n        margin-top: 300px;\n        border-radius: 20px;\n    }\n\n    .icon-loading {\n        width: 84px;\n        height: 84px;\n\n    }\n</style>\n<script>\n    export default {\n        props: {\n            visible: {\n                type: Boolean,\n                default: false\n            },\n            top: {\n                type: String\n            },\n            opacity: {\n                type: String\n            },\n            url: {\n                type: String,\n                default: 'http://p285sfed1.bkt.clouddn.com/loading.gif'\n            }\n        },\n        data(){\n            return {\n                style: {\n                    top:'100px',\n                    'background-color': `rgba(0,0,0,0.6)`\n                }\n            }\n        },\n        created(){\n            if(this.top !== undefined){\n                this.style.top = this.top\n            }\n            if(this.opacity !== undefined){\n                this.style['background-color'] = `rgba(0,0,0,${this.opacity})`\n            }\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -935,27 +1058,27 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 30:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(42)
+  __webpack_require__(39)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(20),
+  __webpack_require__(21),
   /* template */
-  __webpack_require__(37),
+  __webpack_require__(34),
   /* styles */
   injectStyle,
   /* scopeId */
-  "data-v-712e0c09",
+  "data-v-131acc96",
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-loading/index.vue"
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-progress/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -966,9 +1089,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-712e0c09", Component.options)
+    hotAPI.createRecord("data-v-131acc96", Component.options)
   } else {
-    hotAPI.reload("data-v-712e0c09", Component.options)
+    hotAPI.reload("data-v-131acc96", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -977,6 +1100,31 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
+
+/***/ }),
+
+/***/ 34:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "wx-progress weex-ct",
+    style: (_vm._px2rem(_vm.outerStyle, 75)),
+    attrs: {}
+  }, [_c('p', {
+    ref: "progressBar",
+    staticClass: "progress-bar weex-el weex-text",
+    style: (_vm._processExclusiveStyle(_vm.innerStyle, 75, 'text')),
+    attrs: {}
+  })])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-131acc96", module.exports)
+  }
+}
 
 /***/ }),
 
@@ -1018,34 +1166,29 @@ if (false) {
 
 /***/ }),
 
-/***/ 37:
+/***/ 39:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.visible) ? _c('div', {
-    staticClass: "loading weex-ct",
-    style: (_vm._px2rem(_vm.style, 75)),
-    attrs: {}
-  }, [_c('div', {
-    staticClass: "loading-pane weex-ct",
-    attrs: {}
-  }, [_c('figure', {
-    staticClass: "icon-loading weex-el weex-img",
-    staticStyle: {
-      "background-size": "100%100%"
-    },
-    attrs: {
-      "src": _vm.url,
-      "data-img-src": _vm.url
-    }
-  })])]) : _vm._e()
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-712e0c09", module.exports)
-  }
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(24);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("772247d8", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-131acc96\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-131acc96\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
 }
 
 /***/ }),
@@ -1067,33 +1210,6 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22ec0a4a\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
      var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22ec0a4a\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 42:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(27);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("7f676e7a", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-712e0c09\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-712e0c09\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
