@@ -80,6 +80,23 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+/***/ 10:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-button": {
+    "backgroundColor": "#4676FF",
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "wx-text": {
+    "color": "#ffffff",
+    "fontSize": "32"
+  }
+}
+
+/***/ }),
+
 /***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -87,14 +104,14 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(183)
+__vue_styles__.push(__webpack_require__(163)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(146)
 
 /* template */
-var __vue_template__ = __webpack_require__(181)
+var __vue_template__ = __webpack_require__(182)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -125,26 +142,22 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 11:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 12:
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(16);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wx-button"],
+    style: _vm.buttonStyles,
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_c('text', {
+    staticClass: ["wx-text"],
+    style: _vm.textStyles
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 
 /***/ }),
 
@@ -169,51 +182,6 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 13:
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(25)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(18)
-
-/* template */
-var __vue_template__ = __webpack_require__(30)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-9429ca3a"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-
 /***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -224,11 +192,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(11);
+var _index = __webpack_require__(15);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(8);
+var _index3 = __webpack_require__(3);
 
 var _index4 = _interopRequireDefault(_index3);
 
@@ -271,18 +239,108 @@ exports.default = {
 
 /***/ }),
 
-/***/ 16:
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(19);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 163:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "progress": {
+    "marginTop": "60"
+  }
+}
+
+/***/ }),
+
+/***/ 182:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#f5222d',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 100
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#1890ff',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 90
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "animation": true,
+      "percent": 80
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "animation": true,
+      "percent": 70
+    }
+  }), _c('wx-progress', {
+    staticClass: ["progress"],
+    attrs: {
+      "animation": true,
+      "percent": 60
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(26)
+__vue_styles__.push(__webpack_require__(27)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(21)
+__vue_exports__ = __webpack_require__(23)
 
 /* template */
 var __vue_template__ = __webpack_require__(31)
@@ -316,7 +374,241 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 18:
+/***/ 23:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var animation = weex.requireModule('animation');
+
+exports.default = {
+    props: {
+        percent: {
+            type: Number,
+            default: 0
+        },
+        width: {
+            type: String,
+            default: '750px'
+        },
+        height: {
+            type: String,
+            default: '40px'
+        },
+        animation: {
+            type: Boolean,
+            default: true
+        },
+        innerStyle: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
+        },
+        outerStyle: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
+        }
+    },
+    data: function data() {
+        return {
+            progress: '',
+            _outerStyle: {},
+            _innerStyle: {}
+        };
+    },
+    created: function created() {
+        this.initStyle();
+        this.progress = this.getProgress();
+        if (!this.animation) {
+            this.defaultProgress(this.progress);
+        }
+    },
+    mounted: function mounted() {
+        if (this.animation) {
+            this.animationProgress(this.progress);
+        }
+    },
+
+
+    methods: {
+        initStyle: function initStyle() {
+            var base = { width: this.width, height: this.height };
+            this._outerStyle = Object.assign({}, this.outerStyle, base);
+            this._innerStyle = Object.assign({}, this.innerStyle, base);
+        },
+
+
+        /**
+         * 计算百分比对应的实际进度
+         * @return {[type]} [description]
+         */
+        getProgress: function getProgress() {
+            var width = Number(this.width.replace('px', ''));
+            return width * (this.percent / 100) + 'px';
+        },
+        defaultProgress: function defaultProgress(progress) {
+            this.innerStyle.width = progress;
+            this.innerStyle.left = '0px';
+        },
+        animationProgress: function animationProgress(progress) {
+            var el = this.$refs.progressBar;
+            animation.transition(el, {
+                styles: {
+                    transform: 'translateX(' + progress + ')',
+                    transformOrigin: 'center center'
+                },
+                duration: 1000,
+                timingFunction: 'ease-out',
+                needLayout: false,
+                delay: 0 //ms
+            });
+        }
+    },
+
+    watch: {
+        percent: function percent() {
+            this.animationProgress(this.getProgress());
+        }
+    }
+};
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-progress": {
+    "backgroundColor": "#1890ff",
+    "position": "relative",
+    "overflow": "hidden"
+  },
+  "progress-bar": {
+    "backgroundColor": "#52c41a",
+    "position": "absolute",
+    "top": 0,
+    "left": "-750",
+    "zIndex": 10
+  }
+}
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(5);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 31:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wx-progress"],
+    style: _vm._outerStyle
+  }, [_c('text', {
+    ref: "progressBar",
+    staticClass: ["progress-bar"],
+    style: _vm._innerStyle
+  })])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(10)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(7)
+
+/* template */
+var __vue_template__ = __webpack_require__(12)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-9429ca3a"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -420,293 +712,6 @@ exports.default = {
         }
     }
 };
-
-/***/ }),
-
-/***/ 181:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-progress', {
-    staticClass: ["progress"],
-    attrs: {
-      "outerStyle": {
-        'background-color': '#f5f5f5'
-      },
-      "innerStyle": {
-        'background-color': '#f5222d',
-        'border-top-right-radius': '40px',
-        'border-bottom-right-radius': '40px'
-      },
-      "animation": true,
-      "percent": 100
-    }
-  }), _c('wx-progress', {
-    staticClass: ["progress"],
-    attrs: {
-      "outerStyle": {
-        'background-color': '#f5f5f5'
-      },
-      "innerStyle": {
-        'background-color': '#1890ff',
-        'border-top-right-radius': '40px',
-        'border-bottom-right-radius': '40px'
-      },
-      "animation": true,
-      "percent": 90
-    }
-  }), _c('wx-progress', {
-    staticClass: ["progress"],
-    attrs: {
-      "animation": true,
-      "percent": 80
-    }
-  }), _c('wx-progress', {
-    staticClass: ["progress"],
-    attrs: {
-      "animation": true,
-      "percent": 70
-    }
-  }), _c('wx-progress', {
-    staticClass: ["progress"],
-    attrs: {
-      "animation": true,
-      "percent": 60
-    }
-  })], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 183:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "progress": {
-    "marginTop": "60"
-  }
-}
-
-/***/ }),
-
-/***/ 21:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var animation = weex.requireModule('animation');
-
-exports.default = {
-    props: {
-        percent: {
-            type: Number,
-            default: 0
-        },
-        width: {
-            type: String,
-            default: '750px'
-        },
-        animation: {
-            type: Boolean,
-            default: true
-        },
-        innerStyle: {
-            type: Object,
-            default: function _default() {
-                return {};
-            }
-        },
-        outerStyle: {
-            type: Object,
-            default: function _default() {
-                return {};
-            }
-        }
-    },
-    data: function data() {
-        return {
-            progress: ''
-        };
-    },
-    created: function created() {
-        this.progress = this.getProgress();
-        if (!this.animation) {
-            this.defaultProgress(this.progress);
-        }
-    },
-    mounted: function mounted() {
-        if (this.animation) {
-            this.animationProgress(this.progress);
-        }
-    },
-
-
-    methods: {
-
-        /**
-         * 计算百分比对应的实际进度
-         * @return {[type]} [description]
-         */
-        getProgress: function getProgress() {
-            var width = Number(this.width.replace('px', ''));
-            return width * (this.percent / 100) + 'px';
-        },
-        defaultProgress: function defaultProgress(progress) {
-            this.innerStyle.width = progress;
-            this.innerStyle.left = '0px';
-        },
-        animationProgress: function animationProgress(progress) {
-            var el = this.$refs.progressBar;
-            animation.transition(el, {
-                styles: {
-                    transform: 'translateX(' + progress + ')',
-                    transformOrigin: 'center center'
-                },
-                duration: 1000,
-                timingFunction: 'ease-out',
-                needLayout: false,
-                delay: 0 //ms
-            });
-        }
-    },
-
-    watch: {
-        percent: function percent() {
-            this.animationProgress(this.getProgress());
-        }
-    }
-};
-
-/***/ }),
-
-/***/ 25:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wx-button": {
-    "backgroundColor": "#4676FF",
-    "alignItems": "center",
-    "justifyContent": "center"
-  },
-  "wx-text": {
-    "color": "#ffffff",
-    "fontSize": "32"
-  }
-}
-
-/***/ }),
-
-/***/ 26:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wx-progress": {
-    "backgroundColor": "#1890ff",
-    "width": "750",
-    "height": "40",
-    "position": "relative",
-    "overflow": "hidden"
-  },
-  "progress-bar": {
-    "backgroundColor": "#52c41a",
-    "height": "40",
-    "position": "absolute",
-    "top": 0,
-    "left": "-750",
-    "zIndex": 10,
-    "width": "750"
-  }
-}
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wx-button"],
-    style: _vm.buttonStyles,
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_c('text', {
-    staticClass: ["wx-text"],
-    style: _vm.textStyles
-  }, [_vm._t("default")], 2)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 31:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wx-progress"],
-    style: _vm.outerStyle
-  }, [_c('text', {
-    ref: "progressBar",
-    staticClass: ["progress-bar"],
-    style: _vm.innerStyle
-  })])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(13);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 

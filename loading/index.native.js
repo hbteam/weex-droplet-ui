@@ -81,25 +81,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(15);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
+module.exports = {
+  "wx-button": {
+    "backgroundColor": "#4676FF",
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "wx-text": {
+    "color": "#ffffff",
+    "fontSize": "32"
   }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+}
 
 /***/ }),
 
@@ -113,7 +107,7 @@ var __vue_styles__ = []
 __vue_exports__ = __webpack_require__(143)
 
 /* template */
-var __vue_template__ = __webpack_require__(172)
+var __vue_template__ = __webpack_require__(173)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -143,6 +137,25 @@ module.exports = __vue_exports__
 
 /***/ }),
 
+/***/ 12:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wx-button"],
+    style: _vm.buttonStyles,
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_c('text', {
+    staticClass: ["wx-text"],
+    style: _vm.textStyles
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
 /***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -164,48 +177,26 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 13:
+/***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
+"use strict";
 
-/* styles */
-__vue_styles__.push(__webpack_require__(25)
-)
 
-/* script */
-__vue_exports__ = __webpack_require__(18)
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-/* template */
-var __vue_template__ = __webpack_require__(30)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-9429ca3a"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
+var _index = __webpack_require__(18);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
   }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
+});
 
-module.exports = __vue_exports__
-
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 
@@ -219,11 +210,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(10);
+var _index = __webpack_require__(14);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(8);
+var _index3 = __webpack_require__(3);
 
 var _index4 = _interopRequireDefault(_index3);
 
@@ -259,21 +250,41 @@ exports.default = {
 
 /***/ }),
 
-/***/ 15:
+/***/ 173:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-button', {
+    on: {
+      "wxClick": _vm.openLoading
+    }
+  }, [_vm._v("打开Loading")]), _c('wx-loading', {
+    attrs: {
+      "opacity": "0.6",
+      "visible": _vm.visible,
+      "top": "0px"
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(23)
+__vue_styles__.push(__webpack_require__(25)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(20)
+__vue_exports__ = __webpack_require__(22)
 
 /* template */
-var __vue_template__ = __webpack_require__(28)
+var __vue_template__ = __webpack_require__(29)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -304,27 +315,204 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 172:
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    props: {
+        visible: {
+            type: Boolean,
+            default: false
+        },
+        top: {
+            type: String
+        },
+        opacity: {
+            type: String
+        },
+        url: {
+            type: String,
+            default: 'http://p285sfed1.bkt.clouddn.com/loading.gif'
+        }
+    },
+    data: function data() {
+        return {
+            style: {
+                top: '100px',
+                'background-color': 'rgba(0,0,0,0.6)'
+            }
+        };
+    },
+    created: function created() {
+        if (this.top !== undefined) {
+            this.style.top = this.top;
+        }
+        if (this.opacity !== undefined) {
+            this.style['background-color'] = 'rgba(0,0,0,' + this.opacity + ')';
+        }
+    }
+};
+
+/***/ }),
+
+/***/ 25:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "loading": {
+    "position": "fixed",
+    "left": 0,
+    "bottom": 0,
+    "width": "750",
+    "flexDirection": "row",
+    "justifyContent": "center"
+  },
+  "loading-pane": {
+    "height": "140",
+    "width": "140",
+    "alignItems": "center",
+    "justifyContent": "center",
+    "backgroundColor": "rgba(0,0,0,0.8)",
+    "marginTop": "300",
+    "borderRadius": "20"
+  },
+  "icon-loading": {
+    "width": "84",
+    "height": "84"
+  }
+}
+
+/***/ }),
+
+/***/ 29:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-button', {
-    on: {
-      "wxClick": _vm.openLoading
-    }
-  }, [_vm._v("打开Loading")]), _c('wx-loading', {
+  return (_vm.visible) ? _c('div', {
+    staticClass: ["loading"],
+    style: _vm.style
+  }, [_c('div', {
+    staticClass: ["loading-pane"]
+  }, [_c('image', {
+    staticClass: ["icon-loading"],
     attrs: {
-      "opacity": "0.6",
-      "visible": _vm.visible,
-      "top": "0px"
+      "src": _vm.url
     }
-  })], 1)
+  })])]) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 18:
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(5);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(10)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(7)
+
+/* template */
+var __vue_template__ = __webpack_require__(12)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-9429ca3a"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -428,194 +616,6 @@ exports.default = {
         }
     }
 };
-
-/***/ }),
-
-/***/ 20:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    props: {
-        visible: {
-            type: Boolean,
-            default: false
-        },
-        top: {
-            type: String
-        },
-        opacity: {
-            type: String
-        },
-        url: {
-            type: String,
-            default: 'http://p285sfed1.bkt.clouddn.com/loading.gif'
-        }
-    },
-    data: function data() {
-        return {
-            style: {
-                top: '100px',
-                'background-color': 'rgba(0,0,0,0.6)'
-            }
-        };
-    },
-    created: function created() {
-        if (this.top !== undefined) {
-            this.style.top = this.top;
-        }
-        if (this.opacity !== undefined) {
-            this.style['background-color'] = 'rgba(0,0,0,' + this.opacity + ')';
-        }
-    }
-};
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "loading": {
-    "position": "fixed",
-    "left": 0,
-    "bottom": 0,
-    "width": "750",
-    "flexDirection": "row",
-    "justifyContent": "center"
-  },
-  "loading-pane": {
-    "height": "140",
-    "width": "140",
-    "alignItems": "center",
-    "justifyContent": "center",
-    "backgroundColor": "rgba(0,0,0,0.8)",
-    "marginTop": "300",
-    "borderRadius": "20"
-  },
-  "icon-loading": {
-    "width": "84",
-    "height": "84"
-  }
-}
-
-/***/ }),
-
-/***/ 25:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wx-button": {
-    "backgroundColor": "#4676FF",
-    "alignItems": "center",
-    "justifyContent": "center"
-  },
-  "wx-text": {
-    "color": "#ffffff",
-    "fontSize": "32"
-  }
-}
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.visible) ? _c('div', {
-    staticClass: ["loading"],
-    style: _vm.style
-  }, [_c('div', {
-    staticClass: ["loading-pane"]
-  }, [_c('image', {
-    staticClass: ["icon-loading"],
-    attrs: {
-      "src": _vm.url
-    }
-  })])]) : _vm._e()
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wx-button"],
-    style: _vm.buttonStyles,
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_c('text', {
-    staticClass: ["wx-text"],
-    style: _vm.textStyles
-  }, [_vm._t("default")], 2)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(13);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 
