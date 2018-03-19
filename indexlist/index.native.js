@@ -1042,7 +1042,7 @@ exports.default = {
          * @return {[type]} [description]
          */
         getProgress: function getProgress() {
-            var width = Number(this.width.replace('px', ''));
+            var width = Number(this._outerStyle.width.replace('px', ''));
             return width * (this.percent / 100) + 'px';
         },
         defaultProgress: function defaultProgress(progress) {
