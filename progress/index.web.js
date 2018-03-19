@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 168);
+/******/ 	return __webpack_require__(__webpack_require__.s = 171);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -321,19 +321,19 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 130:
+/***/ 131:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(211)
+  __webpack_require__(218)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(149),
+  __webpack_require__(151),
   /* template */
-  __webpack_require__(193),
+  __webpack_require__(199),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -366,7 +366,45 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 149:
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "wx-button weex-ct",
+    style: (_vm._px2rem(_vm.buttonStyles, 75)),
+    attrs: {
+      "data-evt-click": ""
+    },
+    on: {
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.handleClick($event)
+      }
+    },
+    nativeOn: {
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.handleClick($event)
+      }
+    }
+  }, [_c('p', {
+    staticClass: "wx-text weex-el weex-text",
+    style: (_vm._processExclusiveStyle(_vm.textStyles, 75, 'text')),
+    attrs: {}
+  }, [_vm._t("default", null, {})], 2)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-22ec0a4a", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 151:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -423,65 +461,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ 15:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "wx-button weex-ct",
-    style: (_vm._px2rem(_vm.buttonStyles, 75)),
-    attrs: {
-      "data-evt-click": ""
-    },
-    on: {
-      "weex$tap": function($event) {
-        $event.stopPropagation();
-        _vm.handleClick($event)
-      }
-    },
-    nativeOn: {
-      "weex$tap": function($event) {
-        $event.stopPropagation();
-        _vm.handleClick($event)
-      }
-    }
-  }, [_c('p', {
-    staticClass: "wx-text weex-el weex-text",
-    style: (_vm._processExclusiveStyle(_vm.textStyles, 75, 'text')),
-    attrs: {}
-  }, [_vm._t("default", null, {})], 2)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-22ec0a4a", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 168:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(130);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
-
 /***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -509,7 +488,28 @@ if(false) {
 
 /***/ }),
 
-/***/ 178:
+/***/ 171:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(131);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
+
+/***/ 183:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -524,7 +524,7 @@ exports.push([module.i, "\n.progress[data-v-42519091] {\n    margin-top: 0.8rem;
 
 /***/ }),
 
-/***/ 193:
+/***/ 199:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -831,13 +831,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 211:
+/***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(178);
+var content = __webpack_require__(183);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

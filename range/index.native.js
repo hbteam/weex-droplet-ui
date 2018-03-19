@@ -6,9 +6,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["npm/weex-droplet-ui/example/radio/index"] = factory();
+		exports["npm/weex-droplet-ui/example/range/index"] = factory();
 	else
-		root["npm/weex-droplet-ui/example/radio/index"] = factory();
+		root["npm/weex-droplet-ui/example/range/index"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 130);
+/******/ 	return __webpack_require__(__webpack_require__.s = 131);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -5343,21 +5343,22 @@ module.exports.render._withStripped = true
 /* 107 */,
 /* 108 */,
 /* 109 */,
-/* 110 */
+/* 110 */,
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(169)
+__vue_styles__.push(__webpack_require__(155)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(150)
+__vue_exports__ = __webpack_require__(151)
 
 /* template */
-var __vue_template__ = __webpack_require__(189)
+var __vue_template__ = __webpack_require__(170)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -5369,10 +5370,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/radio/index.vue"
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/range/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-d1835d36"
+__vue_options__._scopeId = "data-v-080a4c27"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -5387,7 +5388,6 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 111 */,
 /* 112 */,
 /* 113 */,
 /* 114 */,
@@ -5406,7 +5406,8 @@ module.exports = __vue_exports__
 /* 127 */,
 /* 128 */,
 /* 129 */,
-/* 130 */
+/* 130 */,
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5416,7 +5417,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(110);
+var _index = __webpack_require__(111);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -5426,7 +5427,6 @@ _index2.default.el = '#root';
 exports.default = new Vue(_index2.default);
 
 /***/ }),
-/* 131 */,
 /* 132 */,
 /* 133 */,
 /* 134 */,
@@ -5445,7 +5445,8 @@ exports.default = new Vue(_index2.default);
 /* 147 */,
 /* 148 */,
 /* 149 */,
-/* 150 */
+/* 150 */,
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5457,54 +5458,83 @@ Object.defineProperty(exports, "__esModule", {
 
 var _index = __webpack_require__(46);
 
-var modal = weex.requireModule('modal'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 exports.default = {
     components: {
-        WxRadio: _index.WxRadio
+        WxRange: _index.WxRange,
+        WxButton: _index.WxButton
     },
     data: function data() {
         return {
-            items: [{ label: '有公积金', value: '0', checked: true }, { label: '无公积金', value: '1', checked: false }],
-            selected: null
+            range: 0,
+            range2: 0
         };
     },
-    created: function created() {
-        this.selected = this.items[0];
-    },
+    created: function created() {},
 
     methods: {
-        handleChange: function handleChange(item) {
-            this.selected = item;
+        handleChange: function handleChange(range) {
+            this.range = range;
+        },
+        handleChange2: function handleChange2(range2) {
+            this.range2 = range2;
+        },
+        setRange: function setRange() {
+            this.$refs.range.setRange(50);
         }
     }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
-/* 151 */,
 /* 152 */,
 /* 153 */,
 /* 154 */,
-/* 155 */,
+/* 155 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-demo": {
+    "paddingTop": "100",
+    "alignItems": "center"
+  },
+  "button": {
+    "marginTop": "100",
+    "marginLeft": "50"
+  }
+}
+
+/***/ }),
 /* 156 */,
 /* 157 */,
 /* 158 */,
@@ -5518,18 +5548,75 @@ exports.default = {
 /* 166 */,
 /* 167 */,
 /* 168 */,
-/* 169 */
+/* 169 */,
+/* 170 */
 /***/ (function(module, exports) {
 
-module.exports = {
-  "wx-demo": {
-    "marginTop": "100",
-    "marginLeft": "100"
-  }
-}
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wx-demo"]
+  }, [_c('wx-range', {
+    ref: "range",
+    attrs: {
+      "width": "400px"
+    },
+    on: {
+      "wxChange": _vm.handleChange
+    },
+    model: {
+      value: (_vm.range),
+      callback: function($$v) {
+        _vm.range = $$v
+      },
+      expression: "range"
+    }
+  }), _c('text', {
+    staticStyle: {
+      marginTop: "100px"
+    }
+  }, [_vm._v(_vm._s(_vm.range))]), _c('wx-button', {
+    staticClass: ["button"],
+    on: {
+      "wxClick": function($event) {
+        _vm.setRange()
+      }
+    }
+  }, [_vm._v("设置进度50%")]), _c('text', {
+    staticStyle: {
+      marginTop: "100px"
+    }
+  }), _c('wx-range', {
+    attrs: {
+      "width": "450px",
+      "height": "4px",
+      "circleStyle": {
+        'background-color': '#f5f5f5',
+        'width': '50px',
+        'height': '50px'
+      },
+      "innerStyle": {
+        'background-color': '#f5222d'
+      }
+    },
+    on: {
+      "wxChange": _vm.handleChange2
+    },
+    model: {
+      value: (_vm.range2),
+      callback: function($$v) {
+        _vm.range2 = $$v
+      },
+      expression: "range2"
+    }
+  }), _c('text', {
+    staticStyle: {
+      marginTop: "100px"
+    }
+  }, [_vm._v(_vm._s(_vm.range2))])], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 
 /***/ }),
-/* 170 */,
 /* 171 */,
 /* 172 */,
 /* 173 */,
@@ -5548,33 +5635,7 @@ module.exports = {
 /* 186 */,
 /* 187 */,
 /* 188 */,
-/* 189 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wx-demo"]
-  }, [_c('wx-radio', {
-    attrs: {
-      "checkedColor": "#027FF3",
-      "size": "50px",
-      "align": "left",
-      "textColor": "#4D4D4D",
-      "textFontSize": "32px",
-      "items": _vm.items
-    },
-    on: {
-      "wxChange": _vm.handleChange
-    }
-  }), _c('text', {
-    staticStyle: {
-      marginTop: "100px"
-    }
-  }, [_vm._v(_vm._s(_vm.selected.label))])], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
+/* 189 */,
 /* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
