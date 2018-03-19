@@ -93,8 +93,8 @@
             },
 
             defaultProgress (progress) {
-                this.innerStyle.width =  progress;
-                this.innerStyle.left =  '0px';
+                this._innerStyle.width =  progress;
+                this._innerStyle.left =  '0px';
             },
 
             animationProgress (progress) {
