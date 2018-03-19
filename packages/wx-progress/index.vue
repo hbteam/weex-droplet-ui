@@ -88,7 +88,7 @@
              * @return {[type]} [description]
              */
             getProgress () {
-                const width = Number(this.width.replace('px', ''));
+                const width = Number(this._outerStyle.width.replace('px', ''));
                 return width * (this.percent / 100) + 'px';
             },
 
