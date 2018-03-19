@@ -1046,8 +1046,8 @@ exports.default = {
             return width * (this.percent / 100) + 'px';
         },
         defaultProgress: function defaultProgress(progress) {
-            this.innerStyle.width = progress;
-            this.innerStyle.left = '0px';
+            this._innerStyle.width = progress;
+            this._innerStyle.left = '0px';
         },
         animationProgress: function animationProgress(progress) {
             var el = this.$refs.progressBar;
