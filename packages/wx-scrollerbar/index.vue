@@ -1,17 +1,15 @@
 <template>
-    <div>
-        <scroller class="wx-list" 
+    <scroller class="wx-scroller" 
         :scroll-direction="scrollDirection"
         :style="scrollStyle" show-scrollbar="false">
-            <div
-                :style="{width: itemWidth, height: itemHeight}"
-                :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
-                :ref="'item'+index"
-                v-for="(item, index) in items" @click="changeTab(index)">
-                <text class="wx-text">{{ item }}</text>
-            </div> 
-        </scroller>
-    </div>
+        <div
+            :style="{width: itemWidth, height: itemHeight}"
+            :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
+            :ref="'item'+index"
+            v-for="(item, index) in items" @click="changeTab(index)">
+            <text class="wx-text">{{ item }}</text>
+        </div> 
+    </scroller>
 </template>
 <script>
     const dom = weex.requireModule('dom');
@@ -135,9 +133,8 @@
     }
 </script>
 <style scoped>
-    .wx-list {
+    .wx-scroller {
         background-color: #969696;
-        overflow: hidden;
     }
 
     .wx-cell {
