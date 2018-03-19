@@ -15,6 +15,7 @@ import WxSearch from './packages/wx-search';
 import WxIcon from './packages/wx-icon';
 import WxIndexlist from './packages/wx-indexlist';
 import WxScrollerbar from './packages/wx-scrollerbar';
+import WxProgress from './packages/wx-progress';
 
 export {
     WxButton,
@@ -33,5 +34,6 @@ export {
     WxSearch,
     WxIcon,
     WxIndexlist,
-    WxScrollerbar
+    WxScrollerbar,
+    WxProgress
 };
