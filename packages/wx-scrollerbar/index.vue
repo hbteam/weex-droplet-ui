@@ -1,9 +1,10 @@
 <template>
     <div>
         <scroller class="wx-list" 
-        :style="{width: width, height: height}" show-scrollbar="false">
+        :scroll-direction="scrollDirection"
+        :style="scrollStyle" show-scrollbar="false">
             <div
-                :style="{width: width, height: itemHeight}"
+                :style="{width: itemWidth, height: itemHeight}"
                 :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
                 :ref="'item'+index"
                 v-for="(item, index) in items" @click="changeTab(index)">
@@ -28,17 +29,23 @@
                 type: Function,
                 required: true
             },
-            width: {
-                type: String,
-                default: '250px'
-            },
             height: {
                 type: String,
                 default: '700px'
             },
+
+            itemWidth: {
+                type: String,
+                default: '250px'
+            },
             itemHeight: {
                 type: String,
                 default: '100px'
+            },
+
+            scrollDirection: {
+                type: String,
+                default: 'vertical'
             },
         },
 
@@ -46,9 +53,11 @@
             return {
                 selectIndex: 0,
                 count: 0,
+                scrollStyle: {},
                 data: {
-                    pwidth: 0,
+                    // parent height child height
                     pheight: 0,
+                    cwidth: 0,
                     cheight: 0,
                 },
                 hiddenCount: 0,
@@ -57,9 +66,13 @@
         },
 
         created () {
+            this.scrollStyle = {
+                width: this.getIsVertical() ? this.itemWidth : '750px', 
+                height: this.height
+            }
             this.getData();
             // this.deviceHeight = weex.config.env.deviceHeight
-            this.count = Math.floor(this.data.pheight / this.data.cheight);
+            this.getCount()
             // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
             this.maxHidden = this.items.length - this.count;
         },
@@ -68,10 +81,22 @@
 
             getData () {
                 this.data = {
-                    pwidth: Number(this.width.replace('px', '')),
                     pheight: Number(this.height.replace('px', '')),
+                    cwidth: Number(this.itemWidth.replace('px', '')),
                     cheight: Number(this.itemHeight.replace('px', ''))
                 };
+            },
+
+            getCount () {
+                if (this.getIsVertical()) {
+                    this.count = Math.floor(this.data.pheight / this.data.cheight);
+                } else {
+                    this.count = Math.floor(750 / this.data.cwidth);
+                }
+            },
+
+            getIsVertical () {
+                return this.scrollDirection === 'vertical';
             },
 
             changeTab (index) {

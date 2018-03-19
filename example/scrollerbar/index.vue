@@ -2,9 +2,20 @@
     <div class="wx-demo">
         <wx-scrollerbar 
             :items="items"
-            width="250px" 
             height="700px"
             @wxChange="handleChange"
+            itemWidth="250px" 
+            itemHeight="100px">
+        </wx-scrollerbar>
+
+        <div style="margin-top: 100px;"></div>
+
+        <wx-scrollerbar 
+            scrollDirection="horizontal"
+            :items="items"
+            height="100px"
+            @wxChange="handleChange"
+            itemWidth="150px" 
             itemHeight="100px">
         </wx-scrollerbar>
     </div>
@@ -17,7 +28,7 @@
         },
         data () {
             return {
-                items: ['保单信息1', '保单信息2', '保单信息3', '保单信息4', '保单信息5', '保单信息6','保单信息7', '保单信息8', '保单信息9', '保单信息10', '保单信息11', '保单信息12','保单信息13'],
+                items: ['demo1', 'demo2', 'demo3', 'demo4', 'demo5', 'demo6','demo7', 'demo8', 'demo9', 'demo10', 'demo11', 'demo12','demo13'],
             }
         },
         methods: {
