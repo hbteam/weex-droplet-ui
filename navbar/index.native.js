@@ -3818,6 +3818,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
 
 var dom = weex.requireModule('dom');
 
@@ -3834,17 +3835,23 @@ exports.default = {
             type: Function,
             required: true
         },
-        width: {
-            type: String,
-            default: '250px'
-        },
         height: {
             type: String,
             default: '700px'
         },
+
+        itemWidth: {
+            type: String,
+            default: '250px'
+        },
         itemHeight: {
             type: String,
             default: '100px'
+        },
+
+        scrollDirection: {
+            type: String,
+            default: 'vertical'
         }
     },
 
@@ -3852,9 +3859,11 @@ exports.default = {
         return {
             selectIndex: 0,
             count: 0,
+            scrollStyle: {},
             data: {
-                pwidth: 0,
+                // parent height child height
                 pheight: 0,
+                cwidth: 0,
                 cheight: 0
             },
             hiddenCount: 0,
@@ -3862,9 +3871,13 @@ exports.default = {
         };
     },
     created: function created() {
+        this.scrollStyle = {
+            width: this.getIsVertical() ? this.itemWidth : '750px',
+            height: this.height
+        };
         this.getData();
         // this.deviceHeight = weex.config.env.deviceHeight
-        this.count = Math.floor(this.data.pheight / this.data.cheight);
+        this.getCount();
         // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
         this.maxHidden = this.items.length - this.count;
     },
@@ -3873,10 +3886,20 @@ exports.default = {
     methods: {
         getData: function getData() {
             this.data = {
-                pwidth: Number(this.width.replace('px', '')),
                 pheight: Number(this.height.replace('px', '')),
+                cwidth: Number(this.itemWidth.replace('px', '')),
                 cheight: Number(this.itemHeight.replace('px', ''))
             };
+        },
+        getCount: function getCount() {
+            if (this.getIsVertical()) {
+                this.count = Math.floor(this.data.pheight / this.data.cheight);
+            } else {
+                this.count = Math.floor(750 / this.data.cwidth);
+            }
+        },
+        getIsVertical: function getIsVertical() {
+            return this.scrollDirection === 'vertical';
         },
         changeTab: function changeTab(index) {
             this.selectIndex = index;
@@ -4769,11 +4792,9 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('scroller', {
     staticClass: ["wx-list"],
-    style: {
-      width: _vm.width,
-      height: _vm.height
-    },
+    style: _vm.scrollStyle,
     attrs: {
+      "scrollDirection": _vm.scrollDirection,
       "showScrollbar": "false"
     }
   }, _vm._l((_vm.items), function(item, index) {
@@ -4782,7 +4803,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       refInFor: true,
       class: [_vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
       style: {
-        width: _vm.width,
+        width: _vm.itemWidth,
         height: _vm.itemHeight
       },
       on: {

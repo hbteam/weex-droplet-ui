@@ -3820,6 +3820,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
 
 var dom = weex.requireModule('dom');
 
@@ -3836,17 +3837,23 @@ exports.default = {
             type: Function,
             required: true
         },
-        width: {
-            type: String,
-            default: '250px'
-        },
         height: {
             type: String,
             default: '700px'
         },
+
+        itemWidth: {
+            type: String,
+            default: '250px'
+        },
         itemHeight: {
             type: String,
             default: '100px'
+        },
+
+        scrollDirection: {
+            type: String,
+            default: 'vertical'
         }
     },
 
@@ -3854,9 +3861,11 @@ exports.default = {
         return {
             selectIndex: 0,
             count: 0,
+            scrollStyle: {},
             data: {
-                pwidth: 0,
+                // parent height child height
                 pheight: 0,
+                cwidth: 0,
                 cheight: 0
             },
             hiddenCount: 0,
@@ -3864,9 +3873,13 @@ exports.default = {
         };
     },
     created: function created() {
+        this.scrollStyle = {
+            width: this.getIsVertical() ? this.itemWidth : '750px',
+            height: this.height
+        };
         this.getData();
         // this.deviceHeight = weex.config.env.deviceHeight
-        this.count = Math.floor(this.data.pheight / this.data.cheight);
+        this.getCount();
         // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
         this.maxHidden = this.items.length - this.count;
     },
@@ -3875,10 +3888,20 @@ exports.default = {
     methods: {
         getData: function getData() {
             this.data = {
-                pwidth: Number(this.width.replace('px', '')),
                 pheight: Number(this.height.replace('px', '')),
+                cwidth: Number(this.itemWidth.replace('px', '')),
                 cheight: Number(this.itemHeight.replace('px', ''))
             };
+        },
+        getCount: function getCount() {
+            if (this.getIsVertical()) {
+                this.count = Math.floor(this.data.pheight / this.data.cheight);
+            } else {
+                this.count = Math.floor(750 / this.data.cwidth);
+            }
+        },
+        getIsVertical: function getIsVertical() {
+            return this.scrollDirection === 'vertical';
         },
         changeTab: function changeTab(index) {
             this.selectIndex = index;
@@ -4252,7 +4275,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-list[data-v-2c7a5726] {\n    background-color: #969696;\n    overflow: hidden;\n}\n.wx-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-2c7a5726] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.select-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #ffffff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-scrollerbar/index.vue?6ba00be0"],"names":[],"mappings":";AAgHA;IACA,0BAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <scroller class=\"wx-list\" \n        :style=\"{width: width, height: height}\" show-scrollbar=\"false\">\n            <div\n                :style=\"{width: width, height: itemHeight}\"\n                :class=\"[selectIndex == index ? 'select-cell' : 'wx-cell']\"\n                :ref=\"'item'+index\"\n                v-for=\"(item, index) in items\" @click=\"changeTab(index)\">\n                <text class=\"wx-text\">{{ item }}</text>\n            </div> \n        </scroller>\n    </div>\n</template>\n<script>\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n            width: {\n                type: String,\n                default: '250px'\n            },\n            height: {\n                type: String,\n                default: '700px'\n            },\n            itemHeight: {\n                type: String,\n                default: '100px'\n            },\n        },\n\n        data () {\n            return {\n                selectIndex: 0,\n                count: 0,\n                data: {\n                    pwidth: 0,\n                    pheight: 0,\n                    cheight: 0,\n                },\n                hiddenCount: 0,\n                maxHidden: 0,\n            }\n        },\n\n        created () {\n            this.getData();\n            // this.deviceHeight = weex.config.env.deviceHeight\n            this.count = Math.floor(this.data.pheight / this.data.cheight);\n            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）\n            this.maxHidden = this.items.length - this.count;\n        },\n\n        methods: {\n\n            getData () {\n                this.data = {\n                    pwidth: Number(this.width.replace('px', '')),\n                    pheight: Number(this.height.replace('px', '')),\n                    cheight: Number(this.itemHeight.replace('px', ''))\n                };\n            },\n\n            changeTab (index) {\n                this.selectIndex = index;\n                if (!index) return;\n                const middle = Math.floor(this.count / 2);\n                if (index >= middle) {\n                    this.hiddenCount = index - middle;\n                    this.hiddenCount = this.getCanMoves();\n                    this.scrollTo(-this.hiddenCount * this.data.cheight);\n                } else {\n                    this.hiddenCount = 0;\n                    this.scrollTo(0);\n                }\n                this.$emit('wxChange', this.items[index]);\n            },\n\n            /**\n             * 获取能移动多少条，不能超过总条数\n             */\n            getCanMoves () {\n                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;\n            },\n\n            scrollTo(elHeight){\n                const index = elHeight / this.data.cheight;\n                if (index > 0) {\n                    const el = this.$refs['item' + (13-index)][0];\n                    dom.scrollToElement(el, {});\n                } else {\n                    const el = this.$refs['item' + (0-index)][0];\n                    dom.scrollToElement(el, {});\n                }\n            }\n        }\n    }\n</script>\n<style scoped>\n    .wx-list {\n        background-color: #969696;\n        overflow: hidden;\n    }\n\n    .wx-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .wx-text {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .select-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        background-color: #ffffff;\n    }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-list[data-v-2c7a5726] {\n    background-color: #969696;\n    overflow: hidden;\n}\n.wx-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-2c7a5726] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.select-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #ffffff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-scrollerbar/index.vue?3a26e4d4"],"names":[],"mappings":";AAyIA;IACA,0BAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <scroller class=\"wx-list\" \n        :scroll-direction=\"scrollDirection\"\n        :style=\"scrollStyle\" show-scrollbar=\"false\">\n            <div\n                :style=\"{width: itemWidth, height: itemHeight}\"\n                :class=\"[selectIndex == index ? 'select-cell' : 'wx-cell']\"\n                :ref=\"'item'+index\"\n                v-for=\"(item, index) in items\" @click=\"changeTab(index)\">\n                <text class=\"wx-text\">{{ item }}</text>\n            </div> \n        </scroller>\n    </div>\n</template>\n<script>\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n            height: {\n                type: String,\n                default: '700px'\n            },\n\n            itemWidth: {\n                type: String,\n                default: '250px'\n            },\n            itemHeight: {\n                type: String,\n                default: '100px'\n            },\n\n            scrollDirection: {\n                type: String,\n                default: 'vertical'\n            },\n        },\n\n        data () {\n            return {\n                selectIndex: 0,\n                count: 0,\n                scrollStyle: {},\n                data: {\n                    // parent height child height\n                    pheight: 0,\n                    cwidth: 0,\n                    cheight: 0,\n                },\n                hiddenCount: 0,\n                maxHidden: 0,\n            }\n        },\n\n        created () {\n            this.scrollStyle = {\n                width: this.getIsVertical() ? this.itemWidth : '750px', \n                height: this.height\n            }\n            this.getData();\n            // this.deviceHeight = weex.config.env.deviceHeight\n            this.getCount()\n            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）\n            this.maxHidden = this.items.length - this.count;\n        },\n\n        methods: {\n\n            getData () {\n                this.data = {\n                    pheight: Number(this.height.replace('px', '')),\n                    cwidth: Number(this.itemWidth.replace('px', '')),\n                    cheight: Number(this.itemHeight.replace('px', ''))\n                };\n            },\n\n            getCount () {\n                if (this.getIsVertical()) {\n                    this.count = Math.floor(this.data.pheight / this.data.cheight);\n                } else {\n                    this.count = Math.floor(750 / this.data.cwidth);\n                }\n            },\n\n            getIsVertical () {\n                return this.scrollDirection === 'vertical';\n            },\n\n            changeTab (index) {\n                this.selectIndex = index;\n                if (!index) return;\n                const middle = Math.floor(this.count / 2);\n                if (index >= middle) {\n                    this.hiddenCount = index - middle;\n                    this.hiddenCount = this.getCanMoves();\n                    this.scrollTo(-this.hiddenCount * this.data.cheight);\n                } else {\n                    this.hiddenCount = 0;\n                    this.scrollTo(0);\n                }\n                this.$emit('wxChange', this.items[index]);\n            },\n\n            /**\n             * 获取能移动多少条，不能超过总条数\n             */\n            getCanMoves () {\n                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;\n            },\n\n            scrollTo(elHeight){\n                const index = elHeight / this.data.cheight;\n                if (index > 0) {\n                    const el = this.$refs['item' + (13-index)][0];\n                    dom.scrollToElement(el, {});\n                } else {\n                    const el = this.$refs['item' + (0-index)][0];\n                    dom.scrollToElement(el, {});\n                }\n            }\n        }\n    }\n</script>\n<style scoped>\n    .wx-list {\n        background-color: #969696;\n        overflow: hidden;\n    }\n\n    .wx-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .wx-text {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .select-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        background-color: #ffffff;\n    }\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -5245,11 +5268,9 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('scroller', {
     staticClass: "wx-list",
-    style: ({
-      width: _vm._px2rem(_vm.width, 75),
-      height: _vm._px2rem(_vm.height, 75)
-    }),
+    style: (_vm._px2rem(_vm.scrollStyle, 75)),
     attrs: {
+      "scroll-direction": _vm.scrollDirection,
       "show-scrollbar": "false"
     }
   }, _vm._l((_vm.items), function(item, index) {
@@ -5259,7 +5280,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: " weex-ct",
       class: [_vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
       style: ({
-        width: _vm._px2rem(_vm.width, 75),
+        width: _vm._px2rem(_vm.itemWidth, 75),
         height: _vm._px2rem(_vm.itemHeight, 75)
       }),
       attrs: {
@@ -6027,7 +6048,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            items: ['保单信息1', '保单信息2', '保单信息3', '保单信息4', '保单信息5', '保单信息6', '保单信息7', '保单信息8', '保单信息9', '保单信息10', '保单信息11', '保单信息12', '保单信息13']
+            items: ['demo1', 'demo2', 'demo3', 'demo4', 'demo5', 'demo6', 'demo7', 'demo8', 'demo9', 'demo10', 'demo11', 'demo12', 'demo13']
         };
     },
 
@@ -6041,6 +6062,17 @@ exports.default = {
         }
     }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6111,7 +6143,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"index.vue","sourceRoot":""}]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"index.vue","sourceRoot":""}]);
 
 // exports
 
@@ -6144,8 +6176,29 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('wx-scrollerbar', {
     attrs: {
       "items": _vm.items,
-      "width": "250px",
       "height": "700px",
+      "itemWidth": "250px",
+      "itemHeight": "100px",
+      "data-evt-wxChange": ""
+    },
+    on: {
+      "wxChange": _vm.handleChange
+    },
+    nativeOn: {
+      "wxChange": _vm.handleChange
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: " weex-ct",
+    staticStyle: {
+      "margin-top": "1.33333rem"
+    },
+    attrs: {}
+  }), _vm._v(" "), _c('wx-scrollerbar', {
+    attrs: {
+      "scrollDirection": "horizontal",
+      "items": _vm.items,
+      "height": "100px",
+      "itemWidth": "150px",
       "itemHeight": "100px",
       "data-evt-wxChange": ""
     },
