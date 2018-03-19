@@ -269,7 +269,7 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(139),
   /* template */
-  __webpack_require__(178),
+  __webpack_require__(177),
   /* styles */
   null,
   /* scopeId */
@@ -526,7 +526,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 178:
+/***/ 177:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -544,7 +544,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "opacity": "0.6",
       "visible": _vm.visible,
-      "top": "100px"
+      "top": "0px"
     }
   })], 1)
 },staticRenderFns: []}
