@@ -1,25 +1,21 @@
 <template>
-    <div class="wx-progress" :style="outerStyle">
-        <text ref="progressBar" class="progress-bar" :style="innerStyle"></text>
+    <div class="wx-progress" :style="_outerStyle">
+        <text ref="progressBar" class="progress-bar" :style="_innerStyle"></text>
     </div>
 </template>
 <style scoped>
     .wx-progress {
         background-color: #1890ff;
-        width: 750px;
-        height: 40px;
         position: relative;
         overflow: hidden;
     }
 
     .progress-bar {
         background-color: #52c41a;
-        height: 40px;
         position: absolute;
         top: 0;
         left: -750px;
         z-index: 10;
-        width: 750px;
     }
 
 </style>
@@ -35,6 +31,10 @@
             width: {
                 type: String,
                 default: '750px'
+            },
+            height: {
+                type: String,
+                default: '40px'
             },
             animation: {
                 type: Boolean,
@@ -56,10 +56,13 @@
         data(){
             return {
                 progress: '',
+                _outerStyle: {},
+                _innerStyle: {},
             }
         },
 
         created () {
+            this.initStyle();
             this.progress = this.getProgress();
             if (!this.animation) {
                 this.defaultProgress(this.progress);
@@ -73,6 +76,12 @@
         },
 
         methods: {
+
+            initStyle () {
+                const base = {width: this.width, height: this.height};
+                this._outerStyle = Object.assign({}, this.outerStyle, base);
+                this._innerStyle = Object.assign({}, this.innerStyle, base);
+            },
 
             /**
              * 计算百分比对应的实际进度
