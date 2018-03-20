@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 171);
+/******/ 	return __webpack_require__(__webpack_require__.s = 176);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -321,19 +321,19 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 131:
+/***/ 136:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(218)
+  __webpack_require__(223)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(151),
+  __webpack_require__(156),
   /* template */
-  __webpack_require__(199),
+  __webpack_require__(204),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -404,7 +404,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 151:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -488,7 +488,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 171:
+/***/ 176:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -498,7 +498,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(131);
+var _index = __webpack_require__(136);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -509,7 +509,7 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 183:
+/***/ 188:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -521,68 +521,6 @@ exports.push([module.i, "\n.progress[data-v-42519091] {\n    margin-top: 0.8rem;
 
 // exports
 
-
-/***/ }),
-
-/***/ 199:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-progress', {
-    staticClass: "progress",
-    attrs: {
-      "outerStyle": {
-        'background-color': '#f5f5f5'
-      },
-      "innerStyle": {
-        'background-color': '#f5222d',
-        'border-top-right-radius': '40px',
-        'border-bottom-right-radius': '40px'
-      },
-      "animation": true,
-      "percent": 100
-    }
-  }), _vm._v(" "), _c('wx-progress', {
-    staticClass: "progress",
-    attrs: {
-      "outerStyle": {
-        'background-color': '#f5f5f5'
-      },
-      "innerStyle": {
-        'background-color': '#1890ff',
-        'border-top-right-radius': '40px',
-        'border-bottom-right-radius': '40px'
-      },
-      "animation": true,
-      "percent": 90
-    }
-  }), _vm._v(" "), _c('wx-progress', {
-    staticClass: "progress",
-    attrs: {
-      "animation": true,
-      "percent": 80
-    }
-  }), _vm._v(" "), _c('wx-progress', {
-    staticClass: "progress",
-    attrs: {
-      "animation": true,
-      "percent": 70
-    }
-  }), _vm._v(" "), _c('wx-progress', {
-    staticClass: "progress",
-    attrs: {
-      "animation": true,
-      "percent": 60
-    }
-  })], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-42519091", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -808,6 +746,68 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
+/***/ 204:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#f5222d',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 100
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "outerStyle": {
+        'background-color': '#f5f5f5'
+      },
+      "innerStyle": {
+        'background-color': '#1890ff',
+        'border-top-right-radius': '40px',
+        'border-bottom-right-radius': '40px'
+      },
+      "animation": true,
+      "percent": 90
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "animation": true,
+      "percent": 80
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "animation": true,
+      "percent": 70
+    }
+  }), _vm._v(" "), _c('wx-progress', {
+    staticClass: "progress",
+    attrs: {
+      "animation": true,
+      "percent": 60
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-42519091", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -831,13 +831,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 218:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(183);
+var content = __webpack_require__(188);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

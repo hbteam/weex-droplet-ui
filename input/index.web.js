@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 167);
+/******/ 	return __webpack_require__(__webpack_require__.s = 172);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -295,19 +295,19 @@ exports.push([module.i, "\n.icon-font[data-v-7bfc623c] {\n    font-family: dropl
 
 /***/ }),
 
-/***/ 127:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(214)
+  __webpack_require__(219)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(147),
+  __webpack_require__(152),
   /* template */
-  __webpack_require__(195),
+  __webpack_require__(200),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -385,7 +385,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 147:
+/***/ 152:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -468,7 +468,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 167:
+/***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -478,7 +478,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(127);
+var _index = __webpack_require__(132);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -486,21 +486,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _index2.default.el = '#root';
 exports.default = new Vue(_index2.default);
-
-/***/ }),
-
-/***/ 179:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n.icon {\n    font-size: 0.58667rem;\n    color:#DEDEDE;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    text-align: center;\n    line-height: 1.33333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?55bd0c31"],"names":[],"mappings":";AAkBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AACA;IACA,sBAAA;IACA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input \n            class=\"demo\"\n            placeholder=\"请输入手机号\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n                \n        <wx-input \n            class=\"demo\"\n            width=\"500px\"\n            type=\"password\"\n            placeholder=\"请输入密码\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n    .icon {\n        font-size: 44px;\n        color:#DEDEDE;\n        width: 100px;\n        height: 100px;\n        text-align: center;\n        line-height: 100px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index';\n    import WxIcon from '../../packages/wx-icon/index';\n\n    export default {\n        data () {\n            return {\n            }\n        },\n        components: { WxInput, WxIcon }\n    }\n</script>\n"],"sourceRoot":""}]);
-
-// exports
-
 
 /***/ }),
 
@@ -531,6 +516,21 @@ if(false) {
 
 /***/ }),
 
+/***/ 184:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n.icon {\n    font-size: 0.58667rem;\n    color:#DEDEDE;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    text-align: center;\n    line-height: 1.33333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?55bd0c31"],"names":[],"mappings":";AAkBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AACA;IACA,sBAAA;IACA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input \n            class=\"demo\"\n            placeholder=\"请输入手机号\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n                \n        <wx-input \n            class=\"demo\"\n            width=\"500px\"\n            type=\"password\"\n            placeholder=\"请输入密码\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n    .icon {\n        font-size: 44px;\n        color:#DEDEDE;\n        width: 100px;\n        height: 100px;\n        text-align: center;\n        line-height: 100px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index';\n    import WxIcon from '../../packages/wx-icon/index';\n\n    export default {\n        data () {\n            return {\n            }\n        },\n        components: { WxInput, WxIcon }\n    }\n</script>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -551,48 +551,6 @@ Object.defineProperty(exports, 'default', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 195:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-input', {
-    staticClass: "demo",
-    attrs: {
-      "placeholder": "请输入手机号"
-    }
-  }, [_c('wx-icon', {
-    staticClass: "icon",
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1), _vm._v(" "), _c('wx-input', {
-    staticClass: "demo",
-    attrs: {
-      "width": "500px",
-      "type": "password",
-      "placeholder": "请输入密码"
-    }
-  }, [_c('wx-icon', {
-    staticClass: "icon",
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-34dd637c", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -818,13 +776,55 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 214:
+/***/ 200:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-input', {
+    staticClass: "demo",
+    attrs: {
+      "placeholder": "请输入手机号"
+    }
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1), _vm._v(" "), _c('wx-input', {
+    staticClass: "demo",
+    attrs: {
+      "width": "500px",
+      "type": "password",
+      "placeholder": "请输入密码"
+    }
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1)], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-34dd637c", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 219:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(179);
+var content = __webpack_require__(184);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

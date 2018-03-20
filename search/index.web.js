@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 175);
+/******/ 	return __webpack_require__(__webpack_require__.s = 180);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -295,51 +295,6 @@ exports.push([module.i, "\n.icon-font[data-v-7bfc623c] {\n    font-family: dropl
 
 /***/ }),
 
-/***/ 135:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(212)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(155),
-  /* template */
-  __webpack_require__(193),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  "data-v-29d4a48c",
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/search/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-29d4a48c", Component.options)
-  } else {
-    hotAPI.reload("data-v-29d4a48c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
 /***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -385,7 +340,72 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 155:
+/***/ 140:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(217)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(160),
+  /* template */
+  __webpack_require__(198),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  "data-v-29d4a48c",
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/search/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-29d4a48c", Component.options)
+  } else {
+    hotAPI.reload("data-v-29d4a48c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', {
+    staticClass: "icon-font weex-el weex-text",
+    style: (_vm._processExclusiveStyle(_vm.iconStyle, 75, 'text')),
+    attrs: {}
+  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7bfc623c", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -439,62 +459,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ 16:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', {
-    staticClass: "icon-font weex-el weex-text",
-    style: (_vm._processExclusiveStyle(_vm.iconStyle, 75, 'text')),
-    attrs: {}
-  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7bfc623c", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 175:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(135);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
-
-/***/ 177:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.result[data-v-29d4a48c] {\n    width: 10rem;\n    height: 0.53333rem;\n}\n.m-b-20[data-v-29d4a48c] {\n    margin-bottom: 0.26667rem;\n}\n.f32[data-v-29d4a48c] {\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/search/index.vue?5ae72a72"],"names":[],"mappings":";AA0CA;IACA,aAAA;IACA,mBAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-search\n            v-model=\"searchContent1\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent1}}</text>\n        </div>\n\n        <wx-search\n            v-model=\"searchContent2\"\n            placeholder=\"请输入\"\n            :autofocus=\"true\"\n            bgColor=\"#4676FF\"\n            innerBgColor=\"#fff\"\n            cancelColor=\"#fff\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent2}}</text>\n        </div>\n    </div>\n</template>\n\n<script>\n    import WxSearch from '../../packages/wx-search/index'\n\n    export default {\n        data () {\n            return {\n                searchContent1: '',\n                searchContent2: ''\n            }\n        },\n\n        methods: {\n\n        },\n\n        components: {WxSearch}\n    }\n</script>\n<style scoped>\n    .result {\n        width: 750px;\n        height: 40px;\n    }\n    .m-b-20 {\n        margin-bottom: 20px;\n    }\n    .f32 {\n        font-size: 32px;\n    }\n</style>\n"],"sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
-
 /***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -522,7 +486,43 @@ if(false) {
 
 /***/ }),
 
-/***/ 193:
+/***/ 180:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(140);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
+
+/***/ 182:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.result[data-v-29d4a48c] {\n    width: 10rem;\n    height: 0.53333rem;\n}\n.m-b-20[data-v-29d4a48c] {\n    margin-bottom: 0.26667rem;\n}\n.f32[data-v-29d4a48c] {\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/search/index.vue?5ae72a72"],"names":[],"mappings":";AA0CA;IACA,aAAA;IACA,mBAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-search\n            v-model=\"searchContent1\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent1}}</text>\n        </div>\n\n        <wx-search\n            v-model=\"searchContent2\"\n            placeholder=\"请输入\"\n            :autofocus=\"true\"\n            bgColor=\"#4676FF\"\n            innerBgColor=\"#fff\"\n            cancelColor=\"#fff\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent2}}</text>\n        </div>\n    </div>\n</template>\n\n<script>\n    import WxSearch from '../../packages/wx-search/index'\n\n    export default {\n        data () {\n            return {\n                searchContent1: '',\n                searchContent2: ''\n            }\n        },\n\n        methods: {\n\n        },\n\n        components: {WxSearch}\n    }\n</script>\n<style scoped>\n    .result {\n        width: 750px;\n        height: 40px;\n    }\n    .m-b-20 {\n        margin-bottom: 20px;\n    }\n    .f32 {\n        font-size: 32px;\n    }\n</style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 198:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -796,13 +796,13 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 212:
+/***/ 217:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(177);
+var content = __webpack_require__(182);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
