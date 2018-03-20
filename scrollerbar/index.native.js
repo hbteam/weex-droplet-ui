@@ -973,7 +973,6 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
 
 var animation = weex.requireModule('animation');
 
@@ -1031,8 +1030,12 @@ exports.default = {
 
     methods: {
         initStyle: function initStyle() {
-            var base = { width: this.width, height: this.height };
+            var base = {
+                width: this.width,
+                height: this.height
+            };
             this._outerStyle = Object.assign({}, this.outerStyle, base);
+            base.left = '-' + this.width;
             this._innerStyle = Object.assign({}, this.innerStyle, base);
         },
 
@@ -1286,7 +1289,6 @@ module.exports = {
     "backgroundColor": "#52c41a",
     "position": "absolute",
     "top": 0,
-    "left": "-750",
     "zIndex": 10
   }
 }
