@@ -14,7 +14,6 @@
         background-color: #52c41a;
         position: absolute;
         top: 0;
-        left: -750px;
         z-index: 10;
     }
 
@@ -78,8 +77,12 @@
         methods: {
 
             initStyle () {
-                const base = {width: this.width, height: this.height};
+                let base = {
+                    width: this.width, 
+                    height: this.height,
+                };
                 this._outerStyle = Object.assign({}, this.outerStyle, base);
+                base.left = '-' + this.width;
                 this._innerStyle = Object.assign({}, this.innerStyle, base);
             },
 
