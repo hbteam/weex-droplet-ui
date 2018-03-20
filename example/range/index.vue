@@ -3,6 +3,8 @@
         <wx-range 
             ref="range"
             width="400px"
+            :innerStyle="{'background-color': '#a9acb1'}"
+            :outerStyle="{'background-color': '#1890ff'}"
             v-model="range"
             @wxChange="handleChange">
         </wx-range>
@@ -14,7 +16,7 @@
             width="450px"
             height="4px"
             v-model="range2"
-            :circleStyle="{'background-color': '#f5f5f5', 'width': '50px', 'height': '50px'}"
+            :circleStyle="{'background-color': '#f1f1f1', 'width': '50px', 'height': '50px'}"
             :innerStyle="{'background-color': '#f5222d'}"
             @wxChange="handleChange2">
         </wx-range>

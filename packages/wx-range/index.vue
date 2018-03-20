@@ -1,16 +1,31 @@
 <template>
-    <div class="wx-range" :style="{width: _innerStyle.width, height: _innerStyle.height}">
+    <div class="wx-range">
+        <div class="range-inner" :style="_innerStyle">
+            <div class="range-outer" ref="rangeOuter" :style="_outerStyle"></div>
+        </div>
         <div ref="circle" :style="_circleStyle" class="circle" @panstart="ontouchstart" @panend="ontouchend" @panmove="ontouchmove"></div>
     </div>
 </template>
 <style scoped>
     .wx-range {
-        background-color: #1890ff;
+        background-color: #fff;
         position: relative;
     }
 
+    .range-inner {
+        position: relative;
+        overflow: hidden;
+        background-color: #1890ff;
+    }
+
+    .range-outer {
+        position: absolute;
+        z-index: 100;
+        background-color: #1890ff;
+    }
+
     .circle {
-        background-color: #f5222d;
+        background-color: #f5f5f5;
         position: absolute;
         z-index: 100;
         box-shadow: 0 1px 3px rgba(0,0,0,.4);
@@ -44,6 +59,12 @@
                     return {}
                 }
             },
+            outerStyle: {
+                type: Object,
+                default: function () {
+                    return {}
+                }
+            },
         },
 
         data () {
@@ -52,6 +73,7 @@
                 moveX: 0,
                 _circleStyle: {},
                 _innerStyle: {},
+                _outerStyle: {},
                 data: {
                     width: 0,
                 },
@@ -67,24 +89,31 @@
         methods: {
 
             initStyle () {
+                // _innerStyle
                 const base = {width: this.width, height: this.height};
                 this._innerStyle = Object.assign({}, this.innerStyle, base);
+                console.log(this._innerStyle)
 
+                // _circleStyle
                 this.circleStyle.width = this.circleStyle.width || this.circleSize;
                 this.circleStyle.height = this.circleStyle.height || this.circleSize;
-
                 const circleSize = Number(this.circleStyle.width.replace('px', ''));
                 const h = Number(this._innerStyle.height.replace('px', ''));
                 const v = circleSize / 2;
-
-                const style = {
+                this._circleStyle = Object.assign({}, this.circleStyle, {
                     left: -v + 'px',
                     top: -(v - h/2) + 'px',
                     width: this.circleStyle.width,
                     height: this.circleStyle.height,
                     'border-radius': v + 'px',
-                };
-                this._circleStyle = Object.assign({}, this.circleStyle, style);
+                });
+
+                // _outerStyle
+                this._outerStyle = Object.assign({}, this.outerStyle, {
+                    left: '-' + this._innerStyle.width,
+                    width: this._innerStyle.width,
+                    height: this._innerStyle.height,
+                });
             },
 
             ontouchstart:function(e) {
@@ -94,14 +123,17 @@
             ontouchmove:function(e) {
                 const x = Math.floor(e.changedTouches[0].screenX - this.startX);
                 if (this.moveX + x > this.data.width) {
-                    this.move(this.data.width);
+                    this.move(this.$refs.circle, this.data.width);
+                    this.move(this.$refs.rangeOuter, this.data.width);
                     return;
                 }
                 if (this.moveX + x < 0) {
-                    this.move(0);
+                    this.move(this.$refs.circle, 0);
+                    this.move(this.$refs.rangeOuter, 0);
                     return;
                 }
-                this.move(this.moveX + x);
+                this.move(this.$refs.circle, this.moveX + x);
+                this.move(this.$refs.rangeOuter, this.moveX + x);
                 this.$emit('input', this.getRange(this.moveX + x));
             },
 
@@ -124,8 +156,7 @@
                 // this.move(endPot);
             },
 
-            move (progress) {
-                let el = this.$refs.circle;
+            move (el, progress) {
                 animation.transition(el, {
                     styles: {
                         transform: `translateX(${progress}px)`,
@@ -150,7 +181,8 @@
                     x = this.data.width;
                 }
                 this.moveX = x;
-                this.move(x);
+                this.move(this.$refs.circle, x);
+                this.move(this.$refs.rangeOuter, x);
                 this.$emit('input', range);
                 this.$emit('wxChange', range);
             },
