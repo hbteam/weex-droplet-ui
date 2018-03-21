@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 162);
+/******/ 	return __webpack_require__(__webpack_require__.s = 173);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2125,88 +2125,115 @@ if(false) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
+exports.WxPicker = exports.WxRange = exports.WxProgress = exports.WxScrollerbar = exports.WxIndexlist = exports.WxIcon = exports.WxSearch = exports.WxLoading = exports.WxActionsheet = exports.WxPopup = exports.WxInput = exports.WxField = exports.WxRadio = exports.WxCheckbox = exports.WxCell = exports.WxTabbar = exports.WxNavbar = exports.WxHeader = exports.WxDialog = exports.WxButton = undefined;
 
-var _index = __webpack_require__(83);
+var _wxButton = __webpack_require__(7);
 
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
+var _wxButton2 = _interopRequireDefault(_wxButton);
+
+var _wxDialog = __webpack_require__(47);
+
+var _wxDialog2 = _interopRequireDefault(_wxDialog);
+
+var _wxHeader = __webpack_require__(49);
+
+var _wxHeader2 = _interopRequireDefault(_wxHeader);
+
+var _wxNavbar = __webpack_require__(51);
+
+var _wxNavbar2 = _interopRequireDefault(_wxNavbar);
+
+var _wxTabbar = __webpack_require__(57);
+
+var _wxTabbar2 = _interopRequireDefault(_wxTabbar);
+
+var _wxCell = __webpack_require__(45);
+
+var _wxCell2 = _interopRequireDefault(_wxCell);
+
+var _wxCheckbox = __webpack_require__(46);
+
+var _wxCheckbox2 = _interopRequireDefault(_wxCheckbox);
+
+var _wxRadio = __webpack_require__(54);
+
+var _wxRadio2 = _interopRequireDefault(_wxRadio);
+
+var _wxField = __webpack_require__(48);
+
+var _wxField2 = _interopRequireDefault(_wxField);
+
+var _wxInput = __webpack_require__(19);
+
+var _wxInput2 = _interopRequireDefault(_wxInput);
+
+var _wxPopup = __webpack_require__(53);
+
+var _wxPopup2 = _interopRequireDefault(_wxPopup);
+
+var _wxActionsheet = __webpack_require__(44);
+
+var _wxActionsheet2 = _interopRequireDefault(_wxActionsheet);
+
+var _wxLoading = __webpack_require__(20);
+
+var _wxLoading2 = _interopRequireDefault(_wxLoading);
+
+var _wxSearch = __webpack_require__(22);
+
+var _wxSearch2 = _interopRequireDefault(_wxSearch);
+
+var _wxIcon = __webpack_require__(3);
+
+var _wxIcon2 = _interopRequireDefault(_wxIcon);
+
+var _wxIndexlist = __webpack_require__(50);
+
+var _wxIndexlist2 = _interopRequireDefault(_wxIndexlist);
+
+var _wxScrollerbar = __webpack_require__(56);
+
+var _wxScrollerbar2 = _interopRequireDefault(_wxScrollerbar);
+
+var _wxProgress = __webpack_require__(21);
+
+var _wxProgress2 = _interopRequireDefault(_wxProgress);
+
+var _wxRange = __webpack_require__(55);
+
+var _wxRange2 = _interopRequireDefault(_wxRange);
+
+var _wxPicker = __webpack_require__(52);
+
+var _wxPicker2 = _interopRequireDefault(_wxPicker);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.WxButton = _wxButton2.default;
+exports.WxDialog = _wxDialog2.default;
+exports.WxHeader = _wxHeader2.default;
+exports.WxNavbar = _wxNavbar2.default;
+exports.WxTabbar = _wxTabbar2.default;
+exports.WxCell = _wxCell2.default;
+exports.WxCheckbox = _wxCheckbox2.default;
+exports.WxRadio = _wxRadio2.default;
+exports.WxField = _wxField2.default;
+exports.WxInput = _wxInput2.default;
+exports.WxPopup = _wxPopup2.default;
+exports.WxActionsheet = _wxActionsheet2.default;
+exports.WxLoading = _wxLoading2.default;
+exports.WxSearch = _wxSearch2.default;
+exports.WxIcon = _wxIcon2.default;
+exports.WxIndexlist = _wxIndexlist2.default;
+exports.WxScrollerbar = _wxScrollerbar2.default;
+exports.WxProgress = _wxProgress2.default;
+exports.WxRange = _wxRange2.default;
+exports.WxPicker = _wxPicker2.default;
 
 /***/ }),
 /* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(84);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(85);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(86);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2228,7 +2255,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 48 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2250,7 +2277,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 49 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2272,7 +2299,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 50 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2294,7 +2321,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 51 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2316,7 +2343,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 52 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2338,7 +2365,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 53 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2360,7 +2387,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 54 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2382,7 +2409,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 55 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2404,7 +2431,117 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(96);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(97);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(98);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
 /* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(99);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(100);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2644,7 +2781,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2769,7 +2906,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2880,7 +3017,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3027,7 +3164,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3289,7 +3426,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3440,7 +3577,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3501,7 +3638,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3742,7 +3879,271 @@ exports.default = {
 };
 
 /***/ }),
-/* 64 */
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _is = __webpack_require__(72);
+
+var _is2 = _interopRequireDefault(_is);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var animation = weex.requireModule('animation'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var getIndex = function getIndex(list, item) {
+    if (list && list.length < 1) {
+        return 0;
+    }
+    var index1 = list.findIndex(function (v) {
+        return v === item || v.name && v.name === item.name;
+    });
+    var index2 = list.indexOf(item);
+    var index = Math.max(index1, index2);
+    if (index < 0) {
+        // throw new Error('list数组中不存在defaultValue');
+        return 0;
+    }
+    return index;
+};
+
+exports.default = {
+    props: {
+        visible: {
+            type: Boolean,
+            default: false
+        },
+
+        data: {
+            type: Object,
+            default: function _default() {
+                return {};
+            },
+            required: true
+        }
+    },
+    data: function data() {
+        return {
+            startY: 0,
+            endY: 0,
+            currentY: 0,
+            itemHeight: 72,
+            selectedIndex: 0,
+            _defaultValue: null
+        };
+    },
+    created: function created() {
+        this.selectedIndex = this.getInitialIndex();
+    },
+    mounted: function mounted() {
+        this.initMove();
+        if (_is2.default.empty(this.data.defaultValue)) {
+            this.callback(this.data.list[this.selectedIndex]);
+        } else {
+            this.callback(this.data.defaultValue);
+        }
+    },
+
+
+    methods: {
+        getInitialIndex: function getInitialIndex() {
+            var index = getIndex(this.data.list, this.data.defaultValue);
+            if (!this.data.defaultValue && this.data.list.length > 3) {
+                index = Math.floor(this.data.list.length / 2);
+            }
+            return index;
+        },
+        initMove: function initMove() {
+            this.currentY = 0;
+            if (this.selectedIndex > 2) {
+                this.currentY = -(this.selectedIndex - 2) * this.itemHeight;
+            } else {
+                this.currentY = (2 - this.selectedIndex) * this.itemHeight;
+            }
+            this.move(this.currentY);
+        },
+        getSelectedClass: function getSelectedClass(index) {
+            if (this.selectedIndex === index) {
+                return 'picker-item-selected';
+            }
+            return '';
+        },
+        ontouchstart: function ontouchstart(e) {
+            if (this.data.list.length <= 1) {
+                return;
+            }
+            this.startY = e.changedTouches[0].screenY;
+        },
+        ontouchmove: function ontouchmove(e) {
+            if (this.data.list.length <= 1) {
+                return;
+            }
+            var pageY = e.changedTouches[0].screenY;
+            var value = parseInt(pageY - this.startY);
+            var y = this.currentY + value;
+            this.move(y);
+        },
+        ontouchend: function ontouchend(e) {
+            if (this.data.list.length <= 1) {
+                return;
+            }
+            this.endY = e.changedTouches[0].screenY;
+            // 实际滚动距离
+            var v = parseInt(this.endY - this.startY);
+            var value = v % this.itemHeight;
+            // 计算出每次拖动的36px整倍数
+            this.currentY += v - value;
+
+            // 正数y最大值
+            var max1 = 2 * this.itemHeight;
+            // 负数y最小值
+            var max2 = (this.data.list.length - 3) * this.itemHeight;
+
+            if (this.currentY > max1) {
+                this.currentY = max1;
+            } else if (this.currentY > 0 && this.currentY < max1) {
+                this.currentY = this.currentY;
+            } else if (this.currentY === max1) {
+                this.currentY = this.currentY;
+            } else if (Math.abs(this.currentY) > max2) {
+                this.currentY = -max2;
+            }
+
+            this.countListIndex(this.currentY);
+            this.move(this.currentY, true);
+        },
+
+
+        // 计算list数组索引
+        countListIndex: function countListIndex(pageY) {
+            var n = pageY / this.itemHeight;
+            n = n > 0 ? 2 - n : Math.abs(n) + 2;
+            this.setSelectedValue(n);
+        },
+
+
+        // set选中值
+        setSelectedValue: function setSelectedValue(index) {
+            var length = this.data.list.length;
+            if (length === 0) {
+                this.callback(null);
+                return;
+            }
+            if (index < 0 || index > length - 1) {
+                throw new Error('滑动取值索引数值出现错误' + index);
+            }
+            var value = this.data.list[index];
+            this.selectedIndex = index;
+
+            this.callback(value);
+        },
+
+
+        // 回调wxChange
+        callback: function callback(value) {
+            this.data.defaultValue = value;
+            this.$emit('wxChange', value);
+        },
+        move: function move(y, bool) {
+            var el = this.$refs.wrapper;
+            var obj = {
+                styles: {
+                    transform: 'translateY(' + y + 'px)',
+                    transformOrigin: 'center center'
+                },
+                needLayout: false,
+                delay: 0 //ms
+            };
+            if (bool) {
+                obj.duration = 300;
+                obj.timingFunction = 'ease-out';
+            }
+            animation.transition(el, obj);
+        }
+    },
+    watch: {
+        'data.list': function dataList() {
+            this.selectedIndex = this.getInitialIndex();
+            this.initMove();
+        }
+    }
+};
+
+/***/ }),
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3928,7 +4329,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 65 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4080,7 +4481,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 66 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4281,7 +4682,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 67 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4421,7 +4822,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 68 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4565,7 +4966,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 69 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4574,108 +4975,40 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.WxRange = exports.WxProgress = exports.WxScrollerbar = exports.WxIndexlist = exports.WxIcon = exports.WxSearch = exports.WxLoading = exports.WxActionsheet = exports.WxPopup = exports.WxInput = exports.WxField = exports.WxRadio = exports.WxCheckbox = exports.WxCell = exports.WxTabbar = exports.WxNavbar = exports.WxHeader = exports.WxDialog = exports.WxButton = undefined;
 
-var _wxButton = __webpack_require__(7);
+var is = {};
+is.existy = function (value) {
+    return value != null;
+};
 
-var _wxButton2 = _interopRequireDefault(_wxButton);
+is.object = function (value) {
+    return Object(value) === value;
+};
 
-var _wxDialog = __webpack_require__(46);
+// is a given value Array?
+// check native isArray first
+is.array = Array.isArray || function (value) {
+    return toString.call(value) === '[object Array]';
+};
 
-var _wxDialog2 = _interopRequireDefault(_wxDialog);
+// is a given value empty? Objects, arrays, strings
+is.empty = function (value) {
+    if (is.array(value)) {
+        return value.length == 0;
+    } else if (is.object(value)) {
+        var length = Object.keys(value).length;
+        if (length === 0) {
+            return true;
+        }
+        return false;
+    }
+    return value === '' || typeof value === 'undefined';
+};
 
-var _wxHeader = __webpack_require__(48);
-
-var _wxHeader2 = _interopRequireDefault(_wxHeader);
-
-var _wxNavbar = __webpack_require__(50);
-
-var _wxNavbar2 = _interopRequireDefault(_wxNavbar);
-
-var _wxTabbar = __webpack_require__(55);
-
-var _wxTabbar2 = _interopRequireDefault(_wxTabbar);
-
-var _wxCell = __webpack_require__(44);
-
-var _wxCell2 = _interopRequireDefault(_wxCell);
-
-var _wxCheckbox = __webpack_require__(45);
-
-var _wxCheckbox2 = _interopRequireDefault(_wxCheckbox);
-
-var _wxRadio = __webpack_require__(52);
-
-var _wxRadio2 = _interopRequireDefault(_wxRadio);
-
-var _wxField = __webpack_require__(47);
-
-var _wxField2 = _interopRequireDefault(_wxField);
-
-var _wxInput = __webpack_require__(19);
-
-var _wxInput2 = _interopRequireDefault(_wxInput);
-
-var _wxPopup = __webpack_require__(51);
-
-var _wxPopup2 = _interopRequireDefault(_wxPopup);
-
-var _wxActionsheet = __webpack_require__(43);
-
-var _wxActionsheet2 = _interopRequireDefault(_wxActionsheet);
-
-var _wxLoading = __webpack_require__(20);
-
-var _wxLoading2 = _interopRequireDefault(_wxLoading);
-
-var _wxSearch = __webpack_require__(22);
-
-var _wxSearch2 = _interopRequireDefault(_wxSearch);
-
-var _wxIcon = __webpack_require__(3);
-
-var _wxIcon2 = _interopRequireDefault(_wxIcon);
-
-var _wxIndexlist = __webpack_require__(49);
-
-var _wxIndexlist2 = _interopRequireDefault(_wxIndexlist);
-
-var _wxScrollerbar = __webpack_require__(54);
-
-var _wxScrollerbar2 = _interopRequireDefault(_wxScrollerbar);
-
-var _wxProgress = __webpack_require__(21);
-
-var _wxProgress2 = _interopRequireDefault(_wxProgress);
-
-var _wxRange = __webpack_require__(53);
-
-var _wxRange2 = _interopRequireDefault(_wxRange);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.WxButton = _wxButton2.default;
-exports.WxDialog = _wxDialog2.default;
-exports.WxHeader = _wxHeader2.default;
-exports.WxNavbar = _wxNavbar2.default;
-exports.WxTabbar = _wxTabbar2.default;
-exports.WxCell = _wxCell2.default;
-exports.WxCheckbox = _wxCheckbox2.default;
-exports.WxRadio = _wxRadio2.default;
-exports.WxField = _wxField2.default;
-exports.WxInput = _wxInput2.default;
-exports.WxPopup = _wxPopup2.default;
-exports.WxActionsheet = _wxActionsheet2.default;
-exports.WxLoading = _wxLoading2.default;
-exports.WxSearch = _wxSearch2.default;
-exports.WxIcon = _wxIcon2.default;
-exports.WxIndexlist = _wxIndexlist2.default;
-exports.WxScrollerbar = _wxScrollerbar2.default;
-exports.WxProgress = _wxProgress2.default;
-exports.WxRange = _wxRange2.default;
+exports.default = is;
 
 /***/ }),
-/* 70 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4689,7 +5022,7 @@ exports.push([module.i, "\n.wx-tabbar[data-v-06b46507] {\n}\n.tab-component[data
 
 
 /***/ }),
-/* 71 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4703,7 +5036,7 @@ exports.push([module.i, "\n.wx-indexlist[data-v-07ea1486]{\n    width: 10rem;\n}
 
 
 /***/ }),
-/* 72 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4717,7 +5050,7 @@ exports.push([module.i, "\n.wx-overlay[data-v-0901d80e] {\n    position: fixed;\
 
 
 /***/ }),
-/* 73 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4731,7 +5064,7 @@ exports.push([module.i, "\n.wx-cell[data-v-12f6cc8b] {\n    height: 1.33333rem;\
 
 
 /***/ }),
-/* 74 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4745,7 +5078,7 @@ exports.push([module.i, "\n.wx-header[data-v-158aff14] {\n    height: 1.33333rem
 
 
 /***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4759,7 +5092,7 @@ exports.push([module.i, "\n.wx-actionsheet-mask[data-v-2a32de76] {\n    backgrou
 
 
 /***/ }),
-/* 76 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4773,7 +5106,7 @@ exports.push([module.i, "\n.wx-scroller[data-v-2c7a5726] {\n    background-color
 
 
 /***/ }),
-/* 77 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4787,7 +5120,7 @@ exports.push([module.i, "\n.wx-dialog[data-v-3195ad71] {\n    background-color: 
 
 
 /***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4801,7 +5134,7 @@ exports.push([module.i, "\n.wx-radio-items[data-v-35b82088] {\n    -webkit-box-o
 
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4815,7 +5148,21 @@ exports.push([module.i, "\n.wx-tabbar[data-v-629cf239] {\n    background-color: 
 
 
 /***/ }),
-/* 80 */
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.wx-picker-wrapper {\n    overflow: hidden;\n    background-color: #fff;\n}\n.wx-picker {\n    overflow: hidden;\n    background-color: #fff;\n    height: 5.76rem;\n}\n.wrapper {\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    background-color: #fff;\n    margin-top: 0.42667rem;\n}\n.picker-item {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    text-align: center;\n    line-height: 0.96rem;\n    background-color: #fff;\n    height: 0.96rem;\n    color: #999;\n    font-size: 0.42667rem;\n}\n.picker-item-selected {\n    color: #000;\n}\n.picker-center {\n    width: 10rem;\n    height: 0.96rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DCDCDC;\n\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    position: absolute;\n    top: 2.4rem;\n    left: 0;\n    z-index: 100;\n    width: 750px;\n    /*margin-top: -36px;*/\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-picker/index.vue?62a3b8b7"],"names":[],"mappings":";AAeA;IACA,iBAAA;IACA,uBAAA;CACA;AAEA;IACA,iBAAA;IACA,uBAAA;IACA,gBAAA;CACA;AAEA;IACA,iBAAA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,mBAAA;IACA,qBAAA;IACA,uBAAA;IACA,gBAAA;IACA,YAAA;IACA,sBAAA;CACA;AAEA;IACA,YAAA;CACA;AAEA;IACA,aAAA;IACA,gBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;;IAEA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,mBAAA;IACA,YAAA;IACA,QAAA;IACA,aAAA;IACA,aAAA;IACA,sBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-picker-wrapper\" v-if=\"visible\">\n        <div class=\"wx-picker\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\" >\n            <div class=\"wrapper\" ref=\"wrapper\">\n                <text \n                    class=\"picker-item\"\n                    :class=\"[getSelectedClass(index)]\"\n                    v-for=\"(item, index) in data.list\">{{item.name || item}}</text>\n            </div>\n            <text class=\"picker-center\"></text>\n        </div>\n    </div>\n</template>\n<style>\n\n    .wx-picker-wrapper {\n        overflow: hidden;\n        background-color: #fff;\n    }\n\n    .wx-picker {\n        overflow: hidden;\n        background-color: #fff;\n        height: 432px;\n    }\n\n    .wrapper {\n        overflow: hidden;\n        flex-direction: column;\n        background-color: #fff;\n        margin-top: 32px;\n    }\n\n    .picker-item {\n        flex: 1;\n        text-align: center;\n        line-height: 72px;\n        background-color: #fff;\n        height: 72px;\n        color: #999;\n        font-size: 32px;\n    }\n\n    .picker-item-selected {\n        color: #000;\n    }\n\n    .picker-center {\n        width: 750px;\n        height: 72px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DCDCDC;\n\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        position: absolute;\n        top: 180px;\n        left: 0;\n        z-index: 100;\n        width: 750px;\n        /*margin-top: -36px;*/\n        justify-content: center;\n        align-items: center;\n    }\n\n</style>\n<script type=\"text/javascript\">\n    import is from '../utils/is';\n    const animation = weex.requireModule('animation');\n\n    const getIndex = (list, item) => {\n        if (list && list.length < 1) {\n            return 0;\n        }\n        let index1 = list.findIndex(v => {\n            return v === item || (v.name && v.name === item.name);\n        });\n        let index2 = list.indexOf(item);\n        let index = Math.max(index1, index2);\n        if (index < 0) {\n            // throw new Error('list数组中不存在defaultValue');\n            return 0;\n        }\n        return index;\n    };\n\n    export default {\n        props: {\n            visible: {\n                type: Boolean,\n                default: false\n            },\n\n            data: {\n                type: Object,\n                default: function () {\n                    return {};\n                },\n                required: true\n            },\n        },\n        data () {\n            return {\n                startY: 0,\n                endY: 0,\n                currentY: 0,\n                itemHeight: 72,\n                selectedIndex: 0,\n                _defaultValue: null,\n            }\n        },\n        created () {\n            this.selectedIndex = this.getInitialIndex();\n        },\n\n        mounted () {\n            this.initMove();\n            if (is.empty(this.data.defaultValue)) {\n                this.callback(this.data.list[this.selectedIndex]);\n            } else {\n                this.callback(this.data.defaultValue);\n            }\n        },\n        \n        methods: {\n\n            getInitialIndex() {\n                let index = getIndex(\n                  this.data.list,\n                  this.data.defaultValue\n                );\n                if (!this.data.defaultValue && this.data.list.length > 3) {\n                  index = Math.floor(this.data.list.length / 2);\n                }\n                return index;\n            },\n\n            initMove () {\n                this.currentY = 0;\n                if (this.selectedIndex > 2) {\n                  this.currentY = - (this.selectedIndex - 2) * this.itemHeight;\n                } else {\n                  this.currentY = (2 - this.selectedIndex) * this.itemHeight;\n                }\n                this.move(this.currentY);\n            },\n\n            getSelectedClass (index) {\n                if (this.selectedIndex === index) {\n                  return 'picker-item-selected';\n                }\n                return '';\n            },\n\n            ontouchstart (e) {\n                if (this.data.list.length <= 1) {\n                    return;\n                }\n                this.startY = e.changedTouches[0].screenY;\n            },\n\n            ontouchmove (e) {\n                if (this.data.list.length <= 1) {\n                  return;\n                }\n                const pageY = e.changedTouches[0].screenY;\n                let value = parseInt(pageY - this.startY);\n                const y = this.currentY + value;\n                this.move(y);\n            },\n\n            ontouchend (e) {\n                if (this.data.list.length <= 1) {\n                  return;\n                }\n                this.endY = e.changedTouches[0].screenY;\n                // 实际滚动距离\n                let v = parseInt(this.endY - this.startY);\n                let value = v % this.itemHeight;\n                // 计算出每次拖动的36px整倍数\n                this.currentY += (v - value);\n\n                // 正数y最大值\n                const max1 = 2 * this.itemHeight;\n                // 负数y最小值\n                const max2 = (this.data.list.length - 3) * this.itemHeight;\n\n                if (this.currentY > max1) {\n                  this.currentY = max1;\n                }\n                else if (this.currentY > 0 && this.currentY < max1) {\n                  this.currentY = this.currentY;\n                }\n                else if (this.currentY === max1) {\n                  this.currentY = this.currentY;\n                }\n                else if (Math.abs(this.currentY) > max2) {\n                  this.currentY = - max2;\n                }\n\n                this.countListIndex(this.currentY);\n                this.move(this.currentY, true);\n            },\n\n            // 计算list数组索引\n            countListIndex (pageY) {\n                let n = pageY / this.itemHeight;\n                n = n > 0 ? 2 - n : Math.abs(n) + 2;\n                this.setSelectedValue(n);\n            },\n\n            // set选中值\n            setSelectedValue (index) {\n                const length = this.data.list.length;\n                if (length === 0) {\n                  this.callback(null);\n                  return;\n                }\n                if (index < 0 || index > length -1) {\n                  throw new Error('滑动取值索引数值出现错误'+ index);\n                }\n                const value = this.data.list[index];\n                this.selectedIndex = index;\n\n                this.callback(value)\n            },\n\n            // 回调wxChange\n            callback (value) {\n                this.data.defaultValue = value;\n                this.$emit('wxChange', value);\n            },\n\n            move (y, bool) {\n                const el = this.$refs.wrapper;\n                let obj = {\n                    styles: {\n                        transform: `translateY(${y}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    needLayout: false,\n                    delay: 0 //ms\n                };\n                if (bool) {\n                    obj.duration = 300;\n                    obj.timingFunction = 'ease-out';\n                }\n                animation.transition(el, obj);\n            },\n        },\n        watch: {\n            'data.list' () {\n                this.selectedIndex = this.getInitialIndex();\n                this.initMove();\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4829,7 +5176,7 @@ exports.push([module.i, "\n.wx-field[data-v-a3bc8a72] {\n    width: 10rem;\n    
 
 
 /***/ }),
-/* 81 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4843,7 +5190,7 @@ exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #
 
 
 /***/ }),
-/* 82 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -4857,19 +5204,19 @@ exports.push([module.i, "\n.wx-checkbox[data-v-e9f2baa8] {\n    -webkit-box-orie
 
 
 /***/ }),
-/* 83 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(114)
+  __webpack_require__(120)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(56),
+  __webpack_require__(58),
   /* template */
-  __webpack_require__(101),
+  __webpack_require__(106),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -4901,19 +5248,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 84 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(112)
+  __webpack_require__(118)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(57),
+  __webpack_require__(59),
   /* template */
-  __webpack_require__(99),
+  __webpack_require__(104),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -4945,19 +5292,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 85 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(121)
+  __webpack_require__(128)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(58),
+  __webpack_require__(60),
   /* template */
-  __webpack_require__(108),
+  __webpack_require__(114),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -4989,19 +5336,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 86 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(116)
+  __webpack_require__(122)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(59),
+  __webpack_require__(61),
   /* template */
-  __webpack_require__(103),
+  __webpack_require__(108),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5033,19 +5380,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 87 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(119)
+  __webpack_require__(126)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(60),
+  __webpack_require__(62),
   /* template */
-  __webpack_require__(106),
+  __webpack_require__(112),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5077,19 +5424,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 88 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(113)
+  __webpack_require__(119)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(61),
+  __webpack_require__(63),
   /* template */
-  __webpack_require__(100),
+  __webpack_require__(105),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5121,19 +5468,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 89 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(110)
+  __webpack_require__(116)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(62),
+  __webpack_require__(64),
   /* template */
-  __webpack_require__(97),
+  __webpack_require__(102),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5165,19 +5512,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 90 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(118)
+  __webpack_require__(124)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(63),
+  __webpack_require__(65),
   /* template */
-  __webpack_require__(105),
+  __webpack_require__(110),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5209,19 +5556,63 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(111)
+  __webpack_require__(125)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(64),
+  __webpack_require__(66),
   /* template */
-  __webpack_require__(98),
+  __webpack_require__(111),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-picker/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9af04d92", Component.options)
+  } else {
+    hotAPI.reload("data-v-9af04d92", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(117)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(67),
+  /* template */
+  __webpack_require__(103),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5253,19 +5644,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 92 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(117)
+  __webpack_require__(123)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(65),
+  __webpack_require__(68),
   /* template */
-  __webpack_require__(104),
+  __webpack_require__(109),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5297,19 +5688,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 93 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(120)
+  __webpack_require__(127)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(66),
+  __webpack_require__(69),
   /* template */
-  __webpack_require__(107),
+  __webpack_require__(113),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5341,19 +5732,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 94 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(115)
+  __webpack_require__(121)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(67),
+  __webpack_require__(70),
   /* template */
-  __webpack_require__(102),
+  __webpack_require__(107),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5385,19 +5776,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(109)
+  __webpack_require__(115)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(68),
+  __webpack_require__(71),
   /* template */
-  __webpack_require__(96),
+  __webpack_require__(101),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5429,7 +5820,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 96 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5501,7 +5892,7 @@ if (false) {
 }
 
 /***/ }),
-/* 97 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5578,7 +5969,7 @@ if (false) {
 }
 
 /***/ }),
-/* 98 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5619,7 +6010,7 @@ if (false) {
 }
 
 /***/ }),
-/* 99 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5668,7 +6059,7 @@ if (false) {
 }
 
 /***/ }),
-/* 100 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5715,7 +6106,7 @@ if (false) {
 }
 
 /***/ }),
-/* 101 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5812,7 +6203,7 @@ if (false) {
 }
 
 /***/ }),
-/* 102 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5863,7 +6254,7 @@ if (false) {
 }
 
 /***/ }),
-/* 103 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5931,7 +6322,7 @@ if (false) {
 }
 
 /***/ }),
-/* 104 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5985,7 +6376,7 @@ if (false) {
 }
 
 /***/ }),
-/* 105 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6053,7 +6444,73 @@ if (false) {
 }
 
 /***/ }),
-/* 106 */
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return (_vm.visible) ? _c('div', {
+    staticClass: "wx-picker-wrapper weex-ct",
+    attrs: {}
+  }, [_c('div', {
+    staticClass: "wx-picker weex-ct",
+    attrs: {
+      "data-evt-panstart": "",
+      "data-evt-panend": "",
+      "data-evt-panmove": ""
+    },
+    on: {
+      "panstart": function($event) {
+        $event.stopPropagation();
+        _vm.ontouchstart($event)
+      },
+      "panend": function($event) {
+        $event.stopPropagation();
+        _vm.ontouchend($event)
+      },
+      "panmove": function($event) {
+        $event.stopPropagation();
+        _vm.ontouchmove($event)
+      }
+    },
+    nativeOn: {
+      "panstart": function($event) {
+        $event.stopPropagation();
+        _vm.ontouchstart($event)
+      },
+      "panend": function($event) {
+        $event.stopPropagation();
+        _vm.ontouchend($event)
+      },
+      "panmove": function($event) {
+        $event.stopPropagation();
+        _vm.ontouchmove($event)
+      }
+    }
+  }, [_c('div', {
+    ref: "wrapper",
+    staticClass: "wrapper weex-ct",
+    attrs: {}
+  }, _vm._l((_vm.data.list), function(item, index) {
+    return _c('p', {
+      staticClass: "picker-item weex-el weex-text",
+      class: [_vm.getSelectedClass(index)],
+      attrs: {}
+    }, [_vm._v(_vm._s(item.name || item))])
+  })), _vm._v(" "), _c('p', {
+    staticClass: "picker-center weex-el weex-text",
+    attrs: {}
+  })])]) : _vm._e()
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-9af04d92", module.exports)
+  }
+}
+
+/***/ }),
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6141,7 +6598,7 @@ if (false) {
 }
 
 /***/ }),
-/* 107 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6205,7 +6662,7 @@ if (false) {
 }
 
 /***/ }),
-/* 108 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6256,13 +6713,13 @@ if (false) {
 }
 
 /***/ }),
-/* 109 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(70);
+var content = __webpack_require__(73);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6282,13 +6739,13 @@ if(false) {
 }
 
 /***/ }),
-/* 110 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(71);
+var content = __webpack_require__(74);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6308,13 +6765,13 @@ if(false) {
 }
 
 /***/ }),
-/* 111 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(72);
+var content = __webpack_require__(75);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6334,13 +6791,13 @@ if(false) {
 }
 
 /***/ }),
-/* 112 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(73);
+var content = __webpack_require__(76);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6360,13 +6817,13 @@ if(false) {
 }
 
 /***/ }),
-/* 113 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(74);
+var content = __webpack_require__(77);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6386,13 +6843,13 @@ if(false) {
 }
 
 /***/ }),
-/* 114 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(75);
+var content = __webpack_require__(78);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6412,13 +6869,13 @@ if(false) {
 }
 
 /***/ }),
-/* 115 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(76);
+var content = __webpack_require__(79);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6438,13 +6895,13 @@ if(false) {
 }
 
 /***/ }),
-/* 116 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(77);
+var content = __webpack_require__(80);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6464,13 +6921,13 @@ if(false) {
 }
 
 /***/ }),
-/* 117 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(78);
+var content = __webpack_require__(81);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6490,13 +6947,13 @@ if(false) {
 }
 
 /***/ }),
-/* 118 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(79);
+var content = __webpack_require__(82);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6516,13 +6973,39 @@ if(false) {
 }
 
 /***/ }),
-/* 119 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(80);
+var content = __webpack_require__(83);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("74fc657b", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9af04d92\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9af04d92\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(84);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6542,13 +7025,13 @@ if(false) {
 }
 
 /***/ }),
-/* 120 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(81);
+var content = __webpack_require__(85);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6568,13 +7051,13 @@ if(false) {
 }
 
 /***/ }),
-/* 121 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(82);
+var content = __webpack_require__(86);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6594,19 +7077,20 @@ if(false) {
 }
 
 /***/ }),
-/* 122 */
+/* 129 */,
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(231)
+  __webpack_require__(251)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(142),
+  __webpack_require__(151),
   /* template */
-  __webpack_require__(216),
+  __webpack_require__(234),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -6638,14 +7122,6 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
 /* 131 */,
 /* 132 */,
 /* 133 */,
@@ -6657,7 +7133,16 @@ module.exports = Component.exports
 /* 139 */,
 /* 140 */,
 /* 141 */,
-/* 142 */
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6667,7 +7152,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(69);
+var _index = __webpack_require__(43);
 
 var modal = weex.requireModule('modal'); //
 //
@@ -6750,15 +7235,6 @@ exports.default = {
 };
 
 /***/ }),
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
 /* 152 */,
 /* 153 */,
 /* 154 */,
@@ -6769,26 +7245,7 @@ exports.default = {
 /* 159 */,
 /* 160 */,
 /* 161 */,
-/* 162 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(122);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
+/* 162 */,
 /* 163 */,
 /* 164 */,
 /* 165 */,
@@ -6799,7 +7256,26 @@ exports.default = new Vue(_index2.default);
 /* 170 */,
 /* 171 */,
 /* 172 */,
-/* 173 */,
+/* 173 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(130);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
 /* 174 */,
 /* 175 */,
 /* 176 */,
@@ -6822,20 +7298,7 @@ exports.default = new Vue(_index2.default);
 /* 193 */,
 /* 194 */,
 /* 195 */,
-/* 196 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.button {\n    margin-top: 1.33333rem;\n    margin-left: 1rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/actionsheet/index.vue?ebac7be8"],"names":[],"mappings":";AA4FA;IACA,uBAAA;IACA,kBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-button width=\"600px\" textFontSize=\"32px\" class=\"button\"\n         @wxClick=\"showSheet1 = true\">不带取消按钮</wx-button>\n\n        <wx-button width=\"600px\" textFontSize=\"32px\" class=\"button\"\n          @wxClick=\"showSheet2 = true\">点击空白处不关闭</wx-button>\n\n        <wx-actionsheet\n            v-model=\"showSheet1\"\n            :actions=\"actions1\"\n            :pos=\"{top: '0px', bottom: '0px'}\"\n            cancelText=\"\"\n            titleText=\"\"\n            actionColor=\"#f00\"\n            actionFontSize=\"52px\">\n        </wx-actionsheet>\n\n        <wx-actionsheet\n            v-model=\"showSheet2\"\n            :actions=\"actions2\"\n            :closeOnClickMask=\"false\"\n            titleText=\"客服服务时间:工作日09:00-20:00\"\n            cancelColor=\"#f00\"\n            cancelFontSize=\"38px\">\n        </wx-actionsheet>\n    </div>\n</template>\n\n<script>\n    import { WxActionsheet, WxButton } from '../../index';\n    const modal = weex.requireModule('modal');\n\n    export default {\n        components: {\n            WxActionsheet,\n            WxButton\n        },\n\n        data () {\n            return {\n                showSheet1: false,\n                showSheet2: false,\n                actions1: [],\n                actions2: []\n            }\n        },\n\n        methods: {\n            takePhoto () {\n                modal.toast({ message: 'taking photo' });\n            },\n\n            openAlbum () {\n                modal.toast({ message: 'opening album' });\n            },\n\n            callPhone (action) {\n                modal.toast({ message: action.name });\n            },\n\n            takeMobile (action) {\n                modal.toast({ message: action.name });\n            }\n        },\n\n        mounted () {\n            this.actions1 = [\n                {\n                    name: '拍照',\n                    method: this.takePhoto\n                },\n                {\n                    name: '从相册中选择',\n                    method: this.openAlbum\n                },\n            ];\n\n            this.actions2 = [\n                {\n                    name: '咨询服务热线:400-888-8888',\n                    method: this.callPhone\n                },\n                {\n                    name: '152-2926-7590',\n                    method: this.takeMobile\n                }\n            ];\n        }\n    };\n</script>\n<style type=\"text/css\">\n    .button {\n        margin-top: 100px;\n        margin-left: 75px;\n    }\n</style>"],"sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
+/* 196 */,
 /* 197 */,
 /* 198 */,
 /* 199 */,
@@ -6850,12 +7313,43 @@ exports.push([module.i, "\n.button {\n    margin-top: 1.33333rem;\n    margin-le
 /* 208 */,
 /* 209 */,
 /* 210 */,
-/* 211 */,
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.button {\n    margin-top: 1.33333rem;\n    margin-left: 1rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/actionsheet/index.vue?ebac7be8"],"names":[],"mappings":";AA4FA;IACA,uBAAA;IACA,kBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-button width=\"600px\" textFontSize=\"32px\" class=\"button\"\n         @wxClick=\"showSheet1 = true\">不带取消按钮</wx-button>\n\n        <wx-button width=\"600px\" textFontSize=\"32px\" class=\"button\"\n          @wxClick=\"showSheet2 = true\">点击空白处不关闭</wx-button>\n\n        <wx-actionsheet\n            v-model=\"showSheet1\"\n            :actions=\"actions1\"\n            :pos=\"{top: '0px', bottom: '0px'}\"\n            cancelText=\"\"\n            titleText=\"\"\n            actionColor=\"#f00\"\n            actionFontSize=\"52px\">\n        </wx-actionsheet>\n\n        <wx-actionsheet\n            v-model=\"showSheet2\"\n            :actions=\"actions2\"\n            :closeOnClickMask=\"false\"\n            titleText=\"客服服务时间:工作日09:00-20:00\"\n            cancelColor=\"#f00\"\n            cancelFontSize=\"38px\">\n        </wx-actionsheet>\n    </div>\n</template>\n\n<script>\n    import { WxActionsheet, WxButton } from '../../index';\n    const modal = weex.requireModule('modal');\n\n    export default {\n        components: {\n            WxActionsheet,\n            WxButton\n        },\n\n        data () {\n            return {\n                showSheet1: false,\n                showSheet2: false,\n                actions1: [],\n                actions2: []\n            }\n        },\n\n        methods: {\n            takePhoto () {\n                modal.toast({ message: 'taking photo' });\n            },\n\n            openAlbum () {\n                modal.toast({ message: 'opening album' });\n            },\n\n            callPhone (action) {\n                modal.toast({ message: action.name });\n            },\n\n            takeMobile (action) {\n                modal.toast({ message: action.name });\n            }\n        },\n\n        mounted () {\n            this.actions1 = [\n                {\n                    name: '拍照',\n                    method: this.takePhoto\n                },\n                {\n                    name: '从相册中选择',\n                    method: this.openAlbum\n                },\n            ];\n\n            this.actions2 = [\n                {\n                    name: '咨询服务热线:400-888-8888',\n                    method: this.callPhone\n                },\n                {\n                    name: '152-2926-7590',\n                    method: this.takeMobile\n                }\n            ];\n        }\n    };\n</script>\n<style type=\"text/css\">\n    .button {\n        margin-top: 100px;\n        margin-left: 75px;\n    }\n</style>"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
 /* 212 */,
 /* 213 */,
 /* 214 */,
 /* 215 */,
-/* 216 */
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6938,27 +7432,29 @@ if (false) {
 }
 
 /***/ }),
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(196);
+var content = __webpack_require__(211);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

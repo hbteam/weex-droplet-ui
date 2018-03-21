@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 180);
+/******/ 	return __webpack_require__(__webpack_require__.s = 193);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -340,19 +340,19 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 140:
+/***/ 149:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(217)
+  __webpack_require__(236)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(160),
+  __webpack_require__(171),
   /* template */
-  __webpack_require__(198),
+  __webpack_require__(215),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -405,7 +405,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 160:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -486,7 +486,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 180:
+/***/ 193:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -496,7 +496,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(140);
+var _index = __webpack_require__(149);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -507,7 +507,7 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 182:
+/***/ 196:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -519,58 +519,6 @@ exports.push([module.i, "\n.result[data-v-29d4a48c] {\n    width: 10rem;\n    he
 
 // exports
 
-
-/***/ }),
-
-/***/ 198:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-search', {
-    attrs: {},
-    model: {
-      value: (_vm.searchContent1),
-      callback: function($$v) {
-        _vm.searchContent1 = $$v
-      },
-      expression: "searchContent1"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "result m-b-20 weex-ct",
-    attrs: {}
-  }, [_c('p', {
-    staticClass: "f32 weex-el weex-text",
-    attrs: {}
-  }, [_vm._v(_vm._s(_vm.searchContent1))])]), _vm._v(" "), _c('wx-search', {
-    attrs: {
-      "placeholder": "请输入",
-      "autofocus": true,
-      "bgColor": "#4676FF",
-      "innerBgColor": "#fff",
-      "cancelColor": "#fff"
-    },
-    model: {
-      value: (_vm.searchContent2),
-      callback: function($$v) {
-        _vm.searchContent2 = $$v
-      },
-      expression: "searchContent2"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "result m-b-20 weex-ct",
-    attrs: {}
-  }, [_c('p', {
-    staticClass: "f32 weex-el weex-text",
-    attrs: {}
-  }, [_vm._v(_vm._s(_vm.searchContent2))])])], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-29d4a48c", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -796,29 +744,54 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 217:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(182);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("c9e0e9e4", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29d4a48c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29d4a48c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-search', {
+    attrs: {},
+    model: {
+      value: (_vm.searchContent1),
+      callback: function($$v) {
+        _vm.searchContent1 = $$v
+      },
+      expression: "searchContent1"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "result m-b-20 weex-ct",
+    attrs: {}
+  }, [_c('p', {
+    staticClass: "f32 weex-el weex-text",
+    attrs: {}
+  }, [_vm._v(_vm._s(_vm.searchContent1))])]), _vm._v(" "), _c('wx-search', {
+    attrs: {
+      "placeholder": "请输入",
+      "autofocus": true,
+      "bgColor": "#4676FF",
+      "innerBgColor": "#fff",
+      "cancelColor": "#fff"
+    },
+    model: {
+      value: (_vm.searchContent2),
+      callback: function($$v) {
+        _vm.searchContent2 = $$v
+      },
+      expression: "searchContent2"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "result m-b-20 weex-ct",
+    attrs: {}
+  }, [_c('p', {
+    staticClass: "f32 weex-el weex-text",
+    attrs: {}
+  }, [_vm._v(_vm._s(_vm.searchContent2))])])], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-29d4a48c", module.exports)
+  }
 }
 
 /***/ }),
@@ -843,6 +816,33 @@ Object.defineProperty(exports, 'default', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 236:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(196);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("c9e0e9e4", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29d4a48c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29d4a48c\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ }),
 

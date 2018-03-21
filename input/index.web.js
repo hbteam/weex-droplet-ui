@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 172);
+/******/ 	return __webpack_require__(__webpack_require__.s = 183);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -295,51 +295,6 @@ exports.push([module.i, "\n.icon-font[data-v-7bfc623c] {\n    font-family: dropl
 
 /***/ }),
 
-/***/ 132:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(219)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(152),
-  /* template */
-  __webpack_require__(200),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-34dd637c", Component.options)
-  } else {
-    hotAPI.reload("data-v-34dd637c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
 /***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -385,7 +340,72 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 152:
+/***/ 140:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(239)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(161),
+  /* template */
+  __webpack_require__(218),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-34dd637c", Component.options)
+  } else {
+    hotAPI.reload("data-v-34dd637c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', {
+    staticClass: "icon-font weex-el weex-text",
+    style: (_vm._processExclusiveStyle(_vm.iconStyle, 75, 'text')),
+    attrs: {}
+  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7bfc623c", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -448,47 +468,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ 16:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', {
-    staticClass: "icon-font weex-el weex-text",
-    style: (_vm._processExclusiveStyle(_vm.iconStyle, 75, 'text')),
-    attrs: {}
-  }, [_vm._v(_vm._s(_vm.Icon[_vm.name]))])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7bfc623c", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 172:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(132);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
-
 /***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -516,18 +495,24 @@ if(false) {
 
 /***/ }),
 
-/***/ 184:
+/***/ 183:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(true);
-// imports
+"use strict";
 
 
-// module
-exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n.icon {\n    font-size: 0.58667rem;\n    color:#DEDEDE;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    text-align: center;\n    line-height: 1.33333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?55bd0c31"],"names":[],"mappings":";AAkBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AACA;IACA,sBAAA;IACA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input \n            class=\"demo\"\n            placeholder=\"请输入手机号\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n                \n        <wx-input \n            class=\"demo\"\n            width=\"500px\"\n            type=\"password\"\n            placeholder=\"请输入密码\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n    .icon {\n        font-size: 44px;\n        color:#DEDEDE;\n        width: 100px;\n        height: 100px;\n        text-align: center;\n        line-height: 100px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index';\n    import WxIcon from '../../packages/wx-icon/index';\n\n    export default {\n        data () {\n            return {\n            }\n        },\n        components: { WxInput, WxIcon }\n    }\n</script>\n"],"sourceRoot":""}]);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-// exports
+var _index = __webpack_require__(140);
 
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
 
 /***/ }),
 
@@ -551,6 +536,21 @@ Object.defineProperty(exports, 'default', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 199:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n.icon {\n    font-size: 0.58667rem;\n    color:#DEDEDE;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    text-align: center;\n    line-height: 1.33333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?55bd0c31"],"names":[],"mappings":";AAkBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AACA;IACA,sBAAA;IACA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input \n            class=\"demo\"\n            placeholder=\"请输入手机号\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n                \n        <wx-input \n            class=\"demo\"\n            width=\"500px\"\n            type=\"password\"\n            placeholder=\"请输入密码\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n    .icon {\n        font-size: 44px;\n        color:#DEDEDE;\n        width: 100px;\n        height: 100px;\n        text-align: center;\n        line-height: 100px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index';\n    import WxIcon from '../../packages/wx-icon/index';\n\n    export default {\n        data () {\n            return {\n            }\n        },\n        components: { WxInput, WxIcon }\n    }\n</script>\n"],"sourceRoot":""}]);
+
+// exports
+
 
 /***/ }),
 
@@ -776,7 +776,7 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 200:
+/***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -814,33 +814,6 @@ if (false) {
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-34dd637c", module.exports)
   }
-}
-
-/***/ }),
-
-/***/ 219:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(184);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("bff0b9ec", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-34dd637c\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-34dd637c\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
 }
 
 /***/ }),
@@ -940,6 +913,33 @@ exports.default = {
         }
     }
 };
+
+/***/ }),
+
+/***/ 239:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(199);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("bff0b9ec", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-34dd637c\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-34dd637c\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ }),
 

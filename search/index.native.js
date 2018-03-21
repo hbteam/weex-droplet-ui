@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 137);
+/******/ 	return __webpack_require__(__webpack_require__.s = 147);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -116,21 +116,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 117:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(171)
+__vue_styles__.push(__webpack_require__(186)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(157)
+__vue_exports__ = __webpack_require__(170)
 
 /* template */
-var __vue_template__ = __webpack_require__(191)
+var __vue_template__ = __webpack_require__(208)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -161,7 +161,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 137:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -171,7 +171,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(117);
+var _index = __webpack_require__(125);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -182,7 +182,30 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 157:
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(20);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 170:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -236,30 +259,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 16:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(20);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 171:
+/***/ 186:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -274,47 +274,6 @@ module.exports = {
     "fontSize": "32"
   }
 }
-
-/***/ }),
-
-/***/ 191:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-search', {
-    model: {
-      value: (_vm.searchContent1),
-      callback: function($$v) {
-        _vm.searchContent1 = $$v
-      },
-      expression: "searchContent1"
-    }
-  }), _c('div', {
-    staticClass: ["result", "m-b-20"]
-  }, [_c('text', {
-    staticClass: ["f32"]
-  }, [_vm._v(_vm._s(_vm.searchContent1))])]), _c('wx-search', {
-    attrs: {
-      "placeholder": "请输入",
-      "autofocus": true,
-      "bgColor": "#4676FF",
-      "innerBgColor": "#fff",
-      "cancelColor": "#fff"
-    },
-    model: {
-      value: (_vm.searchContent2),
-      callback: function($$v) {
-        _vm.searchContent2 = $$v
-      },
-      expression: "searchContent2"
-    }
-  }), _c('div', {
-    staticClass: ["result", "m-b-20"]
-  }, [_c('text', {
-    staticClass: ["f32"]
-  }, [_vm._v(_vm._s(_vm.searchContent2))])])], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
 
 /***/ }),
 
@@ -360,6 +319,47 @@ if (typeof __register_static_styles__ === "function") {
 
 module.exports = __vue_exports__
 
+
+/***/ }),
+
+/***/ 208:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-search', {
+    model: {
+      value: (_vm.searchContent1),
+      callback: function($$v) {
+        _vm.searchContent1 = $$v
+      },
+      expression: "searchContent1"
+    }
+  }), _c('div', {
+    staticClass: ["result", "m-b-20"]
+  }, [_c('text', {
+    staticClass: ["f32"]
+  }, [_vm._v(_vm._s(_vm.searchContent1))])]), _c('wx-search', {
+    attrs: {
+      "placeholder": "请输入",
+      "autofocus": true,
+      "bgColor": "#4676FF",
+      "innerBgColor": "#fff",
+      "cancelColor": "#fff"
+    },
+    model: {
+      value: (_vm.searchContent2),
+      callback: function($$v) {
+        _vm.searchContent2 = $$v
+      },
+      expression: "searchContent2"
+    }
+  }), _c('div', {
+    staticClass: ["result", "m-b-20"]
+  }, [_c('text', {
+    staticClass: ["f32"]
+  }, [_vm._v(_vm._s(_vm.searchContent2))])])], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 
 /***/ }),
 

@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 173);
+/******/ 	return __webpack_require__(__webpack_require__.s = 184);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -321,15 +321,15 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 133:
+/***/ 141:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(153),
+  __webpack_require__(162),
   /* template */
-  __webpack_require__(197),
+  __webpack_require__(214),
   /* styles */
   null,
   /* scopeId */
@@ -400,7 +400,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 153:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -477,7 +477,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 173:
+/***/ 184:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -487,7 +487,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(133);
+var _index = __webpack_require__(141);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -495,38 +495,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _index2.default.el = '#root';
 exports.default = new Vue(_index2.default);
-
-/***/ }),
-
-/***/ 197:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-button', {
-    attrs: {
-      "data-evt-wxClick": ""
-    },
-    on: {
-      "wxClick": _vm.openLoading
-    },
-    nativeOn: {
-      "wxClick": _vm.openLoading
-    }
-  }, [_vm._v("打开Loading")]), _vm._v(" "), _c('wx-loading', {
-    attrs: {
-      "opacity": "0.6",
-      "visible": _vm.visible,
-      "top": "0px"
-    }
-  })], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-28615cae", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -772,6 +740,38 @@ Object.defineProperty(exports, 'default', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 214:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-button', {
+    attrs: {
+      "data-evt-wxClick": ""
+    },
+    on: {
+      "wxClick": _vm.openLoading
+    },
+    nativeOn: {
+      "wxClick": _vm.openLoading
+    }
+  }, [_vm._v("打开Loading")]), _vm._v(" "), _c('wx-loading', {
+    attrs: {
+      "opacity": "0.6",
+      "visible": _vm.visible,
+      "top": "0px"
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-28615cae", module.exports)
+  }
+}
 
 /***/ }),
 
