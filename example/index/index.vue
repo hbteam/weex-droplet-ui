@@ -41,7 +41,10 @@
                 const url = this.url + `${componentName}/index.native.js`;
                 modal.alert({message: url});
                 navigator.push({
-                    url: url
+                    url: url,
+                    animated: "true"
+                },event => {
+                    modal.alert({ message: 'callback: ' + event })
                 });
             }
         }
