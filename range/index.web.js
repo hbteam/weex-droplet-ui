@@ -4519,6 +4519,8 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
 
 var animation = weex.requireModule('animation');
 
@@ -4559,6 +4561,7 @@ exports.default = {
             _circleStyle: {},
             _innerStyle: {},
             _outerStyle: {},
+            _wrapStyle: {},
             data: {
                 width: 0
             },
@@ -4567,26 +4570,26 @@ exports.default = {
     },
     created: function created() {
         this.initStyle();
-        this.data.width = Number(this._innerStyle.width.replace('px', ''));
     },
 
 
     methods: {
         initStyle: function initStyle() {
-            // _innerStyle
-            var base = { width: this.width, height: this.height };
-            this._innerStyle = Object.assign({}, this.innerStyle, base);
-            console.log(this._innerStyle);
-
-            // _circleStyle
             this.circleStyle.width = this.circleStyle.width || this.circleSize;
             this.circleStyle.height = this.circleStyle.height || this.circleSize;
             var circleSize = Number(this.circleStyle.width.replace('px', ''));
-            var h = Number(this._innerStyle.height.replace('px', ''));
             var v = circleSize / 2;
+
+            var h = Number(this.height.replace('px', ''));
+
+            // _innerStyle
+            var base = { width: this.width, height: this.height, 'margin-top': v - h / 2 + 'px', 'margin-left': v + 'px' };
+            this._innerStyle = Object.assign({}, this.innerStyle, base);
+            console.log(this._innerStyle);
+            this.data.width = Number(this._innerStyle.width.replace('px', ''));
+
+            // _circleStyle
             this._circleStyle = Object.assign({}, this.circleStyle, {
-                left: -v + 'px',
-                top: -(v - h / 2) + 'px',
                 width: this.circleStyle.width,
                 height: this.circleStyle.height,
                 'border-radius': v + 'px'
@@ -4598,6 +4601,11 @@ exports.default = {
                 width: this._innerStyle.width,
                 height: this._innerStyle.height
             });
+            this._wrapStyle = {
+                width: this.data.width + circleSize + 'px',
+                height: this._circleStyle.height,
+                'background-color': '#fff'
+            };
         },
 
 
@@ -5179,7 +5187,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #fff;\n    position: relative;\n}\n.range-inner[data-v-b2f7c96c] {\n    position: relative;\n    overflow: hidden;\n    background-color: #1890ff;\n}\n.range-outer[data-v-b2f7c96c] {\n    position: absolute;\n    z-index: 100;\n    background-color: #1890ff;\n}\n.circle[data-v-b2f7c96c] {\n    background-color: #f5f5f5;\n    position: absolute;\n    z-index: 100;\n    -webkit-box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n            box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-range/index.vue?2beb627d"],"names":[],"mappings":";AASA;IACA,uBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,iBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;IACA,mBAAA;IACA,aAAA;IACA,iDAAA;YAAA,yCAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-range\">\n        <div class=\"range-inner\" :style=\"_innerStyle\">\n            <div class=\"range-outer\" ref=\"rangeOuter\" :style=\"_outerStyle\"></div>\n        </div>\n        <div ref=\"circle\" :style=\"_circleStyle\" class=\"circle\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-range {\n        background-color: #fff;\n        position: relative;\n    }\n\n    .range-inner {\n        position: relative;\n        overflow: hidden;\n        background-color: #1890ff;\n    }\n\n    .range-outer {\n        position: absolute;\n        z-index: 100;\n        background-color: #1890ff;\n    }\n\n    .circle {\n        background-color: #f5f5f5;\n        position: absolute;\n        z-index: 100;\n        box-shadow: 0 1px 3px rgba(0,0,0,.4);\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            height: {\n                type: String,\n                default: '10px'\n            },\n            circleStyle: {\n                type: Object,\n                default: function () {\n                    return {\n                        \n                    }\n                }\n            },\n            innerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            outerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n        },\n\n        data () {\n            return {\n                startX: 0,\n                moveX: 0,\n                _circleStyle: {},\n                _innerStyle: {},\n                _outerStyle: {},\n                data: {\n                    width: 0,\n                },\n                circleSize: '60px'\n            }\n        },\n\n        created () {\n            this.initStyle();\n            this.data.width = Number(this._innerStyle.width.replace('px', ''));\n        },\n\n        methods: {\n\n            initStyle () {\n                // _innerStyle\n                const base = {width: this.width, height: this.height};\n                this._innerStyle = Object.assign({}, this.innerStyle, base);\n                console.log(this._innerStyle)\n\n                // _circleStyle\n                this.circleStyle.width = this.circleStyle.width || this.circleSize;\n                this.circleStyle.height = this.circleStyle.height || this.circleSize;\n                const circleSize = Number(this.circleStyle.width.replace('px', ''));\n                const h = Number(this._innerStyle.height.replace('px', ''));\n                const v = circleSize / 2;\n                this._circleStyle = Object.assign({}, this.circleStyle, {\n                    left: -v + 'px',\n                    top: -(v - h/2) + 'px',\n                    width: this.circleStyle.width,\n                    height: this.circleStyle.height,\n                    'border-radius': v + 'px',\n                });\n\n                // _outerStyle\n                this._outerStyle = Object.assign({}, this.outerStyle, {\n                    left: '-' + this._innerStyle.width,\n                    width: this._innerStyle.width,\n                    height: this._innerStyle.height,\n                });\n            },\n\n            ontouchstart:function(e) {\n                this.startX = e.changedTouches[0].screenX;\n            },\n\n            ontouchmove:function(e) {\n                const x = Math.floor(e.changedTouches[0].screenX - this.startX);\n                if (this.moveX + x > this.data.width) {\n                    this.move(this.$refs.circle, this.data.width);\n                    this.move(this.$refs.rangeOuter, this.data.width);\n                    return;\n                }\n                if (this.moveX + x < 0) {\n                    this.move(this.$refs.circle, 0);\n                    this.move(this.$refs.rangeOuter, 0);\n                    return;\n                }\n                this.move(this.$refs.circle, this.moveX + x);\n                this.move(this.$refs.rangeOuter, this.moveX + x);\n                this.$emit('input', this.getRange(this.moveX + x));\n            },\n\n            getRange (value) {\n                return Math.floor(value / this.data.width * 100);\n            },\n\n            ontouchend: function(e) {\n                // 结束点(即圆圈在x轴移动的距离)\n                let endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);\n                if (endPot <= 0) {\n                    endPot = 0;\n                }\n                if (endPot > this.data.width) {\n                    endPot = this.data.width;\n                }\n                this.moveX = endPot;\n                this.$emit('input', this.getRange(this.moveX));\n                this.$emit('wxChange', this.getRange(this.moveX));\n                // this.move(endPot);\n            },\n\n            move (el, progress) {\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${progress}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 0,\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            /**\n             * 设置范围\n             * @param {Int} range 0-100数字\n             */\n            setRange (range) {\n                let x = this.data.width * range / 100;\n                if (x <= 0) {\n                    x = 0;\n                }\n                if (x > this.data.width) {\n                    x = this.data.width;\n                }\n                this.moveX = x;\n                this.move(this.$refs.circle, x);\n                this.move(this.$refs.rangeOuter, x);\n                this.$emit('input', range);\n                this.$emit('wxChange', range);\n            },\n\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #fff;\n    position: relative;\n}\n.range-inner[data-v-b2f7c96c] {\n    position: relative;\n    overflow: hidden;\n    background-color: #1890ff;\n}\n.range-outer[data-v-b2f7c96c] {\n    position: absolute;\n    z-index: 100;\n    background-color: #1890ff;\n}\n.circle[data-v-b2f7c96c] {\n    background-color: #f5f5f5;\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: 100;\n    -webkit-box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n            box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-range/index.vue?8e625c62"],"names":[],"mappings":";AASA;IACA,uBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,iBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;IACA,mBAAA;IACA,QAAA;IACA,OAAA;IACA,aAAA;IACA,iDAAA;YAAA,yCAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-range\" :style=\"_wrapStyle\">\n        <div class=\"range-inner\" :style=\"_innerStyle\">\n            <div class=\"range-outer\" ref=\"rangeOuter\" :style=\"_outerStyle\"></div>\n        </div>\n        <div ref=\"circle\" :style=\"_circleStyle\" class=\"circle\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-range {\n        background-color: #fff;\n        position: relative;\n    }\n\n    .range-inner {\n        position: relative;\n        overflow: hidden;\n        background-color: #1890ff;\n    }\n\n    .range-outer {\n        position: absolute;\n        z-index: 100;\n        background-color: #1890ff;\n    }\n\n    .circle {\n        background-color: #f5f5f5;\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 100;\n        box-shadow: 0 1px 3px rgba(0,0,0,.4);\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            height: {\n                type: String,\n                default: '10px'\n            },\n            circleStyle: {\n                type: Object,\n                default: function () {\n                    return {\n                        \n                    }\n                }\n            },\n            innerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            outerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n        },\n\n        data () {\n            return {\n                startX: 0,\n                moveX: 0,\n                _circleStyle: {},\n                _innerStyle: {},\n                _outerStyle: {},\n                _wrapStyle: {},\n                data: {\n                    width: 0,\n                },\n                circleSize: '60px'\n            }\n        },\n\n        created () {\n            this.initStyle();\n        },\n\n        methods: {\n\n            initStyle () {\n                this.circleStyle.width = this.circleStyle.width || this.circleSize;\n                this.circleStyle.height = this.circleStyle.height || this.circleSize;\n                const circleSize = Number(this.circleStyle.width.replace('px', ''));\n                const v = circleSize / 2;\n\n                const h = Number(this.height.replace('px', ''));\n\n                // _innerStyle\n                const base = {width: this.width, height: this.height, 'margin-top': v - h/2 +'px', 'margin-left': v + 'px' };\n                this._innerStyle = Object.assign({}, this.innerStyle, base);\n                console.log(this._innerStyle)\n                this.data.width = Number(this._innerStyle.width.replace('px', ''));\n\n                // _circleStyle\n                this._circleStyle = Object.assign({}, this.circleStyle, {\n                    width: this.circleStyle.width,\n                    height: this.circleStyle.height,\n                    'border-radius': v + 'px',\n                });\n\n                // _outerStyle\n                this._outerStyle = Object.assign({}, this.outerStyle, {\n                    left: '-' + this._innerStyle.width,\n                    width: this._innerStyle.width,\n                    height: this._innerStyle.height,\n                });\n                this._wrapStyle = {\n                    width: this.data.width + circleSize + 'px',\n                    height: this._circleStyle.height,\n                    'background-color': '#fff',\n                }\n            },\n\n            ontouchstart:function(e) {\n                this.startX = e.changedTouches[0].screenX;\n            },\n\n            ontouchmove:function(e) {\n                const x = Math.floor(e.changedTouches[0].screenX - this.startX);\n                if (this.moveX + x > this.data.width) {\n                    this.move(this.$refs.circle, this.data.width);\n                    this.move(this.$refs.rangeOuter, this.data.width);\n                    return;\n                }\n                if (this.moveX + x < 0) {\n                    this.move(this.$refs.circle, 0);\n                    this.move(this.$refs.rangeOuter, 0);\n                    return;\n                }\n                this.move(this.$refs.circle, this.moveX + x);\n                this.move(this.$refs.rangeOuter, this.moveX + x);\n                this.$emit('input', this.getRange(this.moveX + x));\n            },\n\n            getRange (value) {\n                return Math.floor(value / this.data.width * 100);\n            },\n\n            ontouchend: function(e) {\n                // 结束点(即圆圈在x轴移动的距离)\n                let endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);\n                if (endPot <= 0) {\n                    endPot = 0;\n                }\n                if (endPot > this.data.width) {\n                    endPot = this.data.width;\n                }\n                this.moveX = endPot;\n                this.$emit('input', this.getRange(this.moveX));\n                this.$emit('wxChange', this.getRange(this.moveX));\n                // this.move(endPot);\n            },\n\n            move (el, progress) {\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${progress}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 0,\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            /**\n             * 设置范围\n             * @param {Int} range 0-100数字\n             */\n            setRange (range) {\n                let x = this.data.width * range / 100;\n                if (x <= 0) {\n                    x = 0;\n                }\n                if (x > this.data.width) {\n                    x = this.data.width;\n                }\n                this.moveX = x;\n                this.move(this.$refs.circle, x);\n                this.move(this.$refs.rangeOuter, x);\n                this.$emit('input', range);\n                this.$emit('wxChange', range);\n            },\n\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -6599,6 +6607,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "wx-range weex-ct",
+    style: (_vm._px2rem(_vm._wrapStyle, 75)),
     attrs: {}
   }, [_c('div', {
     staticClass: "range-inner weex-ct",
@@ -7226,6 +7235,7 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 /* 170 */,
@@ -7286,7 +7296,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-demo {\n    padding-top: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.button {\n    margin-top: 1.33333rem;\n    margin-left: 0.66667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/range/index.vue?53ae197f"],"names":[],"mappings":";AA0BA;IACA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AACA;IACA,uBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-range \n            ref=\"range\"\n            width=\"400px\"\n            :innerStyle=\"{'background-color': '#a9acb1'}\"\n            :outerStyle=\"{'background-color': '#1890ff'}\"\n            v-model=\"range\"\n            @wxChange=\"handleChange\">\n        </wx-range>\n        <text style=\"margin-top:100px;\">{{ range }}</text>\n        <wx-button class=\"button\" @wxClick=\"setRange()\">设置进度50%</wx-button>\n        \n         <text style=\"margin-top:100px;\"></text>\n        <wx-range \n            width=\"450px\"\n            height=\"4px\"\n            v-model=\"range2\"\n            :circleStyle=\"{'background-color': '#f1f1f1', 'width': '50px', 'height': '50px'}\"\n            :innerStyle=\"{'background-color': '#f5222d'}\"\n            @wxChange=\"handleChange2\">\n        </wx-range>\n        <text style=\"margin-top:100px;\">{{ range2 }}</text>\n    </div>\n</template>\n<style type=\"text/css\">\n    .wx-demo {\n        padding-top: 100px;\n        align-items: center;\n    }\n    .button {\n        margin-top: 100px;\n        margin-left: 50px;\n    }\n</style>\n<script>\n    import { WxRange, WxButton } from '../../index';\n\n    export default {\n        components: {\n            WxRange,\n            WxButton\n        },\n        data () {\n            return {\n                range: 0,\n                range2: 0,\n            }\n        },\n        created () {\n\n        },\n        methods: {\n            handleChange (range) {\n                this.range = range;\n            },\n\n            handleChange2 (range2) {\n                this.range2 = range2;\n            },\n\n            setRange () {\n                this.$refs.range.setRange(50);\n            },\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-demo {\n    padding-top: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.button {\n    margin-top: 1.33333rem;\n    margin-left: 0.66667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/range/index.vue?6353b063"],"names":[],"mappings":";AA0BA;IACA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AACA;IACA,uBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-range \n            ref=\"range\"\n            width=\"400px\"\n            :innerStyle=\"{'background-color': '#a9acb1'}\"\n            :outerStyle=\"{'background-color': '#1890ff'}\"\n            v-model=\"range\"\n            @wxChange=\"handleChange\">\n        </wx-range>\n        <text style=\"margin-top:100px;font-size: 32px;\">{{ range }}</text>\n        <wx-button class=\"button\" @wxClick=\"setRange()\">设置进度50%</wx-button>\n        \n         <text style=\"margin-top:100px;\"></text>\n        <wx-range \n            width=\"450px\"\n            height=\"4px\"\n            v-model=\"range2\"\n            :circleStyle=\"{'background-color': '#f1f1f1', 'width': '50px', 'height': '50px'}\"\n            :innerStyle=\"{'background-color': '#f5222d'}\"\n            @wxChange=\"handleChange2\">\n        </wx-range>\n        <text style=\"margin-top:100px;font-size: 32px;\">{{ range2 }}</text>\n    </div>\n</template>\n<style type=\"text/css\">\n    .wx-demo {\n        padding-top: 100px;\n        align-items: center;\n        background-color: #fff;\n    }\n    .button {\n        margin-top: 100px;\n        margin-left: 50px;\n    }\n</style>\n<script>\n    import { WxRange, WxButton } from '../../index';\n\n    export default {\n        components: {\n            WxRange,\n            WxButton\n        },\n        data () {\n            return {\n                range: 0,\n                range2: 0,\n            }\n        },\n        created () {\n\n        },\n        methods: {\n            handleChange (range) {\n                this.range = range;\n            },\n\n            handleChange2 (range2) {\n                this.range2 = range2;\n            },\n\n            setRange () {\n                this.$refs.range.setRange(50);\n            },\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -7345,7 +7355,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
     staticStyle: {
-      "margin-top": "1.33333rem"
+      "margin-top": "1.33333rem",
+      "font-size": "0.42667rem"
     },
     attrs: {}
   }, [_vm._v(_vm._s(_vm.range))]), _vm._v(" "), _c('wx-button', {
@@ -7399,7 +7410,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
     staticStyle: {
-      "margin-top": "1.33333rem"
+      "margin-top": "1.33333rem",
+      "font-size": "0.42667rem"
     },
     attrs: {}
   }, [_vm._v(_vm._s(_vm.range2))])], 1)

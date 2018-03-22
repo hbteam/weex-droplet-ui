@@ -4517,6 +4517,8 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
 
 var animation = weex.requireModule('animation');
 
@@ -4557,6 +4559,7 @@ exports.default = {
             _circleStyle: {},
             _innerStyle: {},
             _outerStyle: {},
+            _wrapStyle: {},
             data: {
                 width: 0
             },
@@ -4565,26 +4568,26 @@ exports.default = {
     },
     created: function created() {
         this.initStyle();
-        this.data.width = Number(this._innerStyle.width.replace('px', ''));
     },
 
 
     methods: {
         initStyle: function initStyle() {
-            // _innerStyle
-            var base = { width: this.width, height: this.height };
-            this._innerStyle = Object.assign({}, this.innerStyle, base);
-            console.log(this._innerStyle);
-
-            // _circleStyle
             this.circleStyle.width = this.circleStyle.width || this.circleSize;
             this.circleStyle.height = this.circleStyle.height || this.circleSize;
             var circleSize = Number(this.circleStyle.width.replace('px', ''));
-            var h = Number(this._innerStyle.height.replace('px', ''));
             var v = circleSize / 2;
+
+            var h = Number(this.height.replace('px', ''));
+
+            // _innerStyle
+            var base = { width: this.width, height: this.height, 'margin-top': v - h / 2 + 'px', 'margin-left': v + 'px' };
+            this._innerStyle = Object.assign({}, this.innerStyle, base);
+            console.log(this._innerStyle);
+            this.data.width = Number(this._innerStyle.width.replace('px', ''));
+
+            // _circleStyle
             this._circleStyle = Object.assign({}, this.circleStyle, {
-                left: -v + 'px',
-                top: -(v - h / 2) + 'px',
                 width: this.circleStyle.width,
                 height: this.circleStyle.height,
                 'border-radius': v + 'px'
@@ -4596,6 +4599,11 @@ exports.default = {
                 width: this._innerStyle.width,
                 height: this._innerStyle.height
             });
+            this._wrapStyle = {
+                width: this.data.width + circleSize + 'px',
+                height: this._circleStyle.height,
+                'background-color': '#fff'
+            };
         },
 
 
@@ -5537,6 +5545,8 @@ module.exports = {
   "circle": {
     "backgroundColor": "#f5f5f5",
     "position": "absolute",
+    "left": 0,
+    "top": 0,
     "zIndex": 100,
     "boxShadow": "0 1px 3px rgba(0,0,0,.4)"
   }
@@ -6029,7 +6039,8 @@ module.exports.render._withStripped = true
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["wx-range"]
+    staticClass: ["wx-range"],
+    style: _vm._wrapStyle
   }, [_c('div', {
     staticClass: ["range-inner"],
     style: _vm._innerStyle
@@ -6275,6 +6286,7 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 /* 169 */,
@@ -6286,7 +6298,8 @@ exports.default = {
 module.exports = {
   "wx-demo": {
     "paddingTop": "100",
-    "alignItems": "center"
+    "alignItems": "center",
+    "backgroundColor": "#ffffff"
   },
   "button": {
     "marginTop": "100",
@@ -6340,7 +6353,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('text', {
     staticStyle: {
-      marginTop: "100px"
+      marginTop: "100px",
+      fontSize: "32px"
     }
   }, [_vm._v(_vm._s(_vm.range))]), _c('wx-button', {
     staticClass: ["button"],
@@ -6378,7 +6392,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('text', {
     staticStyle: {
-      marginTop: "100px"
+      marginTop: "100px",
+      fontSize: "32px"
     }
   }, [_vm._v(_vm._s(_vm.range2))])], 1)
 },staticRenderFns: []}
