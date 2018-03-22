@@ -39,7 +39,6 @@
         methods: {
             go (componentName) {
                 const url = this.url + `${componentName}/index.native.js`;
-                modal.alert({message: url});
                 navigator.push({
                     url: url,
                     animated: "true"

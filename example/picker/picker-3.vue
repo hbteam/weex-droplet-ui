@@ -49,6 +49,7 @@
         width: 100px;
         text-align: center;
         color: #007aff;
+        font-size: 32px;
     }
 </style>
 <script>
