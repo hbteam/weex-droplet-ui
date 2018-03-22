@@ -21,6 +21,7 @@
     import { WxCell } from '../../index';
     import * as all from '../../index';
     const navigator = weex.requireModule('navigator');
+    const modal = weex.requireModule('modal');
 
     const componentNameArr = Object.keys(all).map(item => {
         return item.toLowerCase().replace('wx', '');
@@ -37,8 +38,10 @@
 
         methods: {
             go (componentName) {
+                const url = this.url + `${componentName}/index.native.js`;
+                modal.alert({message: url});
                 navigator.push({
-                    url: this.url + `${componentName}/index.native.js`
+                    url: url
                 });
             }
         }
