@@ -6904,7 +6904,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.visible = true
       }
     }
-  }, [_vm._v("点击选择")]), _c('text', [_vm._v("选中的值为：" + _vm._s(_vm.selectedData.name))]), _c('wx-button', {
+  }, [_vm._v("点击选择")]), _c('text', {
+    staticStyle: {
+      fontSize: "32px"
+    }
+  }, [_vm._v("选中的值为：" + _vm._s(_vm.selectedData.name))]), _c('wx-button', {
     attrs: {
       "height": "80px",
       "width": "450px",
@@ -6917,7 +6921,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.visible3 = true
       }
     }
-  }, [_vm._v("地址选择")]), _c('text', [_vm._v("选中地址值为：" + _vm._s(_vm.address))])], 1)
+  }, [_vm._v("地址选择")]), _c('text', {
+    staticStyle: {
+      fontSize: "32px"
+    }
+  }, [_vm._v("选中地址值为：" + _vm._s(_vm.address))])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
