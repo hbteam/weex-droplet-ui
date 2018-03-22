@@ -64,9 +64,11 @@
         },
 
         created () {
+            let isVertical = this.getIsVertical();
             this.scrollStyle = {
-                width: this.getIsVertical() ? this.itemWidth : '750px', 
-                height: this.height
+                width: isVertical ? this.itemWidth : '750px', 
+                height: this.height,
+                'flex-direction': isVertical ? 'column' : 'row'
             }
             this.getData();
             // this.deviceHeight = weex.config.env.deviceHeight
