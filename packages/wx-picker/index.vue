@@ -117,11 +117,6 @@
 
         mounted () {
             this.initMove();
-            if (is.empty(this.data.defaultValue)) {
-                this.callback(this.data.list[this.selectedIndex]);
-            } else {
-                this.callback(this.data.defaultValue);
-            }
         },
         
         methods: {
