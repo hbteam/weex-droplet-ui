@@ -6264,9 +6264,7 @@ exports.default = {
             navigator.push({
                 url: url,
                 animated: "true"
-            }, function (event) {
-                modal.alert({ message: 'callback: ' + event });
-            });
+            }, function (event) {});
         }
     }
 };
