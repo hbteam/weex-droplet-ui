@@ -6252,7 +6252,10 @@ exports.default = {
             var url = this.url + (componentName + '/index.native.js');
             modal.alert({ message: url });
             navigator.push({
-                url: url
+                url: url,
+                animated: "true"
+            }, function (event) {
+                modal.alert({ message: 'callback: ' + event });
             });
         }
     }
