@@ -6231,6 +6231,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 //
 
 var navigator = weex.requireModule('navigator');
+var modal = weex.requireModule('modal');
 
 var componentNameArr = Object.keys(all).map(function (item) {
     return item.toLowerCase().replace('wx', '');
@@ -6248,8 +6249,10 @@ exports.default = {
 
     methods: {
         go: function go(componentName) {
+            var url = this.url + (componentName + '/index.native.js');
+            modal.alert({ message: url });
             navigator.push({
-                url: this.url + (componentName + '/index.native.js')
+                url: url
             });
         }
     }

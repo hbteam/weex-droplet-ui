@@ -7407,7 +7407,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _index = __webpack_require__(43);
@@ -7469,104 +7469,103 @@ var _address = __webpack_require__(129);
 //
 
 exports.default = {
-  data: function data() {
-    return {
-      visible: false,
-      provins: {},
-      citys: {},
-      areas: {},
-      address: []
-    };
-  },
+    data: function data() {
+        return {
+            visible: false,
+            provins: {},
+            citys: {},
+            areas: {},
+            address: []
+        };
+    },
 
 
-  props: ['defaultValue', 'visible'],
+    props: ['defaultValue', 'visible'],
 
-  created: function created() {
-    this.initDefaultData();
-  },
+    created: function created() {
+        this.initDefaultData();
+    },
 
 
-  methods: {
-    initDefaultData: function initDefaultData() {
-
-      this.provins = {
-        list: _address.provins,
-        defaultValue: this.defaultValue[0],
-        displayValue: function displayValue(name) {
-          return name;
+    methods: {
+        initDefaultData: function initDefaultData() {
+            this.provins = {
+                list: _address.provins,
+                defaultValue: this.defaultValue[0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.citys = {
+                list: _address.citys[this.defaultValue[0]],
+                defaultValue: this.defaultValue[1],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.areas = {
+                list: _address.areas[this.defaultValue[1]],
+                defaultValue: this.defaultValue[2],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+        },
+        handleChangeProvin: function handleChangeProvin(provin) {
+            this.provins = {
+                list: _address.provins,
+                defaultValue: provin,
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.citys = {
+                list: _address.citys[provin],
+                defaultValue: _address.citys[provin][0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.areas = {
+                list: _address.areas[_address.citys[provin][0]],
+                defaultValue: _address.areas[_address.citys[provin][0]][0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.address = [];
+            this.address.push(provin);
+            this.address.push(_address.citys[provin][0]);
+            this.address.push(_address.areas[_address.citys[provin][0]][0]);
+            this.$emit('wxChange', this.address);
+        },
+        handleChangeCity: function handleChangeCity(city) {
+            this.address[1] = city;
+            this.address[2] = _address.areas[city][0];
+            this.areas = {
+                list: _address.areas[city],
+                defaultValue: _address.areas[city][0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.$emit('wxChange', this.address);
+        },
+        handleChangeArea: function handleChangeArea(area) {
+            this.address[2] = area;
+            this.$emit('wxChange', this.address);
+        },
+        handleBottom: function handleBottom() {
+            this.$emit('wxConfirm', this.address);
+        },
+        handleFinish: function handleFinish() {
+            this.$emit('wxConfirm', this.address);
+        },
+        handleCancel: function handleCancel() {
+            this.$emit('wxCancel', this.address);
         }
-      };
-      this.citys = {
-        list: _address.citys[this.defaultValue[0]],
-        defaultValue: this.defaultValue[1],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.areas = {
-        list: _address.areas[this.defaultValue[1]],
-        defaultValue: this.defaultValue[2],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
     },
-    handleChangeProvin: function handleChangeProvin(provin) {
-      this.provins = {
-        list: _address.provins,
-        defaultValue: provin,
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.citys = {
-        list: _address.citys[provin],
-        defaultValue: _address.citys[provin][0],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.areas = {
-        list: _address.areas[_address.citys[provin][0]],
-        defaultValue: _address.areas[_address.citys[provin][0]][0],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.address = [];
-      this.address.push(provin);
-      this.address.push(_address.citys[provin][0]);
-      this.address.push(_address.areas[_address.citys[provin][0]][0]);
-      this.$emit('wxChange', this.address);
-    },
-    handleChangeCity: function handleChangeCity(city) {
-      this.address[1] = city;
-      this.address[2] = _address.areas[city][0];
-      this.areas = {
-        list: _address.areas[city],
-        defaultValue: _address.areas[city][0],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.$emit('wxChange', this.address);
-    },
-    handleChangeArea: function handleChangeArea(area) {
-      this.address[2] = area;
-      this.$emit('wxChange', this.address);
-    },
-    handleBottom: function handleBottom() {
-      this.$emit('wxConfirm', this.address);
-    },
-    handleFinish: function handleFinish() {
-      this.$emit('wxConfirm', this.address);
-    },
-    handleCancel: function handleCancel() {
-      this.$emit('wxCancel', this.address);
-    }
-  },
-  components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup }
+    components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup }
 };
 
 /***/ }),
@@ -7643,7 +7642,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-demo[data-v-0b055ff2] {\n}\n.btn-wrap[data-v-0b055ff2] {\n    background-color: #ccc;\n    height: 1.17333rem;\n    font-size: 0.50667rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.btn[data-v-0b055ff2] {\n    line-height: 1.17333rem;\n    height: 1.17333rem;\n    width: 1.33333rem;\n    text-align: center;\n    color: #007aff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/picker/index.vue?90b9991a"],"names":[],"mappings":";AA8CA;CAEA;AAEA;IACA,uBAAA;IACA,mBAAA;IACA,sBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,wBAAA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-popup \n            :visible=\"visible\" \n            position=\"bottom\" \n            :hasOverley=\"true\"\n            height=\"488px\"\n            ref=\"wxPopup\"\n            @wxChange=\"handleBottom\">\n            <div>\n                <div class=\"btn-wrap\">\n                    <text class=\"btn\" @click=\"handleCancel\">取消</text>\n                    <text class=\"btn\" @click=\"handleFinish\">完成</text>\n                </div>\n                <wx-picker :data=\"data\" :visible=\"visible\" @wxChange=\"handleChange\"></wx-picker>\n            </div>\n        </wx-popup>\n\n        <Picker3\n            :defaultValue=\"defaultAddress\"\n            :visible=\"visible3\"\n            @wxCancel=\"cancelAddressPicker\"\n            @wxConfirm=\"confirmAddressPicker\"\n            @wxChange=\"handleChangeAddress\">\n        </Picker3>\n\n        <wx-button \n            height=\"80px\"\n            width=\"450px\"\n            borderRadius=\"200px\"\n            textColor=\"#fff\"\n            textFontSize=\"32px\"\n            @wxClick=\"visible=true\">点击选择</wx-button>\n        <text>选中的值为：{{ selectedData.name }}</text>\n\n        <wx-button \n            height=\"80px\"\n            width=\"450px\"\n            borderRadius=\"200px\"\n            textColor=\"#fff\"\n            textFontSize=\"32px\"\n            @wxClick=\"visible3=true\">地址选择</wx-button>\n        <text>选中地址值为：{{ address }}</text>\n    </div>\n</template>\n<style scoped>\n    .wx-demo {\n\n    }\n\n    .btn-wrap {\n        background-color: #ccc;\n        height: 88px;\n        font-size: 38px;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n    }\n\n    .btn {\n        line-height: 88px;\n        height: 88px;\n        width: 100px;\n        text-align: center;\n        color: #007aff;\n    }\n</style>\n<script>\n    import { WxPicker, WxButton, WxPopup } from '../../index';\n    import { PICKER_DATA } from './data';\n    import { provins, citys, areas } from './address';\n    import Picker3 from './picker-3.vue';\n\n    export default {\n        data () {\n            return {\n                data: PICKER_DATA,\n                visible: false,\n                visible3: false,\n                selectedData: PICKER_DATA.defaultValue,\n                address: '',\n                defaultAddress: ['湖南省','长沙市','开福区'],\n            }\n        },\n\n        created () {\n            this.address = this.defaultAddress.join('/')\n        },\n\n        methods: {\n            handleBottom (visible) {\n                this.visible = visible;\n            },\n\n            handleChange (data) {\n                this.selectedData = data;\n            },\n\n            handleCancel () {\n                this.selectedData = {};\n                this.$refs.wxPopup.hide();\n                PICKER_DATA.defaultValue = {};\n            },\n\n            handleFinish () {\n                this.$refs.wxPopup.hide();\n            },\n\n            handleChangeAddress (address) {\n                this.address = address.join('/');\n              },\n\n            confirmAddressPicker (address) {\n                this.visible3= false;\n                this.address = address.join('/');\n            },\n\n            cancelAddressPicker () {\n                this.visible3 = false;\n                this.address = '';\n            },\n        },\n        components: { WxPicker, WxButton, WxPopup, Picker3 }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-demo[data-v-0b055ff2] {\n}\n.btn-wrap[data-v-0b055ff2] {\n    background-color: #ccc;\n    height: 1.17333rem;\n    font-size: 0.50667rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.btn[data-v-0b055ff2] {\n    line-height: 1.17333rem;\n    height: 1.17333rem;\n    width: 1.33333rem;\n    text-align: center;\n    color: #007aff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/picker/index.vue?001e151a"],"names":[],"mappings":";AA8CA;CAEA;AAEA;IACA,uBAAA;IACA,mBAAA;IACA,sBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,wBAAA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-popup \n            :visible=\"visible\" \n            position=\"bottom\" \n            :hasOverley=\"true\"\n            height=\"488px\"\n            ref=\"wxPopup\"\n            @wxChange=\"handleBottom\">\n            <div>\n                <div class=\"btn-wrap\">\n                    <text class=\"btn\" @click=\"handleCancel\">取消</text>\n                    <text class=\"btn\" @click=\"handleFinish\">完成</text>\n                </div>\n                <wx-picker :data=\"data\" :visible=\"visible\" @wxChange=\"handleChange\"></wx-picker>\n            </div>\n        </wx-popup>\n\n        <Picker3\n            :defaultValue=\"defaultAddress\"\n            :visible=\"visible3\"\n            @wxCancel=\"cancelAddressPicker\"\n            @wxConfirm=\"confirmAddressPicker\"\n            @wxChange=\"handleChangeAddress\">\n        </Picker3>\n\n        <wx-button \n            height=\"80px\"\n            width=\"450px\"\n            borderRadius=\"200px\"\n            textColor=\"#fff\"\n            textFontSize=\"32px\"\n            @wxClick=\"visible=true\">点击选择</wx-button>\n        <text>选中的值为：{{ selectedData.name }}</text>\n\n        <wx-button \n            height=\"80px\"\n            width=\"450px\"\n            borderRadius=\"200px\"\n            textColor=\"#fff\"\n            textFontSize=\"32px\"\n            @wxClick=\"visible3=true\">地址选择</wx-button>\n        <text>选中地址值为：{{ address }}</text>\n    </div>\n</template>\n<style scoped>\n    .wx-demo {\n\n    }\n\n    .btn-wrap {\n        background-color: #ccc;\n        height: 88px;\n        font-size: 38px;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n    }\n\n    .btn {\n        line-height: 88px;\n        height: 88px;\n        width: 100px;\n        text-align: center;\n        color: #007aff;\n    }\n</style>\n<script>\n    import { WxPicker, WxButton, WxPopup } from '../../index';\n    import { PICKER_DATA } from './data';\n    import { provins, citys, areas } from './address';\n    import Picker3 from './picker-3.vue';\n\n    export default {\n        data () {\n            return {\n                data: PICKER_DATA,\n                visible: false,\n                visible3: false,\n                selectedData: PICKER_DATA.defaultValue,\n                address: '',\n                defaultAddress: ['湖南省','长沙市','开福区'],\n            }\n        },\n\n        created () {\n            this.address = this.defaultAddress.join('/')\n        },\n\n        methods: {\n            handleBottom (visible) {\n                this.visible = visible;\n            },\n\n            handleChange (data) {\n                this.selectedData = data;\n            },\n\n            handleCancel () {\n                this.selectedData = {};\n                this.$refs.wxPopup.hide();\n                PICKER_DATA.defaultValue = {};\n            },\n\n            handleFinish () {\n                this.$refs.wxPopup.hide();\n            },\n\n            handleChangeAddress (address) {\n                this.address = address.join('/');\n            },\n\n            confirmAddressPicker (address) {\n                this.visible3= false;\n                this.address = address.join('/');\n            },\n\n            cancelAddressPicker () {\n                this.visible3 = false;\n                this.address = '';\n            },\n        },\n        components: { WxPicker, WxButton, WxPopup, Picker3 }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -7659,7 +7658,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-demo[data-v-3053d0c4] {\n}\n.flex[data-v-3053d0c4] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.flex-1[data-v-3053d0c4] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n.btn-wrap[data-v-3053d0c4] {\n    background-color: #ccc;\n    height: 1.17333rem;\n    font-size: 0.50667rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.btn[data-v-3053d0c4] {\n    line-height: 1.17333rem;\n    height: 1.17333rem;\n    width: 1.33333rem;\n    text-align: center;\n    color: #007aff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/picker/picker-3.vue?77796f9a"],"names":[],"mappings":";AAwBA;CAEA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA;AAEA;IACA,uBAAA;IACA,mBAAA;IACA,sBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,wBAAA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"picker-3.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-popup \n            :visible=\"visible\" \n            position=\"bottom\" \n            :hasOverley=\"true\"\n            height=\"488px\"\n            ref=\"wxPopup\"\n            @wxChange=\"handleBottom\">\n            <div>\n                <div class=\"btn-wrap\">\n                    <text class=\"btn\" @click=\"handleCancel\">取消</text>\n                    <text class=\"btn\" @click=\"handleFinish\">完成</text>\n                </div>\n                <div class=\"flex\">\n                    <wx-picker class=\"flex-1\" :data=\"provins\" :visible=\"visible\" @wxChange=\"handleChangeProvin\"></wx-picker>\n                    <wx-picker class=\"flex-1\" :data=\"citys\" :visible=\"visible\" @wxChange=\"handleChangeCity\"></wx-picker>\n                    <wx-picker class=\"flex-1\" :data=\"areas\" :visible=\"visible\" @wxChange=\"handleChangeArea\"></wx-picker>\n                </div>\n            </div>\n        </wx-popup>\n    </div>\n</template>\n<style scoped>\n    .wx-demo {\n\n    }\n\n    .flex {\n        flex-direction: row;\n    }\n\n    .flex-1 {\n        flex: 1;\n    }\n\n    .btn-wrap {\n        background-color: #ccc;\n        height: 88px;\n        font-size: 38px;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n    }\n\n    .btn {\n        line-height: 88px;\n        height: 88px;\n        width: 100px;\n        text-align: center;\n        color: #007aff;\n    }\n</style>\n<script>\n    import { WxPicker, WxButton, WxPopup } from '../../index';\n    import { provins, citys, areas } from './address';\n\n    export default {\n        data () {\n            return {\n                visible: false,\n                provins: {},\n                citys: {},\n                areas: {},\n                address: [],\n            }\n        },\n\n        props: ['defaultValue', 'visible'],\n\n        created () {\n            this.initDefaultData();\n        },\n\n        methods: {\n            initDefaultData () {\n                \n                  this.provins = {\n                    list: provins,\n                    defaultValue: this.defaultValue[0],\n                    displayValue (name) {\n                      return name;\n                    }\n                  };\n                  this.citys = {\n                    list: citys[this.defaultValue[0]],\n                    defaultValue: this.defaultValue[1],\n                    displayValue (name) {\n                      return name;\n                    }\n                  };\n                  this.areas = {\n                    list: areas[this.defaultValue[1]],\n                    defaultValue: this.defaultValue[2],\n                    displayValue (name) {\n                      return name;\n                    }\n                  }\n              },\n\n            handleChangeProvin (provin) {\n                this.provins = {\n                  list: provins,\n                  defaultValue: provin,\n                  displayValue (name) {\n                      return name;\n                    }\n                };\n                this.citys = {\n                  list: citys[provin],\n                  defaultValue: citys[provin][0],\n                  displayValue (name) {\n                      return name;\n                    }\n                };\n                this.areas = {\n                  list: areas[citys[provin][0]],\n                  defaultValue: areas[citys[provin][0]][0],\n                  displayValue (name) {\n                      return name;\n                    }\n                };\n                this.address = [];\n                this.address.push(provin);\n                this.address.push(citys[provin][0]);\n                this.address.push(areas[citys[provin][0]][0]);\n                this.$emit('wxChange', this.address);\n              },\n\n              handleChangeCity(city) {\n                this.address[1] = city;\n                this.address[2] = areas[city][0];\n                this.areas = {\n                  list: areas[city],\n                  defaultValue: areas[city][0],\n                  displayValue (name) {\n                      return name;\n                    }\n                };\n                this.$emit('wxChange', this.address);\n              },\n\n              handleChangeArea(area) {\n                this.address[2] = area;\n                this.$emit('wxChange', this.address);\n              },\n\n              handleBottom () {\n                this.$emit('wxConfirm', this.address);\n              },\n              handleFinish () {\n                this.$emit('wxConfirm', this.address);\n              },\n              handleCancel () {\n                this.$emit('wxCancel', this.address);\n              }\n        },\n        components: { WxPicker, WxButton, WxPopup }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-demo[data-v-3053d0c4] {\n}\n.flex[data-v-3053d0c4] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.flex-1[data-v-3053d0c4] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n.btn-wrap[data-v-3053d0c4] {\n    background-color: #ccc;\n    height: 1.17333rem;\n    font-size: 0.50667rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.btn[data-v-3053d0c4] {\n    line-height: 1.17333rem;\n    height: 1.17333rem;\n    width: 1.33333rem;\n    text-align: center;\n    color: #007aff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/picker/picker-3.vue?2bfa719c"],"names":[],"mappings":";AAwBA;CAEA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA;AAEA;IACA,uBAAA;IACA,mBAAA;IACA,sBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,wBAAA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"picker-3.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-popup \n            :visible=\"visible\" \n            position=\"bottom\" \n            :hasOverley=\"true\"\n            height=\"488px\"\n            ref=\"wxPopup\"\n            @wxChange=\"handleBottom\">\n            <div>\n                <div class=\"btn-wrap\">\n                    <text class=\"btn\" @click=\"handleCancel\">取消</text>\n                    <text class=\"btn\" @click=\"handleFinish\">完成</text>\n                </div>\n                <div class=\"flex\">\n                    <wx-picker class=\"flex-1\" :data=\"provins\" :visible=\"visible\" @wxChange=\"handleChangeProvin\"></wx-picker>\n                    <wx-picker class=\"flex-1\" :data=\"citys\" :visible=\"visible\" @wxChange=\"handleChangeCity\"></wx-picker>\n                    <wx-picker class=\"flex-1\" :data=\"areas\" :visible=\"visible\" @wxChange=\"handleChangeArea\"></wx-picker>\n                </div>\n            </div>\n        </wx-popup>\n    </div>\n</template>\n<style scoped>\n    .wx-demo {\n\n    }\n\n    .flex {\n        flex-direction: row;\n    }\n\n    .flex-1 {\n        flex: 1;\n    }\n\n    .btn-wrap {\n        background-color: #ccc;\n        height: 88px;\n        font-size: 38px;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n    }\n\n    .btn {\n        line-height: 88px;\n        height: 88px;\n        width: 100px;\n        text-align: center;\n        color: #007aff;\n    }\n</style>\n<script>\n    import { WxPicker, WxButton, WxPopup } from '../../index';\n    import { provins, citys, areas } from './address';\n\n    export default {\n        data () {\n            return {\n                visible: false,\n                provins: {},\n                citys: {},\n                areas: {},\n                address: [],\n            }\n        },\n\n        props: ['defaultValue', 'visible'],\n\n        created () {\n            this.initDefaultData();\n        },\n\n        methods: {\n            initDefaultData () {\n                this.provins = {\n                    list: provins,\n                    defaultValue: this.defaultValue[0],\n                    displayValue (name) {\n                        return name;\n                    }\n                };\n                this.citys = {\n                    list: citys[this.defaultValue[0]],\n                    defaultValue: this.defaultValue[1],\n                    displayValue (name) {\n                        return name;\n                    }\n                };\n                this.areas = {\n                    list: areas[this.defaultValue[1]],\n                    defaultValue: this.defaultValue[2],\n                    displayValue (name) {\n                      return name;\n                    }\n                }\n            },\n\n            handleChangeProvin (provin) {\n                this.provins = {\n                    list: provins,\n                    defaultValue: provin,\n                    displayValue (name) {\n                        return name;\n                    }\n                };\n                this.citys = {\n                    list: citys[provin],\n                    defaultValue: citys[provin][0],\n                    displayValue (name) {\n                        return name;\n                    }\n                };\n                this.areas = {\n                    list: areas[citys[provin][0]],\n                    defaultValue: areas[citys[provin][0]][0],\n                    displayValue (name) {\n                        return name;\n                    }\n                };\n                this.address = [];\n                this.address.push(provin);\n                this.address.push(citys[provin][0]);\n                this.address.push(areas[citys[provin][0]][0]);\n                this.$emit('wxChange', this.address);\n            },\n\n            handleChangeCity(city) {\n                this.address[1] = city;\n                this.address[2] = areas[city][0];\n                this.areas = {\n                    list: areas[city],\n                    defaultValue: areas[city][0],\n                    displayValue (name) {\n                        return name;\n                    }\n                };\n                this.$emit('wxChange', this.address);\n            },\n\n            handleChangeArea(area) {\n                this.address[2] = area;\n                this.$emit('wxChange', this.address);\n            },\n\n            handleBottom () {\n                this.$emit('wxConfirm', this.address);\n            },\n            handleFinish () {\n                this.$emit('wxConfirm', this.address);\n            },\n            handleCancel () {\n                this.$emit('wxCancel', this.address);\n            }\n        },\n        components: { WxPicker, WxButton, WxPopup }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 

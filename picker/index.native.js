@@ -6516,7 +6516,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _index = __webpack_require__(33);
@@ -6578,104 +6578,103 @@ var _address = __webpack_require__(105);
 //
 
 exports.default = {
-  data: function data() {
-    return {
-      visible: false,
-      provins: {},
-      citys: {},
-      areas: {},
-      address: []
-    };
-  },
+    data: function data() {
+        return {
+            visible: false,
+            provins: {},
+            citys: {},
+            areas: {},
+            address: []
+        };
+    },
 
 
-  props: ['defaultValue', 'visible'],
+    props: ['defaultValue', 'visible'],
 
-  created: function created() {
-    this.initDefaultData();
-  },
+    created: function created() {
+        this.initDefaultData();
+    },
 
 
-  methods: {
-    initDefaultData: function initDefaultData() {
-
-      this.provins = {
-        list: _address.provins,
-        defaultValue: this.defaultValue[0],
-        displayValue: function displayValue(name) {
-          return name;
+    methods: {
+        initDefaultData: function initDefaultData() {
+            this.provins = {
+                list: _address.provins,
+                defaultValue: this.defaultValue[0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.citys = {
+                list: _address.citys[this.defaultValue[0]],
+                defaultValue: this.defaultValue[1],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.areas = {
+                list: _address.areas[this.defaultValue[1]],
+                defaultValue: this.defaultValue[2],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+        },
+        handleChangeProvin: function handleChangeProvin(provin) {
+            this.provins = {
+                list: _address.provins,
+                defaultValue: provin,
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.citys = {
+                list: _address.citys[provin],
+                defaultValue: _address.citys[provin][0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.areas = {
+                list: _address.areas[_address.citys[provin][0]],
+                defaultValue: _address.areas[_address.citys[provin][0]][0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.address = [];
+            this.address.push(provin);
+            this.address.push(_address.citys[provin][0]);
+            this.address.push(_address.areas[_address.citys[provin][0]][0]);
+            this.$emit('wxChange', this.address);
+        },
+        handleChangeCity: function handleChangeCity(city) {
+            this.address[1] = city;
+            this.address[2] = _address.areas[city][0];
+            this.areas = {
+                list: _address.areas[city],
+                defaultValue: _address.areas[city][0],
+                displayValue: function displayValue(name) {
+                    return name;
+                }
+            };
+            this.$emit('wxChange', this.address);
+        },
+        handleChangeArea: function handleChangeArea(area) {
+            this.address[2] = area;
+            this.$emit('wxChange', this.address);
+        },
+        handleBottom: function handleBottom() {
+            this.$emit('wxConfirm', this.address);
+        },
+        handleFinish: function handleFinish() {
+            this.$emit('wxConfirm', this.address);
+        },
+        handleCancel: function handleCancel() {
+            this.$emit('wxCancel', this.address);
         }
-      };
-      this.citys = {
-        list: _address.citys[this.defaultValue[0]],
-        defaultValue: this.defaultValue[1],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.areas = {
-        list: _address.areas[this.defaultValue[1]],
-        defaultValue: this.defaultValue[2],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
     },
-    handleChangeProvin: function handleChangeProvin(provin) {
-      this.provins = {
-        list: _address.provins,
-        defaultValue: provin,
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.citys = {
-        list: _address.citys[provin],
-        defaultValue: _address.citys[provin][0],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.areas = {
-        list: _address.areas[_address.citys[provin][0]],
-        defaultValue: _address.areas[_address.citys[provin][0]][0],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.address = [];
-      this.address.push(provin);
-      this.address.push(_address.citys[provin][0]);
-      this.address.push(_address.areas[_address.citys[provin][0]][0]);
-      this.$emit('wxChange', this.address);
-    },
-    handleChangeCity: function handleChangeCity(city) {
-      this.address[1] = city;
-      this.address[2] = _address.areas[city][0];
-      this.areas = {
-        list: _address.areas[city],
-        defaultValue: _address.areas[city][0],
-        displayValue: function displayValue(name) {
-          return name;
-        }
-      };
-      this.$emit('wxChange', this.address);
-    },
-    handleChangeArea: function handleChangeArea(area) {
-      this.address[2] = area;
-      this.$emit('wxChange', this.address);
-    },
-    handleBottom: function handleBottom() {
-      this.$emit('wxConfirm', this.address);
-    },
-    handleFinish: function handleFinish() {
-      this.$emit('wxConfirm', this.address);
-    },
-    handleCancel: function handleCancel() {
-      this.$emit('wxCancel', this.address);
-    }
-  },
-  components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup }
+    components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup }
 };
 
 /***/ }),
