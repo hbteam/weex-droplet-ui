@@ -43,7 +43,7 @@
                     url: url,
                     animated: "true"
                 },event => {
-                    modal.alert({ message: 'callback: ' + event })
+                    
                 });
             }
         }
