@@ -74,50 +74,49 @@
 
         methods: {
             initDefaultData () {
-                
-                  this.provins = {
+                this.provins = {
                     list: provins,
                     defaultValue: this.defaultValue[0],
                     displayValue (name) {
-                      return name;
+                        return name;
                     }
-                  };
-                  this.citys = {
+                };
+                this.citys = {
                     list: citys[this.defaultValue[0]],
                     defaultValue: this.defaultValue[1],
                     displayValue (name) {
-                      return name;
+                        return name;
                     }
-                  };
-                  this.areas = {
+                };
+                this.areas = {
                     list: areas[this.defaultValue[1]],
                     defaultValue: this.defaultValue[2],
                     displayValue (name) {
                       return name;
                     }
-                  }
-              },
+                }
+            },
 
             handleChangeProvin (provin) {
                 this.provins = {
-                  list: provins,
-                  defaultValue: provin,
-                  displayValue (name) {
-                      return name;
+                    list: provins,
+                    defaultValue: provin,
+                    displayValue (name) {
+                        return name;
                     }
                 };
                 this.citys = {
-                  list: citys[provin],
-                  defaultValue: citys[provin][0],
-                  displayValue (name) {
-                      return name;
+                    list: citys[provin],
+                    defaultValue: citys[provin][0],
+                    displayValue (name) {
+                        return name;
                     }
                 };
                 this.areas = {
-                  list: areas[citys[provin][0]],
-                  defaultValue: areas[citys[provin][0]][0],
-                  displayValue (name) {
-                      return name;
+                    list: areas[citys[provin][0]],
+                    defaultValue: areas[citys[provin][0]][0],
+                    displayValue (name) {
+                        return name;
                     }
                 };
                 this.address = [];
@@ -125,35 +124,35 @@
                 this.address.push(citys[provin][0]);
                 this.address.push(areas[citys[provin][0]][0]);
                 this.$emit('wxChange', this.address);
-              },
+            },
 
-              handleChangeCity(city) {
+            handleChangeCity(city) {
                 this.address[1] = city;
                 this.address[2] = areas[city][0];
                 this.areas = {
-                  list: areas[city],
-                  defaultValue: areas[city][0],
-                  displayValue (name) {
-                      return name;
+                    list: areas[city],
+                    defaultValue: areas[city][0],
+                    displayValue (name) {
+                        return name;
                     }
                 };
                 this.$emit('wxChange', this.address);
-              },
+            },
 
-              handleChangeArea(area) {
+            handleChangeArea(area) {
                 this.address[2] = area;
                 this.$emit('wxChange', this.address);
-              },
+            },
 
-              handleBottom () {
+            handleBottom () {
                 this.$emit('wxConfirm', this.address);
-              },
-              handleFinish () {
+            },
+            handleFinish () {
                 this.$emit('wxConfirm', this.address);
-              },
-              handleCancel () {
+            },
+            handleCancel () {
                 this.$emit('wxCancel', this.address);
-              }
+            }
         },
         components: { WxPicker, WxButton, WxPopup }
     }
