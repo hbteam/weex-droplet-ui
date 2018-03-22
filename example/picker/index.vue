@@ -108,7 +108,7 @@
 
             handleChangeAddress (address) {
                 this.address = address.join('/');
-              },
+            },
 
             confirmAddressPicker (address) {
                 this.visible3= false;
