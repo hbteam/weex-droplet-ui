@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-range">
+    <div class="wx-range" :style="_wrapStyle">
         <div class="range-inner" :style="_innerStyle">
             <div class="range-outer" ref="rangeOuter" :style="_outerStyle"></div>
         </div>
@@ -27,6 +27,8 @@
     .circle {
         background-color: #f5f5f5;
         position: absolute;
+        left: 0;
+        top: 0;
         z-index: 100;
         box-shadow: 0 1px 3px rgba(0,0,0,.4);
     }
@@ -74,6 +76,7 @@
                 _circleStyle: {},
                 _innerStyle: {},
                 _outerStyle: {},
+                _wrapStyle: {},
                 data: {
                     width: 0,
                 },
@@ -83,26 +86,26 @@
 
         created () {
             this.initStyle();
-            this.data.width = Number(this._innerStyle.width.replace('px', ''));
         },
 
         methods: {
 
             initStyle () {
-                // _innerStyle
-                const base = {width: this.width, height: this.height};
-                this._innerStyle = Object.assign({}, this.innerStyle, base);
-                console.log(this._innerStyle)
-
-                // _circleStyle
                 this.circleStyle.width = this.circleStyle.width || this.circleSize;
                 this.circleStyle.height = this.circleStyle.height || this.circleSize;
                 const circleSize = Number(this.circleStyle.width.replace('px', ''));
-                const h = Number(this._innerStyle.height.replace('px', ''));
                 const v = circleSize / 2;
+
+                const h = Number(this.height.replace('px', ''));
+
+                // _innerStyle
+                const base = {width: this.width, height: this.height, 'margin-top': v - h/2 +'px', 'margin-left': v + 'px' };
+                this._innerStyle = Object.assign({}, this.innerStyle, base);
+                console.log(this._innerStyle)
+                this.data.width = Number(this._innerStyle.width.replace('px', ''));
+
+                // _circleStyle
                 this._circleStyle = Object.assign({}, this.circleStyle, {
-                    left: -v + 'px',
-                    top: -(v - h/2) + 'px',
                     width: this.circleStyle.width,
                     height: this.circleStyle.height,
                     'border-radius': v + 'px',
@@ -114,6 +117,11 @@
                     width: this._innerStyle.width,
                     height: this._innerStyle.height,
                 });
+                this._wrapStyle = {
+                    width: this.data.width + circleSize + 'px',
+                    height: this._circleStyle.height,
+                    'background-color': '#fff',
+                }
             },
 
             ontouchstart:function(e) {

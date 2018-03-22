@@ -8,7 +8,7 @@
             v-model="range"
             @wxChange="handleChange">
         </wx-range>
-        <text style="margin-top:100px;">{{ range }}</text>
+        <text style="margin-top:100px;font-size: 32px;">{{ range }}</text>
         <wx-button class="button" @wxClick="setRange()">设置进度50%</wx-button>
         
          <text style="margin-top:100px;"></text>
@@ -20,13 +20,14 @@
             :innerStyle="{'background-color': '#f5222d'}"
             @wxChange="handleChange2">
         </wx-range>
-        <text style="margin-top:100px;">{{ range2 }}</text>
+        <text style="margin-top:100px;font-size: 32px;">{{ range2 }}</text>
     </div>
 </template>
 <style type="text/css">
     .wx-demo {
         padding-top: 100px;
         align-items: center;
+        background-color: #fff;
     }
     .button {
         margin-top: 100px;
