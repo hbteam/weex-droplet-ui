@@ -31,7 +31,7 @@
             textColor="#fff"
             textFontSize="32px"
             @wxClick="visible=true">点击选择</wx-button>
-        <text>选中的值为：{{ selectedData.name }}</text>
+        <text style="font-size:32px;">选中的值为：{{ selectedData.name }}</text>
 
         <wx-button 
             height="80px"
@@ -40,7 +40,7 @@
             textColor="#fff"
             textFontSize="32px"
             @wxClick="visible3=true">地址选择</wx-button>
-        <text>选中地址值为：{{ address }}</text>
+        <text style="font-size:32px;">选中地址值为：{{ address }}</text>
     </div>
 </template>
 <style scoped>
