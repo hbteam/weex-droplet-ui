@@ -4169,7 +4169,6 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
 
 var animation = weex.requireModule('animation');
 exports.default = {
@@ -4207,6 +4206,11 @@ exports.default = {
             default: 300
         },
         hasOverley: {
+            type: Boolean,
+            default: true
+        },
+
+        closeOnClickMask: {
             type: Boolean,
             default: true
         }
@@ -4295,12 +4299,15 @@ exports.default = {
                 delay: 0 //ms
             });
         },
-        hide: function hide() {
+        hide: function hide(fn) {
             var _this = this;
 
+            // 如果是点击事件非函数调用
+            if (fn === 'event' && !this.closeOnClickMask) return;
             var tm = setTimeout(function () {
                 _this.$emit('wxChange', false);
                 clearTimeout(tm);
+                fn && fn !== 'event' && fn();
             }, this.duration);
             this.popupAnimate('0px');
             this.overlayAnimate(0);
@@ -4979,8 +4986,8 @@ module.exports = {
     "left": 0,
     "bottom": 0,
     "right": 0,
-    "zIndex": 1000,
-    "backgroundColor": "rgba(0,0,0,0.3)"
+    "backgroundColor": "rgba(0,0,0,0.3)",
+    "zIndex": 1000
   },
   "wx-popup": {
     "backgroundColor": "#ffffff",
@@ -5613,9 +5620,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["wx-container"]
   }, [(_vm.visible && _vm.hasOverley) ? _c('div', {
     ref: "overlay",
-    staticClass: ["wx-overlay"],
+    staticClass: ["mask", "wx-overlay"],
     on: {
-      "click": _vm.hide
+      "click": function($event) {
+        _vm.hide('event')
+      }
     }
   }) : _vm._e(), (_vm.visible) ? _c('div', {
     ref: "popup",

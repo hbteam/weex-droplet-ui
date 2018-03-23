@@ -4169,7 +4169,6 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
 
 var animation = weex.requireModule('animation');
 exports.default = {
@@ -4207,6 +4206,11 @@ exports.default = {
             default: 300
         },
         hasOverley: {
+            type: Boolean,
+            default: true
+        },
+
+        closeOnClickMask: {
             type: Boolean,
             default: true
         }
@@ -4295,12 +4299,15 @@ exports.default = {
                 delay: 0 //ms
             });
         },
-        hide: function hide() {
+        hide: function hide(fn) {
             var _this = this;
 
+            // 如果是点击事件非函数调用
+            if (fn === 'event' && !this.closeOnClickMask) return;
             var tm = setTimeout(function () {
                 _this.$emit('wxChange', false);
                 clearTimeout(tm);
+                fn && fn !== 'event' && fn();
             }, this.duration);
             this.popupAnimate('0px');
             this.overlayAnimate(0);
@@ -4979,8 +4986,8 @@ module.exports = {
     "left": 0,
     "bottom": 0,
     "right": 0,
-    "zIndex": 1000,
-    "backgroundColor": "rgba(0,0,0,0.3)"
+    "backgroundColor": "rgba(0,0,0,0.3)",
+    "zIndex": 1000
   },
   "wx-popup": {
     "backgroundColor": "#ffffff",
@@ -5613,9 +5620,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["wx-container"]
   }, [(_vm.visible && _vm.hasOverley) ? _c('div', {
     ref: "overlay",
-    staticClass: ["wx-overlay"],
+    staticClass: ["mask", "wx-overlay"],
     on: {
-      "click": _vm.hide
+      "click": function($event) {
+        _vm.hide('event')
+      }
     }
   }) : _vm._e(), (_vm.visible) ? _c('div', {
     ref: "popup",
@@ -6588,6 +6597,7 @@ var _address = __webpack_require__(105);
 //
 //
 //
+//
 
 exports.default = {
     data: function data() {
@@ -6604,6 +6614,7 @@ exports.default = {
     props: ['defaultValue', 'visible'],
 
     created: function created() {
+        this.address = this.defaultValue;
         this.initDefaultData();
     },
 
@@ -6677,13 +6688,21 @@ exports.default = {
             this.$emit('wxChange', this.address);
         },
         handleBottom: function handleBottom() {
-            this.$emit('wxConfirm', this.address);
+            this.$emit('wxCancel');
         },
         handleFinish: function handleFinish() {
-            this.$emit('wxConfirm', this.address);
+            var _this = this;
+
+            this.$refs.wxPopup.hide(function () {
+                _this.$emit('wxConfirm', _this.address);
+            });
         },
         handleCancel: function handleCancel() {
-            this.$emit('wxCancel', this.address);
+            var _this2 = this;
+
+            this.$refs.wxPopup.hide(function () {
+                _this2.$emit('wxCancel');
+            });
         }
     },
     components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup }
@@ -6786,6 +6805,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "visible": _vm.visible,
       "position": "bottom",
       "hasOverley": true,
+      "closeOnClickMask": false,
       "height": "488px"
     },
     on: {

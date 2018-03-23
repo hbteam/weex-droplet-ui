@@ -4171,7 +4171,6 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
 
 var animation = weex.requireModule('animation');
 exports.default = {
@@ -4209,6 +4208,11 @@ exports.default = {
             default: 300
         },
         hasOverley: {
+            type: Boolean,
+            default: true
+        },
+
+        closeOnClickMask: {
             type: Boolean,
             default: true
         }
@@ -4297,12 +4301,15 @@ exports.default = {
                 delay: 0 //ms
             });
         },
-        hide: function hide() {
+        hide: function hide(fn) {
             var _this = this;
 
+            // 如果是点击事件非函数调用
+            if (fn === 'event' && !this.closeOnClickMask) return;
             var tm = setTimeout(function () {
                 _this.$emit('wxChange', false);
                 clearTimeout(tm);
+                fn && fn !== 'event' && fn();
             }, this.duration);
             this.popupAnimate('0px');
             this.overlayAnimate(0);
@@ -5049,7 +5056,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-overlay[data-v-0901d80e] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    z-index: 100;\n    background-color: rgba(0, 0, 0, 0.3);\n    z-index: 1000;\n}\n.wx-popup[data-v-0901d80e] {\n    background-color: #fff;\n    position: fixed;\n    z-index: 1001;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-popup/index.vue?6f940b72"],"names":[],"mappings":";AASA;IACA,gBAAA;IACA,OAAA;IACA,QAAA;IACA,UAAA;IACA,SAAA;IACA,aAAA;IACA,qCAAA;IACA,cAAA;CACA;AACA;IACA,uBAAA;IACA,gBAAA;IACA,cAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-container\">\n        <div class=\"wx-overlay\" ref=\"overlay\" v-if=\"visible && hasOverley\" @click=\"hide\"></div>\n        <div class=\"wx-popup\" v-if=\"visible\" :style=\"popupStyles\" ref=\"popup\">\n            <slot></slot>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-overlay {\n        position: fixed;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n        z-index: 100;\n        background-color: rgba(0, 0, 0, 0.3);\n        z-index: 1000;\n    }\n    .wx-popup {\n        background-color: #fff;\n        position: fixed;\n        z-index: 1001;\n    }\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n\n            height: {\n                type: String,\n                default: '400px'\n            },\n\n            position: {\n                type: String,\n                default: 'bottom'\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n\n            visible: {\n                type: Boolean,\n                default: false\n            },\n\n            duration: {\n                type: Number,\n                // 300 ms\n                default: 300\n            },\n            hasOverley: {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        data () {\n            return {\n                popupStyles: {},\n            }\n        },\n\n        created () {\n            this.setStyle();\n            this.overlayAnimate();\n        },\n\n        methods: {\n            // overlay动画\n            overlayAnimate (opacity) {\n                if (!this.hasOverley) {\n                    return;\n                }\n                const overlayEl = this.$refs.overlay;\n                if (!overlayEl) {\n                    return;\n                }\n                animation.transition(overlayEl, {\n                    styles: {\n                        opacity: opacity\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                let style = Object.assign(this.getStyle().position, baseCss, this.styles);\n                this.popupStyles = style;\n            },\n\n            getStyle (xy) {\n                let style = {\n                    position: {},\n                    transform: '',\n                };\n                switch (this.position) {\n                    case 'top':\n                        style.transform = `translateY(${xy || this.height})`;\n                        style.position = {top:    '-' + this.height};\n                        break;\n                    case 'bottom':\n                        style.transform = `translateY(-${xy || this.height})`;\n                        style.position = {bottom: '-' + this.height};\n                        break;\n                    case 'left':\n                        style.transform = `translateX(${xy || this.width})`;\n                        style.position = {left:   '-' + this.width, top: '0px'};\n                        break;\n                    case 'right':\n                        style.transform = `translateX(-${xy || this.width})`;\n                        style.position = {right:  '-' + this.width, top: '0px'};\n                        break;\n                }\n                return style;\n            },\n\n            // popup动画\n            popupAnimate (xy) {\n                const popupEl = this.$refs.popup;\n                if (!popupEl) {\n                    return;\n                }\n                animation.transition(popupEl, {\n                    styles: {\n                        transform: this.getStyle(xy).transform,\n                        transformOrigin: 'center center'\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            hide () {\n                const tm = setTimeout(()=> {\n                    this.$emit('wxChange', false);\n                    clearTimeout(tm);\n                }, this.duration);\n                this.popupAnimate('0px');\n                this.overlayAnimate(0);\n            }\n        },\n        watch: {\n            visible () {\n                if (this.visible) {\n                    const tm = setTimeout(()=> {\n                        this.popupAnimate();\n                        this.overlayAnimate(1);\n                        clearTimeout(tm);\n                    }, 40);\n                }\n            }\n        },\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-overlay[data-v-0901d80e] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, 0.3);\n    z-index: 1000;\n}\n.wx-popup[data-v-0901d80e] {\n    background-color: #fff;\n    position: fixed;\n    z-index: 1001;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-popup/index.vue?37706adb"],"names":[],"mappings":";AASA;IACA,gBAAA;IACA,OAAA;IACA,QAAA;IACA,UAAA;IACA,SAAA;IACA,qCAAA;IACA,cAAA;CACA;AACA;IACA,uBAAA;IACA,gBAAA;IACA,cAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-container\">\n        <div class=\"mask wx-overlay\" ref=\"overlay\" v-if=\"visible && hasOverley\" @click=\"hide('event')\"></div>\n        <div class=\"wx-popup\" v-if=\"visible\" :style=\"popupStyles\" ref=\"popup\">\n            <slot></slot>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-overlay {\n        position: fixed;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n        background-color: rgba(0, 0, 0, 0.3);\n        z-index: 1000;\n    }\n    .wx-popup {\n        background-color: #fff;\n        position: fixed;\n        z-index: 1001;\n    }\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n\n            height: {\n                type: String,\n                default: '400px'\n            },\n\n            position: {\n                type: String,\n                default: 'bottom'\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n\n            visible: {\n                type: Boolean,\n                default: false\n            },\n\n            duration: {\n                type: Number,\n                // 300 ms\n                default: 300\n            },\n            hasOverley: {\n                type: Boolean,\n                default: true\n            },\n\n            closeOnClickMask: {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        data () {\n            return {\n                popupStyles: {},\n            }\n        },\n\n        created () {\n            this.setStyle();\n            this.overlayAnimate();\n        },\n\n        methods: {\n            // overlay动画\n            overlayAnimate (opacity) {\n                if (!this.hasOverley) {\n                    return;\n                }\n                const overlayEl = this.$refs.overlay;\n                if (!overlayEl) {\n                    return;\n                }\n                animation.transition(overlayEl, {\n                    styles: {\n                        opacity: opacity\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                let style = Object.assign(this.getStyle().position, baseCss, this.styles);\n                this.popupStyles = style;\n            },\n\n            getStyle (xy) {\n                let style = {\n                    position: {},\n                    transform: '',\n                };\n                switch (this.position) {\n                    case 'top':\n                        style.transform = `translateY(${xy || this.height})`;\n                        style.position = {top:    '-' + this.height};\n                        break;\n                    case 'bottom':\n                        style.transform = `translateY(-${xy || this.height})`;\n                        style.position = {bottom: '-' + this.height};\n                        break;\n                    case 'left':\n                        style.transform = `translateX(${xy || this.width})`;\n                        style.position = {left:   '-' + this.width, top: '0px'};\n                        break;\n                    case 'right':\n                        style.transform = `translateX(-${xy || this.width})`;\n                        style.position = {right:  '-' + this.width, top: '0px'};\n                        break;\n                }\n                return style;\n            },\n\n            // popup动画\n            popupAnimate (xy) {\n                const popupEl = this.$refs.popup;\n                if (!popupEl) {\n                    return;\n                }\n                animation.transition(popupEl, {\n                    styles: {\n                        transform: this.getStyle(xy).transform,\n                        transformOrigin: 'center center'\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            hide (fn) {\n                // 如果是点击事件非函数调用\n                if (fn === 'event' && !this.closeOnClickMask) return;\n                const tm = setTimeout(()=> {\n                    this.$emit('wxChange', false);\n                    clearTimeout(tm);\n                    fn && fn !== 'event' && fn();\n                }, this.duration);\n                this.popupAnimate('0px');\n                this.overlayAnimate(0);\n            }\n        },\n        watch: {\n            visible () {\n                if (this.visible) {\n                    const tm = setTimeout(()=> {\n                        this.popupAnimate();\n                        this.overlayAnimate(1);\n                        clearTimeout(tm);\n                    }, 40);\n                }\n            }\n        },\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5983,20 +5990,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {}
   }, [(_vm.visible && _vm.hasOverley) ? _c('div', {
     ref: "overlay",
-    staticClass: "wx-overlay weex-ct",
+    staticClass: "mask wx-overlay weex-ct",
     attrs: {
       "data-evt-click": ""
     },
     on: {
       "weex$tap": function($event) {
         $event.stopPropagation();
-        _vm.hide($event)
+        _vm.hide('event')
       }
     },
     nativeOn: {
       "weex$tap": function($event) {
         $event.stopPropagation();
-        _vm.hide($event)
+        _vm.hide('event')
       }
     }
   }) : _vm._e(), _vm._v(" "), (_vm.visible) ? _c('div', {
