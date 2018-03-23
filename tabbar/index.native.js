@@ -3831,7 +3831,7 @@ exports.default = {
             return (this.barWidth / this.tabItems.length - width) / 2;
         },
         changeTab: function changeTab(item) {
-            if (item.index === this.selectedTab.index) {
+            if (item.index === this.selectedTab.index && (!item.hasOwnProperty('multipleTrigger') || !item['multipleTrigger'])) {
                 return;
             }
             this.$emit('wxChange', item);
