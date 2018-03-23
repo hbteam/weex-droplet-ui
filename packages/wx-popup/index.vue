@@ -1,6 +1,6 @@
 <template>
     <div class="wx-container">
-        <div class="wx-overlay" ref="overlay" v-if="visible && hasOverley" @click="hide"></div>
+        <div class="mask wx-overlay" ref="overlay" v-if="visible && hasOverley" @click="hide('event')"></div>
         <div class="wx-popup" v-if="visible" :style="popupStyles" ref="popup">
             <slot></slot>
         </div>
@@ -13,7 +13,6 @@
         left: 0;
         bottom: 0;
         right: 0;
-        z-index: 100;
         background-color: rgba(0, 0, 0, 0.3);
         z-index: 1000;
     }
@@ -60,6 +59,11 @@
                 default: 300
             },
             hasOverley: {
+                type: Boolean,
+                default: true
+            },
+
+            closeOnClickMask: {
                 type: Boolean,
                 default: true
             },
@@ -150,10 +154,13 @@
                 });
             },
 
-            hide () {
+            hide (fn) {
+                // 如果是点击事件非函数调用
+                if (fn === 'event' && !this.closeOnClickMask) return;
                 const tm = setTimeout(()=> {
                     this.$emit('wxChange', false);
                     clearTimeout(tm);
+                    fn && fn !== 'event' && fn();
                 }, this.duration);
                 this.popupAnimate('0px');
                 this.overlayAnimate(0);

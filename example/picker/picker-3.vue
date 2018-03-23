@@ -4,6 +4,7 @@
             :visible="visible" 
             position="bottom" 
             :hasOverley="true"
+            :closeOnClickMask="false"
             height="488px"
             ref="wxPopup"
             @wxChange="handleBottom">
@@ -70,6 +71,7 @@
         props: ['defaultValue', 'visible'],
 
         created () {
+            this.address = this.defaultValue;
             this.initDefaultData();
         },
 
@@ -146,13 +148,17 @@
             },
 
             handleBottom () {
-                this.$emit('wxConfirm', this.address);
+                this.$emit('wxCancel');
             },
             handleFinish () {
-                this.$emit('wxConfirm', this.address);
+                this.$refs.wxPopup.hide(() => {
+                    this.$emit('wxConfirm', this.address);
+                });
             },
             handleCancel () {
-                this.$emit('wxCancel', this.address);
+                this.$refs.wxPopup.hide(() => {
+                    this.$emit('wxCancel');
+                });
             }
         },
         components: { WxPicker, WxButton, WxPopup }
