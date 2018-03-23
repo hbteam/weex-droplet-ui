@@ -185,7 +185,7 @@
             },
 
             changeTab (item) {
-               if (item.index === this.selectedTab.index) {
+               if (item.index === this.selectedTab.index && (!item.hasOwnProperty('multipleTrigger') || !item['multipleTrigger'])) {
                     return;
                }
                this.$emit('wxChange', item);
