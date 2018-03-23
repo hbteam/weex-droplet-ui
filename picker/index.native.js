@@ -6500,9 +6500,7 @@ exports.default = {
             this.selectedData = data;
         },
         handleCancel: function handleCancel() {
-            this.selectedData = {};
             this.$refs.wxPopup.hide();
-            _data.PICKER_DATA.defaultValue = {};
         },
         handleFinish: function handleFinish() {
             this.$refs.wxPopup.hide();
@@ -6516,7 +6514,6 @@ exports.default = {
         },
         cancelAddressPicker: function cancelAddressPicker() {
             this.visible3 = false;
-            this.address = '';
         }
     },
     components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup, Picker3: _picker2.default }
