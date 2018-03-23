@@ -98,9 +98,7 @@
             },
 
             handleCancel () {
-                this.selectedData = {};
                 this.$refs.wxPopup.hide();
-                PICKER_DATA.defaultValue = {};
             },
 
             handleFinish () {
@@ -118,7 +116,6 @@
 
             cancelAddressPicker () {
                 this.visible3 = false;
-                this.address = '';
             },
         },
         components: { WxPicker, WxButton, WxPopup, Picker3 }
