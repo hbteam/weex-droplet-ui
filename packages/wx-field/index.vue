@@ -173,7 +173,8 @@
 
         data () {
             return {
-                fieldStyles: {}
+                fieldStyles: {},
+                textTitleStyles: {},
             }
         },
 
