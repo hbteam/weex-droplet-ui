@@ -12,6 +12,16 @@ npm i weex-droplet-ui -S
 ## 关于文档
 [https://houbank.github.io/dropletui-docs](https://houbank.github.io/dropletui-docs)
 
+## 配置
+因未编译成ES5发布到npm，所以webpack配置需要配置排除node_modules/**weex**的文件。
+{
+    test: /\.js$/,
+    use: [{
+      loader: 'babel-loader',
+    }],
+    exclude: /node_modules(?!\/.*(weex).*)/
+}
+
 ## Usage
   
 ```html
