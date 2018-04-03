@@ -14,6 +14,7 @@ npm i weex-droplet-ui -S
 
 ## 配置
 因未编译成ES5发布到npm，所以webpack配置需要配置排除node_modules/**weex**的文件。
+```
 {
     test: /\.js$/,
     use: [{
@@ -21,6 +22,7 @@ npm i weex-droplet-ui -S
     }],
     exclude: /node_modules(?!\/.*(weex).*)/
 }
+```
 
 ## Usage
   
