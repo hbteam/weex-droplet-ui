@@ -19,10 +19,11 @@
     </div>
 </template>
 <script>
-    import '../utils';
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     export default {
+        mixins: [mixins],
         props: {
             visible: {
                 type: Boolean,

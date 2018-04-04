@@ -27,4 +27,5 @@ const mixins = {
         },
     }
 }
-Vue.mixin(mixins)
+
+export default mixins;

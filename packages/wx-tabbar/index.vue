@@ -61,8 +61,9 @@
 
 </style>
 <script>
-    import '../utils';
+    import mixins from '../utils/mixins'
     export default {
+        mixins: [mixins],
         props: {
             tabItems: {
                 type: Array,
