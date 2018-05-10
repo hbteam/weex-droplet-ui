@@ -88,6 +88,7 @@
             },
 
             handleClick (e) {
+                e.stopPropagation();
                 if (this.disabled) return;
                 this.$emit('wxClick', e);
             },

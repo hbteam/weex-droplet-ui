@@ -231,10 +231,12 @@
             },
 
             handleChange (e) {
+                e.stopPropagation();
                 this.$emit('input', e.value)
             },
 
-            blur () {
+            blur (e) {
+                e.stopPropagation();
                 this.$emit('wxBlur', this.inputValue);
             },
 

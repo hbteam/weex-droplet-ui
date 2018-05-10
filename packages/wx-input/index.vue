@@ -70,10 +70,12 @@
             }
         },
         methods: {
-            blur () {
+            blur (e) {
+                e.stopPropagation();
                 this.$emit('wxBlur', this.inputValue);
             },
             input (e) {
+                e.stopPropagation();
                 this.inputValue = e.value;
                 this.$emit('input', e.value)
                 this.$emit('wxInput', this.inputValue);

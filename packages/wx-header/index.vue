@@ -132,7 +132,8 @@
                 }
             },
 
-            handleClick () {
+            handleClick (e) {
+                e.stopPropagation();
                 if (this.useDefaultBack) {
                     this.$router.back()
                 } else {

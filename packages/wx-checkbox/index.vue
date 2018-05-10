@@ -90,7 +90,8 @@
         },
 
         methods: {
-            handleClick () {
+            handleClick (e) {
+                e.stopPropagation();
                 if (this.disabled) return;
                 this.checked = !this.checked;
                 this.$emit('input', this.checked);
