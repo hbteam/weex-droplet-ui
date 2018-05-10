@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 173);
+/******/ 	return __webpack_require__(__webpack_require__.s = 172);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -277,7 +277,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(6)
+var listToStyles = __webpack_require__(5)
 
 /*
 type StyleObject = {
@@ -486,36 +486,8 @@ function applyToTag (styleElement, obj) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-
-var _index = __webpack_require__(14);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(5);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var width = weex.config.env.deviceWidth;
 var height = weex.config.env.deviceHeight;
 var platform = weex.config.env.platform.toLowerCase();
@@ -545,10 +517,33 @@ var mixins = {
         }
     }
 };
-Vue.mixin(mixins);
+
+exports.default = mixins;
 
 /***/ }),
-/* 6 */
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(13);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -583,7 +578,7 @@ module.exports = function listToStyles(parentId, list) {
 };
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -593,7 +588,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(13);
+var _index = __webpack_require__(12);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -605,7 +600,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -704,6 +699,7 @@ exports.default = {
             };
         },
         handleClick: function handleClick(e) {
+            e.stopPropagation();
             if (this.disabled) return;
             this.$emit('wxClick', e);
         }
@@ -711,7 +707,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -721,7 +717,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _alias = __webpack_require__(10);
+var _alias = __webpack_require__(9);
 
 var _alias2 = _interopRequireDefault(_alias);
 
@@ -775,7 +771,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -793,7 +789,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -801,13 +797,13 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-button {\n    background-color: #4676FF;\n    /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-text {\n    color: #ffffff;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue?4b49ffdc"],"names":[],"mappings":";AAQA;IACA,0BAAA;IACA,kDAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AACA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-button\" @click=\"handleClick\" :style=\"buttonStyles\">\n        <text class=\"wx-text\" :style=\"textStyles\">\n            <slot></slot>\n        </text>\n    </div>\n</template>\n<style>\n    .wx-button {\n        background-color: #4676FF;\n        /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n        align-items: center;\n        justify-content: center;\n    }\n    .wx-text {\n        color: #ffffff;\n        font-size: 32px;\n    }\n</style>\n<script type=\"text/javascript\">\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '670px'\n            },\n            height: {\n                type: String,\n                default: '90px'\n            },\n            borderRadius: {\n                type: String,\n                default: '12px'\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '36px'\n            }\n        },\n        data () {\n            return {\n                buttonStyles: {},\n                textStyles: {},\n            }\n        },\n        created () {\n             this.setStyle();\n        },\n        watch: {\n          'disabled': function () {\n              if(this.disabled){\n                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n              }else{\n                  this.buttonStyles['background-color'] = '#4676FF'\n              }\n          }\n        },\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                    'border-radius': this.borderRadius,\n                };\n                let style = Object.assign({}, baseCss, this.styles);\n                this.buttonStyles = style;\n                if(this.disabled){\n                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n                }\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                if (this.disabled) return;\n                this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-button {\n    background-color: #4676FF;\n    /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-text {\n    color: #ffffff;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue?13f5adc7"],"names":[],"mappings":";AAQA;IACA,0BAAA;IACA,kDAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AACA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-button\" @click=\"handleClick\" :style=\"buttonStyles\">\n        <text class=\"wx-text\" :style=\"textStyles\">\n            <slot></slot>\n        </text>\n    </div>\n</template>\n<style>\n    .wx-button {\n        background-color: #4676FF;\n        /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n        align-items: center;\n        justify-content: center;\n    }\n    .wx-text {\n        color: #ffffff;\n        font-size: 32px;\n    }\n</style>\n<script type=\"text/javascript\">\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '670px'\n            },\n            height: {\n                type: String,\n                default: '90px'\n            },\n            borderRadius: {\n                type: String,\n                default: '12px'\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '36px'\n            }\n        },\n        data () {\n            return {\n                buttonStyles: {},\n                textStyles: {},\n            }\n        },\n        created () {\n             this.setStyle();\n        },\n        watch: {\n          'disabled': function () {\n              if(this.disabled){\n                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n              }else{\n                  this.buttonStyles['background-color'] = '#4676FF'\n              }\n          }\n        },\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                    'border-radius': this.borderRadius,\n                };\n                let style = Object.assign({}, baseCss, this.styles);\n                this.buttonStyles = style;\n                if(this.disabled){\n                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n                }\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                e.stopPropagation();\n                if (this.disabled) return;\n                this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -821,19 +817,19 @@ exports.push([module.i, "\n.icon-font[data-v-7bfc623c] {\n    font-family: dropl
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(17)
+  __webpack_require__(16)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(8),
+  __webpack_require__(7),
   /* template */
-  __webpack_require__(15),
+  __webpack_require__(14),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -865,19 +861,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(18)
+  __webpack_require__(17)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(9),
+  __webpack_require__(8),
   /* template */
-  __webpack_require__(16),
+  __webpack_require__(15),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -909,7 +905,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -946,7 +942,7 @@ if (false) {
 }
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -965,13 +961,13 @@ if (false) {
 }
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(11);
+var content = __webpack_require__(10);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -991,13 +987,13 @@ if(false) {
 }
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(12);
+var content = __webpack_require__(11);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1015,6 +1011,28 @@ if(false) {
  // When the module is disposed, remove the <style> tags
  module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(30);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 19 */
@@ -1084,28 +1102,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 /* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(34);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1190,10 +1186,12 @@ exports.default = {
     },
 
     methods: {
-        blur: function blur() {
+        blur: function blur(e) {
+            e.stopPropagation();
             this.$emit('wxBlur', this.inputValue);
         },
         input: function input(e) {
+            e.stopPropagation();
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
@@ -1202,7 +1200,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1281,7 +1279,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1412,7 +1410,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1422,7 +1420,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(3);
+var _wxIcon = __webpack_require__(4);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -1563,7 +1561,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1571,13 +1569,13 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-input {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    width: 8.93333rem;\n    height: 1.33333rem;\n    background-color: #f8f8f8;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-input-icon {\n    width: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-input-text {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-input/index.vue?3e794439"],"names":[],"mappings":";AAoFA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,0BAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,kBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-input\" :style=\"style\">\n        <div class=\"wx-input-icon\" v-if=\"icon\">\n            <image :style=\"iconStyle\" :src=\"icon\"></image>\n        </div>\n        <slot name=\"left\"></slot>\n        <input \n            class=\"wx-input-text\" \n            :type=\"type\" \n            :placeholder=\"placeholder\" \n            :value=\"value\"\n            :disabled=\"disabled\" \n            :autofocus=\"autofocus\" \n            :maxlength=\"maxlength\"\n            @input=\"input\" @blur=\"blur\" />\n        <div class=\"wx-input-icon\" v-if=\"tail\">\n            <image :style=\"tailStyle\" :src=\"tail\"></image>\n        </div>\n    </div>\n</template>\n<script>\n    export default {\n        props: {\n            type: {\n                type: String,\n                default: 'text'\n            },\n            icon: {\n                type: String\n            },\n            tail: {\n                type: String\n            },\n            placeholder: {\n                type: String\n            },\n            value: {\n                type: String\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            maxlength: {\n                type: String\n            },\n            iconStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            width: {\n                type: String\n            }\n        },\n        data(){\n            return {\n                style: {\n                    width: this.width\n                },\n                inputValue: '',\n            }\n        },\n        methods: {\n            blur () {\n                this.$emit('wxBlur', this.inputValue);\n            },\n            input (e) {\n                this.inputValue = e.value;\n                this.$emit('input', e.value)\n                this.$emit('wxInput', this.inputValue);\n            }\n        }\n    }\n</script>\n<style>\n    .wx-input {\n        display: flex;\n        width: 670px;\n        height: 100px;\n        background-color: #f8f8f8;\n        flex-direction: row;\n    }\n\n    .wx-input-icon {\n        width: 100px;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .wx-input-text {\n        flex: 1;\n    }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-input {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    width: 8.93333rem;\n    height: 1.33333rem;\n    background-color: #f8f8f8;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-input-icon {\n    width: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-input-text {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-input/index.vue?4df9db30"],"names":[],"mappings":";AAsFA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,0BAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,kBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-input\" :style=\"style\">\n        <div class=\"wx-input-icon\" v-if=\"icon\">\n            <image :style=\"iconStyle\" :src=\"icon\"></image>\n        </div>\n        <slot name=\"left\"></slot>\n        <input \n            class=\"wx-input-text\" \n            :type=\"type\" \n            :placeholder=\"placeholder\" \n            :value=\"value\"\n            :disabled=\"disabled\" \n            :autofocus=\"autofocus\" \n            :maxlength=\"maxlength\"\n            @input=\"input\" @blur=\"blur\" />\n        <div class=\"wx-input-icon\" v-if=\"tail\">\n            <image :style=\"tailStyle\" :src=\"tail\"></image>\n        </div>\n    </div>\n</template>\n<script>\n    export default {\n        props: {\n            type: {\n                type: String,\n                default: 'text'\n            },\n            icon: {\n                type: String\n            },\n            tail: {\n                type: String\n            },\n            placeholder: {\n                type: String\n            },\n            value: {\n                type: String\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            maxlength: {\n                type: String\n            },\n            iconStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            width: {\n                type: String\n            }\n        },\n        data(){\n            return {\n                style: {\n                    width: this.width\n                },\n                inputValue: '',\n            }\n        },\n        methods: {\n            blur (e) {\n                e.stopPropagation();\n                this.$emit('wxBlur', this.inputValue);\n            },\n            input (e) {\n                e.stopPropagation();\n                this.inputValue = e.value;\n                this.$emit('input', e.value)\n                this.$emit('wxInput', this.inputValue);\n            }\n        }\n    }\n</script>\n<style>\n    .wx-input {\n        display: flex;\n        width: 670px;\n        height: 100px;\n        background-color: #f8f8f8;\n        flex-direction: row;\n    }\n\n    .wx-input-icon {\n        width: 100px;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .wx-input-text {\n        flex: 1;\n    }\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1591,7 +1589,7 @@ exports.push([module.i, "\n.wx-progress[data-v-131acc96] {\n    background-color
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1605,7 +1603,7 @@ exports.push([module.i, "\n.wx-search[data-v-5d51c45e] {\n    display: -webkit-b
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -1619,19 +1617,19 @@ exports.push([module.i, "\n.loading[data-v-712e0c09] {\n    position: fixed;\n  
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(39)
+  __webpack_require__(38)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(23),
+  __webpack_require__(22),
   /* template */
-  __webpack_require__(35),
+  __webpack_require__(34),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1663,19 +1661,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(42)
+  __webpack_require__(41)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(24),
+  __webpack_require__(23),
   /* template */
-  __webpack_require__(38),
+  __webpack_require__(37),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1707,19 +1705,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(40)
+  __webpack_require__(39)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(25),
+  __webpack_require__(24),
   /* template */
-  __webpack_require__(36),
+  __webpack_require__(35),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1751,19 +1749,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(41)
+  __webpack_require__(40)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(26),
+  __webpack_require__(25),
   /* template */
-  __webpack_require__(37),
+  __webpack_require__(36),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1795,7 +1793,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1874,7 +1872,7 @@ if (false) {
 }
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1898,7 +1896,7 @@ if (false) {
 }
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1983,7 +1981,7 @@ if (false) {
 }
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2014,13 +2012,13 @@ if (false) {
 }
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(27);
+var content = __webpack_require__(26);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -2040,13 +2038,13 @@ if(false) {
 }
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(28);
+var content = __webpack_require__(27);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -2066,13 +2064,13 @@ if(false) {
 }
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(29);
+var content = __webpack_require__(28);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -2092,13 +2090,13 @@ if(false) {
 }
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(30);
+var content = __webpack_require__(29);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -2118,7 +2116,7 @@ if(false) {
 }
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2129,83 +2127,83 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.WxPicker = exports.WxRange = exports.WxProgress = exports.WxScrollerbar = exports.WxIndexlist = exports.WxIcon = exports.WxSearch = exports.WxLoading = exports.WxActionsheet = exports.WxPopup = exports.WxInput = exports.WxField = exports.WxRadio = exports.WxCheckbox = exports.WxCell = exports.WxTabbar = exports.WxNavbar = exports.WxHeader = exports.WxDialog = exports.WxButton = undefined;
 
-var _wxButton = __webpack_require__(7);
+var _wxButton = __webpack_require__(6);
 
 var _wxButton2 = _interopRequireDefault(_wxButton);
 
-var _wxDialog = __webpack_require__(47);
+var _wxDialog = __webpack_require__(46);
 
 var _wxDialog2 = _interopRequireDefault(_wxDialog);
 
-var _wxHeader = __webpack_require__(49);
+var _wxHeader = __webpack_require__(48);
 
 var _wxHeader2 = _interopRequireDefault(_wxHeader);
 
-var _wxNavbar = __webpack_require__(51);
+var _wxNavbar = __webpack_require__(50);
 
 var _wxNavbar2 = _interopRequireDefault(_wxNavbar);
 
-var _wxTabbar = __webpack_require__(57);
+var _wxTabbar = __webpack_require__(56);
 
 var _wxTabbar2 = _interopRequireDefault(_wxTabbar);
 
-var _wxCell = __webpack_require__(45);
+var _wxCell = __webpack_require__(44);
 
 var _wxCell2 = _interopRequireDefault(_wxCell);
 
-var _wxCheckbox = __webpack_require__(46);
+var _wxCheckbox = __webpack_require__(45);
 
 var _wxCheckbox2 = _interopRequireDefault(_wxCheckbox);
 
-var _wxRadio = __webpack_require__(54);
+var _wxRadio = __webpack_require__(53);
 
 var _wxRadio2 = _interopRequireDefault(_wxRadio);
 
-var _wxField = __webpack_require__(48);
+var _wxField = __webpack_require__(47);
 
 var _wxField2 = _interopRequireDefault(_wxField);
 
-var _wxInput = __webpack_require__(19);
+var _wxInput = __webpack_require__(18);
 
 var _wxInput2 = _interopRequireDefault(_wxInput);
 
-var _wxPopup = __webpack_require__(53);
+var _wxPopup = __webpack_require__(52);
 
 var _wxPopup2 = _interopRequireDefault(_wxPopup);
 
-var _wxActionsheet = __webpack_require__(44);
+var _wxActionsheet = __webpack_require__(43);
 
 var _wxActionsheet2 = _interopRequireDefault(_wxActionsheet);
 
-var _wxLoading = __webpack_require__(20);
+var _wxLoading = __webpack_require__(19);
 
 var _wxLoading2 = _interopRequireDefault(_wxLoading);
 
-var _wxSearch = __webpack_require__(22);
+var _wxSearch = __webpack_require__(21);
 
 var _wxSearch2 = _interopRequireDefault(_wxSearch);
 
-var _wxIcon = __webpack_require__(3);
+var _wxIcon = __webpack_require__(4);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
-var _wxIndexlist = __webpack_require__(50);
+var _wxIndexlist = __webpack_require__(49);
 
 var _wxIndexlist2 = _interopRequireDefault(_wxIndexlist);
 
-var _wxScrollerbar = __webpack_require__(56);
+var _wxScrollerbar = __webpack_require__(55);
 
 var _wxScrollerbar2 = _interopRequireDefault(_wxScrollerbar);
 
-var _wxProgress = __webpack_require__(21);
+var _wxProgress = __webpack_require__(20);
 
 var _wxProgress2 = _interopRequireDefault(_wxProgress);
 
-var _wxRange = __webpack_require__(55);
+var _wxRange = __webpack_require__(54);
 
 var _wxRange2 = _interopRequireDefault(_wxRange);
 
-var _wxPicker = __webpack_require__(52);
+var _wxPicker = __webpack_require__(51);
 
 var _wxPicker2 = _interopRequireDefault(_wxPicker);
 
@@ -2231,6 +2229,28 @@ exports.WxScrollerbar = _wxScrollerbar2.default;
 exports.WxProgress = _wxProgress2.default;
 exports.WxRange = _wxRange2.default;
 exports.WxPicker = _wxPicker2.default;
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(86);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 44 */
@@ -2526,32 +2546,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(100);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-__webpack_require__(4);
+var _mixins = __webpack_require__(3);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var animation = weex.requireModule('animation'); //
 //
@@ -2591,6 +2593,7 @@ var animation = weex.requireModule('animation'); //
 //
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         value: {
             type: Boolean,
@@ -2781,7 +2784,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2900,13 +2903,14 @@ exports.default = {
             };
         },
         handleClick: function handleClick(e) {
+            e.stopPropagation();
             this.$emit('wxClick', e);
         }
     }
 };
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3007,7 +3011,8 @@ exports.default = {
 
 
     methods: {
-        handleClick: function handleClick() {
+        handleClick: function handleClick(e) {
+            e.stopPropagation();
             if (this.disabled) return;
             this.checked = !this.checked;
             this.$emit('input', this.checked);
@@ -3017,7 +3022,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3027,7 +3032,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-__webpack_require__(4);
+var _mixins = __webpack_require__(3);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var animation = weex.requireModule('animation'); //
 //
@@ -3051,6 +3060,7 @@ var animation = weex.requireModule('animation'); //
 //
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         visible: {
             type: Boolean,
@@ -3099,9 +3109,10 @@ exports.default = {
             };
             this.dialogContentStyles = Object.assign({}, baseCss);
         },
-        cancel: function cancel() {
+        cancel: function cancel(e) {
             var _this = this;
 
+            e.stopPropagation();
             if (this.useDefaultFooter) {
                 this.hideDialog(function () {
                     _this.$emit('cancel');
@@ -3111,9 +3122,10 @@ exports.default = {
 
             this.$emit('cancel');
         },
-        confirm: function confirm() {
+        confirm: function confirm(e) {
             var _this2 = this;
 
+            e.stopPropagation();
             if (this.useDefaultFooter && this.clickConfirmHide) {
                 this.hideDialog(function () {
                     _this2.$emit('confirm');
@@ -3164,7 +3176,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3174,11 +3186,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(5);
+var _mixins = __webpack_require__(3);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
-var _wxIcon = __webpack_require__(3);
+var _wxIcon = __webpack_require__(4);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -3355,7 +3367,8 @@ exports.default = {
 
     data: function data() {
         return {
-            fieldStyles: {}
+            fieldStyles: {},
+            textTitleStyles: {}
         };
     },
     created: function created() {
@@ -3410,9 +3423,11 @@ exports.default = {
             }
         },
         handleChange: function handleChange(e) {
+            e.stopPropagation();
             this.$emit('input', e.value);
         },
-        blur: function blur() {
+        blur: function blur(e) {
+            e.stopPropagation();
             this.$emit('wxBlur', this.inputValue);
         },
         clickHandler: function clickHandler() {
@@ -3426,7 +3441,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3566,7 +3581,8 @@ exports.default = {
                 height: this.arrowSize
             };
         },
-        handleClick: function handleClick() {
+        handleClick: function handleClick(e) {
+            e.stopPropagation();
             if (this.useDefaultBack) {
                 this.$router.back();
             } else {
@@ -3577,7 +3593,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3586,6 +3602,13 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _mixins = __webpack_require__(3);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
@@ -3604,8 +3627,8 @@ Object.defineProperty(exports, "__esModule", {
 var modal = weex.requireModule('modal');
 var animation = weex.requireModule('animation');
 var dom = weex.requireModule('dom');
-
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         items: {
             type: Array,
@@ -3638,7 +3661,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3879,7 +3902,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3889,7 +3912,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _is = __webpack_require__(72);
+var _is = __webpack_require__(71);
 
 var _is2 = _interopRequireDefault(_is);
 
@@ -4138,7 +4161,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4331,7 +4354,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4483,7 +4506,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4692,7 +4715,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4834,7 +4857,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4844,9 +4867,14 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-__webpack_require__(4);
+var _mixins = __webpack_require__(3);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         tabItems: {
             type: Array,
@@ -4978,7 +5006,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5020,6 +5048,20 @@ is.empty = function (value) {
 exports.default = is;
 
 /***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.wx-tabbar[data-v-06b46507] {\n}\n.tab-component[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    width: 10rem;\n    height: 1.33333rem;\n    position: fixed;\n    left: 0;\n    right: 0;\n    z-index: 1000;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #D8D8D8;\n    background-color: #fff;\n}\n.tabbar-item[data-v-06b46507] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.icon[data-v-06b46507] {\n    margin-top: 0.18667rem;\n    margin-bottom: 0.13333rem;\n    width: 0.50667rem;\n    height: 0.50667rem;\n}\n.wx-text[data-v-06b46507] {\n    font-size: 0.37333rem;\n    padding-top: 0.02667rem;\n    text-align: center;\n    color: #646464;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-tabbar/index.vue?07e0585a"],"names":[],"mappings":";AAkBA;CAEA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,aAAA;IACA,mBAAA;IACA,gBAAA;IACA,QAAA;IACA,SAAA;IACA,cAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,uBAAA;IACA,0BAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,sBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-tabbar\">\n        <div class=\"tab-component\" :style=\"{'transform': translateX, width: totalWidth + 'px'}\">\n            <slot></slot>\n        </div>\n        <div class=\"tabbar\" \n            :style=\"getStyles()\">\n            <div class=\"tabbar-item\" \n                v-for=\"item in tabItems\" \n                @click=\"changeTab(item)\">\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index === item.index\" :src=\"item.selectedImage\" class=\"icon\"></image>\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index !== item.index\" :src=\"item.image\" class=\"icon\"></image>\n                <text class=\"wx-text\" :style=\"getTitleStyle(item)\" >{{ item.title }}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-tabbar {\n        \n    }\n\n    .tab-component {\n        flex-direction: row;\n        background-color: #fff;\n    }   \n\n    .tabbar {\n        flex-direction: row;\n        width: 750px;\n        height: 100px;\n        position: fixed;\n        left: 0;\n        right: 0;\n        z-index: 1000;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #D8D8D8;\n        background-color: #fff;\n    }\n\n    .tabbar-item {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .icon {\n        margin-top: 14px;\n        margin-bottom: 10px;\n        width: 38px;\n        height: 38px;\n    }\n\n    .wx-text {\n        font-size: 28px;\n        padding-top: 2px;\n        text-align: center;\n        color: #646464;\n    }\n\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    export default {\n        mixins: [mixins],\n        props: {\n            tabItems: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                },\n                required: false\n            },\n\n            height: {\n                type: String,\n                default: '128px'\n            },\n        },\n\n        data () {\n            return {\n                selectedTab: {index: 0},\n                translateX: 'translateX(0px)', \n                deviceWidth: 750,\n                titleStyle: {},\n            }\n        },\n\n        created () {\n            this.totalWidth = this.deviceWidth * this.tabItems.length;\n            this.setTranslateX();\n        },\n\n        methods: {\n            changeTab (item) {\n               this.selectedTab = item;\n               this.setTranslateX();\n               this.$emit('wxChange', item);\n            },\n\n            setTranslateX () {\n                const x = this.selectedTab.index * this.deviceWidth;\n                this.translateX = `translateX(-${x}px)`;\n            },\n\n            getStyles () {\n                const baseStyle =  {\n                    'bottom': this.getPosition().bottom, \n                    'height': this.height\n                };\n                return Object.assign({}, baseStyle, this.styles);\n            },\n\n            getIconStyle (item) {\n                return {\n                    width: item.iconWdith || '38px',\n                    height: item.iconHeight || '38px',\n                }\n            },\n\n            getTitleStyle (item) {\n                return {\n                    'font-size': item.fontSize || '28px',\n                    'color': this.selectedTab.index === item.index ? item.selectedColor : item.titleColor,\n                }\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
 /* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5028,7 +5070,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-tabbar[data-v-06b46507] {\n}\n.tab-component[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    width: 10rem;\n    height: 1.33333rem;\n    position: fixed;\n    left: 0;\n    right: 0;\n    z-index: 1000;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #D8D8D8;\n    background-color: #fff;\n}\n.tabbar-item[data-v-06b46507] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.icon[data-v-06b46507] {\n    margin-top: 0.18667rem;\n    margin-bottom: 0.13333rem;\n    width: 0.50667rem;\n    height: 0.50667rem;\n}\n.wx-text[data-v-06b46507] {\n    font-size: 0.37333rem;\n    padding-top: 0.02667rem;\n    text-align: center;\n    color: #646464;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-tabbar/index.vue?3e08d96a"],"names":[],"mappings":";AAkBA;CAEA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,aAAA;IACA,mBAAA;IACA,gBAAA;IACA,QAAA;IACA,SAAA;IACA,cAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,uBAAA;IACA,0BAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,sBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-tabbar\">\n        <div class=\"tab-component\" :style=\"{'transform': translateX, width: totalWidth + 'px'}\">\n            <slot></slot>\n        </div>\n        <div class=\"tabbar\" \n            :style=\"getStyles()\">\n            <div class=\"tabbar-item\" \n                v-for=\"item in tabItems\" \n                @click=\"changeTab(item)\">\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index === item.index\" :src=\"item.selectedImage\" class=\"icon\"></image>\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index !== item.index\" :src=\"item.image\" class=\"icon\"></image>\n                <text class=\"wx-text\" :style=\"getTitleStyle(item)\" >{{ item.title }}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-tabbar {\n        \n    }\n\n    .tab-component {\n        flex-direction: row;\n        background-color: #fff;\n    }   \n\n    .tabbar {\n        flex-direction: row;\n        width: 750px;\n        height: 100px;\n        position: fixed;\n        left: 0;\n        right: 0;\n        z-index: 1000;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #D8D8D8;\n        background-color: #fff;\n    }\n\n    .tabbar-item {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .icon {\n        margin-top: 14px;\n        margin-bottom: 10px;\n        width: 38px;\n        height: 38px;\n    }\n\n    .wx-text {\n        font-size: 28px;\n        padding-top: 2px;\n        text-align: center;\n        color: #646464;\n    }\n\n</style>\n<script>\n    import '../utils';\n    export default {\n        props: {\n            tabItems: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                },\n                required: false\n            },\n\n            height: {\n                type: String,\n                default: '128px'\n            },\n        },\n\n        data () {\n            return {\n                selectedTab: {index: 0},\n                translateX: 'translateX(0px)', \n                deviceWidth: 750,\n                titleStyle: {},\n            }\n        },\n\n        created () {\n            this.totalWidth = this.deviceWidth * this.tabItems.length;\n            this.setTranslateX();\n        },\n\n        methods: {\n            changeTab (item) {\n               this.selectedTab = item;\n               this.setTranslateX();\n               this.$emit('wxChange', item);\n            },\n\n            setTranslateX () {\n                const x = this.selectedTab.index * this.deviceWidth;\n                this.translateX = `translateX(-${x}px)`;\n            },\n\n            getStyles () {\n                const baseStyle =  {\n                    'bottom': this.getPosition().bottom, \n                    'height': this.height\n                };\n                return Object.assign({}, baseStyle, this.styles);\n            },\n\n            getIconStyle (item) {\n                return {\n                    width: item.iconWdith || '38px',\n                    height: item.iconHeight || '38px',\n                }\n            },\n\n            getTitleStyle (item) {\n                return {\n                    'font-size': item.fontSize || '28px',\n                    'color': this.selectedTab.index === item.index ? item.selectedColor : item.titleColor,\n                }\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-indexlist[data-v-07ea1486]{\n    width: 10rem;\n}\n.indexList[data-v-07ea1486]{\n    position: fixed;\n    right: 0;\n    top: 0;\n}\n.scroller[data-v-07ea1486]{\n    width: 10rem;\n    /*height: 1000px;*/\n}\n.category[data-v-07ea1486] {\n    color: #666;\n    width: 10rem;\n    height: 0.8rem;\n    line-height: 0.8rem;\n    background-color: #d3d3d3;\n    font-size: 0.48rem;\n}\n.item-text[data-v-07ea1486] {\n    color: #999;\n    width: 10rem;\n    height: 0.8rem;\n    line-height: 0.8rem;\n    font-size: 0.42667rem;\n}\n.indexList-right[data-v-07ea1486] {\n    color: #666;\n    font-size: 0.42667rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.13333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-indexlist/index.vue?ed1ad77c"],"names":[],"mappings":";AA6DA;IACA,aAAA;CACA;AACA;IACA,gBAAA;IACA,SAAA;IACA,OAAA;CACA;AACA;IACA,aAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;IACA,aAAA;IACA,eAAA;IACA,oBAAA;IACA,0BAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;IACA,aAAA;IACA,eAAA;IACA,oBAAA;IACA,sBAAA;CACA;AAEA;IACA,YAAA;IACA,sBAAA;IACA,yBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-indexlist\">\n        <scroller :style=\"{height: getPageHeight() + 'px'}\" class=\"scroller\" show-scrollbar=\"false\">\n            <div class='eachCategory' v-for='category in items' >\n                <text class=\"category\" :ref=\"'item' + category.text\">{{category.text}}</text>\n                <text class=\"item-text\" v-for='item in category.list' @click=\"handleClick(item)\">{{item.text}}\n                </text>\n            </div>\n        </scroller>\n        <div class='indexList'>\n            <text class='indexList-right' @click=\"scrollTo(category.text)\" v-for='category in items'>{{category.text}}</text>\n        </div>\n    </div>\n</template>\n<script>\n    const modal = weex.requireModule('modal');\n    const animation = weex.requireModule('animation');\n    const dom = weex.requireModule('dom');\n    import mixins from '../utils/mixins';\n\n    export default {\n        mixins:[mixins],\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return [];\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n        },\n\n        data () {\n            return {\n                \n            }\n        },\n\n        created () {\n\n        },\n\n        methods: {\n            scrollTo (text) {\n                const el = this.$refs['item' + text][0];\n                dom.scrollToElement(el, {})\n            },\n\n            handleClick (item) {\n                this.$emit('wxChange', item);\n            },\n\n        }\n    }\n</script>\n\n<style scoped>\n    .wx-indexlist{\n        width: 750px;\n    }\n    .indexList{\n        position: fixed;\n        right: 0;\n        top: 0;\n    }\n    .scroller{\n        width: 750px;\n        /*height: 1000px;*/\n    }\n\n    .category {\n        color: #666;\n        width: 750px;\n        height: 60px;\n        line-height: 60px;\n        background-color: #d3d3d3;\n        font-size: 36px;\n    }\n\n    .item-text {\n        color: #999;\n        width: 750px;\n        height: 60px;\n        line-height: 60px;\n        font-size: 32px;\n    }\n\n    .indexList-right {\n        color: #666;\n        font-size: 32px;\n        padding-left: 40px;\n        padding-right: 10px;\n    }\n    \n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -5042,7 +5084,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-indexlist[data-v-07ea1486]{\n    width: 10rem;\n}\n.indexList[data-v-07ea1486]{\n    position: fixed;\n    right: 0;\n    top: 0;\n}\n.scroller[data-v-07ea1486]{\n    width: 10rem;\n    /*height: 1000px;*/\n}\n.category[data-v-07ea1486] {\n    color: #666;\n    width: 10rem;\n    height: 0.8rem;\n    line-height: 0.8rem;\n    background-color: #d3d3d3;\n    font-size: 0.48rem;\n}\n.item-text[data-v-07ea1486] {\n    color: #999;\n    width: 10rem;\n    height: 0.8rem;\n    line-height: 0.8rem;\n    font-size: 0.42667rem;\n}\n.indexList-right[data-v-07ea1486] {\n    color: #666;\n    font-size: 0.42667rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.13333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-indexlist/index.vue?57e463e1"],"names":[],"mappings":";AA2DA;IACA,aAAA;CACA;AACA;IACA,gBAAA;IACA,SAAA;IACA,OAAA;CACA;AACA;IACA,aAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;IACA,aAAA;IACA,eAAA;IACA,oBAAA;IACA,0BAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;IACA,aAAA;IACA,eAAA;IACA,oBAAA;IACA,sBAAA;CACA;AAEA;IACA,YAAA;IACA,sBAAA;IACA,yBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-indexlist\">\n        <scroller :style=\"{height: getPageHeight() + 'px'}\" class=\"scroller\" show-scrollbar=\"false\">\n            <div class='eachCategory' v-for='category in items' >\n                <text class=\"category\" :ref=\"'item' + category.text\">{{category.text}}</text>\n                <text class=\"item-text\" v-for='item in category.list' @click=\"handleClick(item)\">{{item.text}}\n                </text>\n            </div>\n        </scroller>\n        <div class='indexList'>\n            <text class='indexList-right' @click=\"scrollTo(category.text)\" v-for='category in items'>{{category.text}}</text>\n        </div>\n    </div>\n</template>\n<script>\n    const modal = weex.requireModule('modal');\n    const animation = weex.requireModule('animation');\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return [];\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n        },\n\n        data () {\n            return {\n                \n            }\n        },\n\n        created () {\n\n        },\n\n        methods: {\n            scrollTo (text) {\n                const el = this.$refs['item' + text][0];\n                dom.scrollToElement(el, {})\n            },\n\n            handleClick (item) {\n                this.$emit('wxChange', item);\n            },\n\n        }\n    }\n</script>\n\n<style scoped>\n    .wx-indexlist{\n        width: 750px;\n    }\n    .indexList{\n        position: fixed;\n        right: 0;\n        top: 0;\n    }\n    .scroller{\n        width: 750px;\n        /*height: 1000px;*/\n    }\n\n    .category {\n        color: #666;\n        width: 750px;\n        height: 60px;\n        line-height: 60px;\n        background-color: #d3d3d3;\n        font-size: 36px;\n    }\n\n    .item-text {\n        color: #999;\n        width: 750px;\n        height: 60px;\n        line-height: 60px;\n        font-size: 32px;\n    }\n\n    .indexList-right {\n        color: #666;\n        font-size: 32px;\n        padding-left: 40px;\n        padding-right: 10px;\n    }\n    \n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-overlay[data-v-0901d80e] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, 0.3);\n    z-index: 1000;\n}\n.wx-popup[data-v-0901d80e] {\n    background-color: #fff;\n    position: fixed;\n    z-index: 1001;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-popup/index.vue?37706adb"],"names":[],"mappings":";AASA;IACA,gBAAA;IACA,OAAA;IACA,QAAA;IACA,UAAA;IACA,SAAA;IACA,qCAAA;IACA,cAAA;CACA;AACA;IACA,uBAAA;IACA,gBAAA;IACA,cAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-container\">\n        <div class=\"mask wx-overlay\" ref=\"overlay\" v-if=\"visible && hasOverley\" @click=\"hide('event')\"></div>\n        <div class=\"wx-popup\" v-if=\"visible\" :style=\"popupStyles\" ref=\"popup\">\n            <slot></slot>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-overlay {\n        position: fixed;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n        background-color: rgba(0, 0, 0, 0.3);\n        z-index: 1000;\n    }\n    .wx-popup {\n        background-color: #fff;\n        position: fixed;\n        z-index: 1001;\n    }\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n\n            height: {\n                type: String,\n                default: '400px'\n            },\n\n            position: {\n                type: String,\n                default: 'bottom'\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n\n            visible: {\n                type: Boolean,\n                default: false\n            },\n\n            duration: {\n                type: Number,\n                // 300 ms\n                default: 300\n            },\n            hasOverley: {\n                type: Boolean,\n                default: true\n            },\n\n            closeOnClickMask: {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        data () {\n            return {\n                popupStyles: {},\n            }\n        },\n\n        created () {\n            this.setStyle();\n            this.overlayAnimate();\n        },\n\n        methods: {\n            // overlay动画\n            overlayAnimate (opacity) {\n                if (!this.hasOverley) {\n                    return;\n                }\n                const overlayEl = this.$refs.overlay;\n                if (!overlayEl) {\n                    return;\n                }\n                animation.transition(overlayEl, {\n                    styles: {\n                        opacity: opacity\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                let style = Object.assign(this.getStyle().position, baseCss, this.styles);\n                this.popupStyles = style;\n            },\n\n            getStyle (xy) {\n                let style = {\n                    position: {},\n                    transform: '',\n                };\n                switch (this.position) {\n                    case 'top':\n                        style.transform = `translateY(${xy || this.height})`;\n                        style.position = {top:    '-' + this.height};\n                        break;\n                    case 'bottom':\n                        style.transform = `translateY(-${xy || this.height})`;\n                        style.position = {bottom: '-' + this.height};\n                        break;\n                    case 'left':\n                        style.transform = `translateX(${xy || this.width})`;\n                        style.position = {left:   '-' + this.width, top: '0px'};\n                        break;\n                    case 'right':\n                        style.transform = `translateX(-${xy || this.width})`;\n                        style.position = {right:  '-' + this.width, top: '0px'};\n                        break;\n                }\n                return style;\n            },\n\n            // popup动画\n            popupAnimate (xy) {\n                const popupEl = this.$refs.popup;\n                if (!popupEl) {\n                    return;\n                }\n                animation.transition(popupEl, {\n                    styles: {\n                        transform: this.getStyle(xy).transform,\n                        transformOrigin: 'center center'\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            hide (fn) {\n                // 如果是点击事件非函数调用\n                if (fn === 'event' && !this.closeOnClickMask) return;\n                const tm = setTimeout(()=> {\n                    this.$emit('wxChange', false);\n                    clearTimeout(tm);\n                    fn && fn !== 'event' && fn();\n                }, this.duration);\n                this.popupAnimate('0px');\n                this.overlayAnimate(0);\n            }\n        },\n        watch: {\n            visible () {\n                if (this.visible) {\n                    const tm = setTimeout(()=> {\n                        this.popupAnimate();\n                        this.overlayAnimate(1);\n                        clearTimeout(tm);\n                    }, 40);\n                }\n            }\n        },\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5056,7 +5098,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-overlay[data-v-0901d80e] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, 0.3);\n    z-index: 1000;\n}\n.wx-popup[data-v-0901d80e] {\n    background-color: #fff;\n    position: fixed;\n    z-index: 1001;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-popup/index.vue?37706adb"],"names":[],"mappings":";AASA;IACA,gBAAA;IACA,OAAA;IACA,QAAA;IACA,UAAA;IACA,SAAA;IACA,qCAAA;IACA,cAAA;CACA;AACA;IACA,uBAAA;IACA,gBAAA;IACA,cAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-container\">\n        <div class=\"mask wx-overlay\" ref=\"overlay\" v-if=\"visible && hasOverley\" @click=\"hide('event')\"></div>\n        <div class=\"wx-popup\" v-if=\"visible\" :style=\"popupStyles\" ref=\"popup\">\n            <slot></slot>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-overlay {\n        position: fixed;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n        background-color: rgba(0, 0, 0, 0.3);\n        z-index: 1000;\n    }\n    .wx-popup {\n        background-color: #fff;\n        position: fixed;\n        z-index: 1001;\n    }\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n\n            height: {\n                type: String,\n                default: '400px'\n            },\n\n            position: {\n                type: String,\n                default: 'bottom'\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n\n            visible: {\n                type: Boolean,\n                default: false\n            },\n\n            duration: {\n                type: Number,\n                // 300 ms\n                default: 300\n            },\n            hasOverley: {\n                type: Boolean,\n                default: true\n            },\n\n            closeOnClickMask: {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        data () {\n            return {\n                popupStyles: {},\n            }\n        },\n\n        created () {\n            this.setStyle();\n            this.overlayAnimate();\n        },\n\n        methods: {\n            // overlay动画\n            overlayAnimate (opacity) {\n                if (!this.hasOverley) {\n                    return;\n                }\n                const overlayEl = this.$refs.overlay;\n                if (!overlayEl) {\n                    return;\n                }\n                animation.transition(overlayEl, {\n                    styles: {\n                        opacity: opacity\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                let style = Object.assign(this.getStyle().position, baseCss, this.styles);\n                this.popupStyles = style;\n            },\n\n            getStyle (xy) {\n                let style = {\n                    position: {},\n                    transform: '',\n                };\n                switch (this.position) {\n                    case 'top':\n                        style.transform = `translateY(${xy || this.height})`;\n                        style.position = {top:    '-' + this.height};\n                        break;\n                    case 'bottom':\n                        style.transform = `translateY(-${xy || this.height})`;\n                        style.position = {bottom: '-' + this.height};\n                        break;\n                    case 'left':\n                        style.transform = `translateX(${xy || this.width})`;\n                        style.position = {left:   '-' + this.width, top: '0px'};\n                        break;\n                    case 'right':\n                        style.transform = `translateX(-${xy || this.width})`;\n                        style.position = {right:  '-' + this.width, top: '0px'};\n                        break;\n                }\n                return style;\n            },\n\n            // popup动画\n            popupAnimate (xy) {\n                const popupEl = this.$refs.popup;\n                if (!popupEl) {\n                    return;\n                }\n                animation.transition(popupEl, {\n                    styles: {\n                        transform: this.getStyle(xy).transform,\n                        transformOrigin: 'center center'\n                    },\n                    duration: this.duration,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            hide (fn) {\n                // 如果是点击事件非函数调用\n                if (fn === 'event' && !this.closeOnClickMask) return;\n                const tm = setTimeout(()=> {\n                    this.$emit('wxChange', false);\n                    clearTimeout(tm);\n                    fn && fn !== 'event' && fn();\n                }, this.duration);\n                this.popupAnimate('0px');\n                this.overlayAnimate(0);\n            }\n        },\n        watch: {\n            visible () {\n                if (this.visible) {\n                    const tm = setTimeout(()=> {\n                        this.popupAnimate();\n                        this.overlayAnimate(1);\n                        clearTimeout(tm);\n                    }, 40);\n                }\n            }\n        },\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-cell[data-v-12f6cc8b] {\n    height: 1.33333rem;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    background-color: #fff;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    /*padding-right: 20px;*/\n    /*padding-left: 20px;*/\n}\n.wx-text[data-v-12f6cc8b] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    font-size: 0.42667rem;\n}\n.icon[data-v-12f6cc8b] {\n    width: 0.48rem;\n    height: 0.45333rem;\n    padding-left: 0.26667rem;\n}\n.right-arrow[data-v-12f6cc8b] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #979797;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #979797;\n    margin-right: 0.05333rem;\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-cell/index.vue?235044c4"],"names":[],"mappings":";AAWA;IACA,mBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,uBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,wBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,sBAAA;CACA;AAEA;IACA,eAAA;IACA,mBAAA;IACA,yBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,yBAAA;IACA,kCAAA;YAAA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-cell\" @click=\"handleClick\" :style=\"cellStyles\">\n        <slot name=\"left\"></slot>\n        <image class=\"icon\" v-if=\"icon\" :src=\"icon\"></image>\n        <text :style=\"textStyles\" class=\"wx-text\">{{ text }}</text>\n        <!--<slot></slot>-->\n        <slot name=\"right\"></slot>\n        <div v-if=\"hasArrow\" class=\"right-arrow\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-cell {\n        height: 100px;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        background-color: #fff;\n        flex-direction: row;\n        align-items: center;\n        /*padding-right: 20px;*/\n        /*padding-left: 20px;*/\n    }\n\n    .wx-text {\n        flex: 1;\n        font-size: 32px;\n    }\n\n    .icon {\n        width: 36px;\n        height: 34px;\n        padding-left: 20px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #979797;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #979797;\n        margin-right: 4px;\n        transform: rotate(-45deg);\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            width: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            icon: {\n                type: String,\n                default: ''\n            },\n            hasArrow: {\n                type: Boolean,\n                default: true\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                cellStyles: {},\n                textStyles: {},\n            }\n        },\n\n        created () {\n             this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                this.cellStyles = Object.assign({}, this.styles, baseCss);\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                e.stopPropagation();\n                this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5070,7 +5112,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-cell[data-v-12f6cc8b] {\n    height: 1.33333rem;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    background-color: #fff;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    /*padding-right: 20px;*/\n    /*padding-left: 20px;*/\n}\n.wx-text[data-v-12f6cc8b] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    font-size: 0.42667rem;\n}\n.icon[data-v-12f6cc8b] {\n    width: 0.48rem;\n    height: 0.45333rem;\n    padding-left: 0.26667rem;\n}\n.right-arrow[data-v-12f6cc8b] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #979797;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #979797;\n    margin-right: 0.05333rem;\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-cell/index.vue?dd7389da"],"names":[],"mappings":";AAWA;IACA,mBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,uBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,wBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,sBAAA;CACA;AAEA;IACA,eAAA;IACA,mBAAA;IACA,yBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,yBAAA;IACA,kCAAA;YAAA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-cell\" @click=\"handleClick\" :style=\"cellStyles\">\n        <slot name=\"left\"></slot>\n        <image class=\"icon\" v-if=\"icon\" :src=\"icon\"></image>\n        <text :style=\"textStyles\" class=\"wx-text\">{{ text }}</text>\n        <!--<slot></slot>-->\n        <slot name=\"right\"></slot>\n        <div v-if=\"hasArrow\" class=\"right-arrow\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-cell {\n        height: 100px;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        background-color: #fff;\n        flex-direction: row;\n        align-items: center;\n        /*padding-right: 20px;*/\n        /*padding-left: 20px;*/\n    }\n\n    .wx-text {\n        flex: 1;\n        font-size: 32px;\n    }\n\n    .icon {\n        width: 36px;\n        height: 34px;\n        padding-left: 20px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #979797;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #979797;\n        margin-right: 4px;\n        transform: rotate(-45deg);\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            width: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            icon: {\n                type: String,\n                default: ''\n            },\n            hasArrow: {\n                type: Boolean,\n                default: true\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                cellStyles: {},\n                textStyles: {},\n            }\n        },\n\n        created () {\n             this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                this.cellStyles = Object.assign({}, this.styles, baseCss);\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n               this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-header[data-v-158aff14] {\n    height: 1.33333rem;\n    background-color: #fff;\n}\n.bottom-border[data-v-158aff14] {\n    border-bottom-width: 1px;  \n    border-style: solid;  \n    border-color:  #DCDCDC;\n}\n.no-border[data-v-158aff14] {\n    border-bottom-width: 0px;\n}\n.header-arrow[data-v-158aff14] {\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    /*browser*/\n    z-index: 100;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.icon-arrow-left[data-v-158aff14] {\n    border-right-width:0.04rem;\n    border-right-style: solid;\n    border-right-color: #4676FF;\n    border-bottom-style: solid;\n    border-bottom-width: 0.04rem;  \n    border-bottom-color:  #4676FF; \n    -webkit-transform: rotate(135deg); \n            transform: rotate(135deg); \n    margin-left: 0.61333rem;\n}\n.header-title[data-v-158aff14] {\n    width: 10rem;\n    height: 1.33333rem;\n}\n.title[data-v-158aff14] {\n    width: 10rem;\n    font-size: 0.58667rem;\n    text-align: center;\n    color: #333333;\n    height: 1.33333rem;\n    line-height: 1.33333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-header/index.vue?1c8cca1a"],"names":[],"mappings":";AAoBA;IACA,mBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;IACA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;CACA;AAEA;IACA,mBAAA;IACA,UAAA;IACA,SAAA;IACA,WAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,2BAAA;IACA,0BAAA;IACA,4BAAA;IACA,2BAAA;IACA,6BAAA;IACA,8BAAA;IACA,kCAAA;YAAA,0BAAA;IACA,wBAAA;CACA;AAEA;IACA,aAAA;IACA,mBAAA;CACA;AAEA;IACA,aAAA;IACA,sBAAA;IACA,mBAAA;IACA,eAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-header\" :class=\"[hasBottom ? 'bottom-border': 'no-border']\">\n        <!-- default -->\n        <slot>\n            <div class=\"header-title\">\n                <text class=\"title\" :style=\"getTitleStyle()\">{{ text }}</text>\n            </div>\n            <div class=\"header-arrow\" \n                @click=\"handleClick\" \n                v-if=\"hasBackIcon\">\n                <text :style=\"getArrowStyle()\" class=\"icon-arrow-left\"></text>\n            </div>\n        </slot>\n        <!-- customer slot layout 'left center right' -->\n        <slot name=\"header-left\"></slot>\n        <slot name=\"header-center\"></slot>\n        <slot name=\"header-right\"></slot>\n    </div>\n</template>\n<style scoped>\n    .wx-header {\n        height: 100px;\n        background-color: #fff;\n    }\n\n    .bottom-border {\n        border-bottom-width: 1px;  \n        border-style: solid;  \n        border-color:  #DCDCDC;  \n    }\n\n    .no-border {\n        border-bottom-width: 0px; \n    }\n\n    .header-arrow {\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        /*browser*/\n        z-index: 100;\n        width: 100px;\n        height: 100px;\n        justify-content: center;\n    }\n\n    .icon-arrow-left {\n        border-right-width:3px ;\n        border-right-style: solid;\n        border-right-color: #4676FF;\n        border-bottom-style: solid;\n        border-bottom-width: 3px;  \n        border-bottom-color:  #4676FF; \n        transform: rotate(135deg); \n        margin-left: 46px;\n    }\n\n    .header-title {\n        width: 750px;\n        height: 100px;\n    }\n\n    .title {\n        width: 750px;\n        font-size: 44px;\n        text-align: center;\n        color: #333333;\n        height: 100px;\n        line-height: 100px;\n    }\n    \n</style>\n<script>\n    export default {\n        props: {\n            hasBackIcon: {\n                type: Boolean,\n                default: true\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            useDefaultBack: {\n                type: Boolean,\n                default: true\n            },\n            hasBottom: {\n                type: Boolean,\n                default: false\n            },\n\n            textColor: {\n                type: String,\n                default: '#333333'\n            },\n\n            textFontSize: {\n                type: String,\n                default: '44px'\n            },\n\n            arrowColor: {\n                type: String,\n                default: '#4676FF'\n            },\n\n            arrowSize: {\n                type: String,\n                default: '32px'\n            },\n        },\n\n        created () {\n\n        },\n\n        methods: {\n            getTitleStyle () {\n                return {\n                    color: this.textColor,\n                    'font-size': this.textFontSize,\n                };\n            },\n\n            getArrowStyle () {\n                return {\n                    'border-right-color': this.arrowColor,\n                    'border-bottom-color': this.arrowColor,\n                    width: this.arrowSize,\n                    height: this.arrowSize,\n                }\n            },\n\n            handleClick (e) {\n                e.stopPropagation();\n                if (this.useDefaultBack) {\n                    this.$router.back()\n                } else {\n                    this.$emit('wxBack')\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5084,7 +5126,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-header[data-v-158aff14] {\n    height: 1.33333rem;\n    background-color: #fff;\n}\n.bottom-border[data-v-158aff14] {\n    border-bottom-width: 1px;  \n    border-style: solid;  \n    border-color:  #DCDCDC;\n}\n.no-border[data-v-158aff14] {\n    border-bottom-width: 0px;\n}\n.header-arrow[data-v-158aff14] {\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    /*browser*/\n    z-index: 100;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.icon-arrow-left[data-v-158aff14] {\n    border-right-width:0.04rem;\n    border-right-style: solid;\n    border-right-color: #4676FF;\n    border-bottom-style: solid;\n    border-bottom-width: 0.04rem;  \n    border-bottom-color:  #4676FF; \n    -webkit-transform: rotate(135deg); \n            transform: rotate(135deg); \n    margin-left: 0.61333rem;\n}\n.header-title[data-v-158aff14] {\n    width: 10rem;\n    height: 1.33333rem;\n}\n.title[data-v-158aff14] {\n    width: 10rem;\n    font-size: 0.58667rem;\n    text-align: center;\n    color: #333333;\n    height: 1.33333rem;\n    line-height: 1.33333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-header/index.vue?adc5a24c"],"names":[],"mappings":";AAoBA;IACA,mBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;IACA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;CACA;AAEA;IACA,mBAAA;IACA,UAAA;IACA,SAAA;IACA,WAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,2BAAA;IACA,0BAAA;IACA,4BAAA;IACA,2BAAA;IACA,6BAAA;IACA,8BAAA;IACA,kCAAA;YAAA,0BAAA;IACA,wBAAA;CACA;AAEA;IACA,aAAA;IACA,mBAAA;CACA;AAEA;IACA,aAAA;IACA,sBAAA;IACA,mBAAA;IACA,eAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-header\" :class=\"[hasBottom ? 'bottom-border': 'no-border']\">\n        <!-- default -->\n        <slot>\n            <div class=\"header-title\">\n                <text class=\"title\" :style=\"getTitleStyle()\">{{ text }}</text>\n            </div>\n            <div class=\"header-arrow\" \n                @click=\"handleClick\" \n                v-if=\"hasBackIcon\">\n                <text :style=\"getArrowStyle()\" class=\"icon-arrow-left\"></text>\n            </div>\n        </slot>\n        <!-- customer slot layout 'left center right' -->\n        <slot name=\"header-left\"></slot>\n        <slot name=\"header-center\"></slot>\n        <slot name=\"header-right\"></slot>\n    </div>\n</template>\n<style scoped>\n    .wx-header {\n        height: 100px;\n        background-color: #fff;\n    }\n\n    .bottom-border {\n        border-bottom-width: 1px;  \n        border-style: solid;  \n        border-color:  #DCDCDC;  \n    }\n\n    .no-border {\n        border-bottom-width: 0px; \n    }\n\n    .header-arrow {\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        /*browser*/\n        z-index: 100;\n        width: 100px;\n        height: 100px;\n        justify-content: center;\n    }\n\n    .icon-arrow-left {\n        border-right-width:3px ;\n        border-right-style: solid;\n        border-right-color: #4676FF;\n        border-bottom-style: solid;\n        border-bottom-width: 3px;  \n        border-bottom-color:  #4676FF; \n        transform: rotate(135deg); \n        margin-left: 46px;\n    }\n\n    .header-title {\n        width: 750px;\n        height: 100px;\n    }\n\n    .title {\n        width: 750px;\n        font-size: 44px;\n        text-align: center;\n        color: #333333;\n        height: 100px;\n        line-height: 100px;\n    }\n    \n</style>\n<script>\n    export default {\n        props: {\n            hasBackIcon: {\n                type: Boolean,\n                default: true\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            useDefaultBack: {\n                type: Boolean,\n                default: true\n            },\n            hasBottom: {\n                type: Boolean,\n                default: false\n            },\n\n            textColor: {\n                type: String,\n                default: '#333333'\n            },\n\n            textFontSize: {\n                type: String,\n                default: '44px'\n            },\n\n            arrowColor: {\n                type: String,\n                default: '#4676FF'\n            },\n\n            arrowSize: {\n                type: String,\n                default: '32px'\n            },\n        },\n\n        created () {\n\n        },\n\n        methods: {\n            getTitleStyle () {\n                return {\n                    color: this.textColor,\n                    'font-size': this.textFontSize,\n                };\n            },\n\n            getArrowStyle () {\n                return {\n                    'border-right-color': this.arrowColor,\n                    'border-bottom-color': this.arrowColor,\n                    width: this.arrowSize,\n                    height: this.arrowSize,\n                }\n            },\n\n            handleClick () {\n                if (this.useDefaultBack) {\n                    this.$router.back()\n                } else {\n                    this.$emit('wxBack')\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-actionsheet-mask[data-v-2a32de76] {\n    background-color: rgba(0, 0, 0, 0.4);\n    position: fixed;\n    left: 0;\n    width: 10rem;\n    opacity: 0;\n}\n.wx-actionsheet-content[data-v-2a32de76] {\n    position: fixed;\n    width: 10rem;\n    left: 0;\n}\n.action-list[data-v-2a32de76] {\n    margin-bottom: 0.26667rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.action-title[data-v-2a32de76] {\n    height: 1.22667rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.action-item[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.bd-btm[data-v-2a32de76] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: rgba(77,77,77,0.78);\n}\n.cancel-button[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.c-grey[data-v-2a32de76] { color: #8F8E94;\n}\n.bold[data-v-2a32de76] { font-weight: bold;\n}\n.f26[data-v-2a32de76] { font-size: 0.34667rem;\n}\n.radius-24[data-v-2a32de76] {\n    border-radius: 0.32rem;\n}\n.radius-tl-24[data-v-2a32de76] { border-top-left-radius: 0.32rem;\n}\n.radius-tr-24[data-v-2a32de76] { border-top-right-radius: 0.32rem;\n}\n.radius-bl-24[data-v-2a32de76] { border-bottom-left-radius: 0.32rem;\n}\n.radius-br-24[data-v-2a32de76] { border-bottom-right-radius: 0.32rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-actionsheet/index.vue?5a949c1d"],"names":[],"mappings":";AA6OA;IACA,qCAAA;IACA,gBAAA;IACA,QAAA;IACA,aAAA;IACA,WAAA;CACA;AAEA;IACA,gBAAA;IACA,aAAA;IACA,QAAA;CACA;AAEA;IACA,0BAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA;IACA,mBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,yCAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA,2BAAA,eAAA;CAAA;AACA,yBAAA,kBAAA;CAAA;AAEA,wBAAA,sBAAA;CAAA;AAEA;IACA,uBAAA;CACA;AACA,iCAAA,gCAAA;CAAA;AACA,iCAAA,iCAAA;CAAA;AACA,iCAAA,mCAAA;CAAA;AACA,iCAAA,oCAAA;CAAA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-actionsheet\">\n        <div\n            class=\"wx-actionsheet-mask\"\n            :style=\"getPosition()\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetMask\"\n            @click=\"close\"></div>\n        <div\n            class=\"wx-actionsheet-content\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetContent\"\n            :style=\"listStyle\">\n                <div class=\"action-list\">\n                    <div class=\"action-title bd-btm radius-tl-24 radius-tr-24\" v-if=\"titleText\">\n                        <text class=\"f26 c-grey\">{{titleText}}</text>\n                    </div>\n                    <div\n                        class=\"action-item\"\n                        v-for=\"(item, index) in actions\"\n                        :key=\"index\"\n                        :class=\"itemsClass(index)\"\n                        @click=\"itemClick(item, index)\">\n                        <text class=\"bold\" :style=\"actionStyle\">{{item.name}}</text>\n                    </div>\n                </div>\n            <div\n                class=\"action-item bd-btm cancel-button radius-24\"\n                v-if=\"cancelText\"\n                @click=\"cancel\">\n                <text :style=\"cancelStyle\">{{cancelText}}</text>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    import mixins from '../utils/mixins';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        mixins: [mixins],\n        props: {\n            value: {\n                type: Boolean,\n                default: false\n            },\n            closeOnClickMask: {\n                type: Boolean,\n                default: true\n            },\n            cancelText: {\n                type: String,\n                default: '取消'\n            },\n            titleText: {\n                type: String,\n                default: '标题'\n            },\n            actions: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n            },\n            actionColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            cancelColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            actionFontSize: {\n                type: String,\n                default: '40px'\n            },\n            cancelFontSize: {\n                type: String,\n                default: '40px'\n            }\n        },\n\n        data () {\n            return {\n                showActionsheet: false,\n                mbHeight: 20,\n                actionStyle: {},\n                cancelStyle: {},\n            }\n        },\n\n        computed: {\n            listStyle () {\n                const titleHeight = 92;\n                const itemHeight = 114;\n                const listHeight = this.actions.length * itemHeight;\n\n                let totalHeight = listHeight + this.mbHeight;\n                if (this.titleText) {\n                    totalHeight += titleHeight;\n                }\n                if (this.cancelText) {\n                    totalHeight += itemHeight + this.mbHeight;\n                }\n\n                const posBottom = Number(this.getPosition().bottom.replace('px', ''));\n                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+(totalHeight - posBottom) + 'px'};\n\n                return styleObj;\n            }\n        },\n\n        created () {\n            this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                this.actionStyle = Object.assign({}, {\n                                    'color': this.actionColor,\n                                    'font-size': this.actionFontSize\n                                });\n                this.cancelStyle = Object.assign({}, {\n                                    'color': this.cancelColor,\n                                    'font-size': this.cancelFontSize\n                                });\n\n            },\n\n            itemsClass (index) {\n                let classArray = [];\n\n                if (index === (this.actions.length-1)) {\n                    classArray.push('radius-bl-24');\n                    classArray.push('radius-br-24');\n                } else {\n                    classArray.push('bd-btm');\n                }\n\n                if (index === 0 && !this.titleText) {\n                    classArray.push('radius-tl-24');\n                    classArray.push('radius-tr-24');\n                }\n\n                return classArray;\n            },\n\n            close () {\n                if (!this.closeOnClickMask) {\n                    return;\n                }\n                this.hideSheet();\n            },\n\n            itemClick (item, index) {\n                if (item.method && typeof item.method === 'function') {\n                    item.method(item, index);\n                }\n                this.hideSheet();\n            },\n\n            cancel () {\n                this.hideSheet();\n            },\n\n            showSheet () {\n                this.displaySheetMask(true, () => {\n                    this.displaySheetContent(true);\n                });\n            },\n\n            hideSheet() {\n                this.displaySheetContent(false, () => {\n                    this.displaySheetMask(false, () => {\n                        this.showActionsheet = false;\n                    });\n                });\n            },\n\n            displaySheetMask (isShow, callback) {\n                const maskEl = this.$refs.sheetMask;\n                if (!maskEl) {\n                    return;\n                }\n\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n\n                animation.transition(maskEl, {\n                    styles: styles,\n                    duration: 150,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            },\n\n            displaySheetContent (isShow, callback) {\n                const contentEl = this.$refs.sheetContent;\n                if (!contentEl) {\n                    return;\n                }\n\n                const styles = isShow ?\n                                { transform: 'translate(0, -100%)' } :\n                                { transform: 'translate(0, 100%)' };\n                const timingF = isShow ? 'ease' : 'ease-out';\n                const duration = isShow ? 150 : 300;\n\n                animation.transition(contentEl, {\n                    styles: styles,\n                    duration: duration,\n                    timingFunction: timingF,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            value(val) {\n                if (val) {\n                    this.showActionsheet = val;\n                    const timer = setTimeout(() => {\n                        this.showSheet();\n                        clearTimeout(timer);\n                    }, 40);\n                }\n            },\n\n            showActionsheet (val) {\n                !val && this.$emit('input', val);\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .wx-actionsheet-mask {\n        background-color: rgba(0, 0, 0, 0.4);\n        position: fixed;\n        left: 0;\n        width: 750px;\n        opacity: 0;\n    }\n\n    .wx-actionsheet-content {\n        position: fixed;\n        width: 750px;\n        left: 0;\n    }\n\n    .action-list {\n        margin-bottom: 20px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .action-title {\n        height: 92px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .action-item {\n        height: 114px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .bd-btm {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: rgba(77,77,77,0.78);\n    }\n\n    .cancel-button {\n        height: 114px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .c-grey { color: #8F8E94; }\n    .bold { font-weight: bold; }\n\n    .f26 { font-size: 26px; }\n\n    .radius-24 {\n        border-radius: 24px;\n    }\n    .radius-tl-24 { border-top-left-radius: 24px; }\n    .radius-tr-24 { border-top-right-radius: 24px; }\n    .radius-bl-24 { border-bottom-left-radius: 24px; }\n    .radius-br-24 { border-bottom-right-radius: 24px; }\n</style>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5098,7 +5140,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-actionsheet-mask[data-v-2a32de76] {\n    background-color: rgba(0, 0, 0, 0.4);\n    position: fixed;\n    left: 0;\n    width: 10rem;\n    opacity: 0;\n}\n.wx-actionsheet-content[data-v-2a32de76] {\n    position: fixed;\n    width: 10rem;\n    left: 0;\n}\n.action-list[data-v-2a32de76] {\n    margin-bottom: 0.26667rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.action-title[data-v-2a32de76] {\n    height: 1.22667rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.action-item[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.bd-btm[data-v-2a32de76] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: rgba(77,77,77,0.78);\n}\n.cancel-button[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.c-grey[data-v-2a32de76] { color: #8F8E94;\n}\n.bold[data-v-2a32de76] { font-weight: bold;\n}\n.f26[data-v-2a32de76] { font-size: 0.34667rem;\n}\n.radius-24[data-v-2a32de76] {\n    border-radius: 0.32rem;\n}\n.radius-tl-24[data-v-2a32de76] { border-top-left-radius: 0.32rem;\n}\n.radius-tr-24[data-v-2a32de76] { border-top-right-radius: 0.32rem;\n}\n.radius-bl-24[data-v-2a32de76] { border-bottom-left-radius: 0.32rem;\n}\n.radius-br-24[data-v-2a32de76] { border-bottom-right-radius: 0.32rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-actionsheet/index.vue?5ed76a54"],"names":[],"mappings":";AA4OA;IACA,qCAAA;IACA,gBAAA;IACA,QAAA;IACA,aAAA;IACA,WAAA;CACA;AAEA;IACA,gBAAA;IACA,aAAA;IACA,QAAA;CACA;AAEA;IACA,0BAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA;IACA,mBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,yCAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA,2BAAA,eAAA;CAAA;AACA,yBAAA,kBAAA;CAAA;AAEA,wBAAA,sBAAA;CAAA;AAEA;IACA,uBAAA;CACA;AACA,iCAAA,gCAAA;CAAA;AACA,iCAAA,iCAAA;CAAA;AACA,iCAAA,mCAAA;CAAA;AACA,iCAAA,oCAAA;CAAA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-actionsheet\">\n        <div\n            class=\"wx-actionsheet-mask\"\n            :style=\"getPosition()\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetMask\"\n            @click=\"close\"></div>\n        <div\n            class=\"wx-actionsheet-content\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetContent\"\n            :style=\"listStyle\">\n                <div class=\"action-list\">\n                    <div class=\"action-title bd-btm radius-tl-24 radius-tr-24\" v-if=\"titleText\">\n                        <text class=\"f26 c-grey\">{{titleText}}</text>\n                    </div>\n                    <div\n                        class=\"action-item\"\n                        v-for=\"(item, index) in actions\"\n                        :key=\"index\"\n                        :class=\"itemsClass(index)\"\n                        @click=\"itemClick(item, index)\">\n                        <text class=\"bold\" :style=\"actionStyle\">{{item.name}}</text>\n                    </div>\n                </div>\n            <div\n                class=\"action-item bd-btm cancel-button radius-24\"\n                v-if=\"cancelText\"\n                @click=\"cancel\">\n                <text :style=\"cancelStyle\">{{cancelText}}</text>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    import '../utils';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            value: {\n                type: Boolean,\n                default: false\n            },\n            closeOnClickMask: {\n                type: Boolean,\n                default: true\n            },\n            cancelText: {\n                type: String,\n                default: '取消'\n            },\n            titleText: {\n                type: String,\n                default: '标题'\n            },\n            actions: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n            },\n            actionColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            cancelColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            actionFontSize: {\n                type: String,\n                default: '40px'\n            },\n            cancelFontSize: {\n                type: String,\n                default: '40px'\n            }\n        },\n\n        data () {\n            return {\n                showActionsheet: false,\n                mbHeight: 20,\n                actionStyle: {},\n                cancelStyle: {},\n            }\n        },\n\n        computed: {\n            listStyle () {\n                const titleHeight = 92;\n                const itemHeight = 114;\n                const listHeight = this.actions.length * itemHeight;\n\n                let totalHeight = listHeight + this.mbHeight;\n                if (this.titleText) {\n                    totalHeight += titleHeight;\n                }\n                if (this.cancelText) {\n                    totalHeight += itemHeight + this.mbHeight;\n                }\n\n                const posBottom = Number(this.getPosition().bottom.replace('px', ''));\n                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+(totalHeight - posBottom) + 'px'};\n\n                return styleObj;\n            }\n        },\n\n        created () {\n            this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                this.actionStyle = Object.assign({}, {\n                                    'color': this.actionColor,\n                                    'font-size': this.actionFontSize\n                                });\n                this.cancelStyle = Object.assign({}, {\n                                    'color': this.cancelColor,\n                                    'font-size': this.cancelFontSize\n                                });\n\n            },\n\n            itemsClass (index) {\n                let classArray = [];\n\n                if (index === (this.actions.length-1)) {\n                    classArray.push('radius-bl-24');\n                    classArray.push('radius-br-24');\n                } else {\n                    classArray.push('bd-btm');\n                }\n\n                if (index === 0 && !this.titleText) {\n                    classArray.push('radius-tl-24');\n                    classArray.push('radius-tr-24');\n                }\n\n                return classArray;\n            },\n\n            close () {\n                if (!this.closeOnClickMask) {\n                    return;\n                }\n                this.hideSheet();\n            },\n\n            itemClick (item, index) {\n                if (item.method && typeof item.method === 'function') {\n                    item.method(item, index);\n                }\n                this.hideSheet();\n            },\n\n            cancel () {\n                this.hideSheet();\n            },\n\n            showSheet () {\n                this.displaySheetMask(true, () => {\n                    this.displaySheetContent(true);\n                });\n            },\n\n            hideSheet() {\n                this.displaySheetContent(false, () => {\n                    this.displaySheetMask(false, () => {\n                        this.showActionsheet = false;\n                    });\n                });\n            },\n\n            displaySheetMask (isShow, callback) {\n                const maskEl = this.$refs.sheetMask;\n                if (!maskEl) {\n                    return;\n                }\n\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n\n                animation.transition(maskEl, {\n                    styles: styles,\n                    duration: 150,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            },\n\n            displaySheetContent (isShow, callback) {\n                const contentEl = this.$refs.sheetContent;\n                if (!contentEl) {\n                    return;\n                }\n\n                const styles = isShow ?\n                                { transform: 'translate(0, -100%)' } :\n                                { transform: 'translate(0, 100%)' };\n                const timingF = isShow ? 'ease' : 'ease-out';\n                const duration = isShow ? 150 : 300;\n\n                animation.transition(contentEl, {\n                    styles: styles,\n                    duration: duration,\n                    timingFunction: timingF,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            value(val) {\n                if (val) {\n                    this.showActionsheet = val;\n                    const timer = setTimeout(() => {\n                        this.showSheet();\n                        clearTimeout(timer);\n                    }, 40);\n                }\n            },\n\n            showActionsheet (val) {\n                !val && this.$emit('input', val);\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .wx-actionsheet-mask {\n        background-color: rgba(0, 0, 0, 0.4);\n        position: fixed;\n        left: 0;\n        width: 750px;\n        opacity: 0;\n    }\n\n    .wx-actionsheet-content {\n        position: fixed;\n        width: 750px;\n        left: 0;\n    }\n\n    .action-list {\n        margin-bottom: 20px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .action-title {\n        height: 92px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .action-item {\n        height: 114px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .bd-btm {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: rgba(77,77,77,0.78);\n    }\n\n    .cancel-button {\n        height: 114px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .c-grey { color: #8F8E94; }\n    .bold { font-weight: bold; }\n\n    .f26 { font-size: 26px; }\n\n    .radius-24 {\n        border-radius: 24px;\n    }\n    .radius-tl-24 { border-top-left-radius: 24px; }\n    .radius-tr-24 { border-top-right-radius: 24px; }\n    .radius-bl-24 { border-bottom-left-radius: 24px; }\n    .radius-br-24 { border-bottom-right-radius: 24px; }\n</style>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-scroller[data-v-2c7a5726] {\n    background-color: #969696;\n}\n.wx-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-2c7a5726] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.select-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #ffffff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-scrollerbar/index.vue?4833e0a9"],"names":[],"mappings":";AAyIA;IACA,0BAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <scroller class=\"wx-scroller\" \n        :scroll-direction=\"scrollDirection\"\n        :style=\"scrollStyle\" show-scrollbar=\"false\">\n        <div\n            :style=\"{width: itemWidth, height: itemHeight}\"\n            :class=\"[selectIndex == index ? 'select-cell' : 'wx-cell']\"\n            :ref=\"'item'+index\"\n            v-for=\"(item, index) in items\" @click=\"changeTab(index)\">\n            <text class=\"wx-text\">{{ item }}</text>\n        </div> \n    </scroller>\n</template>\n<script>\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n            height: {\n                type: String,\n                default: '700px'\n            },\n\n            itemWidth: {\n                type: String,\n                default: '250px'\n            },\n            itemHeight: {\n                type: String,\n                default: '100px'\n            },\n\n            scrollDirection: {\n                type: String,\n                default: 'vertical'\n            },\n        },\n\n        data () {\n            return {\n                selectIndex: 0,\n                count: 0,\n                scrollStyle: {},\n                data: {\n                    // parent height child height\n                    pheight: 0,\n                    cwidth: 0,\n                    cheight: 0,\n                },\n                hiddenCount: 0,\n                maxHidden: 0,\n            }\n        },\n\n        created () {\n            let isVertical = this.getIsVertical();\n            this.scrollStyle = {\n                width: isVertical ? this.itemWidth : '750px', \n                height: this.height,\n                'flex-direction': isVertical ? 'column' : 'row'\n            }\n            this.getData();\n            // this.deviceHeight = weex.config.env.deviceHeight\n            this.getCount()\n            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）\n            this.maxHidden = this.items.length - this.count;\n        },\n\n        methods: {\n\n            getData () {\n                this.data = {\n                    pheight: Number(this.height.replace('px', '')),\n                    cwidth: Number(this.itemWidth.replace('px', '')),\n                    cheight: Number(this.itemHeight.replace('px', ''))\n                };\n            },\n\n            getCount () {\n                if (this.getIsVertical()) {\n                    this.count = Math.floor(this.data.pheight / this.data.cheight);\n                } else {\n                    this.count = Math.floor(750 / this.data.cwidth);\n                }\n            },\n\n            getIsVertical () {\n                return this.scrollDirection === 'vertical';\n            },\n\n            changeTab (index) {\n                this.selectIndex = index;\n                if (!index) return;\n                const middle = Math.floor(this.count / 2);\n                if (index >= middle) {\n                    this.hiddenCount = index - middle;\n                    this.hiddenCount = this.getCanMoves();\n                    this.scrollTo(-this.hiddenCount * this.data.cheight);\n                } else {\n                    this.hiddenCount = 0;\n                    this.scrollTo(0);\n                }\n                this.$emit('wxChange', this.items[index]);\n            },\n\n            /**\n             * 获取能移动多少条，不能超过总条数\n             */\n            getCanMoves () {\n                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;\n            },\n\n            scrollTo(elHeight){\n                const index = elHeight / this.data.cheight;\n                if (index > 0) {\n                    const el = this.$refs['item' + (13-index)][0];\n                    dom.scrollToElement(el, {});\n                } else {\n                    const el = this.$refs['item' + (0-index)][0];\n                    dom.scrollToElement(el, {});\n                }\n            }\n        }\n    }\n</script>\n<style scoped>\n    .wx-scroller {\n        background-color: #969696;\n    }\n\n    .wx-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .wx-text {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .select-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        background-color: #ffffff;\n    }\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -5112,7 +5154,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-scroller[data-v-2c7a5726] {\n    background-color: #969696;\n}\n.wx-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-2c7a5726] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.select-cell[data-v-2c7a5726] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #ffffff;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-scrollerbar/index.vue?4833e0a9"],"names":[],"mappings":";AAyIA;IACA,0BAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <scroller class=\"wx-scroller\" \n        :scroll-direction=\"scrollDirection\"\n        :style=\"scrollStyle\" show-scrollbar=\"false\">\n        <div\n            :style=\"{width: itemWidth, height: itemHeight}\"\n            :class=\"[selectIndex == index ? 'select-cell' : 'wx-cell']\"\n            :ref=\"'item'+index\"\n            v-for=\"(item, index) in items\" @click=\"changeTab(index)\">\n            <text class=\"wx-text\">{{ item }}</text>\n        </div> \n    </scroller>\n</template>\n<script>\n    const dom = weex.requireModule('dom');\n\n    export default {\n        props: {\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            wxChange: {\n                type: Function,\n                required: true\n            },\n            height: {\n                type: String,\n                default: '700px'\n            },\n\n            itemWidth: {\n                type: String,\n                default: '250px'\n            },\n            itemHeight: {\n                type: String,\n                default: '100px'\n            },\n\n            scrollDirection: {\n                type: String,\n                default: 'vertical'\n            },\n        },\n\n        data () {\n            return {\n                selectIndex: 0,\n                count: 0,\n                scrollStyle: {},\n                data: {\n                    // parent height child height\n                    pheight: 0,\n                    cwidth: 0,\n                    cheight: 0,\n                },\n                hiddenCount: 0,\n                maxHidden: 0,\n            }\n        },\n\n        created () {\n            let isVertical = this.getIsVertical();\n            this.scrollStyle = {\n                width: isVertical ? this.itemWidth : '750px', \n                height: this.height,\n                'flex-direction': isVertical ? 'column' : 'row'\n            }\n            this.getData();\n            // this.deviceHeight = weex.config.env.deviceHeight\n            this.getCount()\n            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）\n            this.maxHidden = this.items.length - this.count;\n        },\n\n        methods: {\n\n            getData () {\n                this.data = {\n                    pheight: Number(this.height.replace('px', '')),\n                    cwidth: Number(this.itemWidth.replace('px', '')),\n                    cheight: Number(this.itemHeight.replace('px', ''))\n                };\n            },\n\n            getCount () {\n                if (this.getIsVertical()) {\n                    this.count = Math.floor(this.data.pheight / this.data.cheight);\n                } else {\n                    this.count = Math.floor(750 / this.data.cwidth);\n                }\n            },\n\n            getIsVertical () {\n                return this.scrollDirection === 'vertical';\n            },\n\n            changeTab (index) {\n                this.selectIndex = index;\n                if (!index) return;\n                const middle = Math.floor(this.count / 2);\n                if (index >= middle) {\n                    this.hiddenCount = index - middle;\n                    this.hiddenCount = this.getCanMoves();\n                    this.scrollTo(-this.hiddenCount * this.data.cheight);\n                } else {\n                    this.hiddenCount = 0;\n                    this.scrollTo(0);\n                }\n                this.$emit('wxChange', this.items[index]);\n            },\n\n            /**\n             * 获取能移动多少条，不能超过总条数\n             */\n            getCanMoves () {\n                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;\n            },\n\n            scrollTo(elHeight){\n                const index = elHeight / this.data.cheight;\n                if (index > 0) {\n                    const el = this.$refs['item' + (13-index)][0];\n                    dom.scrollToElement(el, {});\n                } else {\n                    const el = this.$refs['item' + (0-index)][0];\n                    dom.scrollToElement(el, {});\n                }\n            }\n        }\n    }\n</script>\n<style scoped>\n    .wx-scroller {\n        background-color: #969696;\n    }\n\n    .wx-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .wx-text {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .select-cell {\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        background-color: #ffffff;\n    }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-dialog[data-v-3195ad71] {\n    background-color: rgba(0,0,0,0.35);\n    position: fixed;\n    left: 0;\n    width: 10rem;\n    opacity: 0;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.opacityFull[data-v-3195ad71] { opacity: 1;\n}\n.dialog-content[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-default[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-footer[data-v-3195ad71] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    height: 1.06667rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DEDEDE;\n}\n.flex-1[data-v-3195ad71] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    height: 1.06667rem;\n    font-size: 0.48rem;\n    line-height: 1.06667rem;\n    text-align: center;\n    color: #4d4d4d;\n}\n.btn-cancel[data-v-3195ad71] {\n    border-right-width: 1px;\n    border-right-style: solid;\n    border-right-color: #DEDEDE;\n    color: #7A818B;\n    font-size: 0.48rem;\n}\n.btn-confirm[data-v-3195ad71] {\n    color: #4676FF;\n    font-size: 0.48rem;\n}\n.title[data-v-3195ad71] {\n    width: 7.65333rem;\n    font-size: 0.53333rem;\n    color: #7A818B;\n    text-align: center;\n    padding-top: 1.28rem;\n    padding-bottom: 1.01333rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.53333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-dialog/index.vue?0d84796f"],"names":[],"mappings":";AAwIA;IACA,mCAAA;IACA,gBAAA;IACA,QAAA;IACA,aAAA;IACA,WAAA;IACA,iBAAA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA,gCAAA,WAAA;CAAA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,mBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA;AAEA;IACA,wBAAA;IACA,0BAAA;IACA,4BAAA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,qBAAA;IACA,2BAAA;IACA,yBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-dialog\" ref=\"dialog\" v-if=\"visible\"\n         :class=\"[useDefaultFooter ? '' : 'opacityFull']\" :style=\"getPosition()\">\n        <div class=\"dialog-content\" :style=\"dialogContentStyles\">\n            <slot name=\"dialog-header\"></slot>\n            <slot name=\"dialog-body\"></slot>\n            <slot name=\"dialog-footer\"></slot>\n            <!-- 默认布局 -->\n            <div class=\"dialog-default\" v-if=\"useDefaultFooter\">\n                <text class=\"title\" v-if=\"title\">{{ title }}</text>\n                <div class=\"dialog-footer\">\n                    <text class=\"flex-1 btn-cancel\" @click=\"cancel\">{{ cancelLabel }}</text>\n                    <text class=\"flex-1 btn-confirm\" @click=\"confirm\">{{ confirmLabel }}</text>\n                </div>\n            </div>\n        </div>\n        <!--添加dialog区域外布局-->\n        <slot name=\"dialog-outer\"></slot>\n    </div>\n</template>\n<script>\n    import mixins from '../utils/mixins';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        mixins: [mixins],\n        props: {\n            visible: {\n                type: Boolean,\n                required: true,\n                default: false\n            },\n\n            width: {\n                type: String,\n                default: '574px'\n            },\n\n            cancelLabel: {\n                type: String,\n                default: '取消'\n            },\n            confirmLabel: {\n                type: String,\n                default: '确定'\n            },\n            useDefaultFooter: {\n                type: Boolean,\n                default: true\n            },\n\n            title: {\n                type: String,\n                default: ''\n            },\n\n            clickConfirmHide:  {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        created () {\n            this.setStyles()\n        },\n\n        methods: {\n            setStyles(){\n                let baseCss = {\n                    width: this.width\n                }\n                this.dialogContentStyles = Object.assign({}, baseCss)\n            },\n            cancel (e) {\n                e.stopPropagation();\n                if (this.useDefaultFooter) {\n                    this.hideDialog(() => {\n                        this.$emit('cancel');\n                    });\n                    return;\n                }\n\n                this.$emit('cancel');\n            },\n\n            confirm (e) {\n                e.stopPropagation();\n                if (this.useDefaultFooter && this.clickConfirmHide) {\n                    this.hideDialog(() => {\n                        this.$emit('confirm');\n                    });\n                    return;\n                }\n\n                this.$emit('confirm');\n            },\n\n            hideDialog (callback) {\n                const timer = setTimeout(() => {\n                    this.displayDialog(false, callback);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            showDialog () {\n                const timer = setTimeout(() => {\n                    this.displayDialog(true);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            displayDialog (isShow, callback) {\n                const dialogEl = this.$refs.dialog;\n                if (!dialogEl) {\n                    return;\n                }\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n                animation.transition(dialogEl, {\n                    styles: styles,\n                    duration: 200,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            visible () {\n                if (this.visible) {\n                    this.showDialog();\n                }\n            }\n        }\n    }\n</script>\n<style scoped type=\"text/css\">\n    .wx-dialog {\n        background-color: rgba(0,0,0,0.35);\n        position: fixed;\n        left: 0;\n        width: 750px;\n        opacity: 0;\n        overflow: hidden;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .opacityFull { opacity: 1; }\n\n    .dialog-content {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-default {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-footer {\n        flex-direction: row;\n        height: 80px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DEDEDE;\n    }\n\n    .flex-1 {\n        flex: 1;\n        height: 80px;\n        font-size: 36px;\n        line-height: 80px;\n        text-align: center;\n        color: #4d4d4d;\n    }\n\n    .btn-cancel {\n        border-right-width: 1px;\n        border-right-style: solid;\n        border-right-color: #DEDEDE;\n        color: #7A818B;\n        font-size: 36px;\n    }\n\n    .btn-confirm {\n        color: #4676FF;\n        font-size: 36px;\n    }\n\n    .title {\n        width: 574px;\n        font-size: 40px;\n        color: #7A818B;\n        text-align: center;\n        padding-top: 96px;\n        padding-bottom: 76px;\n        padding-left: 40px;\n        padding-right: 40px;\n    }\n\n</style>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5126,7 +5168,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-dialog[data-v-3195ad71] {\n    background-color: rgba(0,0,0,0.35);\n    position: fixed;\n    left: 0;\n    width: 10rem;\n    opacity: 0;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.opacityFull[data-v-3195ad71] { opacity: 1;\n}\n.dialog-content[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-default[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-footer[data-v-3195ad71] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    height: 1.06667rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DEDEDE;\n}\n.flex-1[data-v-3195ad71] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    height: 1.06667rem;\n    font-size: 0.48rem;\n    line-height: 1.06667rem;\n    text-align: center;\n    color: #4d4d4d;\n}\n.btn-cancel[data-v-3195ad71] {\n    border-right-width: 1px;\n    border-right-style: solid;\n    border-right-color: #DEDEDE;\n    color: #7A818B;\n    font-size: 0.48rem;\n}\n.btn-confirm[data-v-3195ad71] {\n    color: #4676FF;\n    font-size: 0.48rem;\n}\n.title[data-v-3195ad71] {\n    width: 7.65333rem;\n    font-size: 0.53333rem;\n    color: #7A818B;\n    text-align: center;\n    padding-top: 1.28rem;\n    padding-bottom: 1.01333rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.53333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-dialog/index.vue?5414faf0"],"names":[],"mappings":";AAqIA;IACA,mCAAA;IACA,gBAAA;IACA,QAAA;IACA,aAAA;IACA,WAAA;IACA,iBAAA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA,gCAAA,WAAA;CAAA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,mBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA;AAEA;IACA,wBAAA;IACA,0BAAA;IACA,4BAAA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,qBAAA;IACA,2BAAA;IACA,yBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-dialog\" ref=\"dialog\" v-if=\"visible\"\n         :class=\"[useDefaultFooter ? '' : 'opacityFull']\" :style=\"getPosition()\">\n        <div class=\"dialog-content\" :style=\"dialogContentStyles\">\n            <slot name=\"dialog-header\"></slot>\n            <slot name=\"dialog-body\"></slot>\n            <slot name=\"dialog-footer\"></slot>\n            <!-- 默认布局 -->\n            <div class=\"dialog-default\" v-if=\"useDefaultFooter\">\n                <text class=\"title\" v-if=\"title\">{{ title }}</text>\n                <div class=\"dialog-footer\">\n                    <text class=\"flex-1 btn-cancel\" @click=\"cancel\">{{ cancelLabel }}</text>\n                    <text class=\"flex-1 btn-confirm\" @click=\"confirm\">{{ confirmLabel }}</text>\n                </div>\n            </div>\n        </div>\n        <!--添加dialog区域外布局-->\n        <slot name=\"dialog-outer\"></slot>\n    </div>\n</template>\n<script>\n    import '../utils';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            visible: {\n                type: Boolean,\n                required: true,\n                default: false\n            },\n\n            width: {\n                type: String,\n                default: '574px'\n            },\n\n            cancelLabel: {\n                type: String,\n                default: '取消'\n            },\n            confirmLabel: {\n                type: String,\n                default: '确定'\n            },\n            useDefaultFooter: {\n                type: Boolean,\n                default: true\n            },\n\n            title: {\n                type: String,\n                default: ''\n            },\n\n            clickConfirmHide:  {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        created () {\n            this.setStyles()\n        },\n\n        methods: {\n            setStyles(){\n                let baseCss = {\n                    width: this.width\n                }\n                this.dialogContentStyles = Object.assign({}, baseCss)\n            },\n            cancel () {\n                if (this.useDefaultFooter) {\n                    this.hideDialog(() => {\n                        this.$emit('cancel');\n                    });\n                    return;\n                }\n\n                this.$emit('cancel');\n            },\n\n            confirm () {\n                if (this.useDefaultFooter && this.clickConfirmHide) {\n                    this.hideDialog(() => {\n                        this.$emit('confirm');\n                    });\n                    return;\n                }\n\n                this.$emit('confirm');\n            },\n\n            hideDialog (callback) {\n                const timer = setTimeout(() => {\n                    this.displayDialog(false, callback);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            showDialog () {\n                const timer = setTimeout(() => {\n                    this.displayDialog(true);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            displayDialog (isShow, callback) {\n                const dialogEl = this.$refs.dialog;\n                if (!dialogEl) {\n                    return;\n                }\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n                animation.transition(dialogEl, {\n                    styles: styles,\n                    duration: 200,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            visible () {\n                if (this.visible) {\n                    this.showDialog();\n                }\n            }\n        }\n    }\n</script>\n<style scoped type=\"text/css\">\n    .wx-dialog {\n        background-color: rgba(0,0,0,0.35);\n        position: fixed;\n        left: 0;\n        width: 750px;\n        opacity: 0;\n        overflow: hidden;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .opacityFull { opacity: 1; }\n\n    .dialog-content {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-default {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-footer {\n        flex-direction: row;\n        height: 80px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DEDEDE;\n    }\n\n    .flex-1 {\n        flex: 1;\n        height: 80px;\n        font-size: 36px;\n        line-height: 80px;\n        text-align: center;\n        color: #4d4d4d;\n    }\n\n    .btn-cancel {\n        border-right-width: 1px;\n        border-right-style: solid;\n        border-right-color: #DEDEDE;\n        color: #7A818B;\n        font-size: 36px;\n    }\n\n    .btn-confirm {\n        color: #4676FF;\n        font-size: 36px;\n    }\n\n    .title {\n        width: 574px;\n        font-size: 40px;\n        color: #7A818B;\n        text-align: center;\n        padding-top: 96px;\n        padding-bottom: 76px;\n        padding-left: 40px;\n        padding-right: 40px;\n    }\n\n</style>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-radio-items[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-radio-item[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    padding-right: 0.26667rem;\n}\n.wx-radio-label-right[data-v-35b82088] {\n    padding-right: 0.13333rem;\n}\n.wx-radio-label-left[data-v-35b82088] {\n    padding-left: 0.13333rem;\n}\n.wx-radio[data-v-35b82088] {\n    position: relative;\n    border-radius: 0.53333rem;\n}\n.wx-radio-checked[data-v-35b82088] {\n    border-width: 0px;\n}\n.wx-radio-nochecked[data-v-35b82088] {\n    background-color: #fff;\n    border-width: 0.02667rem;\n    border-style: solid;\n    border-color: #ddd;\n}\n.checked[data-v-35b82088] {\n    /*width: 20px;*/\n    /*height: 20px;*/\n    /*border-radius: 20px;*/\n    background-color: #fff;\n    position: absolute;\n    /*top: 10px;*/\n    /*left: 10px;*/\n    z-index: 100;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-radio/index.vue?47bcfcc5"],"names":[],"mappings":";AAgBA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;CACA;AAEA;IACA,yBAAA;CACA;AAEA;IACA,mBAAA;IACA,0BAAA;CACA;AAEA;IACA,kBAAA;CACA;AAEA;IACA,uBAAA;IACA,yBAAA;IACA,oBAAA;IACA,mBAAA;CACA;AAEA;IACA,gBAAA;IACA,iBAAA;IACA,wBAAA;IACA,uBAAA;IACA,mBAAA;IACA,cAAA;IACA,eAAA;IACA,aAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-radio-items\">\n        <div class=\"wx-radio-item\" \n            v-for=\"item in items\" \n            @click=\"handleClick(item)\">\n            <text :style=\"textStyles\" v-if=\"align === 'left'\" class=\"wx-radio-label-right\">{{ item.label }}</text>\n            <div class=\"wx-radio\"\n                :style=\"getRadioStyle(item)\"\n                :class=\"[item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked']\">\n                <text v-if=\"item.checked\" :style=\"checkedStyle\" class=\"checked\"></text>\n            </div>\n            <text :style=\"textStyles\" v-if=\"align === 'right'\" class=\"wx-radio-label-left\">{{ item.label }}</text>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-radio-items {\n        flex-direction: row;\n    }\n\n    .wx-radio-item {\n        flex-direction: row;\n        align-items: center;\n        padding-right: 20px;\n    }\n\n    .wx-radio-label-right {\n        padding-right: 10px;\n    }\n\n    .wx-radio-label-left {\n        padding-left: 10px;\n    }\n\n    .wx-radio {\n        position: relative;\n        border-radius: 40px;\n    }\n\n    .wx-radio-checked {\n        border-width: 0px;\n    }\n\n    .wx-radio-nochecked {\n        background-color: #fff;\n        border-width: 2px;\n        border-style: solid;\n        border-color: #ddd;\n    }\n\n    .checked {\n        /*width: 20px;*/\n        /*height: 20px;*/\n        /*border-radius: 20px;*/\n        background-color: #fff;\n        position: absolute;\n        /*top: 10px;*/\n        /*left: 10px;*/\n        z-index: 100;\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            size: {\n                type: String,\n                default: '50px'\n            },\n            align: {\n                type: String,\n                default: 'left'\n            },\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            checkedColor: {\n                type: String,\n                default: '#027FF3'\n            },\n            textColor: {\n                type: String,\n                default: '#4D4D4D'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                checkedStyle: {},\n                textStyles: {},\n            }\n        },\n\n        created () {\n            this.setCheckedStyle();\n            this.setTextStyle();\n        },\n\n        methods: {\n            setTextStyle () {\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            setCheckedStyle () {\n                const value = Number(this.size.replace('px', '')) / 2;\n                const size = value + 'px';\n                this.checkedStyle = {\n                    height: size,\n                    width: size,\n                    'border-radius': size,\n                    top: value / 2 + 'px',\n                    left: value / 2 + 'px',\n                };\n            },\n\n            getRadioStyle (item) {\n                return {\n                    height: this.size,\n                    width: this.size,\n                    'border-radius': this.size,\n                    'background-color': item.checked ? this.checkedColor : '#fff',\n                };\n                \n            },\n\n            handleClick (item) {\n                this.items.forEach(el => {\n                    el.checked = false;\n                });\n                item.checked = true;\n                this.$emit('wxChange', item);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5140,7 +5182,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-radio-items[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-radio-item[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    padding-right: 0.26667rem;\n}\n.wx-radio-label-right[data-v-35b82088] {\n    padding-right: 0.13333rem;\n}\n.wx-radio-label-left[data-v-35b82088] {\n    padding-left: 0.13333rem;\n}\n.wx-radio[data-v-35b82088] {\n    position: relative;\n    border-radius: 0.53333rem;\n}\n.wx-radio-checked[data-v-35b82088] {\n    border-width: 0px;\n}\n.wx-radio-nochecked[data-v-35b82088] {\n    background-color: #fff;\n    border-width: 0.02667rem;\n    border-style: solid;\n    border-color: #ddd;\n}\n.checked[data-v-35b82088] {\n    /*width: 20px;*/\n    /*height: 20px;*/\n    /*border-radius: 20px;*/\n    background-color: #fff;\n    position: absolute;\n    /*top: 10px;*/\n    /*left: 10px;*/\n    z-index: 100;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-radio/index.vue?47bcfcc5"],"names":[],"mappings":";AAgBA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;CACA;AAEA;IACA,yBAAA;CACA;AAEA;IACA,mBAAA;IACA,0BAAA;CACA;AAEA;IACA,kBAAA;CACA;AAEA;IACA,uBAAA;IACA,yBAAA;IACA,oBAAA;IACA,mBAAA;CACA;AAEA;IACA,gBAAA;IACA,iBAAA;IACA,wBAAA;IACA,uBAAA;IACA,mBAAA;IACA,cAAA;IACA,eAAA;IACA,aAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-radio-items\">\n        <div class=\"wx-radio-item\" \n            v-for=\"item in items\" \n            @click=\"handleClick(item)\">\n            <text :style=\"textStyles\" v-if=\"align === 'left'\" class=\"wx-radio-label-right\">{{ item.label }}</text>\n            <div class=\"wx-radio\"\n                :style=\"getRadioStyle(item)\"\n                :class=\"[item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked']\">\n                <text v-if=\"item.checked\" :style=\"checkedStyle\" class=\"checked\"></text>\n            </div>\n            <text :style=\"textStyles\" v-if=\"align === 'right'\" class=\"wx-radio-label-left\">{{ item.label }}</text>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-radio-items {\n        flex-direction: row;\n    }\n\n    .wx-radio-item {\n        flex-direction: row;\n        align-items: center;\n        padding-right: 20px;\n    }\n\n    .wx-radio-label-right {\n        padding-right: 10px;\n    }\n\n    .wx-radio-label-left {\n        padding-left: 10px;\n    }\n\n    .wx-radio {\n        position: relative;\n        border-radius: 40px;\n    }\n\n    .wx-radio-checked {\n        border-width: 0px;\n    }\n\n    .wx-radio-nochecked {\n        background-color: #fff;\n        border-width: 2px;\n        border-style: solid;\n        border-color: #ddd;\n    }\n\n    .checked {\n        /*width: 20px;*/\n        /*height: 20px;*/\n        /*border-radius: 20px;*/\n        background-color: #fff;\n        position: absolute;\n        /*top: 10px;*/\n        /*left: 10px;*/\n        z-index: 100;\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            size: {\n                type: String,\n                default: '50px'\n            },\n            align: {\n                type: String,\n                default: 'left'\n            },\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            checkedColor: {\n                type: String,\n                default: '#027FF3'\n            },\n            textColor: {\n                type: String,\n                default: '#4D4D4D'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                checkedStyle: {},\n                textStyles: {},\n            }\n        },\n\n        created () {\n            this.setCheckedStyle();\n            this.setTextStyle();\n        },\n\n        methods: {\n            setTextStyle () {\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            setCheckedStyle () {\n                const value = Number(this.size.replace('px', '')) / 2;\n                const size = value + 'px';\n                this.checkedStyle = {\n                    height: size,\n                    width: size,\n                    'border-radius': size,\n                    top: value / 2 + 'px',\n                    left: value / 2 + 'px',\n                };\n            },\n\n            getRadioStyle (item) {\n                return {\n                    height: this.size,\n                    width: this.size,\n                    'border-radius': this.size,\n                    'background-color': item.checked ? this.checkedColor : '#fff',\n                };\n                \n            },\n\n            handleClick (item) {\n                this.items.forEach(el => {\n                    el.checked = false;\n                });\n                item.checked = true;\n                this.$emit('wxChange', item);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-tabbar[data-v-629cf239] {\n    background-color: #fff;\n}\n.tab-component[data-v-629cf239] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar[data-v-629cf239] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar-item[data-v-629cf239] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-title[data-v-629cf239] {\n    text-align: center;\n    font-size: 0.42667rem;\n}\n.selected[data-v-629cf239] {\n    /*font-weight: bold;*/\n}\n.noselected[data-v-629cf239] {\n    /*font-weight: normal;*/\n}\n.bottom-1[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: red;\n}\n.nobottom[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #fff;\n}\n.has-bottom-1[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n}\n.no-bottom-1[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #fff;\n}\n.line[data-v-629cf239] {\n    height: 0.02667rem;\n    position: absolute;\n    left: 0;\n    z-index: 100;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-navbar/index.vue?77d75878"],"names":[],"mappings":";AAuBA;IACA,uBAAA;CACA;AACA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,mBAAA;IACA,sBAAA;CACA;AAEA;IACA,sBAAA;CACA;AAEA;IACA,wBAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,yBAAA;CACA;AACA;IACA,yBAAA;IACA,2BAAA;IACA,0BAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,mBAAA;IACA,QAAA;IACA,aAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-tabbar\"  :style=\"{width: this.width}\">\n        <div class=\"tabbar\" :style=\"{width: this.width, height: this.height}\">\n            <div class=\"tabbar-item\" \n                :class=\"[hasBottom ? 'has-bottom-1' : 'no-bottom-1']\"\n                v-for=\"item in tabItems\" \n                @click=\"changeTab(item)\">\n                <text \n                    :style=\"{color: selectedTab.index === item.index ? (item.selectedColor || '#4676FF') :(item.titleColor) || '#7A818B', 'font-size': item.titleSize}\"\n                    :class=\"[selectedTab.index === item.index ? 'selected' : 'noselected']\"\n                    class=\"wx-title\">{{ item.title }}</text>\n            </div>\n        </div>\n        <div v-if=\"!vif\" class=\"tab-component\" :style=\"{'transform': translateX, width: contentTotalWidth + 'px'}\">\n            <slot></slot>\n        </div>\n        <div v-if=\"vif\">\n            <slot></slot>\n        </div>\n        <text class=\"line\" ref=\"selectedLine\" :style=\"defaultLineStyle\"></text>\n    </div>\n</template>\n<style scoped>\n    .wx-tabbar {\n        background-color: #fff;\n    }\n    .tab-component {\n        flex-direction: row;\n        background-color: #fff;\n    }   \n\n    .tabbar {\n        flex-direction: row;\n        background-color: #fff;\n    }\n\n    .tabbar-item {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .wx-title {\n        text-align: center;\n        font-size: 32px;\n    }\n\n    .selected {\n        /*font-weight: bold;*/\n    }\n\n    .noselected {\n        /*font-weight: normal;*/\n    }\n\n    .bottom-1 {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: red;\n    }\n    .nobottom {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #fff;\n    }\n\n    .has-bottom-1 {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n    }\n\n    .no-bottom-1 {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #fff;\n    }\n\n    .line {\n        height: 2px;\n        position: absolute;\n        left: 0;\n        z-index: 100;\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            // titleColor默认4D4D4D，titleSize默认32px\n            tabItems: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n\n            vif: {\n                type: Boolean,\n                default: false\n            },\n            // navbar整体宽度\n            width: {\n                type: String,\n                default: '750px'\n            },\n\n            // navbar整体高度\n            height: {\n                type: String,\n                default: '80px'\n            },\n\n            hasBottom: {\n                type: Boolean,\n                default: true\n            },\n\n            animated: {\n                type: Boolean,\n                default: true\n            },\n\n            lineStyle: {\n                default: function () {\n                    return {\n                        \n                    }\n                },\n            },\n        },\n\n        data () {\n            return {\n                selectedTab: {index: 0},\n                translateX: 'translateX(0px)',\n                // navbar宽度，该值等于prop width值 \n                barWidth: 750,\n                left: 0,\n                defaultLineStyle: {\n                    width: '120px',\n                    'background-color': '#4676FF',\n                },\n            }\n        },\n\n        created () {\n            // 计算宽度\n            this.barWidth = Number(this.width.replace('px', ''));\n            // 不适用vif\n            if (!this.vif) {\n                this.contentTotalWidth = 750 * this.tabItems.length;\n                this.setTranslateX();\n            }\n            // 添加pos属性，提供偏移动画适用\n            this.tabItems.forEach((item, index) => {\n                const pos =  this.barWidth / this.tabItems.length * index;\n                item.pos = pos;\n            });\n            // 初始化line style\n            this.setLineStyle();\n        },\n\n        methods: {\n\n            setLineStyle () {\n                const style = {\n                    top: Number(this.height.replace('px', '')) - 2 + 'px',\n                    left: this.getLeft() + 'px'\n                }\n                this.defaultLineStyle = Object.assign(style, this.defaultLineStyle, this.lineStyle);\n            },\n\n            /**\n             * 获得第一个距离左侧left值\n             * @return {Number}\n             */\n            getLeft () {\n                let lineWidth = this.lineStyle.width || this.defaultLineStyle.width\n                const width = Number(lineWidth.replace('px', ''));\n                return (this.barWidth / this.tabItems.length - width) / 2;\n            },\n\n            changeTab (item) {\n               if (item.index === this.selectedTab.index && (!item.hasOwnProperty('multipleTrigger') || !item['multipleTrigger'])) {\n                    return;\n               }\n               this.$emit('wxChange', item);\n               const transform = `translateX(${this.tabItems[item.index].pos}px)`\n               this.offsetPos(transform);\n               this.selectedTab = item;\n               this.setTranslateX();\n            },\n\n            setTranslateX () {\n                const x = this.selectedTab.index * 750;\n                this.translateX = `translateX(-${x}px)`;\n            },\n\n            // 设置偏移位置（是否带动画）\n            offsetPos (transform) {\n                if (this.animated) {\n                    this.lineAnimate(transform);\n                } else {\n                    this.setLineStyle();\n                }\n            },\n\n            // 选中线的动画\n            lineAnimate (transform) {\n                const selectedLineEl = this.$refs.selectedLine;\n                if (!selectedLineEl) {\n                    return;\n                }\n                animation.transition(selectedLineEl, {\n                    styles: {\n                        transform: transform,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 300,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5154,7 +5196,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-tabbar[data-v-629cf239] {\n    background-color: #fff;\n}\n.tab-component[data-v-629cf239] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar[data-v-629cf239] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar-item[data-v-629cf239] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-title[data-v-629cf239] {\n    text-align: center;\n    font-size: 0.42667rem;\n}\n.selected[data-v-629cf239] {\n    /*font-weight: bold;*/\n}\n.noselected[data-v-629cf239] {\n    /*font-weight: normal;*/\n}\n.bottom-1[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: red;\n}\n.nobottom[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #fff;\n}\n.has-bottom-1[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n}\n.no-bottom-1[data-v-629cf239] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #fff;\n}\n.line[data-v-629cf239] {\n    height: 0.02667rem;\n    position: absolute;\n    left: 0;\n    z-index: 100;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-navbar/index.vue?77d75878"],"names":[],"mappings":";AAuBA;IACA,uBAAA;CACA;AACA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,mBAAA;IACA,sBAAA;CACA;AAEA;IACA,sBAAA;CACA;AAEA;IACA,wBAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,yBAAA;CACA;AACA;IACA,yBAAA;IACA,2BAAA;IACA,0BAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,mBAAA;IACA,QAAA;IACA,aAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-tabbar\"  :style=\"{width: this.width}\">\n        <div class=\"tabbar\" :style=\"{width: this.width, height: this.height}\">\n            <div class=\"tabbar-item\" \n                :class=\"[hasBottom ? 'has-bottom-1' : 'no-bottom-1']\"\n                v-for=\"item in tabItems\" \n                @click=\"changeTab(item)\">\n                <text \n                    :style=\"{color: selectedTab.index === item.index ? (item.selectedColor || '#4676FF') :(item.titleColor) || '#7A818B', 'font-size': item.titleSize}\"\n                    :class=\"[selectedTab.index === item.index ? 'selected' : 'noselected']\"\n                    class=\"wx-title\">{{ item.title }}</text>\n            </div>\n        </div>\n        <div v-if=\"!vif\" class=\"tab-component\" :style=\"{'transform': translateX, width: contentTotalWidth + 'px'}\">\n            <slot></slot>\n        </div>\n        <div v-if=\"vif\">\n            <slot></slot>\n        </div>\n        <text class=\"line\" ref=\"selectedLine\" :style=\"defaultLineStyle\"></text>\n    </div>\n</template>\n<style scoped>\n    .wx-tabbar {\n        background-color: #fff;\n    }\n    .tab-component {\n        flex-direction: row;\n        background-color: #fff;\n    }   \n\n    .tabbar {\n        flex-direction: row;\n        background-color: #fff;\n    }\n\n    .tabbar-item {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .wx-title {\n        text-align: center;\n        font-size: 32px;\n    }\n\n    .selected {\n        /*font-weight: bold;*/\n    }\n\n    .noselected {\n        /*font-weight: normal;*/\n    }\n\n    .bottom-1 {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: red;\n    }\n    .nobottom {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #fff;\n    }\n\n    .has-bottom-1 {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n    }\n\n    .no-bottom-1 {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #fff;\n    }\n\n    .line {\n        height: 2px;\n        position: absolute;\n        left: 0;\n        z-index: 100;\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            // titleColor默认4D4D4D，titleSize默认32px\n            tabItems: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n\n            vif: {\n                type: Boolean,\n                default: false\n            },\n            // navbar整体宽度\n            width: {\n                type: String,\n                default: '750px'\n            },\n\n            // navbar整体高度\n            height: {\n                type: String,\n                default: '80px'\n            },\n\n            hasBottom: {\n                type: Boolean,\n                default: true\n            },\n\n            animated: {\n                type: Boolean,\n                default: true\n            },\n\n            lineStyle: {\n                default: function () {\n                    return {\n                        \n                    }\n                },\n            },\n        },\n\n        data () {\n            return {\n                selectedTab: {index: 0},\n                translateX: 'translateX(0px)',\n                // navbar宽度，该值等于prop width值 \n                barWidth: 750,\n                left: 0,\n                defaultLineStyle: {\n                    width: '120px',\n                    'background-color': '#4676FF',\n                },\n            }\n        },\n\n        created () {\n            // 计算宽度\n            this.barWidth = Number(this.width.replace('px', ''));\n            // 不适用vif\n            if (!this.vif) {\n                this.contentTotalWidth = 750 * this.tabItems.length;\n                this.setTranslateX();\n            }\n            // 添加pos属性，提供偏移动画适用\n            this.tabItems.forEach((item, index) => {\n                const pos =  this.barWidth / this.tabItems.length * index;\n                item.pos = pos;\n            });\n            // 初始化line style\n            this.setLineStyle();\n        },\n\n        methods: {\n\n            setLineStyle () {\n                const style = {\n                    top: Number(this.height.replace('px', '')) - 2 + 'px',\n                    left: this.getLeft() + 'px'\n                }\n                this.defaultLineStyle = Object.assign(style, this.defaultLineStyle, this.lineStyle);\n            },\n\n            /**\n             * 获得第一个距离左侧left值\n             * @return {Number}\n             */\n            getLeft () {\n                let lineWidth = this.lineStyle.width || this.defaultLineStyle.width\n                const width = Number(lineWidth.replace('px', ''));\n                return (this.barWidth / this.tabItems.length - width) / 2;\n            },\n\n            changeTab (item) {\n               if (item.index === this.selectedTab.index && (!item.hasOwnProperty('multipleTrigger') || !item['multipleTrigger'])) {\n                    return;\n               }\n               this.$emit('wxChange', item);\n               const transform = `translateX(${this.tabItems[item.index].pos}px)`\n               this.offsetPos(transform);\n               this.selectedTab = item;\n               this.setTranslateX();\n            },\n\n            setTranslateX () {\n                const x = this.selectedTab.index * 750;\n                this.translateX = `translateX(-${x}px)`;\n            },\n\n            // 设置偏移位置（是否带动画）\n            offsetPos (transform) {\n                if (this.animated) {\n                    this.lineAnimate(transform);\n                } else {\n                    this.setLineStyle();\n                }\n            },\n\n            // 选中线的动画\n            lineAnimate (transform) {\n                const selectedLineEl = this.$refs.selectedLine;\n                if (!selectedLineEl) {\n                    return;\n                }\n                animation.transition(selectedLineEl, {\n                    styles: {\n                        transform: transform,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 300,\n                    timingFunction: 'ease-out',\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-picker-wrapper {\n    overflow: hidden;\n    background-color: #fff;\n}\n.wx-picker {\n    overflow: hidden;\n    background-color: #fff;\n    height: 5.76rem;\n}\n.wrapper {\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    background-color: #fff;\n    margin-top: 0.42667rem;\n}\n.picker-item {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    text-align: center;\n    line-height: 0.96rem;\n    background-color: #fff;\n    height: 0.96rem;\n    color: #999;\n    font-size: 0.42667rem;\n}\n.picker-item-selected {\n    color: #000;\n}\n.picker-center {\n    width: 10rem;\n    height: 0.96rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DCDCDC;\n\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    position: absolute;\n    top: 2.4rem;\n    left: 0;\n    z-index: 100;\n    width: 750px;\n    /*margin-top: -36px;*/\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-picker/index.vue?752502f5"],"names":[],"mappings":";AAeA;IACA,iBAAA;IACA,uBAAA;CACA;AAEA;IACA,iBAAA;IACA,uBAAA;IACA,gBAAA;CACA;AAEA;IACA,iBAAA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,mBAAA;IACA,qBAAA;IACA,uBAAA;IACA,gBAAA;IACA,YAAA;IACA,sBAAA;CACA;AAEA;IACA,YAAA;CACA;AAEA;IACA,aAAA;IACA,gBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;;IAEA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,mBAAA;IACA,YAAA;IACA,QAAA;IACA,aAAA;IACA,aAAA;IACA,sBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-picker-wrapper\" v-if=\"visible\">\n        <div class=\"wx-picker\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\" >\n            <div class=\"wrapper\" ref=\"wrapper\">\n                <text \n                    class=\"picker-item\"\n                    :class=\"[getSelectedClass(index)]\"\n                    v-for=\"(item, index) in data.list\">{{item.name || item}}</text>\n            </div>\n            <text class=\"picker-center\"></text>\n        </div>\n    </div>\n</template>\n<style>\n\n    .wx-picker-wrapper {\n        overflow: hidden;\n        background-color: #fff;\n    }\n\n    .wx-picker {\n        overflow: hidden;\n        background-color: #fff;\n        height: 432px;\n    }\n\n    .wrapper {\n        overflow: hidden;\n        flex-direction: column;\n        background-color: #fff;\n        margin-top: 32px;\n    }\n\n    .picker-item {\n        flex: 1;\n        text-align: center;\n        line-height: 72px;\n        background-color: #fff;\n        height: 72px;\n        color: #999;\n        font-size: 32px;\n    }\n\n    .picker-item-selected {\n        color: #000;\n    }\n\n    .picker-center {\n        width: 750px;\n        height: 72px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DCDCDC;\n\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        position: absolute;\n        top: 180px;\n        left: 0;\n        z-index: 100;\n        width: 750px;\n        /*margin-top: -36px;*/\n        justify-content: center;\n        align-items: center;\n    }\n\n</style>\n<script type=\"text/javascript\">\n    import is from '../utils/is';\n    const animation = weex.requireModule('animation');\n\n    const getIndex = (list, item) => {\n        if (list && list.length < 1) {\n            return 0;\n        }\n        let index1 = list.findIndex(v => {\n            return v === item || (v.name && v.name === item.name);\n        });\n        let index2 = list.indexOf(item);\n        let index = Math.max(index1, index2);\n        if (index < 0) {\n            // throw new Error('list数组中不存在defaultValue');\n            return 0;\n        }\n        return index;\n    };\n\n    export default {\n        props: {\n            visible: {\n                type: Boolean,\n                default: false\n            },\n\n            data: {\n                type: Object,\n                default: function () {\n                    return {};\n                },\n                required: true\n            },\n        },\n        data () {\n            return {\n                startY: 0,\n                endY: 0,\n                currentY: 0,\n                itemHeight: 72,\n                selectedIndex: 0,\n                _defaultValue: null,\n            }\n        },\n        created () {\n            this.selectedIndex = this.getInitialIndex();\n        },\n\n        mounted () {\n            this.initMove();\n        },\n        \n        methods: {\n\n            getInitialIndex() {\n                let index = getIndex(\n                  this.data.list,\n                  this.data.defaultValue\n                );\n                if (!this.data.defaultValue && this.data.list.length > 3) {\n                  index = Math.floor(this.data.list.length / 2);\n                }\n                return index;\n            },\n\n            initMove () {\n                this.currentY = 0;\n                if (this.selectedIndex > 2) {\n                  this.currentY = - (this.selectedIndex - 2) * this.itemHeight;\n                } else {\n                  this.currentY = (2 - this.selectedIndex) * this.itemHeight;\n                }\n                this.move(this.currentY);\n            },\n\n            getSelectedClass (index) {\n                if (this.selectedIndex === index) {\n                  return 'picker-item-selected';\n                }\n                return '';\n            },\n\n            ontouchstart (e) {\n                if (this.data.list.length <= 1) {\n                    return;\n                }\n                this.startY = e.changedTouches[0].screenY;\n            },\n\n            ontouchmove (e) {\n                if (this.data.list.length <= 1) {\n                  return;\n                }\n                const pageY = e.changedTouches[0].screenY;\n                let value = parseInt(pageY - this.startY);\n                const y = this.currentY + value;\n                this.move(y);\n            },\n\n            ontouchend (e) {\n                if (this.data.list.length <= 1) {\n                  return;\n                }\n                this.endY = e.changedTouches[0].screenY;\n                // 实际滚动距离\n                let v = parseInt(this.endY - this.startY);\n                let value = v % this.itemHeight;\n                // 计算出每次拖动的36px整倍数\n                this.currentY += (v - value);\n\n                // 正数y最大值\n                const max1 = 2 * this.itemHeight;\n                // 负数y最小值\n                const max2 = (this.data.list.length - 3) * this.itemHeight;\n\n                if (this.currentY > max1) {\n                  this.currentY = max1;\n                }\n                else if (this.currentY > 0 && this.currentY < max1) {\n                  this.currentY = this.currentY;\n                }\n                else if (this.currentY === max1) {\n                  this.currentY = this.currentY;\n                }\n                else if (Math.abs(this.currentY) > max2) {\n                  this.currentY = - max2;\n                }\n\n                this.countListIndex(this.currentY);\n                this.move(this.currentY, true);\n            },\n\n            // 计算list数组索引\n            countListIndex (pageY) {\n                let n = pageY / this.itemHeight;\n                n = n > 0 ? 2 - n : Math.abs(n) + 2;\n                this.setSelectedValue(n);\n            },\n\n            // set选中值\n            setSelectedValue (index) {\n                const length = this.data.list.length;\n                if (length === 0) {\n                  this.callback(null);\n                  return;\n                }\n                if (index < 0 || index > length -1) {\n                  throw new Error('滑动取值索引数值出现错误'+ index);\n                }\n                const value = this.data.list[index];\n                this.selectedIndex = index;\n\n                this.callback(value)\n            },\n\n            // 回调wxChange\n            callback (value) {\n                this.data.defaultValue = value;\n                this.$emit('wxChange', value);\n            },\n\n            move (y, bool) {\n                const el = this.$refs.wrapper;\n                let obj = {\n                    styles: {\n                        transform: `translateY(${y}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    needLayout: false,\n                    delay: 0 //ms\n                };\n                if (bool) {\n                    obj.duration = 300;\n                    obj.timingFunction = 'ease-out';\n                }\n                animation.transition(el, obj);\n            },\n        },\n        watch: {\n            'data.list' () {\n                this.selectedIndex = this.getInitialIndex();\n                this.initMove();\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5168,7 +5210,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-picker-wrapper {\n    overflow: hidden;\n    background-color: #fff;\n}\n.wx-picker {\n    overflow: hidden;\n    background-color: #fff;\n    height: 5.76rem;\n}\n.wrapper {\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    background-color: #fff;\n    margin-top: 0.42667rem;\n}\n.picker-item {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    text-align: center;\n    line-height: 0.96rem;\n    background-color: #fff;\n    height: 0.96rem;\n    color: #999;\n    font-size: 0.42667rem;\n}\n.picker-item-selected {\n    color: #000;\n}\n.picker-center {\n    width: 10rem;\n    height: 0.96rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DCDCDC;\n\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    position: absolute;\n    top: 2.4rem;\n    left: 0;\n    z-index: 100;\n    width: 750px;\n    /*margin-top: -36px;*/\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-picker/index.vue?752502f5"],"names":[],"mappings":";AAeA;IACA,iBAAA;IACA,uBAAA;CACA;AAEA;IACA,iBAAA;IACA,uBAAA;IACA,gBAAA;CACA;AAEA;IACA,iBAAA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,mBAAA;IACA,qBAAA;IACA,uBAAA;IACA,gBAAA;IACA,YAAA;IACA,sBAAA;CACA;AAEA;IACA,YAAA;CACA;AAEA;IACA,aAAA;IACA,gBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;;IAEA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,mBAAA;IACA,YAAA;IACA,QAAA;IACA,aAAA;IACA,aAAA;IACA,sBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-picker-wrapper\" v-if=\"visible\">\n        <div class=\"wx-picker\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\" >\n            <div class=\"wrapper\" ref=\"wrapper\">\n                <text \n                    class=\"picker-item\"\n                    :class=\"[getSelectedClass(index)]\"\n                    v-for=\"(item, index) in data.list\">{{item.name || item}}</text>\n            </div>\n            <text class=\"picker-center\"></text>\n        </div>\n    </div>\n</template>\n<style>\n\n    .wx-picker-wrapper {\n        overflow: hidden;\n        background-color: #fff;\n    }\n\n    .wx-picker {\n        overflow: hidden;\n        background-color: #fff;\n        height: 432px;\n    }\n\n    .wrapper {\n        overflow: hidden;\n        flex-direction: column;\n        background-color: #fff;\n        margin-top: 32px;\n    }\n\n    .picker-item {\n        flex: 1;\n        text-align: center;\n        line-height: 72px;\n        background-color: #fff;\n        height: 72px;\n        color: #999;\n        font-size: 32px;\n    }\n\n    .picker-item-selected {\n        color: #000;\n    }\n\n    .picker-center {\n        width: 750px;\n        height: 72px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DCDCDC;\n\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        position: absolute;\n        top: 180px;\n        left: 0;\n        z-index: 100;\n        width: 750px;\n        /*margin-top: -36px;*/\n        justify-content: center;\n        align-items: center;\n    }\n\n</style>\n<script type=\"text/javascript\">\n    import is from '../utils/is';\n    const animation = weex.requireModule('animation');\n\n    const getIndex = (list, item) => {\n        if (list && list.length < 1) {\n            return 0;\n        }\n        let index1 = list.findIndex(v => {\n            return v === item || (v.name && v.name === item.name);\n        });\n        let index2 = list.indexOf(item);\n        let index = Math.max(index1, index2);\n        if (index < 0) {\n            // throw new Error('list数组中不存在defaultValue');\n            return 0;\n        }\n        return index;\n    };\n\n    export default {\n        props: {\n            visible: {\n                type: Boolean,\n                default: false\n            },\n\n            data: {\n                type: Object,\n                default: function () {\n                    return {};\n                },\n                required: true\n            },\n        },\n        data () {\n            return {\n                startY: 0,\n                endY: 0,\n                currentY: 0,\n                itemHeight: 72,\n                selectedIndex: 0,\n                _defaultValue: null,\n            }\n        },\n        created () {\n            this.selectedIndex = this.getInitialIndex();\n        },\n\n        mounted () {\n            this.initMove();\n        },\n        \n        methods: {\n\n            getInitialIndex() {\n                let index = getIndex(\n                  this.data.list,\n                  this.data.defaultValue\n                );\n                if (!this.data.defaultValue && this.data.list.length > 3) {\n                  index = Math.floor(this.data.list.length / 2);\n                }\n                return index;\n            },\n\n            initMove () {\n                this.currentY = 0;\n                if (this.selectedIndex > 2) {\n                  this.currentY = - (this.selectedIndex - 2) * this.itemHeight;\n                } else {\n                  this.currentY = (2 - this.selectedIndex) * this.itemHeight;\n                }\n                this.move(this.currentY);\n            },\n\n            getSelectedClass (index) {\n                if (this.selectedIndex === index) {\n                  return 'picker-item-selected';\n                }\n                return '';\n            },\n\n            ontouchstart (e) {\n                if (this.data.list.length <= 1) {\n                    return;\n                }\n                this.startY = e.changedTouches[0].screenY;\n            },\n\n            ontouchmove (e) {\n                if (this.data.list.length <= 1) {\n                  return;\n                }\n                const pageY = e.changedTouches[0].screenY;\n                let value = parseInt(pageY - this.startY);\n                const y = this.currentY + value;\n                this.move(y);\n            },\n\n            ontouchend (e) {\n                if (this.data.list.length <= 1) {\n                  return;\n                }\n                this.endY = e.changedTouches[0].screenY;\n                // 实际滚动距离\n                let v = parseInt(this.endY - this.startY);\n                let value = v % this.itemHeight;\n                // 计算出每次拖动的36px整倍数\n                this.currentY += (v - value);\n\n                // 正数y最大值\n                const max1 = 2 * this.itemHeight;\n                // 负数y最小值\n                const max2 = (this.data.list.length - 3) * this.itemHeight;\n\n                if (this.currentY > max1) {\n                  this.currentY = max1;\n                }\n                else if (this.currentY > 0 && this.currentY < max1) {\n                  this.currentY = this.currentY;\n                }\n                else if (this.currentY === max1) {\n                  this.currentY = this.currentY;\n                }\n                else if (Math.abs(this.currentY) > max2) {\n                  this.currentY = - max2;\n                }\n\n                this.countListIndex(this.currentY);\n                this.move(this.currentY, true);\n            },\n\n            // 计算list数组索引\n            countListIndex (pageY) {\n                let n = pageY / this.itemHeight;\n                n = n > 0 ? 2 - n : Math.abs(n) + 2;\n                this.setSelectedValue(n);\n            },\n\n            // set选中值\n            setSelectedValue (index) {\n                const length = this.data.list.length;\n                if (length === 0) {\n                  this.callback(null);\n                  return;\n                }\n                if (index < 0 || index > length -1) {\n                  throw new Error('滑动取值索引数值出现错误'+ index);\n                }\n                const value = this.data.list[index];\n                this.selectedIndex = index;\n\n                this.callback(value)\n            },\n\n            // 回调wxChange\n            callback (value) {\n                this.data.defaultValue = value;\n                this.$emit('wxChange', value);\n            },\n\n            move (y, bool) {\n                const el = this.$refs.wrapper;\n                let obj = {\n                    styles: {\n                        transform: `translateY(${y}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    needLayout: false,\n                    delay: 0 //ms\n                };\n                if (bool) {\n                    obj.duration = 300;\n                    obj.timingFunction = 'ease-out';\n                }\n                animation.transition(el, obj);\n            },\n        },\n        watch: {\n            'data.list' () {\n                this.selectedIndex = this.getInitialIndex();\n                this.initMove();\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-field[data-v-a3bc8a72] {\n    width: 10rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    -webkit-flex-wrap: wrap;\n            flex-wrap: wrap;\n}\n.wx-text[data-v-a3bc8a72] {\n    font-size: 0.45333rem;\n    color: #333333;\n    width: 2.4rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n}\n.wx-input[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    color: #333333;\n    height: 1.46667rem;\n    line-height: 1.46667rem;\n    -webkit-box-flex: 3;\n    -webkit-flex: 3;\n            flex: 3;\n    text-align: left;\n}\n.wx-content[data-v-a3bc8a72] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n.wx-cli-text[data-v-a3bc8a72] {\n    color: #999999;\n    font-size: 0.42667rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n    padding-top: 0.4rem;\n}\n.wx-unit[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    width: 0.66667rem;\n    /*margin-top: 10px;*/\n}\n.wx-enter[data-v-a3bc8a72] {\n    color: #7A818B;\n    font-size: 0.42667rem;\n    margin-top: 0.4rem;\n}\n.right-arrow[data-v-a3bc8a72] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    margin-top: 0.26667rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #DCDCDC;\n    /*margin-right: 4px;*/\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n/*label在上边的情况*/\n.wx-text-top[data-v-a3bc8a72] {\n    width: 10rem;\n    padding-top: 0.53333rem;\n    /*padding-bottom: 40px;*/\n    font-size: 0.45333rem;\n    color: #333333;\n}\n.iconfont[data-v-a3bc8a72] {\n    font-family: iconfont;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-field/index.vue?3e31512e"],"names":[],"mappings":";AAuBA;IACA,aAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,wBAAA;YAAA,gBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,cAAA;IACA,0BAAA;YAAA,kBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,wBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,0BAAA;YAAA,kBAAA;IACA,oBAAA;CACA;AAEA;IACA,sBAAA;IACA,kBAAA;IACA,qBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,uBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,sBAAA;IACA,kCAAA;YAAA,0BAAA;CACA;;AAEA,eAAA;AACA;IACA,aAAA;IACA,wBAAA;IACA,yBAAA;IACA,sBAAA;IACA,eAAA;CACA;AAEA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-field\" :style=\"fieldStyles\" @click=\"clickHandler\">\n        <text :class=\"[labelPosition=='top'?'wx-text-top':'wx-text']\" :style=\"textTitleStyles\">{{ label }}</text>\n        <div class=\"wx-content\">\n            <input\n                    v-if=\"!disabled\"\n                    @input=\"handleChange\"\n                    @blur=\"blur\"\n                    class=\"wx-input\"\n                    :type=\"type\"\n                    :style=\"inputStyles\"\n                    :maxlength=\"maxlength\"\n                    :autofocus=\"autofocus\"\n                    :disabled=\"disabled\"\n                    :value=\"value\"\n                    :placeholder=\"placeholder\"/>\n            <text v-if=\"disabled\" class=\"wx-cli-text\" :style=\"cliTextStyles\">{{value=='' ? placeholder : value}}</text>\n            <text class=\"wx-unit\" v-if=\"unit\">{{unit}}</text>\n            <wx-icon name=\"enter\" v-if=\"hasArrow\" class=\"iconfont wx-enter\"></wx-icon>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-field {\n        width: 750px;\n        height: 100px;\n        flex-direction: row;\n        align-items: center;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        flex-wrap: wrap;\n    }\n\n    .wx-text {\n        font-size: 34px;\n        color: #333333;\n        width: 180px;\n        flex-wrap: nowrap;\n    }\n\n    .wx-input {\n        font-size: 32px;\n        color: #333333;\n        height: 110px;\n        line-height: 110px;\n        flex: 3;\n        text-align: left;\n    }\n\n    .wx-content {\n        flex-direction: row;\n        flex: 1;\n    }\n\n    .wx-cli-text {\n        color: #999999;\n        font-size: 32px;\n        flex-wrap: nowrap;\n        padding-top: 30px;\n    }\n\n    .wx-unit {\n        font-size: 32px;\n        width: 50px;\n        /*margin-top: 10px;*/\n    }\n\n    .wx-enter {\n        color: #7A818B;\n        font-size: 32px;\n        margin-top: 30px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        margin-top: 20px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #DCDCDC;\n        /*margin-right: 4px;*/\n        transform: rotate(-45deg);\n    }\n\n    /*label在上边的情况*/\n    .wx-text-top {\n        width: 750px;\n        padding-top: 40px;\n        /*padding-bottom: 40px;*/\n        font-size: 34px;\n        color: #333333;\n    }\n\n    .iconfont {\n        font-family: iconfont;\n    }\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    const modal = weex.requireModule('modal')\n    import WxIcon from '../wx-icon'\n\n    export default {\n        mixins:[mixins],\n        components: { WxIcon },\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            cliWidth: {\n                type: String\n            },\n            titleWidth: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            inputStyles: {\n                type: Object\n            },\n            label: {\n                type: String,\n                default: ''\n            },\n            labelPosition: {\n                type: String,\n                default: 'left'\n            },\n            type: {\n                type: String,\n                default: 'text'\n            },\n            maxlength: {\n                type: String,\n                default: '200'\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            placeholder: {\n                type: String,\n                default: ''\n            },\n            unit: {\n                type: String\n            },\n            hasArrow: {\n                type: Boolean,\n                default: false\n            },\n            value: {\n                type: String\n            }\n        },\n\n        data () {\n            return {\n                fieldStyles: {},\n                textTitleStyles: {},\n            }\n        },\n\n        created () {\n            this.setStyle()\n        },\n        watch: {\n            'value': function () {\n                if(this.value != ''){\n                    this.cliTextStyles.color = '#333333'\n                }else{\n                    this.cliTextStyles.color = '#999999'\n                }\n            }\n        },\n\n        methods: {\n            setStyle () {\n\n                // fieldStyles 样式\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                }\n                this.fieldStyles = Object.assign({},  baseCss, this.styles)\n\n//                if(this.disabled){\n//                    modal.toast({\n//                        message: this.width.replace('px','') - 26 + 'px'\n//                    })\n//                }\n\n                // cliTextStyles样式\n                let width = ''\n                if(this.cliWidth != null){\n                    width = this.cliWidth\n                }else{\n                    width = this.width\n                }\n                const cliTextCss = {\n                    width: width.replace('px','') - 26 + 'px',\n                    color: this.value == '' ? '#999999' : '#333333'\n                }\n                this.cliTextStyles = Object.assign({},  cliTextCss)\n\n                if(this.titleWidth != null ){\n                    // textTitleStyles 样式\n                    const titleStyles = {\n                        width: this.titleWidth\n                    }\n                    this.textTitleStyles = Object.assign({},  titleStyles)\n                }\n\n            },\n\n            handleChange (e) {\n                e.stopPropagation();\n                this.$emit('input', e.value)\n            },\n\n            blur (e) {\n                e.stopPropagation();\n                this.$emit('wxBlur', this.inputValue);\n            },\n\n            clickHandler(){\n                if (this.disabled){\n                    this.$emit('wxClick')\n                }else {\n                    return\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5182,7 +5224,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-field[data-v-a3bc8a72] {\n    width: 10rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    -webkit-flex-wrap: wrap;\n            flex-wrap: wrap;\n}\n.wx-text[data-v-a3bc8a72] {\n    font-size: 0.45333rem;\n    color: #333333;\n    width: 2.4rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n}\n.wx-input[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    color: #333333;\n    height: 1.46667rem;\n    line-height: 1.46667rem;\n    -webkit-box-flex: 3;\n    -webkit-flex: 3;\n            flex: 3;\n    text-align: left;\n}\n.wx-content[data-v-a3bc8a72] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n.wx-cli-text[data-v-a3bc8a72] {\n    color: #999999;\n    font-size: 0.42667rem;\n    -webkit-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n    padding-top: 0.4rem;\n}\n.wx-unit[data-v-a3bc8a72] {\n    font-size: 0.42667rem;\n    width: 0.66667rem;\n    /*margin-top: 10px;*/\n}\n.wx-enter[data-v-a3bc8a72] {\n    color: #7A818B;\n    font-size: 0.42667rem;\n    margin-top: 0.4rem;\n}\n.right-arrow[data-v-a3bc8a72] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    margin-top: 0.26667rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #DCDCDC;\n    /*margin-right: 4px;*/\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n/*label在上边的情况*/\n.wx-text-top[data-v-a3bc8a72] {\n    width: 10rem;\n    padding-top: 0.53333rem;\n    /*padding-bottom: 40px;*/\n    font-size: 0.45333rem;\n    color: #333333;\n}\n.iconfont[data-v-a3bc8a72] {\n    font-family: iconfont;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-field/index.vue?2afff1e0"],"names":[],"mappings":";AAuBA;IACA,aAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,wBAAA;YAAA,gBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,cAAA;IACA,0BAAA;YAAA,kBAAA;CACA;AAEA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,wBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,iBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,0BAAA;YAAA,kBAAA;IACA,oBAAA;CACA;AAEA;IACA,sBAAA;IACA,kBAAA;IACA,qBAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,uBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,sBAAA;IACA,kCAAA;YAAA,0BAAA;CACA;;AAEA,eAAA;AACA;IACA,aAAA;IACA,wBAAA;IACA,yBAAA;IACA,sBAAA;IACA,eAAA;CACA;AAEA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-field\" :style=\"fieldStyles\" @click=\"clickHandler\">\n        <text :class=\"[labelPosition=='top'?'wx-text-top':'wx-text']\" :style=\"textTitleStyles\">{{ label }}</text>\n        <div class=\"wx-content\">\n            <input\n                    v-if=\"!disabled\"\n                    @input=\"handleChange\"\n                    @blur=\"blur\"\n                    class=\"wx-input\"\n                    :type=\"type\"\n                    :style=\"inputStyles\"\n                    :maxlength=\"maxlength\"\n                    :autofocus=\"autofocus\"\n                    :disabled=\"disabled\"\n                    :value=\"value\"\n                    :placeholder=\"placeholder\"/>\n            <text v-if=\"disabled\" class=\"wx-cli-text\" :style=\"cliTextStyles\">{{value=='' ? placeholder : value}}</text>\n            <text class=\"wx-unit\" v-if=\"unit\">{{unit}}</text>\n            <wx-icon name=\"enter\" v-if=\"hasArrow\" class=\"iconfont wx-enter\"></wx-icon>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-field {\n        width: 750px;\n        height: 100px;\n        flex-direction: row;\n        align-items: center;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        flex-wrap: wrap;\n    }\n\n    .wx-text {\n        font-size: 34px;\n        color: #333333;\n        width: 180px;\n        flex-wrap: nowrap;\n    }\n\n    .wx-input {\n        font-size: 32px;\n        color: #333333;\n        height: 110px;\n        line-height: 110px;\n        flex: 3;\n        text-align: left;\n    }\n\n    .wx-content {\n        flex-direction: row;\n        flex: 1;\n    }\n\n    .wx-cli-text {\n        color: #999999;\n        font-size: 32px;\n        flex-wrap: nowrap;\n        padding-top: 30px;\n    }\n\n    .wx-unit {\n        font-size: 32px;\n        width: 50px;\n        /*margin-top: 10px;*/\n    }\n\n    .wx-enter {\n        color: #7A818B;\n        font-size: 32px;\n        margin-top: 30px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        margin-top: 20px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #DCDCDC;\n        /*margin-right: 4px;*/\n        transform: rotate(-45deg);\n    }\n\n    /*label在上边的情况*/\n    .wx-text-top {\n        width: 750px;\n        padding-top: 40px;\n        /*padding-bottom: 40px;*/\n        font-size: 34px;\n        color: #333333;\n    }\n\n    .iconfont {\n        font-family: iconfont;\n    }\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    const modal = weex.requireModule('modal')\n    import WxIcon from '../wx-icon'\n\n    export default {\n        mixins:[mixins],\n        components: { WxIcon },\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            cliWidth: {\n                type: String\n            },\n            titleWidth: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            inputStyles: {\n                type: Object\n            },\n            label: {\n                type: String,\n                default: ''\n            },\n            labelPosition: {\n                type: String,\n                default: 'left'\n            },\n            type: {\n                type: String,\n                default: 'text'\n            },\n            maxlength: {\n                type: String,\n                default: '200'\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            placeholder: {\n                type: String,\n                default: ''\n            },\n            unit: {\n                type: String\n            },\n            hasArrow: {\n                type: Boolean,\n                default: false\n            },\n            value: {\n                type: String\n            }\n        },\n\n        data () {\n            return {\n                fieldStyles: {}\n            }\n        },\n\n        created () {\n            this.setStyle()\n        },\n        watch: {\n            'value': function () {\n                if(this.value != ''){\n                    this.cliTextStyles.color = '#333333'\n                }else{\n                    this.cliTextStyles.color = '#999999'\n                }\n            }\n        },\n\n        methods: {\n            setStyle () {\n\n                // fieldStyles 样式\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                }\n                this.fieldStyles = Object.assign({},  baseCss, this.styles)\n\n//                if(this.disabled){\n//                    modal.toast({\n//                        message: this.width.replace('px','') - 26 + 'px'\n//                    })\n//                }\n\n                // cliTextStyles样式\n                let width = ''\n                if(this.cliWidth != null){\n                    width = this.cliWidth\n                }else{\n                    width = this.width\n                }\n                const cliTextCss = {\n                    width: width.replace('px','') - 26 + 'px',\n                    color: this.value == '' ? '#999999' : '#333333'\n                }\n                this.cliTextStyles = Object.assign({},  cliTextCss)\n\n                if(this.titleWidth != null ){\n                    // textTitleStyles 样式\n                    const titleStyles = {\n                        width: this.titleWidth\n                    }\n                    this.textTitleStyles = Object.assign({},  titleStyles)\n                }\n\n            },\n\n            handleChange (e) {\n                this.$emit('input', e.value)\n            },\n\n            blur () {\n                this.$emit('wxBlur', this.inputValue);\n            },\n\n            clickHandler(){\n                if (this.disabled){\n                    this.$emit('wxClick')\n                }else {\n                    return\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #fff;\n    position: relative;\n}\n.range-inner[data-v-b2f7c96c] {\n    position: relative;\n    overflow: hidden;\n    background-color: #1890ff;\n}\n.range-outer[data-v-b2f7c96c] {\n    position: absolute;\n    z-index: 100;\n    background-color: #1890ff;\n}\n.circle[data-v-b2f7c96c] {\n    background-color: #f5f5f5;\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: 100;\n    -webkit-box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n            box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-range/index.vue?8e625c62"],"names":[],"mappings":";AASA;IACA,uBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,iBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;IACA,mBAAA;IACA,QAAA;IACA,OAAA;IACA,aAAA;IACA,iDAAA;YAAA,yCAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-range\" :style=\"_wrapStyle\">\n        <div class=\"range-inner\" :style=\"_innerStyle\">\n            <div class=\"range-outer\" ref=\"rangeOuter\" :style=\"_outerStyle\"></div>\n        </div>\n        <div ref=\"circle\" :style=\"_circleStyle\" class=\"circle\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-range {\n        background-color: #fff;\n        position: relative;\n    }\n\n    .range-inner {\n        position: relative;\n        overflow: hidden;\n        background-color: #1890ff;\n    }\n\n    .range-outer {\n        position: absolute;\n        z-index: 100;\n        background-color: #1890ff;\n    }\n\n    .circle {\n        background-color: #f5f5f5;\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 100;\n        box-shadow: 0 1px 3px rgba(0,0,0,.4);\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            height: {\n                type: String,\n                default: '10px'\n            },\n            circleStyle: {\n                type: Object,\n                default: function () {\n                    return {\n                        \n                    }\n                }\n            },\n            innerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            outerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n        },\n\n        data () {\n            return {\n                startX: 0,\n                moveX: 0,\n                _circleStyle: {},\n                _innerStyle: {},\n                _outerStyle: {},\n                _wrapStyle: {},\n                data: {\n                    width: 0,\n                },\n                circleSize: '60px'\n            }\n        },\n\n        created () {\n            this.initStyle();\n        },\n\n        methods: {\n\n            initStyle () {\n                this.circleStyle.width = this.circleStyle.width || this.circleSize;\n                this.circleStyle.height = this.circleStyle.height || this.circleSize;\n                const circleSize = Number(this.circleStyle.width.replace('px', ''));\n                const v = circleSize / 2;\n\n                const h = Number(this.height.replace('px', ''));\n\n                // _innerStyle\n                const base = {width: this.width, height: this.height, 'margin-top': v - h/2 +'px', 'margin-left': v + 'px' };\n                this._innerStyle = Object.assign({}, this.innerStyle, base);\n                console.log(this._innerStyle)\n                this.data.width = Number(this._innerStyle.width.replace('px', ''));\n\n                // _circleStyle\n                this._circleStyle = Object.assign({}, this.circleStyle, {\n                    width: this.circleStyle.width,\n                    height: this.circleStyle.height,\n                    'border-radius': v + 'px',\n                });\n\n                // _outerStyle\n                this._outerStyle = Object.assign({}, this.outerStyle, {\n                    left: '-' + this._innerStyle.width,\n                    width: this._innerStyle.width,\n                    height: this._innerStyle.height,\n                });\n                this._wrapStyle = {\n                    width: this.data.width + circleSize + 'px',\n                    height: this._circleStyle.height,\n                    'background-color': '#fff',\n                }\n            },\n\n            ontouchstart:function(e) {\n                this.startX = e.changedTouches[0].screenX;\n            },\n\n            ontouchmove:function(e) {\n                const x = Math.floor(e.changedTouches[0].screenX - this.startX);\n                if (this.moveX + x > this.data.width) {\n                    this.move(this.$refs.circle, this.data.width);\n                    this.move(this.$refs.rangeOuter, this.data.width);\n                    return;\n                }\n                if (this.moveX + x < 0) {\n                    this.move(this.$refs.circle, 0);\n                    this.move(this.$refs.rangeOuter, 0);\n                    return;\n                }\n                this.move(this.$refs.circle, this.moveX + x);\n                this.move(this.$refs.rangeOuter, this.moveX + x);\n                this.$emit('input', this.getRange(this.moveX + x));\n            },\n\n            getRange (value) {\n                return Math.floor(value / this.data.width * 100);\n            },\n\n            ontouchend: function(e) {\n                // 结束点(即圆圈在x轴移动的距离)\n                let endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);\n                if (endPot <= 0) {\n                    endPot = 0;\n                }\n                if (endPot > this.data.width) {\n                    endPot = this.data.width;\n                }\n                this.moveX = endPot;\n                this.$emit('input', this.getRange(this.moveX));\n                this.$emit('wxChange', this.getRange(this.moveX));\n                // this.move(endPot);\n            },\n\n            move (el, progress) {\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${progress}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 0,\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            /**\n             * 设置范围\n             * @param {Int} range 0-100数字\n             */\n            setRange (range) {\n                let x = this.data.width * range / 100;\n                if (x <= 0) {\n                    x = 0;\n                }\n                if (x > this.data.width) {\n                    x = this.data.width;\n                }\n                this.moveX = x;\n                this.move(this.$refs.circle, x);\n                this.move(this.$refs.rangeOuter, x);\n                this.$emit('input', range);\n                this.$emit('wxChange', range);\n            },\n\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5196,7 +5238,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #fff;\n    position: relative;\n}\n.range-inner[data-v-b2f7c96c] {\n    position: relative;\n    overflow: hidden;\n    background-color: #1890ff;\n}\n.range-outer[data-v-b2f7c96c] {\n    position: absolute;\n    z-index: 100;\n    background-color: #1890ff;\n}\n.circle[data-v-b2f7c96c] {\n    background-color: #f5f5f5;\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: 100;\n    -webkit-box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n            box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-range/index.vue?8e625c62"],"names":[],"mappings":";AASA;IACA,uBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,iBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;IACA,mBAAA;IACA,QAAA;IACA,OAAA;IACA,aAAA;IACA,iDAAA;YAAA,yCAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-range\" :style=\"_wrapStyle\">\n        <div class=\"range-inner\" :style=\"_innerStyle\">\n            <div class=\"range-outer\" ref=\"rangeOuter\" :style=\"_outerStyle\"></div>\n        </div>\n        <div ref=\"circle\" :style=\"_circleStyle\" class=\"circle\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-range {\n        background-color: #fff;\n        position: relative;\n    }\n\n    .range-inner {\n        position: relative;\n        overflow: hidden;\n        background-color: #1890ff;\n    }\n\n    .range-outer {\n        position: absolute;\n        z-index: 100;\n        background-color: #1890ff;\n    }\n\n    .circle {\n        background-color: #f5f5f5;\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 100;\n        box-shadow: 0 1px 3px rgba(0,0,0,.4);\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            height: {\n                type: String,\n                default: '10px'\n            },\n            circleStyle: {\n                type: Object,\n                default: function () {\n                    return {\n                        \n                    }\n                }\n            },\n            innerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            outerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n        },\n\n        data () {\n            return {\n                startX: 0,\n                moveX: 0,\n                _circleStyle: {},\n                _innerStyle: {},\n                _outerStyle: {},\n                _wrapStyle: {},\n                data: {\n                    width: 0,\n                },\n                circleSize: '60px'\n            }\n        },\n\n        created () {\n            this.initStyle();\n        },\n\n        methods: {\n\n            initStyle () {\n                this.circleStyle.width = this.circleStyle.width || this.circleSize;\n                this.circleStyle.height = this.circleStyle.height || this.circleSize;\n                const circleSize = Number(this.circleStyle.width.replace('px', ''));\n                const v = circleSize / 2;\n\n                const h = Number(this.height.replace('px', ''));\n\n                // _innerStyle\n                const base = {width: this.width, height: this.height, 'margin-top': v - h/2 +'px', 'margin-left': v + 'px' };\n                this._innerStyle = Object.assign({}, this.innerStyle, base);\n                console.log(this._innerStyle)\n                this.data.width = Number(this._innerStyle.width.replace('px', ''));\n\n                // _circleStyle\n                this._circleStyle = Object.assign({}, this.circleStyle, {\n                    width: this.circleStyle.width,\n                    height: this.circleStyle.height,\n                    'border-radius': v + 'px',\n                });\n\n                // _outerStyle\n                this._outerStyle = Object.assign({}, this.outerStyle, {\n                    left: '-' + this._innerStyle.width,\n                    width: this._innerStyle.width,\n                    height: this._innerStyle.height,\n                });\n                this._wrapStyle = {\n                    width: this.data.width + circleSize + 'px',\n                    height: this._circleStyle.height,\n                    'background-color': '#fff',\n                }\n            },\n\n            ontouchstart:function(e) {\n                this.startX = e.changedTouches[0].screenX;\n            },\n\n            ontouchmove:function(e) {\n                const x = Math.floor(e.changedTouches[0].screenX - this.startX);\n                if (this.moveX + x > this.data.width) {\n                    this.move(this.$refs.circle, this.data.width);\n                    this.move(this.$refs.rangeOuter, this.data.width);\n                    return;\n                }\n                if (this.moveX + x < 0) {\n                    this.move(this.$refs.circle, 0);\n                    this.move(this.$refs.rangeOuter, 0);\n                    return;\n                }\n                this.move(this.$refs.circle, this.moveX + x);\n                this.move(this.$refs.rangeOuter, this.moveX + x);\n                this.$emit('input', this.getRange(this.moveX + x));\n            },\n\n            getRange (value) {\n                return Math.floor(value / this.data.width * 100);\n            },\n\n            ontouchend: function(e) {\n                // 结束点(即圆圈在x轴移动的距离)\n                let endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);\n                if (endPot <= 0) {\n                    endPot = 0;\n                }\n                if (endPot > this.data.width) {\n                    endPot = this.data.width;\n                }\n                this.moveX = endPot;\n                this.$emit('input', this.getRange(this.moveX));\n                this.$emit('wxChange', this.getRange(this.moveX));\n                // this.move(endPot);\n            },\n\n            move (el, progress) {\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${progress}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 0,\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            /**\n             * 设置范围\n             * @param {Int} range 0-100数字\n             */\n            setRange (range) {\n                let x = this.data.width * range / 100;\n                if (x <= 0) {\n                    x = 0;\n                }\n                if (x > this.data.width) {\n                    x = this.data.width;\n                }\n                this.moveX = x;\n                this.move(this.$refs.circle, x);\n                this.move(this.$refs.rangeOuter, x);\n                this.$emit('input', range);\n                this.$emit('wxChange', range);\n            },\n\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-checkbox[data-v-e9f2baa8] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-e9f2baa8] {\n    font-size: 0.42667rem;\n}\n.align-right[data-v-e9f2baa8] {\n    padding-left: 0.21333rem;\n}\n.align-left[data-v-e9f2baa8] {\n    padding-right: 0.21333rem;\n}\n.wx-box[data-v-e9f2baa8] {\n    width: 0.58667rem;\n    height: 0.58667rem;\n    border-width: 1px;\n    border-style: solid;\n    border-color: #DCDCDC;\n    background-color: #fff;\n    border-radius: 0.05333rem;\n}\n.checked[data-v-e9f2baa8] {\n    position: absolute;\n    top: 0.08rem;\n    left: 0.18667rem;\n    z-index: 100;\n    width: 0.18667rem;\n    height: 0.32rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    /*border-bottom-color: #027FF3;*/\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    /*border-right-color: #027FF3;*/\n    -webkit-transform: rotate(45deg);\n            transform: rotate(45deg);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-checkbox/index.vue?17c44380"],"names":[],"mappings":";AAaA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,sBAAA;CACA;AACA;IACA,yBAAA;CACA;AACA;IACA,0BAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,kBAAA;IACA,oBAAA;IACA,sBAAA;IACA,uBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,iBAAA;IACA,aAAA;IACA,kBAAA;IACA,gBAAA;IACA,gCAAA;IACA,2BAAA;IACA,iCAAA;IACA,+BAAA;IACA,0BAAA;IACA,gCAAA;IACA,iCAAA;YAAA,yBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-checkbox\" @click=\"handleClick\">\n        <text v-if=\"align === 'left'\" \n            class=\"wx-text align-left\">{{ text }}</text>\n        <!-- CheckBox -->\n        <div class=\"wx-box\" :style=\"{'border-color':checked ? checkedColor : '#DCDCDC'}\">\n            <div v-if=\"checked\" class=\"checked\" :style=\"{'border-right-color': checkedColor, 'border-bottom-color': checkedColor}\"></div>\n        </div>\n        <text v-if=\"align === 'right'\" \n            class=\"wx-text align-right\">{{ text }}</text>\n    </div>\n</template>\n<style scoped>\n    .wx-checkbox {\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .wx-text {\n        font-size: 32px;\n    }\n    .align-right {\n        padding-left: 16px;\n    }\n    .align-left {\n        padding-right: 16px;\n    }\n\n    .wx-box {\n        width: 44px;\n        height: 44px;\n        border-width: 1px;\n        border-style: solid;\n        border-color: #DCDCDC;\n        background-color: #fff;\n        border-radius: 4px;\n    }\n\n    .checked {\n        position: absolute;\n        top: 6px;\n        left: 14px;\n        z-index: 100;\n        width: 14px;\n        height: 24px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        /*border-bottom-color: #027FF3;*/\n        border-right-width: 2px;\n        border-right-style: solid;\n        /*border-right-color: #027FF3;*/\n        transform: rotate(45deg);\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            defaultChecked: {\n                type: Boolean,\n                default: false\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            align: {\n                type: String,\n                // left or right\n                default: 'left' \n            },\n            checkedColor: {\n                type: String,\n                default: '#027FF3' \n            },\n        },\n\n        data () {\n            return {\n                checked: false,\n            }\n        },\n\n        created () {\n            this.checked = this.defaultChecked;\n        },\n\n        methods: {\n            handleClick (e) {\n                e.stopPropagation();\n                if (this.disabled) return;\n                this.checked = !this.checked;\n                this.$emit('input', this.checked);\n                this.$emit('wxChange', this.checked);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5205,30 +5247,16 @@ exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #
 /* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.wx-checkbox[data-v-e9f2baa8] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text[data-v-e9f2baa8] {\n    font-size: 0.42667rem;\n}\n.align-right[data-v-e9f2baa8] {\n    padding-left: 0.21333rem;\n}\n.align-left[data-v-e9f2baa8] {\n    padding-right: 0.21333rem;\n}\n.wx-box[data-v-e9f2baa8] {\n    width: 0.58667rem;\n    height: 0.58667rem;\n    border-width: 1px;\n    border-style: solid;\n    border-color: #DCDCDC;\n    background-color: #fff;\n    border-radius: 0.05333rem;\n}\n.checked[data-v-e9f2baa8] {\n    position: absolute;\n    top: 0.08rem;\n    left: 0.18667rem;\n    z-index: 100;\n    width: 0.18667rem;\n    height: 0.32rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    /*border-bottom-color: #027FF3;*/\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    /*border-right-color: #027FF3;*/\n    -webkit-transform: rotate(45deg);\n            transform: rotate(45deg);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-checkbox/index.vue?10056ac0"],"names":[],"mappings":";AAaA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,sBAAA;CACA;AACA;IACA,yBAAA;CACA;AACA;IACA,0BAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,kBAAA;IACA,oBAAA;IACA,sBAAA;IACA,uBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,iBAAA;IACA,aAAA;IACA,kBAAA;IACA,gBAAA;IACA,gCAAA;IACA,2BAAA;IACA,iCAAA;IACA,+BAAA;IACA,0BAAA;IACA,gCAAA;IACA,iCAAA;YAAA,yBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-checkbox\" @click=\"handleClick\">\n        <text v-if=\"align === 'left'\" \n            class=\"wx-text align-left\">{{ text }}</text>\n        <!-- CheckBox -->\n        <div class=\"wx-box\" :style=\"{'border-color':checked ? checkedColor : '#DCDCDC'}\">\n            <div v-if=\"checked\" class=\"checked\" :style=\"{'border-right-color': checkedColor, 'border-bottom-color': checkedColor}\"></div>\n        </div>\n        <text v-if=\"align === 'right'\" \n            class=\"wx-text align-right\">{{ text }}</text>\n    </div>\n</template>\n<style scoped>\n    .wx-checkbox {\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .wx-text {\n        font-size: 32px;\n    }\n    .align-right {\n        padding-left: 16px;\n    }\n    .align-left {\n        padding-right: 16px;\n    }\n\n    .wx-box {\n        width: 44px;\n        height: 44px;\n        border-width: 1px;\n        border-style: solid;\n        border-color: #DCDCDC;\n        background-color: #fff;\n        border-radius: 4px;\n    }\n\n    .checked {\n        position: absolute;\n        top: 6px;\n        left: 14px;\n        z-index: 100;\n        width: 14px;\n        height: 24px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        /*border-bottom-color: #027FF3;*/\n        border-right-width: 2px;\n        border-right-style: solid;\n        /*border-right-color: #027FF3;*/\n        transform: rotate(45deg);\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            defaultChecked: {\n                type: Boolean,\n                default: false\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            align: {\n                type: String,\n                // left or right\n                default: 'left' \n            },\n            checkedColor: {\n                type: String,\n                default: '#027FF3' \n            },\n        },\n\n        data () {\n            return {\n                checked: false,\n            }\n        },\n\n        created () {\n            this.checked = this.defaultChecked;\n        },\n\n        methods: {\n            handleClick () {\n                if (this.disabled) return;\n                this.checked = !this.checked;\n                this.$emit('input', this.checked);\n                this.$emit('wxChange', this.checked);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(120)
+  __webpack_require__(119)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(58),
+  __webpack_require__(57),
   /* template */
-  __webpack_require__(106),
+  __webpack_require__(105),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5260,19 +5288,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(118)
+  __webpack_require__(117)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(59),
+  __webpack_require__(58),
   /* template */
-  __webpack_require__(104),
+  __webpack_require__(103),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5304,19 +5332,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(128)
+  __webpack_require__(127)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(60),
+  __webpack_require__(59),
   /* template */
-  __webpack_require__(114),
+  __webpack_require__(113),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5348,19 +5376,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(122)
+  __webpack_require__(121)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(61),
+  __webpack_require__(60),
   /* template */
-  __webpack_require__(108),
+  __webpack_require__(107),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5392,19 +5420,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(126)
+  __webpack_require__(125)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(62),
+  __webpack_require__(61),
   /* template */
-  __webpack_require__(112),
+  __webpack_require__(111),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5436,19 +5464,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(119)
+  __webpack_require__(118)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(63),
+  __webpack_require__(62),
   /* template */
-  __webpack_require__(105),
+  __webpack_require__(104),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5480,19 +5508,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(116)
+  __webpack_require__(115)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(64),
+  __webpack_require__(63),
   /* template */
-  __webpack_require__(102),
+  __webpack_require__(101),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5524,19 +5552,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(124)
+  __webpack_require__(123)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(65),
+  __webpack_require__(64),
   /* template */
-  __webpack_require__(110),
+  __webpack_require__(109),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5568,19 +5596,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(125)
+  __webpack_require__(124)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(66),
+  __webpack_require__(65),
   /* template */
-  __webpack_require__(111),
+  __webpack_require__(110),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5612,19 +5640,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(117)
+  __webpack_require__(116)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(67),
+  __webpack_require__(66),
   /* template */
-  __webpack_require__(103),
+  __webpack_require__(102),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5656,19 +5684,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(123)
+  __webpack_require__(122)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(68),
+  __webpack_require__(67),
   /* template */
-  __webpack_require__(109),
+  __webpack_require__(108),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5700,19 +5728,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(127)
+  __webpack_require__(126)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(69),
+  __webpack_require__(68),
   /* template */
-  __webpack_require__(113),
+  __webpack_require__(112),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5744,19 +5772,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(121)
+  __webpack_require__(120)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(70),
+  __webpack_require__(69),
   /* template */
-  __webpack_require__(107),
+  __webpack_require__(106),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5788,19 +5816,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(115)
+  __webpack_require__(114)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(71),
+  __webpack_require__(70),
   /* template */
-  __webpack_require__(101),
+  __webpack_require__(100),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5832,7 +5860,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5904,7 +5932,7 @@ if (false) {
 }
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5981,7 +6009,7 @@ if (false) {
 }
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6022,7 +6050,7 @@ if (false) {
 }
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6071,7 +6099,7 @@ if (false) {
 }
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6118,7 +6146,7 @@ if (false) {
 }
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6215,7 +6243,7 @@ if (false) {
 }
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6266,7 +6294,7 @@ if (false) {
 }
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6334,7 +6362,7 @@ if (false) {
 }
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6388,7 +6416,7 @@ if (false) {
 }
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6456,7 +6484,7 @@ if (false) {
 }
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6522,7 +6550,7 @@ if (false) {
 }
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6610,7 +6638,7 @@ if (false) {
 }
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6675,7 +6703,7 @@ if (false) {
 }
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6726,13 +6754,13 @@ if (false) {
 }
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(73);
+var content = __webpack_require__(72);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6752,13 +6780,13 @@ if(false) {
 }
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(74);
+var content = __webpack_require__(73);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6778,13 +6806,13 @@ if(false) {
 }
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(75);
+var content = __webpack_require__(74);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6804,13 +6832,13 @@ if(false) {
 }
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(76);
+var content = __webpack_require__(75);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6830,13 +6858,13 @@ if(false) {
 }
 
 /***/ }),
-/* 119 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(77);
+var content = __webpack_require__(76);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6856,13 +6884,13 @@ if(false) {
 }
 
 /***/ }),
-/* 120 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(78);
+var content = __webpack_require__(77);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6882,13 +6910,13 @@ if(false) {
 }
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(79);
+var content = __webpack_require__(78);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6908,13 +6936,13 @@ if(false) {
 }
 
 /***/ }),
-/* 122 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(80);
+var content = __webpack_require__(79);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6934,13 +6962,13 @@ if(false) {
 }
 
 /***/ }),
-/* 123 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(81);
+var content = __webpack_require__(80);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6960,13 +6988,13 @@ if(false) {
 }
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(82);
+var content = __webpack_require__(81);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -6986,13 +7014,13 @@ if(false) {
 }
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(83);
+var content = __webpack_require__(82);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7012,13 +7040,13 @@ if(false) {
 }
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(84);
+var content = __webpack_require__(83);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7038,13 +7066,13 @@ if(false) {
 }
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(85);
+var content = __webpack_require__(84);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7064,13 +7092,13 @@ if(false) {
 }
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(86);
+var content = __webpack_require__(85);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7090,20 +7118,20 @@ if(false) {
 }
 
 /***/ }),
-/* 129 */,
-/* 130 */
+/* 128 */,
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(251)
+  __webpack_require__(250)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(151),
+  __webpack_require__(150),
   /* template */
-  __webpack_require__(234),
+  __webpack_require__(233),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -7135,6 +7163,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 130 */,
 /* 131 */,
 /* 132 */,
 /* 133 */,
@@ -7154,8 +7183,7 @@ module.exports = Component.exports
 /* 147 */,
 /* 148 */,
 /* 149 */,
-/* 150 */,
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7165,7 +7193,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(43);
+var _index = __webpack_require__(42);
 
 var modal = weex.requireModule('modal'); //
 //
@@ -7248,6 +7276,7 @@ exports.default = {
 };
 
 /***/ }),
+/* 151 */,
 /* 152 */,
 /* 153 */,
 /* 154 */,
@@ -7268,8 +7297,7 @@ exports.default = {
 /* 169 */,
 /* 170 */,
 /* 171 */,
-/* 172 */,
-/* 173 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7279,7 +7307,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(130);
+var _index = __webpack_require__(129);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -7289,6 +7317,7 @@ _index2.default.el = '#root';
 exports.default = new Vue(_index2.default);
 
 /***/ }),
+/* 173 */,
 /* 174 */,
 /* 175 */,
 /* 176 */,
@@ -7325,8 +7354,7 @@ exports.default = new Vue(_index2.default);
 /* 207 */,
 /* 208 */,
 /* 209 */,
-/* 210 */,
-/* 211 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -7340,6 +7368,7 @@ exports.push([module.i, "\n.button {\n    margin-top: 1.33333rem;\n    margin-le
 
 
 /***/ }),
+/* 211 */,
 /* 212 */,
 /* 213 */,
 /* 214 */,
@@ -7361,8 +7390,7 @@ exports.push([module.i, "\n.button {\n    margin-top: 1.33333rem;\n    margin-le
 /* 230 */,
 /* 231 */,
 /* 232 */,
-/* 233 */,
-/* 234 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -7445,6 +7473,7 @@ if (false) {
 }
 
 /***/ }),
+/* 234 */,
 /* 235 */,
 /* 236 */,
 /* 237 */,
@@ -7460,14 +7489,13 @@ if (false) {
 /* 247 */,
 /* 248 */,
 /* 249 */,
-/* 250 */,
-/* 251 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(211);
+var content = __webpack_require__(210);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

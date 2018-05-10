@@ -27,9 +27,15 @@
 </head>
 <body>
 <div id="root"></div>
-<script src="//h5.m.taobao.com/js/trip/weex-ui/vue.runtime.min.js"></script>
-<script src="//h5.m.taobao.com/js/trip/weex-ui/weex-vue-render-next.min.js"></script>
+<script src="./vue.runtime.min.js"></script>
+<!-- <script src="//h5.m.taobao.com/js/trip/weex-ui/weex-vue-render-next.min.js"></script> -->
+<script src="./index.js"></script>
 <script src="./index.web.js"></script>
-<script src="//h5.m.taobao.com/js/trip/weex-ui/qrcode.js"></script>
+<script type="text/javascript">
+  var href = window.location.href;
+  if (href.indexOf('_wx_tpl') < 0) {
+    window.location.href = href + '?_wx_tpl='+encodeURIComponent(href) + 'index.native.js';
+  }
+</script>
 </body>
 </html>

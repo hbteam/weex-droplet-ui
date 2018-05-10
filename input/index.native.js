@@ -75,12 +75,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 137);
+/******/ 	return __webpack_require__(__webpack_require__.s = 136);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 0:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90,7 +90,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(6);
+var _index = __webpack_require__(5);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -103,7 +103,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 11:
+/***/ 10:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -116,21 +116,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 116:
+/***/ 115:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(181)
+__vue_styles__.push(__webpack_require__(180)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(160)
+__vue_exports__ = __webpack_require__(159)
 
 /* template */
-var __vue_template__ = __webpack_require__(200)
+var __vue_template__ = __webpack_require__(199)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -161,7 +161,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 13:
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -171,7 +171,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(17);
+var _index = __webpack_require__(16);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -184,7 +184,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 137:
+/***/ 136:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -194,7 +194,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(116);
+var _index = __webpack_require__(115);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -205,7 +205,7 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 160:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -215,11 +215,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(13);
+var _index = __webpack_require__(12);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(0);
+var _index3 = __webpack_require__(1);
 
 var _index4 = _interopRequireDefault(_index3);
 
@@ -268,21 +268,21 @@ exports.default = {
 
 /***/ }),
 
-/***/ 17:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(26)
+__vue_styles__.push(__webpack_require__(25)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(21)
+__vue_exports__ = __webpack_require__(20)
 
 /* template */
-var __vue_template__ = __webpack_require__(30)
+var __vue_template__ = __webpack_require__(29)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -313,7 +313,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 181:
+/***/ 180:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -334,7 +334,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 200:
+/***/ 199:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -370,7 +370,7 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 21:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -455,10 +455,12 @@ exports.default = {
     },
 
     methods: {
-        blur: function blur() {
+        blur: function blur(e) {
+            e.stopPropagation();
             this.$emit('wxBlur', this.inputValue);
         },
         input: function input(e) {
+            e.stopPropagation();
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
@@ -468,7 +470,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 26:
+/***/ 25:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -491,7 +493,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 30:
+/***/ 29:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -532,7 +534,7 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -551,21 +553,21 @@ exports.default = {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(9)
+__vue_styles__.push(__webpack_require__(8)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(8)
+__vue_exports__ = __webpack_require__(7)
 
 /* template */
-var __vue_template__ = __webpack_require__(11)
+var __vue_template__ = __webpack_require__(10)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -596,7 +598,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 8:
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -606,7 +608,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _alias = __webpack_require__(4);
+var _alias = __webpack_require__(3);
 
 var _alias2 = _interopRequireDefault(_alias);
 
@@ -661,7 +663,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 9:
+/***/ 8:
 /***/ (function(module, exports) {
 
 module.exports = {
