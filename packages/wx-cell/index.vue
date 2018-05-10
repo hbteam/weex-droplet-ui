@@ -109,7 +109,8 @@
             },
 
             handleClick (e) {
-               this.$emit('wxClick', e);
+                e.stopPropagation();
+                this.$emit('wxClick', e);
             },
         }
     }
