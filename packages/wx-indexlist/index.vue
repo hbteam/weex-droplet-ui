@@ -16,8 +16,10 @@
     const modal = weex.requireModule('modal');
     const animation = weex.requireModule('animation');
     const dom = weex.requireModule('dom');
+    import mixins from '../utils/mixins';
 
     export default {
+        mixins:[mixins],
         props: {
             items: {
                 type: Array,

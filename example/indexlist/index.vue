@@ -43,7 +43,6 @@
                         ]
                     });
                 }
-                console.log(list);
                 return list; 
             },
         }

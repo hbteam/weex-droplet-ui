@@ -71,7 +71,8 @@
                 }
                 this.dialogContentStyles = Object.assign({}, baseCss)
             },
-            cancel () {
+            cancel (e) {
+                e.stopPropagation();
                 if (this.useDefaultFooter) {
                     this.hideDialog(() => {
                         this.$emit('cancel');
@@ -82,7 +83,8 @@
                 this.$emit('cancel');
             },
 
-            confirm () {
+            confirm (e) {
+                e.stopPropagation();
                 if (this.useDefaultFooter && this.clickConfirmHide) {
                     this.hideDialog(() => {
                         this.$emit('confirm');
