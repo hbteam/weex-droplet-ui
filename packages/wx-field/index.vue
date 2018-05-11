@@ -16,7 +16,7 @@
                     :placeholder="placeholder"/>
             <text v-if="disabled" class="wx-input" :style="cliTextStyles">{{value=='' ? placeholder : value}}</text>
             <text class="wx-unit" v-if="unit">{{unit}}</text>
-            <text v-if="hasArrow" class="iconfont wx-enter">&#xe65d;</text>
+            <wx-icon name="enter" v-if="hasArrow" class="iconfont wx-enter"></wx-icon>
         </div>
     </div>
 </template>
@@ -54,6 +54,12 @@
         align-items: center;
     }
 
+    .wx-cli-text {
+        color: #999999;
+        font-size: 32px;
+        flex-wrap: nowrap;
+    }
+
     .wx-unit {
         font-size: 32px;
         width: 50px;
@@ -62,6 +68,7 @@
     .wx-enter {
         color: #7A818B;
         font-size: 32px;
+        margin-top: 30px;
     }
 
     .right-arrow {
@@ -94,8 +101,11 @@
 <script>
     import mixins from '../utils/mixins'
     const modal = weex.requireModule('modal')
+    import WxIcon from '../wx-icon'
+
     export default {
         mixins:[mixins],
+        components: { WxIcon },
         props: {
             width: {
                 type: String,
@@ -162,7 +172,8 @@
 
         data () {
             return {
-                fieldStyles: {}
+                fieldStyles: {},
+                textTitleStyles: {},
             }
         },
 
@@ -219,10 +230,12 @@
             },
 
             handleChange (e) {
+                e.stopPropagation();
                 this.$emit('input', e.value)
             },
 
-            blur () {
+            blur (e) {
+                e.stopPropagation();
                 this.$emit('wxBlur', this.inputValue);
             },
 
