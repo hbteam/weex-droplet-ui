@@ -3,11 +3,13 @@
         :scroll-direction="scrollDirection"
         :style="scrollStyle" show-scrollbar="false">
         <div
-            :style="{width: itemWidth, height: itemHeight}"
+            :style="getItemStyle(item)"
             :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
             :ref="'item'+index"
             v-for="(item, index) in items" @click="changeTab(index)">
-            <text class="wx-text">{{ item }}</text>
+            <text 
+                :style="getTitleStyle(item)"
+                class="wx-text">{{ item.title || item }}</text>
         </div> 
     </scroller>
 </template>
@@ -16,6 +18,16 @@
 
     export default {
         props: {
+            // {
+            //     index: i,
+            //     title: list[i].toString().substring(4) + '月',  
+            //     titleColor: '#4d4d4d', 
+            //     selectedColor: 'blue',
+            //     titleSize: '32px',
+            //     selected: false,
+            //     bgColor: '#969696', 
+            //     selectedBgColor: '#fff',
+            // }
             items: {
                 type: Array,
                 default: function () {
@@ -73,8 +85,12 @@
             this.getData();
             // this.deviceHeight = weex.config.env.deviceHeight
             this.getCount()
-            // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
+            // 最大隐藏个数（共37条，一页10条，能隐藏37-10=27条）
             this.maxHidden = this.items.length - this.count;
+        },
+
+        mounted () {
+            this.changeTab(this.getSelectIndex(), false);
         },
 
         methods: {
@@ -85,6 +101,11 @@
                     cwidth: Number(this.itemWidth.replace('px', '')),
                     cheight: Number(this.itemHeight.replace('px', ''))
                 };
+            },
+
+            getSelectIndex() {
+                const item = this.items.find(el => el.selected) || this.items[0]
+                return item.index
             },
 
             getCount () {
@@ -99,17 +120,17 @@
                 return this.scrollDirection === 'vertical';
             },
 
-            changeTab (index) {
+            changeTab (index, animated = true) {
                 this.selectIndex = index;
                 if (!index) return;
                 const middle = Math.floor(this.count / 2);
                 if (index >= middle) {
                     this.hiddenCount = index - middle;
                     this.hiddenCount = this.getCanMoves();
-                    this.scrollTo(-this.hiddenCount * this.data.cheight);
+                    this.scrollTo(-this.hiddenCount * this.data.cheight, animated);
                 } else {
                     this.hiddenCount = 0;
-                    this.scrollTo(0);
+                    this.scrollTo(0, animated);
                 }
                 this.$emit('wxChange', this.items[index]);
             },
@@ -121,22 +142,39 @@
                 return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
             },
 
-            scrollTo(elHeight){
+            scrollTo(elHeight, animated){
                 const index = elHeight / this.data.cheight;
                 if (index > 0) {
-                    const el = this.$refs['item' + (13-index)][0];
-                    dom.scrollToElement(el, {});
+                    const el = this.$refs['item' + (this.items.length-index)][0];
+                    dom.scrollToElement(el, {animated});
                 } else {
                     const el = this.$refs['item' + (0-index)][0];
-                    dom.scrollToElement(el, {});
+                    dom.scrollToElement(el, {animated});
                 }
-            }
+            },
+
+            getItemStyle (item) {
+                const bgColor = (this.selectIndex === item.index ? item.selectedBgColor : item.bgColor) || '#fff';
+                return {
+                    width: this.itemWidth, 
+                    height: this.itemHeight,
+                    'background-color': bgColor,
+                }
+            },
+
+            getTitleStyle (item) {
+                const color = (this.selectIndex === item.index ? item.selectedColor : item.titleColor) || '#4d4d4d';
+                return {
+                    color: color,
+                    'font-size': item.titleSize || '32px',
+                }
+            },
         }
     }
 </script>
 <style scoped>
     .wx-scroller {
-        background-color: #969696;
+
     }
 
     .wx-cell {
