@@ -23,6 +23,7 @@
             scrollDirection="horizontal"
             :items="months"
             height="100px"
+            :hasBottom="true"
             @wxChange="handleChange"
             itemWidth="125px" 
             itemHeight="100px">
@@ -79,8 +80,8 @@
                 selectedColor: 'blue',
                 titleSize: '32px',
                 selected: false,
-                bgColor: '#969696', 
-                selectedBgColor: 'white',
+                bgColor: '#fff', 
+                selectedBgColor: '#fff',
             };
             if (i === 4) {
                 obj.selected = true;

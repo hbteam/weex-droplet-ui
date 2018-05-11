@@ -1,5 +1,6 @@
 <template>
-    <scroller class="wx-scroller" 
+    <scroller class="wx-scroller"
+        :class="[hasBottom ? 'scroller-bottom-border' : '']" 
         :scroll-direction="scrollDirection"
         :style="scrollStyle" show-scrollbar="false">
         <div
@@ -10,7 +11,7 @@
             <text 
                 :style="getTitleStyle(item)"
                 class="wx-text">{{ item.title || item }}</text>
-        </div> 
+        </div>
     </scroller>
 </template>
 <script>
@@ -39,6 +40,12 @@
                 type: Function,
                 required: true
             },
+
+            hasBottom: {
+                type: Boolean,
+                default: false
+            },
+
             height: {
                 type: String,
                 default: '700px'
@@ -175,6 +182,12 @@
 <style scoped>
     .wx-scroller {
 
+    }
+
+    .scroller-bottom-border {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #DCDCDC;
     }
 
     .wx-cell {
