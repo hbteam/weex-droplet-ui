@@ -3,15 +3,26 @@
 ## install
 npm i weex-droplet-ui -S
 
-## 运行查看example
-npm start  
-所有的组件demo都在example中，npm start运行可查看组件具体使用方法。
+## playground扫一扫查看demo演示
+![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png)
 
 ## 联系我们
-如您在使用我们的“水滴UI”，有任何问题可以添加微信号springalsky，我们将为您解答疑问，也可以酌情给您添加您需要的组件，添加口令“天王盖地虎”.
+如您在使用我们的“水滴UI”，有任何问题可以添加微信号springalsky，或者给我们提issue。
 
 ## 关于文档
-文档后续会补充，我们还会补充很多常用的组件
+[https://houbank.github.io/dropletui-docs](https://houbank.github.io/dropletui-docs)
+
+## 配置
+因未编译成ES5发布到npm，所以webpack需要配置排除node_modules下包含weex的文件。
+```
+{
+    test: /\.js$/,
+    use: [{
+      loader: 'babel-loader',
+    }],
+    exclude: /node_modules(?!\/.*(weex).*)/
+}
+```
 
 ## Usage
   

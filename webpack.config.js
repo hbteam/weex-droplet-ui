@@ -29,8 +29,19 @@ const getCopyConfig = () => {
         from: 'example/_public/index.html',
         to: scriptPath + 'index.html'
       })
+      ret.push({
+          from: path.join(__dirname, 'node_modules/vue/dist/vue.runtime.min.js'),
+          to: scriptPath
+      })
+      ret.push({
+          from: path.join(__dirname, 'node_modules/weex-vue-render/dist/index.js'),
+          to: scriptPath
+      })
+
+      
     }
   });
+  
   return ret;
 };
 

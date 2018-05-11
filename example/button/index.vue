@@ -6,8 +6,8 @@
           borderRadius="200px"
           textColor="#fff"
           textFontSize="32px"
-          :disabled="false"
-          @wxClick="wxClickHandle">测试1</wx-button>
+          :disabled="disabled"
+          @wxClick="wxClickHandle">测试1{{disabled}}</wx-button>
 
         <wx-button 
             height="80px"
@@ -25,11 +25,18 @@
     import { WxButton } from '../../index';
     const modal = weex.requireModule('modal');
     export default {
+        data(){
+            return {
+                disabled: true
+            }
+        },
       components: {
           WxButton 
       },
-      created () {
-
+      mounted () {
+          setTimeout(()=> {
+              this.disabled = false
+          },2000)
       },
       methods: {
           wxClickHandle () {

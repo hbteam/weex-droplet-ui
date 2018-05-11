@@ -1,7 +1,7 @@
 <template>
     <div class="wx-dialog" ref="dialog" v-if="visible"
-     :class="[useDefaultFooter ? '' : 'opacityFull']" :style="getPosition()">
-        <div class="dialog-content">
+         :class="[useDefaultFooter ? '' : 'opacityFull']" :style="getPosition()">
+        <div class="dialog-content" :style="dialogContentStyles">
             <slot name="dialog-header"></slot>
             <slot name="dialog-body"></slot>
             <slot name="dialog-footer"></slot>
@@ -14,18 +14,26 @@
                 </div>
             </div>
         </div>
+        <!--添加dialog区域外布局-->
+        <slot name="dialog-outer"></slot>
     </div>
 </template>
 <script>
-    import '../utils';
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     export default {
+        mixins: [mixins],
         props: {
             visible: {
                 type: Boolean,
                 required: true,
                 default: false
+            },
+
+            width: {
+                type: String,
+                default: '574px'
             },
 
             cancelLabel: {
@@ -44,14 +52,27 @@
             title: {
                 type: String,
                 default: ''
-            }
+            },
+
+            clickConfirmHide:  {
+                type: Boolean,
+                default: true
+            },
         },
 
         created () {
+            this.setStyles()
         },
 
         methods: {
-            cancel () {
+            setStyles(){
+                let baseCss = {
+                    width: this.width
+                }
+                this.dialogContentStyles = Object.assign({}, baseCss)
+            },
+            cancel (e) {
+                e.stopPropagation();
                 if (this.useDefaultFooter) {
                     this.hideDialog(() => {
                         this.$emit('cancel');
@@ -62,13 +83,15 @@
                 this.$emit('cancel');
             },
 
-            confirm () {
-                if (this.useDefaultFooter) {
+            confirm (e) {
+                e.stopPropagation();
+                if (this.useDefaultFooter && this.clickConfirmHide) {
                     this.hideDialog(() => {
                         this.$emit('confirm');
                     });
                     return;
                 }
+
                 this.$emit('confirm');
             },
 
@@ -118,6 +141,9 @@
         width: 750px;
         opacity: 0;
         overflow: hidden;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .opacityFull { opacity: 1; }
@@ -126,9 +152,6 @@
         width: 574px;
         background-color: #fff;
         border-radius: 6px;
-        position: absolute;
-        left: 88px;
-        top: 300px;
     }
 
     .dialog-default {

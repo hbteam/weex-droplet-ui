@@ -1,7 +1,7 @@
 <template>
     <div>
         <wx-button @wxClick="openLoading">打开Loading</wx-button>
-        <wx-loading opacity="0.6" :visible="visible" top="100px"></wx-loading>
+        <wx-loading opacity="0.6" :visible="visible" top="0px"></wx-loading>
     </div>
 </template>
 

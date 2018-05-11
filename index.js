@@ -13,6 +13,11 @@ import WxActionsheet from './packages/wx-actionsheet';
 import WxLoading from './packages/wx-loading';
 import WxSearch from './packages/wx-search';
 import WxIcon from './packages/wx-icon';
+import WxIndexlist from './packages/wx-indexlist';
+import WxScrollerbar from './packages/wx-scrollerbar';
+import WxProgress from './packages/wx-progress';
+import WxRange from './packages/wx-range';
+import WxPicker from './packages/wx-picker';
 
 export {
     WxButton,
@@ -29,5 +34,10 @@ export {
     WxActionsheet,
     WxLoading,
     WxSearch,
-    WxIcon
+    WxIcon,
+    WxIndexlist,
+    WxScrollerbar,
+    WxProgress,
+    WxRange,
+    WxPicker
 };

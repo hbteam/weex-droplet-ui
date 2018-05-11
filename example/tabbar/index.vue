@@ -65,7 +65,7 @@
         },
         methods: {
             handleChange (item) {
-                modal.toast({
+                modal.alert({
                     message: item.title
                 })
             },

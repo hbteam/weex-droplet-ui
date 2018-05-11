@@ -34,7 +34,7 @@
         beforeCreate () {
             dom.addRule('fontFace', {
                 'fontFamily': "dropletUiIconfont",
-                'src': "url('http://at.alicdn.com/t/font_534309_mb4vgu7ttpjve7b9.ttf')"
+                'src': "url('http://at.alicdn.com/t/font_534309_4czzlr17zdw2vs4i.ttf')"
             })
         },
 

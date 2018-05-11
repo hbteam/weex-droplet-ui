@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-tabbar">
+    <div class="wx-tabbar"  :style="{width: this.width}">
         <div class="tabbar" :style="{width: this.width, height: this.height}">
             <div class="tabbar-item" 
                 :class="[hasBottom ? 'has-bottom-1' : 'no-bottom-1']"
@@ -12,6 +12,9 @@
             </div>
         </div>
         <div v-if="!vif" class="tab-component" :style="{'transform': translateX, width: contentTotalWidth + 'px'}">
+            <slot></slot>
+        </div>
+        <div v-if="vif">
             <slot></slot>
         </div>
         <text class="line" ref="selectedLine" :style="defaultLineStyle"></text>
@@ -74,7 +77,7 @@
     }
 
     .line {
-        height: 1px;
+        height: 2px;
         position: absolute;
         left: 0;
         z-index: 100;
@@ -182,7 +185,7 @@
             },
 
             changeTab (item) {
-               if (item.index === this.selectedTab.index) {
+               if (item.index === this.selectedTab.index && (!item.hasOwnProperty('multipleTrigger') || !item['multipleTrigger'])) {
                     return;
                }
                this.$emit('wxChange', item);

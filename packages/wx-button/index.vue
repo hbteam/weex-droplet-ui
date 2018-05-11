@@ -61,9 +61,11 @@
              this.setStyle();
         },
         watch: {
-          'disabled':function () {
+          'disabled': function () {
               if(this.disabled){
                   this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
+              }else{
+                  this.buttonStyles['background-color'] = '#4676FF'
               }
           }
         },
@@ -76,6 +78,9 @@
                 };
                 let style = Object.assign({}, baseCss, this.styles);
                 this.buttonStyles = style;
+                if(this.disabled){
+                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
+                }
                 this.textStyles = {
                     color: this.textColor,
                     fontSize: this.textFontSize
@@ -83,6 +88,7 @@
             },
 
             handleClick (e) {
+                e.stopPropagation();
                 if (this.disabled) return;
                 this.$emit('wxClick', e);
             },
