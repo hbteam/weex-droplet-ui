@@ -1,15 +1,15 @@
 <template>
     <scroller class="wx-scroller"
-        :class="[hasBottom ? 'scroller-bottom-border' : '']" 
         :scroll-direction="scrollDirection"
         :style="scrollStyle" show-scrollbar="false">
         <div
             :style="getItemStyle(item)"
-            :class="[selectIndex == index ? 'select-cell' : 'wx-cell']"
+            :class="[hasBottom ? 'scroller-bottom-border' : '', selectIndex == index ? 'select-cell' : 'wx-cell']"
             :ref="'item'+index"
             v-for="(item, index) in items" @click="changeTab(index)">
             <text 
                 :style="getTitleStyle(item)"
+                :class="[selectIndex == index && hasSelectedBottom ? 'selected-border' : '']"
                 class="wx-text">{{ item.title || item }}</text>
         </div>
     </scroller>
@@ -42,6 +42,11 @@
             },
 
             hasBottom: {
+                type: Boolean,
+                default: false
+            },
+
+            hasSelectedBottom: {
                 type: Boolean,
                 default: false
             },
@@ -139,6 +144,10 @@
                     this.hiddenCount = 0;
                     this.scrollTo(0, animated);
                 }
+                this.items.forEach(item => {
+                    item.selected = false;
+                });
+                this.items[index].selected = true;
                 this.$emit('wxChange', this.items[index]);
             },
 
@@ -146,16 +155,19 @@
              * 获取能移动多少条，不能超过总条数
              */
             getCanMoves () {
-                return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
+                const bool = this.hiddenCount > this.maxHidden;
+                return bool ? this.maxHidden : this.hiddenCount;
             },
 
             scrollTo(elHeight, animated){
                 const index = elHeight / this.data.cheight;
                 if (index > 0) {
-                    const el = this.$refs['item' + (this.items.length-index)][0];
+                    const itemStr = 'item' + (this.items.length - index);
+                    const el = this.$refs[itemStr][0];
                     dom.scrollToElement(el, {animated});
                 } else {
-                    const el = this.$refs['item' + (0-index)][0];
+                    const itemStr = 'item' + (0 - index);
+                    const el = this.$refs[itemStr][0];
                     dom.scrollToElement(el, {animated});
                 }
             },
@@ -173,7 +185,10 @@
                 const color = (this.selectIndex === item.index ? item.selectedColor : item.titleColor) || '#4d4d4d';
                 return {
                     color: color,
+                    height: this.itemHeight,
+                    'line-height': this.itemHeight,
                     'font-size': item.titleSize || '32px',
+                    'border-bottom-color': color
                 }
             },
         }
@@ -199,6 +214,11 @@
     .wx-text {
         color: #4d4d4d;
         font-size: 32px;
+    }
+
+    .selected-border {
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
     }
 
     .select-cell {

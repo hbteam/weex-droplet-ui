@@ -1,6 +1,8 @@
 <template>
     <div class="wx-demo">
-        <!-- <wx-scrollerbar 
+
+        <div style="margin-bottom: 10px;">demo1</div>
+        <wx-scrollerbar 
             :items="items"
             height="700px"
             @wxChange="handleChange"
@@ -8,8 +10,7 @@
             itemHeight="100px">
         </wx-scrollerbar>
 
-        <div style="margin-top: 100px;"></div>
-
+        <div style="margin-top: 40px;">demo2</div>
         <wx-scrollerbar 
             scrollDirection="horizontal"
             :items="items"
@@ -17,13 +18,15 @@
             @wxChange="handleChange"
             itemWidth="150px" 
             itemHeight="100px">
-        </wx-scrollerbar> -->
-        <text style="margin-top:60px;"></text>
+        </wx-scrollerbar>
+
+        <text style="margin-top:40px;">demo3</text>
         <wx-scrollerbar 
             scrollDirection="horizontal"
             :items="months"
             height="100px"
             :hasBottom="true"
+            :hasSelectedBottom="true"
             @wxChange="handleChange"
             itemWidth="125px" 
             itemHeight="100px">
@@ -33,64 +36,44 @@
 <script>
     import { WxScrollerbar } from '../../index';
 
-    // 获取比当前月份<=12月的月份日期
-    // return [201801,201802,...]
-    function getMonths () {
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const startY = 2018;
-        const startM = 1;
-        const startDate = 201801;
-        const rs = (year - startY) * 12 + (month - startM) + 1;
-        if (year === startY) {
-            return months1(startDate, 12);
-        } else {
-            return months2(startDate, rs);
-        }
-    }
-
-    function months1 (start, month) {
-        const arr = [];
-        for (let i = 0; i < month; i ++) {
-            arr.push(start + i);
-        }
-        return arr;
-    }
-
-    function months2 (start, length) {
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const d1 = (month-month + 1) >= 10 ? (month-month + 1) : ('0' + (month-month + 1));
-        const d2 = (month+1) >=10 ? (month+1) : ('0' + (month+1));
-        const arr1 = months1(Number(year + '' + d1), month)
-        const arr2 = months1(Number(year - 1 + '' +d2 ), 12-month);
-        return arr2.concat(arr1);
-    }
-
-    const getData = () => {
-        const list = getMonths();
-        let arr = [];
-        for (let i = 0; i< list.length; i ++) {
+    const getMonths = () => {
+        let arr = ['01月', '02月', '03月', '04月', '05月', '06月','07月', 
+                    '08月', '09月', '10月', '11月', '12月'];
+        arr = arr.map((item, index) => {
             const obj = {
-                index: i,
-                title: list[i].toString().substring(4) + '月',  
+                index: index,
+                title: arr[index],  
                 titleColor: '#4d4d4d', 
-                selectedColor: 'blue',
+                selectedColor: '#4676FF',
                 titleSize: '32px',
                 selected: false,
                 bgColor: '#fff', 
                 selectedBgColor: '#fff',
             };
-            if (i === 4) {
+            if (index === 8) {
                 obj.selected = true;
             }
-            arr.push(obj);
-        }
+            return obj;
+        });
         return arr;
     };
 
+    const getItems = () => {
+        let arr = ['标题1', '标题2', '标题3', '标题4', '标题5', '标题6','标题7', '标题8', '标题9', '标题10', '标题11', '标题12','标题13'];
+        arr = arr.map((item, index) => {
+            return {
+                index: index,
+                title: arr[index],  
+                titleColor: '#4d4d4d', 
+                selectedColor: '#4676FF',
+                titleSize: '32px',
+                selected: false,
+                bgColor: '#969696', 
+                selectedBgColor: '#fff',
+            };
+        });
+        return arr;
+    }
 
     export default {
         components: {
@@ -98,8 +81,8 @@
         },
         data () {
             return {
-                items: ['demo1', 'demo2', 'demo3', 'demo4', 'demo5', 'demo6','demo7', 'demo8', 'demo9', 'demo10', 'demo11', 'demo12','demo13'],
-                months: getData()
+                items: getItems(),
+                months: getMonths()
             }
         },
 
