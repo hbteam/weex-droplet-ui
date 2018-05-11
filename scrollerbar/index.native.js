@@ -3294,7 +3294,6 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
-//
 
 exports.default = {
     mixins: [_mixins2.default],
@@ -4735,11 +4734,24 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
 
 var dom = weex.requireModule('dom');
 
 exports.default = {
     props: {
+        // {
+        //     index: i,
+        //     title: list[i].toString().substring(4) + '月',  
+        //     titleColor: '#4d4d4d', 
+        //     selectedColor: 'blue',
+        //     titleSize: '32px',
+        //     selected: false,
+        //     bgColor: '#969696', 
+        //     selectedBgColor: '#fff',
+        // }
         items: {
             type: Array,
             default: function _default() {
@@ -4751,6 +4763,17 @@ exports.default = {
             type: Function,
             required: true
         },
+
+        hasBottom: {
+            type: Boolean,
+            default: false
+        },
+
+        hasSelectedBottom: {
+            type: Boolean,
+            default: false
+        },
+
         height: {
             type: String,
             default: '700px'
@@ -4796,8 +4819,11 @@ exports.default = {
         this.getData();
         // this.deviceHeight = weex.config.env.deviceHeight
         this.getCount();
-        // 最大隐藏个数（共37条，一页10条，能隐藏37-10条）
+        // 最大隐藏个数（共37条，一页10条，能隐藏37-10=27条）
         this.maxHidden = this.items.length - this.count;
+    },
+    mounted: function mounted() {
+        this.changeTab(this.getSelectIndex(), false);
     },
 
 
@@ -4808,6 +4834,12 @@ exports.default = {
                 cwidth: Number(this.itemWidth.replace('px', '')),
                 cheight: Number(this.itemHeight.replace('px', ''))
             };
+        },
+        getSelectIndex: function getSelectIndex() {
+            var item = this.items.find(function (el) {
+                return el.selected;
+            }) || this.items[0];
+            return item.index;
         },
         getCount: function getCount() {
             if (this.getIsVertical()) {
@@ -4820,17 +4852,23 @@ exports.default = {
             return this.scrollDirection === 'vertical';
         },
         changeTab: function changeTab(index) {
+            var animated = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
             this.selectIndex = index;
             if (!index) return;
             var middle = Math.floor(this.count / 2);
             if (index >= middle) {
                 this.hiddenCount = index - middle;
                 this.hiddenCount = this.getCanMoves();
-                this.scrollTo(-this.hiddenCount * this.data.cheight);
+                this.scrollTo(-this.hiddenCount * this.data.cheight, animated);
             } else {
                 this.hiddenCount = 0;
-                this.scrollTo(0);
+                this.scrollTo(0, animated);
             }
+            this.items.forEach(function (item) {
+                item.selected = false;
+            });
+            this.items[index].selected = true;
             this.$emit('wxChange', this.items[index]);
         },
 
@@ -4839,17 +4877,38 @@ exports.default = {
          * 获取能移动多少条，不能超过总条数
          */
         getCanMoves: function getCanMoves() {
-            return this.hiddenCount > this.maxHidden ? this.maxHidden : this.hiddenCount;
+            var bool = this.hiddenCount > this.maxHidden;
+            return bool ? this.maxHidden : this.hiddenCount;
         },
-        scrollTo: function scrollTo(elHeight) {
+        scrollTo: function scrollTo(elHeight, animated) {
             var index = elHeight / this.data.cheight;
             if (index > 0) {
-                var el = this.$refs['item' + (13 - index)][0];
-                dom.scrollToElement(el, {});
+                var itemStr = 'item' + (this.items.length - index);
+                var el = this.$refs[itemStr][0];
+                dom.scrollToElement(el, { animated: animated });
             } else {
-                var _el = this.$refs['item' + (0 - index)][0];
-                dom.scrollToElement(_el, {});
+                var _itemStr = 'item' + (0 - index);
+                var _el = this.$refs[_itemStr][0];
+                dom.scrollToElement(_el, { animated: animated });
             }
+        },
+        getItemStyle: function getItemStyle(item) {
+            var bgColor = (this.selectIndex === item.index ? item.selectedBgColor : item.bgColor) || '#fff';
+            return {
+                width: this.itemWidth,
+                height: this.itemHeight,
+                'background-color': bgColor
+            };
+        },
+        getTitleStyle: function getTitleStyle(item) {
+            var color = (this.selectIndex === item.index ? item.selectedColor : item.titleColor) || '#4d4d4d';
+            return {
+                color: color,
+                height: this.itemHeight,
+                'line-height': this.itemHeight,
+                'font-size': item.titleSize || '32px',
+                'border-bottom-color': color
+            };
         }
     }
 };
@@ -5209,8 +5268,10 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
-  "wx-scroller": {
-    "backgroundColor": "#969696"
+  "scroller-bottom-border": {
+    "borderBottomWidth": "1",
+    "borderBottomStyle": "solid",
+    "borderBottomColor": "#DCDCDC"
   },
   "wx-cell": {
     "flexDirection": "row",
@@ -5220,6 +5281,10 @@ module.exports = {
   "wx-text": {
     "color": "#4d4d4d",
     "fontSize": "32"
+  },
+  "selected-border": {
+    "borderBottomWidth": "2",
+    "borderBottomStyle": "solid"
   },
   "select-cell": {
     "flexDirection": "row",
@@ -5520,13 +5585,13 @@ module.exports = {
   },
   "wx-content": {
     "flexDirection": "row",
-    "flex": 1
+    "flex": 1,
+    "alignItems": "center"
   },
   "wx-cli-text": {
     "color": "#999999",
     "fontSize": "32",
-    "flexWrap": "nowrap",
-    "paddingTop": "30"
+    "flexWrap": "nowrap"
   },
   "wx-unit": {
     "fontSize": "32",
@@ -5804,19 +5869,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('div', {
       ref: 'item' + index,
       refInFor: true,
-      class: [_vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
-      style: {
-        width: _vm.itemWidth,
-        height: _vm.itemHeight
-      },
+      class: [_vm.hasBottom ? 'scroller-bottom-border' : '', _vm.selectIndex == index ? 'select-cell' : 'wx-cell'],
+      style: _vm.getItemStyle(item),
       on: {
         "click": function($event) {
           _vm.changeTab(index)
         }
       }
     }, [_c('text', {
-      staticClass: ["wx-text"]
-    }, [_vm._v(_vm._s(item))])])
+      staticClass: ["wx-text"],
+      class: [_vm.selectIndex == index && _vm.hasSelectedBottom ? 'selected-border' : ''],
+      style: _vm.getTitleStyle(item)
+    }, [_vm._v(_vm._s(item.title || item))])])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -6059,7 +6123,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "blur": _vm.blur
     }
   }) : _vm._e(), (_vm.disabled) ? _c('text', {
-    staticClass: ["wx-cli-text"],
+    staticClass: ["wx-input"],
     style: _vm.cliTextStyles
   }, [_vm._v(_vm._s(_vm.value == '' ? _vm.placeholder : _vm.value))]) : _vm._e(), (_vm.unit) ? _c('text', {
     staticClass: ["wx-unit"]
@@ -6267,25 +6331,25 @@ Object.defineProperty(exports, "__esModule", {
 
 var _index = __webpack_require__(32);
 
-exports.default = {
-    components: {
-        WxScrollerbar: _index.WxScrollerbar
-    },
-    data: function data() {
-        return {
-            items: ['demo1', 'demo2', 'demo3', 'demo4', 'demo5', 'demo6', 'demo7', 'demo8', 'demo9', 'demo10', 'demo11', 'demo12', 'demo13']
+var getMonths = function getMonths() {
+    var arr = ['01月', '02月', '03月', '04月', '05月', '06月', '07月', '08月', '09月', '10月', '11月', '12月'];
+    arr = arr.map(function (item, index) {
+        var obj = {
+            index: index,
+            title: arr[index],
+            titleColor: '#4d4d4d',
+            selectedColor: '#4676FF',
+            titleSize: '32px',
+            selected: false,
+            bgColor: '#fff',
+            selectedBgColor: '#fff'
         };
-    },
-
-    methods: {
-        /**
-         * 点击回调
-         * @param  {[type]} item 被选中的项
-         */
-        handleChange: function handleChange(item) {
-            console.log(item);
+        if (index === 8) {
+            obj.selected = true;
         }
-    }
+        return obj;
+    });
+    return arr;
 }; //
 //
 //
@@ -6308,6 +6372,60 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var getItems = function getItems() {
+    var arr = ['标题1', '标题2', '标题3', '标题4', '标题5', '标题6', '标题7', '标题8', '标题9', '标题10', '标题11', '标题12', '标题13'];
+    arr = arr.map(function (item, index) {
+        return {
+            index: index,
+            title: arr[index],
+            titleColor: '#4d4d4d',
+            selectedColor: '#4676FF',
+            titleSize: '32px',
+            selected: false,
+            bgColor: '#969696',
+            selectedBgColor: '#fff'
+        };
+    });
+    return arr;
+};
+
+exports.default = {
+    components: {
+        WxScrollerbar: _index.WxScrollerbar
+    },
+    data: function data() {
+        return {
+            items: getItems(),
+            months: getMonths()
+        };
+    },
+    created: function created() {},
+
+
+    methods: {
+        /**
+         * 点击回调
+         * @param  {[type]} item 被选中的项
+         */
+        handleChange: function handleChange(item) {
+            console.log(item);
+        }
+    }
+};
 
 /***/ }),
 /* 169 */,
@@ -6347,7 +6465,11 @@ module.exports = {}
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wx-demo"]
-  }, [_c('wx-scrollerbar', {
+  }, [_c('div', {
+    staticStyle: {
+      marginBottom: "10px"
+    }
+  }, [_vm._v("demo1")]), _c('wx-scrollerbar', {
     attrs: {
       "items": _vm.items,
       "height": "700px",
@@ -6359,14 +6481,31 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('div', {
     staticStyle: {
-      marginTop: "100px"
+      marginTop: "40px"
     }
-  }), _c('wx-scrollerbar', {
+  }, [_vm._v("demo2")]), _c('wx-scrollerbar', {
     attrs: {
       "scrollDirection": "horizontal",
       "items": _vm.items,
       "height": "100px",
       "itemWidth": "150px",
+      "itemHeight": "100px"
+    },
+    on: {
+      "wxChange": _vm.handleChange
+    }
+  }), _c('text', {
+    staticStyle: {
+      marginTop: "40px"
+    }
+  }, [_vm._v("demo3")]), _c('wx-scrollerbar', {
+    attrs: {
+      "scrollDirection": "horizontal",
+      "items": _vm.months,
+      "height": "100px",
+      "hasBottom": true,
+      "hasSelectedBottom": true,
+      "itemWidth": "125px",
       "itemHeight": "100px"
     },
     on: {
