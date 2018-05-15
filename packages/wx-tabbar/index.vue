@@ -32,6 +32,7 @@
         position: fixed;
         left: 0;
         right: 0;
+        bottom: 0;
         z-index: 1000;
         border-top-width: 1px;
         border-top-style: solid;
@@ -61,9 +62,7 @@
 
 </style>
 <script>
-    import mixins from '../utils/mixins'
     export default {
-        mixins: [mixins],
         props: {
             tabItems: {
                 type: Array,
@@ -115,7 +114,6 @@
 
             getStyles () {
                 const baseStyle =  {
-                    'bottom': this.getPosition().bottom, 
                     'height': this.height
                 };
                 return Object.assign({}, baseStyle, this.styles);
