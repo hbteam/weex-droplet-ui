@@ -75,12 +75,29 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 142);
+/******/ 	return __webpack_require__(__webpack_require__.s = 143);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 11:
+/***/ 10:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-button": {
+    "backgroundColor": "#4676FF",
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "wx-text": {
+    "color": "#ffffff",
+    "fontSize": "32"
+  }
+}
+
+/***/ }),
+
+/***/ 12:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -99,21 +116,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 120:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(186)
+__vue_styles__.push(__webpack_require__(187)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(165)
+__vue_exports__ = __webpack_require__(166)
 
 /* template */
-var __vue_template__ = __webpack_require__(208)
+var __vue_template__ = __webpack_require__(209)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -144,7 +161,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 14:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -154,7 +171,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(18);
+var _index = __webpack_require__(121);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
+
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(19);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -167,28 +205,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 142:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(120);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
-
-/***/ 165:
+/***/ 166:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -198,7 +215,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(15);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -245,21 +262,32 @@ exports.default = {
 
 /***/ }),
 
-/***/ 18:
+/***/ 187:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "progress": {
+    "marginTop": "60"
+  }
+}
+
+/***/ }),
+
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(26)
+__vue_styles__.push(__webpack_require__(27)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(22)
+__vue_exports__ = __webpack_require__(23)
 
 /* template */
-var __vue_template__ = __webpack_require__(30)
+var __vue_template__ = __webpack_require__(31)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -290,17 +318,6 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 186:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "progress": {
-    "marginTop": "60"
-  }
-}
-
-/***/ }),
-
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -311,7 +328,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(4);
+var _index = __webpack_require__(5);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -324,7 +341,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -380,7 +397,7 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -512,7 +529,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 26:
+/***/ 27:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -531,7 +548,36 @@ module.exports = {
 
 /***/ }),
 
-/***/ 30:
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// promise添加finally
+var promiseFinallyPolyfill = function () {
+    if (Promise.prototype.finally) return;
+    Object.defineProperty(Promise.prototype, 'finally', {
+        configurable: true,
+        writable: true,
+        value: function value(callback) {
+            var P = this.constructor;
+            return this.then(function (value) {
+                return P.resolve(callback()).then(function () {
+                    return value;
+                });
+            }, function (reason) {
+                return P.resolve(callback()).then(function () {
+                    throw reason;
+                });
+            });
+        }
+    });
+}();
+
+/***/ }),
+
+/***/ 31:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -548,21 +594,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(9)
+__vue_styles__.push(__webpack_require__(10)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(6)
+__vue_exports__ = __webpack_require__(7)
 
 /* template */
-var __vue_template__ = __webpack_require__(11)
+var __vue_template__ = __webpack_require__(12)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -593,7 +639,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -602,25 +648,8 @@ module.exports = __vue_exports__
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+__webpack_require__(3);
 
 exports.default = {
     props: {
@@ -712,29 +741,9 @@ exports.default = {
         disablePromise: function disablePromise(_promise) {
             var _this = this;
 
-            this.finally();
             this.btnStyle(true);
             _promise.finally(function () {
                 _this.btnStyle(false);
-            });
-        },
-        finally: function _finally() {
-            if (Promise.prototype.finally) return;
-            Object.defineProperty(Promise.prototype, 'finally', {
-                configurable: true,
-                writable: true,
-                value: function value(callback) {
-                    var P = this.constructor;
-                    return this.then(function (value) {
-                        return P.resolve(callback()).then(function () {
-                            return value;
-                        });
-                    }, function (reason) {
-                        return P.resolve(callback()).then(function () {
-                            throw reason;
-                        });
-                    });
-                }
             });
         },
         btnStyle: function btnStyle(disabled) {
@@ -746,24 +755,25 @@ exports.default = {
             }
         }
     }
-};
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wx-button": {
-    "backgroundColor": "#4676FF",
-    "alignItems": "center",
-    "justifyContent": "center"
-  },
-  "wx-text": {
-    "color": "#ffffff",
-    "fontSize": "32"
-  }
-}
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ })
 
