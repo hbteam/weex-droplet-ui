@@ -2,7 +2,6 @@
     <div class="wx-actionsheet">
         <div
             class="wx-actionsheet-mask"
-            :style="getPosition()"
             v-if="showActionsheet"
             ref="sheetMask"
             @click="close"></div>
@@ -35,11 +34,9 @@
 </template>
 
 <script>
-    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     export default {
-        mixins: [mixins],
         props: {
             value: {
                 type: Boolean,
@@ -104,8 +101,7 @@
                     totalHeight += itemHeight + this.mbHeight;
                 }
 
-                const posBottom = Number(this.getPosition().bottom.replace('px', ''));
-                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+(totalHeight - posBottom) + 'px'};
+                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+ totalHeight + 'px'};
 
                 return styleObj;
             }
@@ -239,6 +235,8 @@
         background-color: rgba(0, 0, 0, 0.4);
         position: fixed;
         left: 0;
+        bottom: 0;
+        top: 0;
         width: 750px;
         opacity: 0;
     }

@@ -1,6 +1,6 @@
 <template>
     <div class="wx-dialog" ref="dialog" v-if="visible"
-         :class="[useDefaultFooter ? '' : 'opacityFull']" :style="getPosition()">
+         :class="[useDefaultFooter ? '' : 'opacityFull']">
         <div class="dialog-content" :style="dialogContentStyles">
             <slot name="dialog-header"></slot>
             <slot name="dialog-body"></slot>
@@ -19,11 +19,9 @@
     </div>
 </template>
 <script>
-    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     export default {
-        mixins: [mixins],
         props: {
             visible: {
                 type: Boolean,
@@ -138,6 +136,8 @@
         background-color: rgba(0,0,0,0.35);
         position: fixed;
         left: 0;
+        bottom: 0;
+        top: 0;
         width: 750px;
         opacity: 0;
         overflow: hidden;
