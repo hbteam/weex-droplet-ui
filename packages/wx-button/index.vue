@@ -45,6 +45,10 @@
                     return {}
                 }
             },
+            disabledBgColor: {
+                type: String,
+                default: 'rgba(0, 0, 0, 0.1)'
+            },
             textColor: {
                 type: String,
                 default: '#ffffff'
@@ -58,7 +62,8 @@
             return {
                 buttonStyles: {},
                 textStyles: {},
-                promiseDisabled: false
+                promiseDisabled: false,
+                defualtBgColor: '#4676FF',
             }
         },
         created () {
@@ -76,12 +81,13 @@
                     height: this.height,
                     width: this.width,
                     'border-radius': this.borderRadius,
-                    'background-color': '',
+                    'background-color': this.defualtBgColor
                 };
                 let style = Object.assign({}, baseCss, this.styles);
                 this.buttonStyles = style;
+                this.defualtBgColor = this.buttonStyles['background-color'];
                 if(this.disabled){
-                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
+                    this.buttonStyles['background-color'] = this.disabledBgColor
                 }
                 this.textStyles = {
                     color: this.textColor,
@@ -102,18 +108,31 @@
             },
 
             disablePromise (_promise) {
+                this.finally();
                 this.btnStyle(true)
                 _promise.finally(() => {
                     this.btnStyle(false);
                 });
             },
 
+            finally () {
+                Promise.prototype.finally = function (callback) {
+                    let P = this.constructor;
+                    return this.then(
+                        value => P.resolve(callback()).then(() => value),
+                        reason => P.resolve(callback()).then(() => {
+                            throw reason;
+                        })
+                    );
+                }
+            },
+
             btnStyle (disabled) {
                 this.promiseDisabled = disabled;
                 if(disabled){
-                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
+                    this.buttonStyles['background-color'] = this.disabledBgColor
                 }else{
-                    this.buttonStyles['background-color'] = '#4676FF';
+                    this.buttonStyles['background-color'] = this.defualtBgColor;
                 }
             },
         }
