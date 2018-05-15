@@ -621,18 +621,23 @@ exports.default = {
             });
         },
         finally: function _finally() {
-            Promise.prototype.finally = function (callback) {
-                var P = this.constructor;
-                return this.then(function (value) {
-                    return P.resolve(callback()).then(function () {
-                        return value;
+            if (Promise.prototype.finally) return;
+            Object.defineProperty(Promise.prototype, 'finally', {
+                configurable: true,
+                writable: true,
+                value: function value(callback) {
+                    var P = this.constructor;
+                    return this.then(function (value) {
+                        return P.resolve(callback()).then(function () {
+                            return value;
+                        });
+                    }, function (reason) {
+                        return P.resolve(callback()).then(function () {
+                            throw reason;
+                        });
                     });
-                }, function (reason) {
-                    return P.resolve(callback()).then(function () {
-                        throw reason;
-                    });
-                });
-            };
+                }
+            });
         },
         btnStyle: function btnStyle(disabled) {
             this.promiseDisabled = disabled;
