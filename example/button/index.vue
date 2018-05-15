@@ -7,7 +7,7 @@
           textColor="#fff"
           textFontSize="32px"
           :disabled="disabled"
-          @wxClick="wxClickHandle">测试1{{disabled}}</wx-button>
+          @wxClick="wxClickHandle1">测试1{{disabled}}</wx-button>
 
         <wx-button 
             height="80px"
@@ -17,7 +17,7 @@
             textFontSize="32px"
             :disabled="false"
             :styles="{'margin-left': '50px','margin-top': '80px'}"
-            @wxClick="wxClickHandle">测试1</wx-button>
+            :disableOnPromise="wxClickHandle2">测试2</wx-button>
     </div>
 </template>
 
@@ -39,11 +39,34 @@
           },2000)
       },
       methods: {
-          wxClickHandle () {
-            modal.toast({
-                message: 'clicked'
-            })
-          }
+          wxClickHandle1 () {
+              modal.toast({
+                  message: 'clicked 1'
+              })
+
+          },
+
+          // 点击之后，会执行wxClickHandle2()，它必须返回一个Promise
+          wxClickHandle2 () {
+              return this.request().then(() => {
+                  // TODO
+              }).catch(() => {
+                  // TODO
+              })
+          },
+
+          request () {
+              return new Promise(function(resolve, reject) {
+                  const result = '接口返回成功'
+                  setTimeout(() => {
+                      if (result !== '接口返回成功') {
+                          resolve(result);
+                      } else {
+                          reject(result);
+                      }
+                  }, 2000)
+              });
+          },
         }
     }
 </script>

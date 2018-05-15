@@ -36,6 +36,9 @@
                 type: Boolean,
                 default: false
             },
+            disableOnPromise: {
+                type: Function
+            },
             styles: {
                 type: Object,
                 default: function () {
@@ -55,19 +58,17 @@
             return {
                 buttonStyles: {},
                 textStyles: {},
+                promiseDisabled: false
             }
         },
         created () {
-             this.setStyle();
+            this.promiseDisabled = this.disabled;
+            this.setStyle();
         },
         watch: {
-          'disabled': function () {
-              if(this.disabled){
-                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'
-              }else{
-                  this.buttonStyles['background-color'] = '#4676FF'
-              }
-          }
+            'disabled': function () {
+                this.btnStyle(this.disabled);
+            }
         },
         methods: {
             setStyle () {
@@ -75,6 +76,7 @@
                     height: this.height,
                     width: this.width,
                     'border-radius': this.borderRadius,
+                    'background-color': '',
                 };
                 let style = Object.assign({}, baseCss, this.styles);
                 this.buttonStyles = style;
@@ -89,8 +91,30 @@
 
             handleClick (e) {
                 e.stopPropagation();
-                if (this.disabled) return;
-                this.$emit('wxClick', e);
+                if (this.disabled || this.promiseDisabled) return;
+                if (this.disableOnPromise) {
+                    const _promise = this.disableOnPromise();
+                    this.disablePromise(_promise);
+                } else {
+                    this.$emit('wxClick', e);
+                }
+                
+            },
+
+            disablePromise (_promise) {
+                this.btnStyle(true)
+                _promise.finally(() => {
+                    this.btnStyle(false);
+                });
+            },
+
+            btnStyle (disabled) {
+                this.promiseDisabled = disabled;
+                if(disabled){
+                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
+                }else{
+                    this.buttonStyles['background-color'] = '#4676FF';
+                }
             },
         }
     }
