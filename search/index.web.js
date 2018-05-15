@@ -837,7 +837,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(4);
+var _wxIcon = __webpack_require__(3);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -994,6 +994,29 @@ exports.push([module.i, "\n.wx-search[data-v-5d51c45e] {\n    display: -webkit-b
 
 /***/ }),
 
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(13);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
 /***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1122,29 +1145,6 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-5d51c45e", module.exports)
   }
 }
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(13);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 

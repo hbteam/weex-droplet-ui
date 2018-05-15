@@ -486,6 +486,28 @@ function applyToTag (styleElement, obj) {
 
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(13);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var width = weex.config.env.deviceWidth;
@@ -500,47 +522,11 @@ var mixins = {
                 return 750 / width * height;
             }
             return height;
-        },
-
-
-        /**
-         * ios和安卓的定位不同，所以导致定位位置不一样
-         * @return {Object} top and bottom
-         */
-        getPosition: function getPosition() {
-
-            var isProd = platform === 'ios' && appName !== 'WeexDemo';
-            return {
-                top: isProd ? '-40px' : '0px',
-                bottom: isProd ? '36px' : '0px'
-            };
         }
     }
 };
 
 exports.default = mixins;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(13);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 5 */
@@ -1420,7 +1406,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(4);
+var _wxIcon = __webpack_require__(3);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -2183,7 +2169,7 @@ var _wxSearch = __webpack_require__(21);
 
 var _wxSearch2 = _interopRequireDefault(_wxSearch);
 
-var _wxIcon = __webpack_require__(4);
+var _wxIcon = __webpack_require__(3);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -2548,52 +2534,45 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-var _mixins = __webpack_require__(3);
-
-var _mixins2 = _interopRequireDefault(_mixins);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var animation = weex.requireModule('animation'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var animation = weex.requireModule('animation');
 
 exports.default = {
-    mixins: [_mixins2.default],
     props: {
         value: {
             type: Boolean,
@@ -2659,8 +2638,7 @@ exports.default = {
                 totalHeight += itemHeight + this.mbHeight;
             }
 
-            var posBottom = Number(this.getPosition().bottom.replace('px', ''));
-            var styleObj = { 'height': totalHeight + 'px', 'bottom': '-' + (totalHeight - posBottom) + 'px' };
+            var styleObj = { 'height': totalHeight + 'px', 'bottom': '-' + totalHeight + 'px' };
 
             return styleObj;
         }
@@ -3031,36 +3009,30 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-var _mixins = __webpack_require__(3);
-
-var _mixins2 = _interopRequireDefault(_mixins);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var animation = weex.requireModule('animation'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var animation = weex.requireModule('animation');
 
 exports.default = {
-    mixins: [_mixins2.default],
     props: {
         visible: {
             type: Boolean,
@@ -3186,11 +3158,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(3);
+var _mixins = __webpack_require__(4);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
-var _wxIcon = __webpack_require__(4);
+var _wxIcon = __webpack_require__(3);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -3602,7 +3574,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(3);
+var _mixins = __webpack_require__(4);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
@@ -4925,15 +4897,71 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _mixins = __webpack_require__(3);
-
-var _mixins2 = _interopRequireDefault(_mixins);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
-    mixins: [_mixins2.default],
     props: {
         tabItems: {
             type: Array,
@@ -4983,7 +5011,6 @@ exports.default = {
         },
         getStyles: function getStyles() {
             var baseStyle = {
-                'bottom': this.getPosition().bottom,
                 'height': this.height
             };
             return Object.assign({}, baseStyle, this.styles);
@@ -5001,68 +5028,7 @@ exports.default = {
             };
         }
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 71 */
@@ -5115,7 +5081,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-tabbar[data-v-06b46507] {\n}\n.tab-component[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    width: 10rem;\n    height: 1.33333rem;\n    position: fixed;\n    left: 0;\n    right: 0;\n    z-index: 1000;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #D8D8D8;\n    background-color: #fff;\n}\n.tabbar-item[data-v-06b46507] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.icon[data-v-06b46507] {\n    margin-top: 0.18667rem;\n    margin-bottom: 0.13333rem;\n    width: 0.50667rem;\n    height: 0.50667rem;\n}\n.wx-text[data-v-06b46507] {\n    font-size: 0.37333rem;\n    padding-top: 0.02667rem;\n    text-align: center;\n    color: #646464;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-tabbar/index.vue?07e0585a"],"names":[],"mappings":";AAkBA;CAEA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,aAAA;IACA,mBAAA;IACA,gBAAA;IACA,QAAA;IACA,SAAA;IACA,cAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,uBAAA;IACA,0BAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,sBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-tabbar\">\n        <div class=\"tab-component\" :style=\"{'transform': translateX, width: totalWidth + 'px'}\">\n            <slot></slot>\n        </div>\n        <div class=\"tabbar\" \n            :style=\"getStyles()\">\n            <div class=\"tabbar-item\" \n                v-for=\"item in tabItems\" \n                @click=\"changeTab(item)\">\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index === item.index\" :src=\"item.selectedImage\" class=\"icon\"></image>\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index !== item.index\" :src=\"item.image\" class=\"icon\"></image>\n                <text class=\"wx-text\" :style=\"getTitleStyle(item)\" >{{ item.title }}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-tabbar {\n        \n    }\n\n    .tab-component {\n        flex-direction: row;\n        background-color: #fff;\n    }   \n\n    .tabbar {\n        flex-direction: row;\n        width: 750px;\n        height: 100px;\n        position: fixed;\n        left: 0;\n        right: 0;\n        z-index: 1000;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #D8D8D8;\n        background-color: #fff;\n    }\n\n    .tabbar-item {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .icon {\n        margin-top: 14px;\n        margin-bottom: 10px;\n        width: 38px;\n        height: 38px;\n    }\n\n    .wx-text {\n        font-size: 28px;\n        padding-top: 2px;\n        text-align: center;\n        color: #646464;\n    }\n\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    export default {\n        mixins: [mixins],\n        props: {\n            tabItems: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                },\n                required: false\n            },\n\n            height: {\n                type: String,\n                default: '128px'\n            },\n        },\n\n        data () {\n            return {\n                selectedTab: {index: 0},\n                translateX: 'translateX(0px)', \n                deviceWidth: 750,\n                titleStyle: {},\n            }\n        },\n\n        created () {\n            this.totalWidth = this.deviceWidth * this.tabItems.length;\n            this.setTranslateX();\n        },\n\n        methods: {\n            changeTab (item) {\n               this.selectedTab = item;\n               this.setTranslateX();\n               this.$emit('wxChange', item);\n            },\n\n            setTranslateX () {\n                const x = this.selectedTab.index * this.deviceWidth;\n                this.translateX = `translateX(-${x}px)`;\n            },\n\n            getStyles () {\n                const baseStyle =  {\n                    'bottom': this.getPosition().bottom, \n                    'height': this.height\n                };\n                return Object.assign({}, baseStyle, this.styles);\n            },\n\n            getIconStyle (item) {\n                return {\n                    width: item.iconWdith || '38px',\n                    height: item.iconHeight || '38px',\n                }\n            },\n\n            getTitleStyle (item) {\n                return {\n                    'font-size': item.fontSize || '28px',\n                    'color': this.selectedTab.index === item.index ? item.selectedColor : item.titleColor,\n                }\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-tabbar[data-v-06b46507] {\n}\n.tab-component[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    background-color: #fff;\n}\n.tabbar[data-v-06b46507] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    width: 10rem;\n    height: 1.33333rem;\n    position: fixed;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    z-index: 1000;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #D8D8D8;\n    background-color: #fff;\n}\n.tabbar-item[data-v-06b46507] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.icon[data-v-06b46507] {\n    margin-top: 0.18667rem;\n    margin-bottom: 0.13333rem;\n    width: 0.50667rem;\n    height: 0.50667rem;\n}\n.wx-text[data-v-06b46507] {\n    font-size: 0.37333rem;\n    padding-top: 0.02667rem;\n    text-align: center;\n    color: #646464;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-tabbar/index.vue?6cb048d8"],"names":[],"mappings":";AAkBA;CAEA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,aAAA;IACA,mBAAA;IACA,gBAAA;IACA,QAAA;IACA,SAAA;IACA,UAAA;IACA,cAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,uBAAA;IACA,0BAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,sBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-tabbar\">\n        <div class=\"tab-component\" :style=\"{'transform': translateX, width: totalWidth + 'px'}\">\n            <slot></slot>\n        </div>\n        <div class=\"tabbar\" \n            :style=\"getStyles()\">\n            <div class=\"tabbar-item\" \n                v-for=\"item in tabItems\" \n                @click=\"changeTab(item)\">\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index === item.index\" :src=\"item.selectedImage\" class=\"icon\"></image>\n                <image :style=\"getIconStyle(item)\" v-if=\"selectedTab.index !== item.index\" :src=\"item.image\" class=\"icon\"></image>\n                <text class=\"wx-text\" :style=\"getTitleStyle(item)\" >{{ item.title }}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-tabbar {\n        \n    }\n\n    .tab-component {\n        flex-direction: row;\n        background-color: #fff;\n    }   \n\n    .tabbar {\n        flex-direction: row;\n        width: 750px;\n        height: 100px;\n        position: fixed;\n        left: 0;\n        right: 0;\n        bottom: 0;\n        z-index: 1000;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #D8D8D8;\n        background-color: #fff;\n    }\n\n    .tabbar-item {\n        flex: 1;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .icon {\n        margin-top: 14px;\n        margin-bottom: 10px;\n        width: 38px;\n        height: 38px;\n    }\n\n    .wx-text {\n        font-size: 28px;\n        padding-top: 2px;\n        text-align: center;\n        color: #646464;\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            tabItems: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                },\n                required: false\n            },\n\n            height: {\n                type: String,\n                default: '128px'\n            },\n        },\n\n        data () {\n            return {\n                selectedTab: {index: 0},\n                translateX: 'translateX(0px)', \n                deviceWidth: 750,\n                titleStyle: {},\n            }\n        },\n\n        created () {\n            this.totalWidth = this.deviceWidth * this.tabItems.length;\n            this.setTranslateX();\n        },\n\n        methods: {\n            changeTab (item) {\n               this.selectedTab = item;\n               this.setTranslateX();\n               this.$emit('wxChange', item);\n            },\n\n            setTranslateX () {\n                const x = this.selectedTab.index * this.deviceWidth;\n                this.translateX = `translateX(-${x}px)`;\n            },\n\n            getStyles () {\n                const baseStyle =  {\n                    'height': this.height\n                };\n                return Object.assign({}, baseStyle, this.styles);\n            },\n\n            getIconStyle (item) {\n                return {\n                    width: item.iconWdith || '38px',\n                    height: item.iconHeight || '38px',\n                }\n            },\n\n            getTitleStyle (item) {\n                return {\n                    'font-size': item.fontSize || '28px',\n                    'color': this.selectedTab.index === item.index ? item.selectedColor : item.titleColor,\n                }\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5185,7 +5151,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-actionsheet-mask[data-v-2a32de76] {\n    background-color: rgba(0, 0, 0, 0.4);\n    position: fixed;\n    left: 0;\n    width: 10rem;\n    opacity: 0;\n}\n.wx-actionsheet-content[data-v-2a32de76] {\n    position: fixed;\n    width: 10rem;\n    left: 0;\n}\n.action-list[data-v-2a32de76] {\n    margin-bottom: 0.26667rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.action-title[data-v-2a32de76] {\n    height: 1.22667rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.action-item[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.bd-btm[data-v-2a32de76] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: rgba(77,77,77,0.78);\n}\n.cancel-button[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.c-grey[data-v-2a32de76] { color: #8F8E94;\n}\n.bold[data-v-2a32de76] { font-weight: bold;\n}\n.f26[data-v-2a32de76] { font-size: 0.34667rem;\n}\n.radius-24[data-v-2a32de76] {\n    border-radius: 0.32rem;\n}\n.radius-tl-24[data-v-2a32de76] { border-top-left-radius: 0.32rem;\n}\n.radius-tr-24[data-v-2a32de76] { border-top-right-radius: 0.32rem;\n}\n.radius-bl-24[data-v-2a32de76] { border-bottom-left-radius: 0.32rem;\n}\n.radius-br-24[data-v-2a32de76] { border-bottom-right-radius: 0.32rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-actionsheet/index.vue?5a949c1d"],"names":[],"mappings":";AA6OA;IACA,qCAAA;IACA,gBAAA;IACA,QAAA;IACA,aAAA;IACA,WAAA;CACA;AAEA;IACA,gBAAA;IACA,aAAA;IACA,QAAA;CACA;AAEA;IACA,0BAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA;IACA,mBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,yCAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA,2BAAA,eAAA;CAAA;AACA,yBAAA,kBAAA;CAAA;AAEA,wBAAA,sBAAA;CAAA;AAEA;IACA,uBAAA;CACA;AACA,iCAAA,gCAAA;CAAA;AACA,iCAAA,iCAAA;CAAA;AACA,iCAAA,mCAAA;CAAA;AACA,iCAAA,oCAAA;CAAA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-actionsheet\">\n        <div\n            class=\"wx-actionsheet-mask\"\n            :style=\"getPosition()\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetMask\"\n            @click=\"close\"></div>\n        <div\n            class=\"wx-actionsheet-content\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetContent\"\n            :style=\"listStyle\">\n                <div class=\"action-list\">\n                    <div class=\"action-title bd-btm radius-tl-24 radius-tr-24\" v-if=\"titleText\">\n                        <text class=\"f26 c-grey\">{{titleText}}</text>\n                    </div>\n                    <div\n                        class=\"action-item\"\n                        v-for=\"(item, index) in actions\"\n                        :key=\"index\"\n                        :class=\"itemsClass(index)\"\n                        @click=\"itemClick(item, index)\">\n                        <text class=\"bold\" :style=\"actionStyle\">{{item.name}}</text>\n                    </div>\n                </div>\n            <div\n                class=\"action-item bd-btm cancel-button radius-24\"\n                v-if=\"cancelText\"\n                @click=\"cancel\">\n                <text :style=\"cancelStyle\">{{cancelText}}</text>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    import mixins from '../utils/mixins';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        mixins: [mixins],\n        props: {\n            value: {\n                type: Boolean,\n                default: false\n            },\n            closeOnClickMask: {\n                type: Boolean,\n                default: true\n            },\n            cancelText: {\n                type: String,\n                default: '取消'\n            },\n            titleText: {\n                type: String,\n                default: '标题'\n            },\n            actions: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n            },\n            actionColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            cancelColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            actionFontSize: {\n                type: String,\n                default: '40px'\n            },\n            cancelFontSize: {\n                type: String,\n                default: '40px'\n            }\n        },\n\n        data () {\n            return {\n                showActionsheet: false,\n                mbHeight: 20,\n                actionStyle: {},\n                cancelStyle: {},\n            }\n        },\n\n        computed: {\n            listStyle () {\n                const titleHeight = 92;\n                const itemHeight = 114;\n                const listHeight = this.actions.length * itemHeight;\n\n                let totalHeight = listHeight + this.mbHeight;\n                if (this.titleText) {\n                    totalHeight += titleHeight;\n                }\n                if (this.cancelText) {\n                    totalHeight += itemHeight + this.mbHeight;\n                }\n\n                const posBottom = Number(this.getPosition().bottom.replace('px', ''));\n                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+(totalHeight - posBottom) + 'px'};\n\n                return styleObj;\n            }\n        },\n\n        created () {\n            this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                this.actionStyle = Object.assign({}, {\n                                    'color': this.actionColor,\n                                    'font-size': this.actionFontSize\n                                });\n                this.cancelStyle = Object.assign({}, {\n                                    'color': this.cancelColor,\n                                    'font-size': this.cancelFontSize\n                                });\n\n            },\n\n            itemsClass (index) {\n                let classArray = [];\n\n                if (index === (this.actions.length-1)) {\n                    classArray.push('radius-bl-24');\n                    classArray.push('radius-br-24');\n                } else {\n                    classArray.push('bd-btm');\n                }\n\n                if (index === 0 && !this.titleText) {\n                    classArray.push('radius-tl-24');\n                    classArray.push('radius-tr-24');\n                }\n\n                return classArray;\n            },\n\n            close () {\n                if (!this.closeOnClickMask) {\n                    return;\n                }\n                this.hideSheet();\n            },\n\n            itemClick (item, index) {\n                if (item.method && typeof item.method === 'function') {\n                    item.method(item, index);\n                }\n                this.hideSheet();\n            },\n\n            cancel () {\n                this.hideSheet();\n            },\n\n            showSheet () {\n                this.displaySheetMask(true, () => {\n                    this.displaySheetContent(true);\n                });\n            },\n\n            hideSheet() {\n                this.displaySheetContent(false, () => {\n                    this.displaySheetMask(false, () => {\n                        this.showActionsheet = false;\n                    });\n                });\n            },\n\n            displaySheetMask (isShow, callback) {\n                const maskEl = this.$refs.sheetMask;\n                if (!maskEl) {\n                    return;\n                }\n\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n\n                animation.transition(maskEl, {\n                    styles: styles,\n                    duration: 150,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            },\n\n            displaySheetContent (isShow, callback) {\n                const contentEl = this.$refs.sheetContent;\n                if (!contentEl) {\n                    return;\n                }\n\n                const styles = isShow ?\n                                { transform: 'translate(0, -100%)' } :\n                                { transform: 'translate(0, 100%)' };\n                const timingF = isShow ? 'ease' : 'ease-out';\n                const duration = isShow ? 150 : 300;\n\n                animation.transition(contentEl, {\n                    styles: styles,\n                    duration: duration,\n                    timingFunction: timingF,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            value(val) {\n                if (val) {\n                    this.showActionsheet = val;\n                    const timer = setTimeout(() => {\n                        this.showSheet();\n                        clearTimeout(timer);\n                    }, 40);\n                }\n            },\n\n            showActionsheet (val) {\n                !val && this.$emit('input', val);\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .wx-actionsheet-mask {\n        background-color: rgba(0, 0, 0, 0.4);\n        position: fixed;\n        left: 0;\n        width: 750px;\n        opacity: 0;\n    }\n\n    .wx-actionsheet-content {\n        position: fixed;\n        width: 750px;\n        left: 0;\n    }\n\n    .action-list {\n        margin-bottom: 20px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .action-title {\n        height: 92px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .action-item {\n        height: 114px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .bd-btm {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: rgba(77,77,77,0.78);\n    }\n\n    .cancel-button {\n        height: 114px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .c-grey { color: #8F8E94; }\n    .bold { font-weight: bold; }\n\n    .f26 { font-size: 26px; }\n\n    .radius-24 {\n        border-radius: 24px;\n    }\n    .radius-tl-24 { border-top-left-radius: 24px; }\n    .radius-tr-24 { border-top-right-radius: 24px; }\n    .radius-bl-24 { border-bottom-left-radius: 24px; }\n    .radius-br-24 { border-bottom-right-radius: 24px; }\n</style>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-actionsheet-mask[data-v-2a32de76] {\n    background-color: rgba(0, 0, 0, 0.4);\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    top: 0;\n    width: 10rem;\n    opacity: 0;\n}\n.wx-actionsheet-content[data-v-2a32de76] {\n    position: fixed;\n    width: 10rem;\n    left: 0;\n}\n.action-list[data-v-2a32de76] {\n    margin-bottom: 0.26667rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.action-title[data-v-2a32de76] {\n    height: 1.22667rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.action-item[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fff;\n}\n.bd-btm[data-v-2a32de76] {\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: rgba(77,77,77,0.78);\n}\n.cancel-button[data-v-2a32de76] {\n    height: 1.52rem;\n    width: 9.46667rem;\n    margin-left: 0.26667rem;\n}\n.c-grey[data-v-2a32de76] { color: #8F8E94;\n}\n.bold[data-v-2a32de76] { font-weight: bold;\n}\n.f26[data-v-2a32de76] { font-size: 0.34667rem;\n}\n.radius-24[data-v-2a32de76] {\n    border-radius: 0.32rem;\n}\n.radius-tl-24[data-v-2a32de76] { border-top-left-radius: 0.32rem;\n}\n.radius-tr-24[data-v-2a32de76] { border-top-right-radius: 0.32rem;\n}\n.radius-bl-24[data-v-2a32de76] { border-bottom-left-radius: 0.32rem;\n}\n.radius-br-24[data-v-2a32de76] { border-bottom-right-radius: 0.32rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-actionsheet/index.vue?4868676f"],"names":[],"mappings":";AAyOA;IACA,qCAAA;IACA,gBAAA;IACA,QAAA;IACA,UAAA;IACA,OAAA;IACA,aAAA;IACA,WAAA;CACA;AAEA;IACA,gBAAA;IACA,aAAA;IACA,QAAA;CACA;AAEA;IACA,0BAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA;IACA,mBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,uBAAA;CACA;AAEA;IACA,yBAAA;IACA,2BAAA;IACA,yCAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;IACA,wBAAA;CACA;AAEA,2BAAA,eAAA;CAAA;AACA,yBAAA,kBAAA;CAAA;AAEA,wBAAA,sBAAA;CAAA;AAEA;IACA,uBAAA;CACA;AACA,iCAAA,gCAAA;CAAA;AACA,iCAAA,iCAAA;CAAA;AACA,iCAAA,mCAAA;CAAA;AACA,iCAAA,oCAAA;CAAA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-actionsheet\">\n        <div\n            class=\"wx-actionsheet-mask\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetMask\"\n            @click=\"close\"></div>\n        <div\n            class=\"wx-actionsheet-content\"\n            v-if=\"showActionsheet\"\n            ref=\"sheetContent\"\n            :style=\"listStyle\">\n                <div class=\"action-list\">\n                    <div class=\"action-title bd-btm radius-tl-24 radius-tr-24\" v-if=\"titleText\">\n                        <text class=\"f26 c-grey\">{{titleText}}</text>\n                    </div>\n                    <div\n                        class=\"action-item\"\n                        v-for=\"(item, index) in actions\"\n                        :key=\"index\"\n                        :class=\"itemsClass(index)\"\n                        @click=\"itemClick(item, index)\">\n                        <text class=\"bold\" :style=\"actionStyle\">{{item.name}}</text>\n                    </div>\n                </div>\n            <div\n                class=\"action-item bd-btm cancel-button radius-24\"\n                v-if=\"cancelText\"\n                @click=\"cancel\">\n                <text :style=\"cancelStyle\">{{cancelText}}</text>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            value: {\n                type: Boolean,\n                default: false\n            },\n            closeOnClickMask: {\n                type: Boolean,\n                default: true\n            },\n            cancelText: {\n                type: String,\n                default: '取消'\n            },\n            titleText: {\n                type: String,\n                default: '标题'\n            },\n            actions: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n            },\n            actionColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            cancelColor: {\n                type: String,\n                default: '#0076FF'\n            },\n            actionFontSize: {\n                type: String,\n                default: '40px'\n            },\n            cancelFontSize: {\n                type: String,\n                default: '40px'\n            }\n        },\n\n        data () {\n            return {\n                showActionsheet: false,\n                mbHeight: 20,\n                actionStyle: {},\n                cancelStyle: {},\n            }\n        },\n\n        computed: {\n            listStyle () {\n                const titleHeight = 92;\n                const itemHeight = 114;\n                const listHeight = this.actions.length * itemHeight;\n\n                let totalHeight = listHeight + this.mbHeight;\n                if (this.titleText) {\n                    totalHeight += titleHeight;\n                }\n                if (this.cancelText) {\n                    totalHeight += itemHeight + this.mbHeight;\n                }\n\n                const styleObj = { 'height': totalHeight+'px', 'bottom': '-'+ totalHeight + 'px'};\n\n                return styleObj;\n            }\n        },\n\n        created () {\n            this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                this.actionStyle = Object.assign({}, {\n                                    'color': this.actionColor,\n                                    'font-size': this.actionFontSize\n                                });\n                this.cancelStyle = Object.assign({}, {\n                                    'color': this.cancelColor,\n                                    'font-size': this.cancelFontSize\n                                });\n\n            },\n\n            itemsClass (index) {\n                let classArray = [];\n\n                if (index === (this.actions.length-1)) {\n                    classArray.push('radius-bl-24');\n                    classArray.push('radius-br-24');\n                } else {\n                    classArray.push('bd-btm');\n                }\n\n                if (index === 0 && !this.titleText) {\n                    classArray.push('radius-tl-24');\n                    classArray.push('radius-tr-24');\n                }\n\n                return classArray;\n            },\n\n            close () {\n                if (!this.closeOnClickMask) {\n                    return;\n                }\n                this.hideSheet();\n            },\n\n            itemClick (item, index) {\n                if (item.method && typeof item.method === 'function') {\n                    item.method(item, index);\n                }\n                this.hideSheet();\n            },\n\n            cancel () {\n                this.hideSheet();\n            },\n\n            showSheet () {\n                this.displaySheetMask(true, () => {\n                    this.displaySheetContent(true);\n                });\n            },\n\n            hideSheet() {\n                this.displaySheetContent(false, () => {\n                    this.displaySheetMask(false, () => {\n                        this.showActionsheet = false;\n                    });\n                });\n            },\n\n            displaySheetMask (isShow, callback) {\n                const maskEl = this.$refs.sheetMask;\n                if (!maskEl) {\n                    return;\n                }\n\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n\n                animation.transition(maskEl, {\n                    styles: styles,\n                    duration: 150,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            },\n\n            displaySheetContent (isShow, callback) {\n                const contentEl = this.$refs.sheetContent;\n                if (!contentEl) {\n                    return;\n                }\n\n                const styles = isShow ?\n                                { transform: 'translate(0, -100%)' } :\n                                { transform: 'translate(0, 100%)' };\n                const timingF = isShow ? 'ease' : 'ease-out';\n                const duration = isShow ? 150 : 300;\n\n                animation.transition(contentEl, {\n                    styles: styles,\n                    duration: duration,\n                    timingFunction: timingF,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            value(val) {\n                if (val) {\n                    this.showActionsheet = val;\n                    const timer = setTimeout(() => {\n                        this.showSheet();\n                        clearTimeout(timer);\n                    }, 40);\n                }\n            },\n\n            showActionsheet (val) {\n                !val && this.$emit('input', val);\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .wx-actionsheet-mask {\n        background-color: rgba(0, 0, 0, 0.4);\n        position: fixed;\n        left: 0;\n        bottom: 0;\n        top: 0;\n        width: 750px;\n        opacity: 0;\n    }\n\n    .wx-actionsheet-content {\n        position: fixed;\n        width: 750px;\n        left: 0;\n    }\n\n    .action-list {\n        margin-bottom: 20px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .action-title {\n        height: 92px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .action-item {\n        height: 114px;\n        width: 710px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fff;\n    }\n\n    .bd-btm {\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: rgba(77,77,77,0.78);\n    }\n\n    .cancel-button {\n        height: 114px;\n        width: 710px;\n        margin-left: 20px;\n    }\n\n    .c-grey { color: #8F8E94; }\n    .bold { font-weight: bold; }\n\n    .f26 { font-size: 26px; }\n\n    .radius-24 {\n        border-radius: 24px;\n    }\n    .radius-tl-24 { border-top-left-radius: 24px; }\n    .radius-tr-24 { border-top-right-radius: 24px; }\n    .radius-bl-24 { border-bottom-left-radius: 24px; }\n    .radius-br-24 { border-bottom-right-radius: 24px; }\n</style>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5213,7 +5179,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-dialog[data-v-3195ad71] {\n    background-color: rgba(0,0,0,0.35);\n    position: fixed;\n    left: 0;\n    width: 10rem;\n    opacity: 0;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.opacityFull[data-v-3195ad71] { opacity: 1;\n}\n.dialog-content[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-default[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-footer[data-v-3195ad71] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    height: 1.06667rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DEDEDE;\n}\n.flex-1[data-v-3195ad71] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    height: 1.06667rem;\n    font-size: 0.48rem;\n    line-height: 1.06667rem;\n    text-align: center;\n    color: #4d4d4d;\n}\n.btn-cancel[data-v-3195ad71] {\n    border-right-width: 1px;\n    border-right-style: solid;\n    border-right-color: #DEDEDE;\n    color: #7A818B;\n    font-size: 0.48rem;\n}\n.btn-confirm[data-v-3195ad71] {\n    color: #4676FF;\n    font-size: 0.48rem;\n}\n.title[data-v-3195ad71] {\n    width: 7.65333rem;\n    font-size: 0.53333rem;\n    color: #7A818B;\n    text-align: center;\n    padding-top: 1.28rem;\n    padding-bottom: 1.01333rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.53333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-dialog/index.vue?0d84796f"],"names":[],"mappings":";AAwIA;IACA,mCAAA;IACA,gBAAA;IACA,QAAA;IACA,aAAA;IACA,WAAA;IACA,iBAAA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA,gCAAA,WAAA;CAAA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,mBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA;AAEA;IACA,wBAAA;IACA,0BAAA;IACA,4BAAA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,qBAAA;IACA,2BAAA;IACA,yBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-dialog\" ref=\"dialog\" v-if=\"visible\"\n         :class=\"[useDefaultFooter ? '' : 'opacityFull']\" :style=\"getPosition()\">\n        <div class=\"dialog-content\" :style=\"dialogContentStyles\">\n            <slot name=\"dialog-header\"></slot>\n            <slot name=\"dialog-body\"></slot>\n            <slot name=\"dialog-footer\"></slot>\n            <!-- 默认布局 -->\n            <div class=\"dialog-default\" v-if=\"useDefaultFooter\">\n                <text class=\"title\" v-if=\"title\">{{ title }}</text>\n                <div class=\"dialog-footer\">\n                    <text class=\"flex-1 btn-cancel\" @click=\"cancel\">{{ cancelLabel }}</text>\n                    <text class=\"flex-1 btn-confirm\" @click=\"confirm\">{{ confirmLabel }}</text>\n                </div>\n            </div>\n        </div>\n        <!--添加dialog区域外布局-->\n        <slot name=\"dialog-outer\"></slot>\n    </div>\n</template>\n<script>\n    import mixins from '../utils/mixins';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        mixins: [mixins],\n        props: {\n            visible: {\n                type: Boolean,\n                required: true,\n                default: false\n            },\n\n            width: {\n                type: String,\n                default: '574px'\n            },\n\n            cancelLabel: {\n                type: String,\n                default: '取消'\n            },\n            confirmLabel: {\n                type: String,\n                default: '确定'\n            },\n            useDefaultFooter: {\n                type: Boolean,\n                default: true\n            },\n\n            title: {\n                type: String,\n                default: ''\n            },\n\n            clickConfirmHide:  {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        created () {\n            this.setStyles()\n        },\n\n        methods: {\n            setStyles(){\n                let baseCss = {\n                    width: this.width\n                }\n                this.dialogContentStyles = Object.assign({}, baseCss)\n            },\n            cancel (e) {\n                e.stopPropagation();\n                if (this.useDefaultFooter) {\n                    this.hideDialog(() => {\n                        this.$emit('cancel');\n                    });\n                    return;\n                }\n\n                this.$emit('cancel');\n            },\n\n            confirm (e) {\n                e.stopPropagation();\n                if (this.useDefaultFooter && this.clickConfirmHide) {\n                    this.hideDialog(() => {\n                        this.$emit('confirm');\n                    });\n                    return;\n                }\n\n                this.$emit('confirm');\n            },\n\n            hideDialog (callback) {\n                const timer = setTimeout(() => {\n                    this.displayDialog(false, callback);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            showDialog () {\n                const timer = setTimeout(() => {\n                    this.displayDialog(true);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            displayDialog (isShow, callback) {\n                const dialogEl = this.$refs.dialog;\n                if (!dialogEl) {\n                    return;\n                }\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n                animation.transition(dialogEl, {\n                    styles: styles,\n                    duration: 200,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            visible () {\n                if (this.visible) {\n                    this.showDialog();\n                }\n            }\n        }\n    }\n</script>\n<style scoped type=\"text/css\">\n    .wx-dialog {\n        background-color: rgba(0,0,0,0.35);\n        position: fixed;\n        left: 0;\n        width: 750px;\n        opacity: 0;\n        overflow: hidden;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .opacityFull { opacity: 1; }\n\n    .dialog-content {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-default {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-footer {\n        flex-direction: row;\n        height: 80px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DEDEDE;\n    }\n\n    .flex-1 {\n        flex: 1;\n        height: 80px;\n        font-size: 36px;\n        line-height: 80px;\n        text-align: center;\n        color: #4d4d4d;\n    }\n\n    .btn-cancel {\n        border-right-width: 1px;\n        border-right-style: solid;\n        border-right-color: #DEDEDE;\n        color: #7A818B;\n        font-size: 36px;\n    }\n\n    .btn-confirm {\n        color: #4676FF;\n        font-size: 36px;\n    }\n\n    .title {\n        width: 574px;\n        font-size: 40px;\n        color: #7A818B;\n        text-align: center;\n        padding-top: 96px;\n        padding-bottom: 76px;\n        padding-left: 40px;\n        padding-right: 40px;\n    }\n\n</style>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-dialog[data-v-3195ad71] {\n    background-color: rgba(0,0,0,0.35);\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    top: 0;\n    width: 10rem;\n    opacity: 0;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.opacityFull[data-v-3195ad71] { opacity: 1;\n}\n.dialog-content[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-default[data-v-3195ad71] {\n    width: 7.65333rem;\n    background-color: #fff;\n    border-radius: 0.08rem;\n}\n.dialog-footer[data-v-3195ad71] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    height: 1.06667rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DEDEDE;\n}\n.flex-1[data-v-3195ad71] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    height: 1.06667rem;\n    font-size: 0.48rem;\n    line-height: 1.06667rem;\n    text-align: center;\n    color: #4d4d4d;\n}\n.btn-cancel[data-v-3195ad71] {\n    border-right-width: 1px;\n    border-right-style: solid;\n    border-right-color: #DEDEDE;\n    color: #7A818B;\n    font-size: 0.48rem;\n}\n.btn-confirm[data-v-3195ad71] {\n    color: #4676FF;\n    font-size: 0.48rem;\n}\n.title[data-v-3195ad71] {\n    width: 7.65333rem;\n    font-size: 0.53333rem;\n    color: #7A818B;\n    text-align: center;\n    padding-top: 1.28rem;\n    padding-bottom: 1.01333rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.53333rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-dialog/index.vue?5280b96e"],"names":[],"mappings":";AAsIA;IACA,mCAAA;IACA,gBAAA;IACA,QAAA;IACA,UAAA;IACA,OAAA;IACA,aAAA;IACA,WAAA;IACA,iBAAA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA,gCAAA,WAAA;CAAA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,kBAAA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,mBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;IACA,mBAAA;IACA,eAAA;CACA;AAEA;IACA,wBAAA;IACA,0BAAA;IACA,4BAAA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,sBAAA;IACA,eAAA;IACA,mBAAA;IACA,qBAAA;IACA,2BAAA;IACA,yBAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-dialog\" ref=\"dialog\" v-if=\"visible\"\n         :class=\"[useDefaultFooter ? '' : 'opacityFull']\">\n        <div class=\"dialog-content\" :style=\"dialogContentStyles\">\n            <slot name=\"dialog-header\"></slot>\n            <slot name=\"dialog-body\"></slot>\n            <slot name=\"dialog-footer\"></slot>\n            <!-- 默认布局 -->\n            <div class=\"dialog-default\" v-if=\"useDefaultFooter\">\n                <text class=\"title\" v-if=\"title\">{{ title }}</text>\n                <div class=\"dialog-footer\">\n                    <text class=\"flex-1 btn-cancel\" @click=\"cancel\">{{ cancelLabel }}</text>\n                    <text class=\"flex-1 btn-confirm\" @click=\"confirm\">{{ confirmLabel }}</text>\n                </div>\n            </div>\n        </div>\n        <!--添加dialog区域外布局-->\n        <slot name=\"dialog-outer\"></slot>\n    </div>\n</template>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            visible: {\n                type: Boolean,\n                required: true,\n                default: false\n            },\n\n            width: {\n                type: String,\n                default: '574px'\n            },\n\n            cancelLabel: {\n                type: String,\n                default: '取消'\n            },\n            confirmLabel: {\n                type: String,\n                default: '确定'\n            },\n            useDefaultFooter: {\n                type: Boolean,\n                default: true\n            },\n\n            title: {\n                type: String,\n                default: ''\n            },\n\n            clickConfirmHide:  {\n                type: Boolean,\n                default: true\n            },\n        },\n\n        created () {\n            this.setStyles()\n        },\n\n        methods: {\n            setStyles(){\n                let baseCss = {\n                    width: this.width\n                }\n                this.dialogContentStyles = Object.assign({}, baseCss)\n            },\n            cancel (e) {\n                e.stopPropagation();\n                if (this.useDefaultFooter) {\n                    this.hideDialog(() => {\n                        this.$emit('cancel');\n                    });\n                    return;\n                }\n\n                this.$emit('cancel');\n            },\n\n            confirm (e) {\n                e.stopPropagation();\n                if (this.useDefaultFooter && this.clickConfirmHide) {\n                    this.hideDialog(() => {\n                        this.$emit('confirm');\n                    });\n                    return;\n                }\n\n                this.$emit('confirm');\n            },\n\n            hideDialog (callback) {\n                const timer = setTimeout(() => {\n                    this.displayDialog(false, callback);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            showDialog () {\n                const timer = setTimeout(() => {\n                    this.displayDialog(true);\n                    clearTimeout(timer);\n                }, 40);\n            },\n\n            displayDialog (isShow, callback) {\n                const dialogEl = this.$refs.dialog;\n                if (!dialogEl) {\n                    return;\n                }\n                const styles = isShow ? { opacity: 1 } : { opacity: 0 };\n                animation.transition(dialogEl, {\n                    styles: styles,\n                    duration: 200,\n                }, function () {\n                    typeof callback === 'function' && callback();\n                });\n            }\n        },\n\n        watch: {\n            visible () {\n                if (this.visible) {\n                    this.showDialog();\n                }\n            }\n        }\n    }\n</script>\n<style scoped type=\"text/css\">\n    .wx-dialog {\n        background-color: rgba(0,0,0,0.35);\n        position: fixed;\n        left: 0;\n        bottom: 0;\n        top: 0;\n        width: 750px;\n        opacity: 0;\n        overflow: hidden;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n    }\n\n    .opacityFull { opacity: 1; }\n\n    .dialog-content {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-default {\n        width: 574px;\n        background-color: #fff;\n        border-radius: 6px;\n    }\n\n    .dialog-footer {\n        flex-direction: row;\n        height: 80px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DEDEDE;\n    }\n\n    .flex-1 {\n        flex: 1;\n        height: 80px;\n        font-size: 36px;\n        line-height: 80px;\n        text-align: center;\n        color: #4d4d4d;\n    }\n\n    .btn-cancel {\n        border-right-width: 1px;\n        border-right-style: solid;\n        border-right-color: #DEDEDE;\n        color: #7A818B;\n        font-size: 36px;\n    }\n\n    .btn-confirm {\n        color: #4676FF;\n        font-size: 36px;\n    }\n\n    .title {\n        width: 574px;\n        font-size: 40px;\n        color: #7A818B;\n        text-align: center;\n        padding-top: 96px;\n        padding-bottom: 76px;\n        padding-left: 40px;\n        padding-right: 40px;\n    }\n\n</style>"],"sourceRoot":""}]);
 
 // exports
 
@@ -6215,7 +6181,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.showActionsheet) ? _c('div', {
     ref: "sheetMask",
     staticClass: "wx-actionsheet-mask weex-ct",
-    style: (_vm._px2rem(_vm.getPosition(), 75)),
     attrs: {
       "data-evt-click": ""
     },
@@ -6360,7 +6325,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     ref: "dialog",
     staticClass: "wx-dialog weex-ct",
     class: [_vm.useDefaultFooter ? '' : 'opacityFull'],
-    style: (_vm._px2rem(_vm.getPosition(), 75)),
     attrs: {}
   }, [_c('div', {
     staticClass: "dialog-content weex-ct",

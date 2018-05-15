@@ -86,6 +86,28 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(5);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var width = weex.config.env.deviceWidth;
@@ -100,47 +122,11 @@ var mixins = {
                 return 750 / width * height;
             }
             return height;
-        },
-
-
-        /**
-         * ios和安卓的定位不同，所以导致定位位置不一样
-         * @return {Object} top and bottom
-         */
-        getPosition: function getPosition() {
-
-            var isProd = platform === 'ios' && appName !== 'WeexDemo';
-            return {
-                top: isProd ? '-40px' : '0px',
-                bottom: isProd ? '36px' : '0px'
-            };
         }
     }
 };
 
 exports.default = mixins;
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(5);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 2 */
@@ -1083,7 +1069,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(1);
+var _wxIcon = __webpack_require__(0);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -1523,7 +1509,7 @@ var _wxSearch = __webpack_require__(15);
 
 var _wxSearch2 = _interopRequireDefault(_wxSearch);
 
-var _wxIcon = __webpack_require__(1);
+var _wxIcon = __webpack_require__(0);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -2546,52 +2532,45 @@ module.exports = __vue_exports__
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-var _mixins = __webpack_require__(0);
-
-var _mixins2 = _interopRequireDefault(_mixins);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var animation = weex.requireModule('animation'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var animation = weex.requireModule('animation');
 
 exports.default = {
-    mixins: [_mixins2.default],
     props: {
         value: {
             type: Boolean,
@@ -2657,8 +2636,7 @@ exports.default = {
                 totalHeight += itemHeight + this.mbHeight;
             }
 
-            var posBottom = Number(this.getPosition().bottom.replace('px', ''));
-            var styleObj = { 'height': totalHeight + 'px', 'bottom': '-' + (totalHeight - posBottom) + 'px' };
+            var styleObj = { 'height': totalHeight + 'px', 'bottom': '-' + totalHeight + 'px' };
 
             return styleObj;
         }
@@ -3029,36 +3007,30 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-var _mixins = __webpack_require__(0);
-
-var _mixins2 = _interopRequireDefault(_mixins);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var animation = weex.requireModule('animation'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var animation = weex.requireModule('animation');
 
 exports.default = {
-    mixins: [_mixins2.default],
     props: {
         visible: {
             type: Boolean,
@@ -3184,11 +3156,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(0);
+var _mixins = __webpack_require__(1);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
-var _wxIcon = __webpack_require__(1);
+var _wxIcon = __webpack_require__(0);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -3600,7 +3572,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(0);
+var _mixins = __webpack_require__(1);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
@@ -4923,15 +4895,71 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _mixins = __webpack_require__(0);
-
-var _mixins2 = _interopRequireDefault(_mixins);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
-    mixins: [_mixins2.default],
     props: {
         tabItems: {
             type: Array,
@@ -4981,7 +5009,6 @@ exports.default = {
         },
         getStyles: function getStyles() {
             var baseStyle = {
-                'bottom': this.getPosition().bottom,
                 'height': this.height
             };
             return Object.assign({}, baseStyle, this.styles);
@@ -4999,68 +5026,7 @@ exports.default = {
             };
         }
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 76 */
@@ -5099,6 +5065,7 @@ module.exports = {
     "position": "fixed",
     "left": 0,
     "right": 0,
+    "bottom": 0,
     "zIndex": 1000,
     "borderTopWidth": "1",
     "borderTopStyle": "solid",
@@ -5133,6 +5100,8 @@ module.exports = {
     "backgroundColor": "rgba(0,0,0,0.4)",
     "position": "fixed",
     "left": 0,
+    "bottom": 0,
+    "top": 0,
     "width": "750",
     "opacity": 0
   },
@@ -5205,6 +5174,8 @@ module.exports = {
     "backgroundColor": "rgba(0,0,0,0.35)",
     "position": "fixed",
     "left": 0,
+    "bottom": 0,
+    "top": 0,
     "width": "750",
     "opacity": 0,
     "overflow": "hidden",
@@ -5781,7 +5752,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.showActionsheet) ? _c('div', {
     ref: "sheetMask",
     staticClass: ["wx-actionsheet-mask"],
-    style: _vm.getPosition(),
     on: {
       "click": _vm.close
     }
@@ -5828,8 +5798,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return (_vm.visible) ? _c('div', {
     ref: "dialog",
     staticClass: ["wx-dialog"],
-    class: [_vm.useDefaultFooter ? '' : 'opacityFull'],
-    style: _vm.getPosition()
+    class: [_vm.useDefaultFooter ? '' : 'opacityFull']
   }, [_c('div', {
     staticClass: ["dialog-content"],
     style: _vm.dialogContentStyles

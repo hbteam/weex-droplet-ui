@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -373,7 +373,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(1);
+var _wxIcon = __webpack_require__(0);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
