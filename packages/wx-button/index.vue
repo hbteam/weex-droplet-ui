@@ -18,6 +18,7 @@
     }
 </style>
 <script type="text/javascript">
+    import '../utils/finally';
     export default {
         props: {
             width: {
@@ -108,28 +109,10 @@
             },
 
             disablePromise (_promise) {
-                this.finally();
                 this.btnStyle(true)
                 _promise.finally(() => {
                     this.btnStyle(false);
                 });
-            },
-
-            finally () {
-                if (Promise.prototype.finally) return;
-                Object.defineProperty(Promise.prototype, 'finally', {
-                    configurable: true,
-                    writable: true,
-                    value (callback) {
-                        let P = this.constructor;
-                        return this.then(
-                            value => P.resolve(callback()).then(() => value),
-                            reason => P.resolve(callback()).then(() => {
-                                throw reason;
-                            })
-                        );
-                    }
-                })
             },
 
             btnStyle (disabled) {
