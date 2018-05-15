@@ -304,11 +304,18 @@ exports.default = {
             type: Boolean,
             default: false
         },
+        disableOnPromise: {
+            type: Function
+        },
         styles: {
             type: Object,
             default: function _default() {
                 return {};
             }
+        },
+        disabledBgColor: {
+            type: String,
+            default: 'rgba(0, 0, 0, 0.1)'
         },
         textColor: {
             type: String,
@@ -322,20 +329,19 @@ exports.default = {
     data: function data() {
         return {
             buttonStyles: {},
-            textStyles: {}
+            textStyles: {},
+            promiseDisabled: false,
+            defualtBgColor: '#4676FF'
         };
     },
     created: function created() {
+        this.promiseDisabled = this.disabled;
         this.setStyle();
     },
 
     watch: {
         'disabled': function disabled() {
-            if (this.disabled) {
-                this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
-            } else {
-                this.buttonStyles['background-color'] = '#4676FF';
-            }
+            this.btnStyle(this.disabled);
         }
     },
     methods: {
@@ -343,12 +349,14 @@ exports.default = {
             var baseCss = {
                 height: this.height,
                 width: this.width,
-                'border-radius': this.borderRadius
+                'border-radius': this.borderRadius,
+                'background-color': this.defualtBgColor
             };
             var style = Object.assign({}, baseCss, this.styles);
             this.buttonStyles = style;
+            this.defualtBgColor = this.buttonStyles['background-color'];
             if (this.disabled) {
-                this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
+                this.buttonStyles['background-color'] = this.disabledBgColor;
             }
             this.textStyles = {
                 color: this.textColor,
@@ -357,8 +365,44 @@ exports.default = {
         },
         handleClick: function handleClick(e) {
             e.stopPropagation();
-            if (this.disabled) return;
-            this.$emit('wxClick', e);
+            if (this.disabled || this.promiseDisabled) return;
+            if (this.disableOnPromise) {
+                var _promise = this.disableOnPromise();
+                this.disablePromise(_promise);
+            } else {
+                this.$emit('wxClick', e);
+            }
+        },
+        disablePromise: function disablePromise(_promise) {
+            var _this = this;
+
+            this.finally();
+            this.btnStyle(true);
+            _promise.finally(function () {
+                _this.btnStyle(false);
+            });
+        },
+        finally: function _finally() {
+            Promise.prototype.finally = function (callback) {
+                var P = this.constructor;
+                return this.then(function (value) {
+                    return P.resolve(callback()).then(function () {
+                        return value;
+                    });
+                }, function (reason) {
+                    return P.resolve(callback()).then(function () {
+                        throw reason;
+                    });
+                });
+            };
+        },
+        btnStyle: function btnStyle(disabled) {
+            this.promiseDisabled = disabled;
+            if (disabled) {
+                this.buttonStyles['background-color'] = this.disabledBgColor;
+            } else {
+                this.buttonStyles['background-color'] = this.defualtBgColor;
+            }
         }
     }
 };
@@ -6300,6 +6344,7 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
 
 exports.default = {
     data: function data() {
@@ -6320,9 +6365,48 @@ exports.default = {
     },
 
     methods: {
-        wxClickHandle: function wxClickHandle() {
+        wxClickHandle1: function wxClickHandle1() {
             modal.toast({
-                message: 'clicked'
+                message: 'clicked 1'
+            });
+        },
+
+
+        /**
+         * 1. 点击按钮，会执行wxClickHandle2()方法，且必须返回Promise。
+         * 2. 解决避免在请求未结束时产生重复提交或请求
+         * 3. 无论结果是resolve或者reject，button都会恢复至可点击状态。
+         * @return {Promise} promise
+         */
+        wxClickHandle2: function wxClickHandle2() {
+            modal.toast({
+                message: 'clicked 2'
+            });
+            return this.request().then(function (data) {
+                // TODO
+                console.log(data);
+            }).catch(function (data) {
+                // TODO
+                console.log(data);
+            });
+        },
+
+
+        /**
+         * 模拟Promise封装接口请求方法，必须返回Promise
+         * @return {Promise} promise
+         */
+        request: function request() {
+            return new Promise(function (resolve, reject) {
+                var result1 = '接口调用成功';
+                var result2 = '接口调用失败';
+                setTimeout(function () {
+                    if (true) {
+                        resolve(result1);
+                    } else {
+                        reject(result2);
+                    }
+                }, 2000);
             });
         }
     }
@@ -6400,9 +6484,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": _vm.disabled
     },
     on: {
-      "wxClick": _vm.wxClickHandle
+      "wxClick": _vm.wxClickHandle1
     }
-  }, [_vm._v("测试1" + _vm._s(_vm.disabled))]), _c('wx-button', {
+  }, [_vm._v("normal button")]), _c('wx-button', {
     attrs: {
       "height": "80px",
       "width": "450px",
@@ -6412,13 +6496,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": false,
       "styles": {
         'margin-left': '50px',
-        'margin-top': '80px'
-      }
-    },
-    on: {
-      "wxClick": _vm.wxClickHandle
+        'margin-top': '80px',
+        'background-color': '#F37B1D',
+      },
+      "disabledBgColor": "#e5e5e5",
+      "disableOnPromise": _vm.wxClickHandle2
     }
-  }, [_vm._v("测试1")])], 1)
+  }, [_vm._v("promise button")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

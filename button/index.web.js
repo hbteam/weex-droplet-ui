@@ -633,11 +633,18 @@ exports.default = {
             type: Boolean,
             default: false
         },
+        disableOnPromise: {
+            type: Function
+        },
         styles: {
             type: Object,
             default: function _default() {
                 return {};
             }
+        },
+        disabledBgColor: {
+            type: String,
+            default: 'rgba(0, 0, 0, 0.1)'
         },
         textColor: {
             type: String,
@@ -651,20 +658,19 @@ exports.default = {
     data: function data() {
         return {
             buttonStyles: {},
-            textStyles: {}
+            textStyles: {},
+            promiseDisabled: false,
+            defualtBgColor: '#4676FF'
         };
     },
     created: function created() {
+        this.promiseDisabled = this.disabled;
         this.setStyle();
     },
 
     watch: {
         'disabled': function disabled() {
-            if (this.disabled) {
-                this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
-            } else {
-                this.buttonStyles['background-color'] = '#4676FF';
-            }
+            this.btnStyle(this.disabled);
         }
     },
     methods: {
@@ -672,12 +678,14 @@ exports.default = {
             var baseCss = {
                 height: this.height,
                 width: this.width,
-                'border-radius': this.borderRadius
+                'border-radius': this.borderRadius,
+                'background-color': this.defualtBgColor
             };
             var style = Object.assign({}, baseCss, this.styles);
             this.buttonStyles = style;
+            this.defualtBgColor = this.buttonStyles['background-color'];
             if (this.disabled) {
-                this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
+                this.buttonStyles['background-color'] = this.disabledBgColor;
             }
             this.textStyles = {
                 color: this.textColor,
@@ -686,8 +694,44 @@ exports.default = {
         },
         handleClick: function handleClick(e) {
             e.stopPropagation();
-            if (this.disabled) return;
-            this.$emit('wxClick', e);
+            if (this.disabled || this.promiseDisabled) return;
+            if (this.disableOnPromise) {
+                var _promise = this.disableOnPromise();
+                this.disablePromise(_promise);
+            } else {
+                this.$emit('wxClick', e);
+            }
+        },
+        disablePromise: function disablePromise(_promise) {
+            var _this = this;
+
+            this.finally();
+            this.btnStyle(true);
+            _promise.finally(function () {
+                _this.btnStyle(false);
+            });
+        },
+        finally: function _finally() {
+            Promise.prototype.finally = function (callback) {
+                var P = this.constructor;
+                return this.then(function (value) {
+                    return P.resolve(callback()).then(function () {
+                        return value;
+                    });
+                }, function (reason) {
+                    return P.resolve(callback()).then(function () {
+                        throw reason;
+                    });
+                });
+            };
+        },
+        btnStyle: function btnStyle(disabled) {
+            this.promiseDisabled = disabled;
+            if (disabled) {
+                this.buttonStyles['background-color'] = this.disabledBgColor;
+            } else {
+                this.buttonStyles['background-color'] = this.defualtBgColor;
+            }
         }
     }
 };
@@ -783,7 +827,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-button {\n    background-color: #4676FF;\n    /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-text {\n    color: #ffffff;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue?13f5adc7"],"names":[],"mappings":";AAQA;IACA,0BAAA;IACA,kDAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AACA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-button\" @click=\"handleClick\" :style=\"buttonStyles\">\n        <text class=\"wx-text\" :style=\"textStyles\">\n            <slot></slot>\n        </text>\n    </div>\n</template>\n<style>\n    .wx-button {\n        background-color: #4676FF;\n        /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n        align-items: center;\n        justify-content: center;\n    }\n    .wx-text {\n        color: #ffffff;\n        font-size: 32px;\n    }\n</style>\n<script type=\"text/javascript\">\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '670px'\n            },\n            height: {\n                type: String,\n                default: '90px'\n            },\n            borderRadius: {\n                type: String,\n                default: '12px'\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '36px'\n            }\n        },\n        data () {\n            return {\n                buttonStyles: {},\n                textStyles: {},\n            }\n        },\n        created () {\n             this.setStyle();\n        },\n        watch: {\n          'disabled': function () {\n              if(this.disabled){\n                  this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n              }else{\n                  this.buttonStyles['background-color'] = '#4676FF'\n              }\n          }\n        },\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                    'border-radius': this.borderRadius,\n                };\n                let style = Object.assign({}, baseCss, this.styles);\n                this.buttonStyles = style;\n                if(this.disabled){\n                    this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)'\n                }\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                e.stopPropagation();\n                if (this.disabled) return;\n                this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-button {\n    background-color: #4676FF;\n    /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.wx-text {\n    color: #ffffff;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-button/index.vue?2ee1acd4"],"names":[],"mappings":";AAQA;IACA,0BAAA;IACA,kDAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AACA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-button\" @click=\"handleClick\" :style=\"buttonStyles\">\n        <text class=\"wx-text\" :style=\"textStyles\">\n            <slot></slot>\n        </text>\n    </div>\n</template>\n<style>\n    .wx-button {\n        background-color: #4676FF;\n        /*box-shadow: 0 2px 8px 0 rgba(70,118,255,0.60);*/\n        align-items: center;\n        justify-content: center;\n    }\n    .wx-text {\n        color: #ffffff;\n        font-size: 32px;\n    }\n</style>\n<script type=\"text/javascript\">\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '670px'\n            },\n            height: {\n                type: String,\n                default: '90px'\n            },\n            borderRadius: {\n                type: String,\n                default: '12px'\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            disableOnPromise: {\n                type: Function\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            disabledBgColor: {\n                type: String,\n                default: 'rgba(0, 0, 0, 0.1)'\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '36px'\n            }\n        },\n        data () {\n            return {\n                buttonStyles: {},\n                textStyles: {},\n                promiseDisabled: false,\n                defualtBgColor: '#4676FF',\n            }\n        },\n        created () {\n            this.promiseDisabled = this.disabled;\n            this.setStyle();\n        },\n        watch: {\n            'disabled': function () {\n                this.btnStyle(this.disabled);\n            }\n        },\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                    'border-radius': this.borderRadius,\n                    'background-color': this.defualtBgColor\n                };\n                let style = Object.assign({}, baseCss, this.styles);\n                this.buttonStyles = style;\n                this.defualtBgColor = this.buttonStyles['background-color'];\n                if(this.disabled){\n                    this.buttonStyles['background-color'] = this.disabledBgColor\n                }\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                e.stopPropagation();\n                if (this.disabled || this.promiseDisabled) return;\n                if (this.disableOnPromise) {\n                    const _promise = this.disableOnPromise();\n                    this.disablePromise(_promise);\n                } else {\n                    this.$emit('wxClick', e);\n                }\n                \n            },\n\n            disablePromise (_promise) {\n                this.finally();\n                this.btnStyle(true)\n                _promise.finally(() => {\n                    this.btnStyle(false);\n                });\n            },\n\n            finally () {\n                Promise.prototype.finally = function (callback) {\n                    let P = this.constructor;\n                    return this.then(\n                        value => P.resolve(callback()).then(() => value),\n                        reason => P.resolve(callback()).then(() => {\n                            throw reason;\n                        })\n                    );\n                }\n            },\n\n            btnStyle (disabled) {\n                this.promiseDisabled = disabled;\n                if(disabled){\n                    this.buttonStyles['background-color'] = this.disabledBgColor\n                }else{\n                    this.buttonStyles['background-color'] = this.defualtBgColor;\n                }\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -7237,6 +7281,7 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
 
 exports.default = {
     data: function data() {
@@ -7257,9 +7302,48 @@ exports.default = {
     },
 
     methods: {
-        wxClickHandle: function wxClickHandle() {
+        wxClickHandle1: function wxClickHandle1() {
             modal.toast({
-                message: 'clicked'
+                message: 'clicked 1'
+            });
+        },
+
+
+        /**
+         * 1. 点击按钮，会执行wxClickHandle2()方法，且必须返回Promise。
+         * 2. 解决避免在请求未结束时产生重复提交或请求
+         * 3. 无论结果是resolve或者reject，button都会恢复至可点击状态。
+         * @return {Promise} promise
+         */
+        wxClickHandle2: function wxClickHandle2() {
+            modal.toast({
+                message: 'clicked 2'
+            });
+            return this.request().then(function (data) {
+                // TODO
+                console.log(data);
+            }).catch(function (data) {
+                // TODO
+                console.log(data);
+            });
+        },
+
+
+        /**
+         * 模拟Promise封装接口请求方法，必须返回Promise
+         * @return {Promise} promise
+         */
+        request: function request() {
+            return new Promise(function (resolve, reject) {
+                var result1 = '接口调用成功';
+                var result2 = '接口调用失败';
+                setTimeout(function () {
+                    if (true) {
+                        resolve(result1);
+                    } else {
+                        reject(result2);
+                    }
+                }, 2000);
             });
         }
     }
@@ -7373,12 +7457,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "data-evt-wxClick": ""
     },
     on: {
-      "wxClick": _vm.wxClickHandle
+      "wxClick": _vm.wxClickHandle1
     },
     nativeOn: {
-      "wxClick": _vm.wxClickHandle
+      "wxClick": _vm.wxClickHandle1
     }
-  }, [_vm._v("测试1" + _vm._s(_vm.disabled))]), _vm._v(" "), _c('wx-button', {
+  }, [_vm._v("normal button")]), _vm._v(" "), _c('wx-button', {
     attrs: {
       "height": "80px",
       "width": "450px",
@@ -7388,17 +7472,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": false,
       "styles": {
         'margin-left': '50px',
-        'margin-top': '80px'
+        'margin-top': '80px',
+        'background-color': '#F37B1D',
       },
-      "data-evt-wxClick": ""
-    },
-    on: {
-      "wxClick": _vm.wxClickHandle
-    },
-    nativeOn: {
-      "wxClick": _vm.wxClickHandle
+      "disabledBgColor": "#e5e5e5",
+      "disableOnPromise": _vm.wxClickHandle2
     }
-  }, [_vm._v("测试1")])], 1)
+  }, [_vm._v("promise button")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

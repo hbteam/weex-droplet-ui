@@ -304,11 +304,18 @@ exports.default = {
             type: Boolean,
             default: false
         },
+        disableOnPromise: {
+            type: Function
+        },
         styles: {
             type: Object,
             default: function _default() {
                 return {};
             }
+        },
+        disabledBgColor: {
+            type: String,
+            default: 'rgba(0, 0, 0, 0.1)'
         },
         textColor: {
             type: String,
@@ -322,20 +329,19 @@ exports.default = {
     data: function data() {
         return {
             buttonStyles: {},
-            textStyles: {}
+            textStyles: {},
+            promiseDisabled: false,
+            defualtBgColor: '#4676FF'
         };
     },
     created: function created() {
+        this.promiseDisabled = this.disabled;
         this.setStyle();
     },
 
     watch: {
         'disabled': function disabled() {
-            if (this.disabled) {
-                this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
-            } else {
-                this.buttonStyles['background-color'] = '#4676FF';
-            }
+            this.btnStyle(this.disabled);
         }
     },
     methods: {
@@ -343,12 +349,14 @@ exports.default = {
             var baseCss = {
                 height: this.height,
                 width: this.width,
-                'border-radius': this.borderRadius
+                'border-radius': this.borderRadius,
+                'background-color': this.defualtBgColor
             };
             var style = Object.assign({}, baseCss, this.styles);
             this.buttonStyles = style;
+            this.defualtBgColor = this.buttonStyles['background-color'];
             if (this.disabled) {
-                this.buttonStyles['background-color'] = 'rgba(0, 0, 0, 0.1)';
+                this.buttonStyles['background-color'] = this.disabledBgColor;
             }
             this.textStyles = {
                 color: this.textColor,
@@ -357,8 +365,44 @@ exports.default = {
         },
         handleClick: function handleClick(e) {
             e.stopPropagation();
-            if (this.disabled) return;
-            this.$emit('wxClick', e);
+            if (this.disabled || this.promiseDisabled) return;
+            if (this.disableOnPromise) {
+                var _promise = this.disableOnPromise();
+                this.disablePromise(_promise);
+            } else {
+                this.$emit('wxClick', e);
+            }
+        },
+        disablePromise: function disablePromise(_promise) {
+            var _this = this;
+
+            this.finally();
+            this.btnStyle(true);
+            _promise.finally(function () {
+                _this.btnStyle(false);
+            });
+        },
+        finally: function _finally() {
+            Promise.prototype.finally = function (callback) {
+                var P = this.constructor;
+                return this.then(function (value) {
+                    return P.resolve(callback()).then(function () {
+                        return value;
+                    });
+                }, function (reason) {
+                    return P.resolve(callback()).then(function () {
+                        throw reason;
+                    });
+                });
+            };
+        },
+        btnStyle: function btnStyle(disabled) {
+            this.promiseDisabled = disabled;
+            if (disabled) {
+                this.buttonStyles['background-color'] = this.disabledBgColor;
+            } else {
+                this.buttonStyles['background-color'] = this.defualtBgColor;
+            }
         }
     }
 };
