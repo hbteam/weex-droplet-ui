@@ -7284,6 +7284,19 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     components: {
@@ -7399,12 +7412,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {}
   }, [_c('wx-header', {
     attrs: {
+      "text": "帮助",
       "textFontSize": "40px",
       "textColor": "#333",
       "arrowColor": "#333",
       "arrowSize": "30px",
       "hasBottom": true,
-      "text": "帮助",
+      "useDefaultBack": false,
       "data-evt-wxBack": ""
     },
     on: {
@@ -7416,6 +7430,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('wx-header', {
     attrs: {
       "text": "帮助",
+      "useDefaultBack": false,
       "data-evt-wxBack": ""
     },
     on: {
