@@ -134,20 +134,21 @@
 
             changeTab (index, animated = true) {
                 this.selectIndex = index;
-                if (!index) return;
-                const middle = Math.floor(this.count / 2);
-                if (index >= middle) {
-                    this.hiddenCount = index - middle;
-                    this.hiddenCount = this.getCanMoves();
-                    this.scrollTo(-this.hiddenCount * this.data.cheight, animated);
-                } else {
-                    this.hiddenCount = 0;
-                    this.scrollTo(0, animated);
+                if(index){
+                    const middle = Math.floor(this.count / 2);
+                    if (index >= middle) {
+                        this.hiddenCount = index - middle;
+                        this.hiddenCount = this.getCanMoves();
+                        this.scrollTo(-this.hiddenCount * this.data.cheight, animated);
+                    } else {
+                        this.hiddenCount = 0;
+                        this.scrollTo(0, animated);
+                    }
+                    this.items.forEach(item => {
+                        item.selected = false;
+                    });
+                    this.items[index].selected = true;
                 }
-                this.items.forEach(item => {
-                    item.selected = false;
-                });
-                this.items[index].selected = true;
                 this.$emit('wxChange', this.items[index]);
             },
 
