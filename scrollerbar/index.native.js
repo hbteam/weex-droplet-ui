@@ -122,6 +122,15 @@ var mixins = {
                 return 750 / width * height;
             }
             return height;
+        },
+
+
+        // 处理点击穿透问题
+        preventDefault: function preventDefault(e) {
+            var platform = weex.config.env.platform;
+            if (platform.toLocaleLowerCase() === 'web' && e.preventDefault) {
+                e.preventDefault();
+            }
         }
     }
 };
@@ -3065,6 +3074,13 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _mixins = __webpack_require__(1);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
@@ -3087,8 +3103,8 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 var animation = weex.requireModule('animation');
-
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         visible: {
             type: Boolean,
@@ -5857,7 +5873,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return (_vm.visible) ? _c('div', {
     ref: "dialog",
     staticClass: ["wx-dialog"],
-    class: [_vm.useDefaultFooter ? '' : 'opacityFull']
+    class: [_vm.useDefaultFooter ? '' : 'opacityFull'],
+    on: {
+      "click": _vm.preventDefault
+    }
   }, [_c('div', {
     staticClass: ["dialog-content"],
     style: _vm.dialogContentStyles
