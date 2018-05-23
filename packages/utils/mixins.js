@@ -11,6 +11,14 @@ const mixins = {
                 return 750 / width * height;
             }
             return height;
+        },
+
+        // 处理点击穿透问题
+        preventDefault (e) {
+            const platform = weex.config.env.platform;
+            if (platform.toLocaleLowerCase() === 'web' && e.preventDefault) {
+                e.preventDefault();
+            }
         }
     }
 }

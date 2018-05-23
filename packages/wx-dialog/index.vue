@@ -1,6 +1,6 @@
 <template>
     <div class="wx-dialog" ref="dialog" v-if="visible"
-         :class="[useDefaultFooter ? '' : 'opacityFull']">
+         :class="[useDefaultFooter ? '' : 'opacityFull']" @click="preventDefault">
         <div class="dialog-content" :style="dialogContentStyles">
             <slot name="dialog-header"></slot>
             <slot name="dialog-body"></slot>
@@ -20,8 +20,10 @@
 </template>
 <script>
     const animation = weex.requireModule('animation');
+    import mixins from '../utils/mixins'
 
     export default {
+        mixins:[mixins],
         props: {
             visible: {
                 type: Boolean,
