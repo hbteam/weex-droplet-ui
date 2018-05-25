@@ -16,7 +16,7 @@
                     :placeholder="placeholder"/>
             <text v-if="disabled" class="wx-input" :style="cliTextStyles">{{value=='' ? placeholder : value}}</text>
             <text class="wx-unit" v-if="unit">{{unit}}</text>
-            <wx-icon name="enter" v-if="hasArrow" class="iconfont wx-enter"></wx-icon>
+            <wx-icon name="enter" v-if="hasArrow" class="wx-enter"></wx-icon>
         </div>
     </div>
 </template>
@@ -92,10 +92,6 @@
         /*padding-bottom: 40px;*/
         font-size: 34px;
         color: #333333;
-    }
-
-    .iconfont {
-        font-family: iconfont;
     }
 </style>
 <script>
