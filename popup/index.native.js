@@ -3336,10 +3336,6 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
-//
-//
-//
-//
 
 exports.default = {
     mixins: [_mixins2.default],
@@ -5665,9 +5661,6 @@ module.exports = {
     "paddingTop": "40",
     "fontSize": "34",
     "color": "#333333"
-  },
-  "iconfont": {
-    "fontFamily": "iconfont"
   }
 }
 
@@ -6175,7 +6168,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v(_vm._s(_vm.value == '' ? _vm.placeholder : _vm.value))]) : _vm._e(), (_vm.unit) ? _c('text', {
     staticClass: ["wx-unit"]
   }, [_vm._v(_vm._s(_vm.unit))]) : _vm._e(), (_vm.hasArrow) ? _c('wx-icon', {
-    staticClass: ["iconfont", "wx-enter"],
+    staticClass: ["wx-enter"],
     attrs: {
       "name": "enter"
     }
