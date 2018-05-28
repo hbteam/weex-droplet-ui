@@ -1,6 +1,7 @@
 const width = weex.config.env.deviceWidth;
 const height = weex.config.env.deviceHeight;
 const platform = weex.config.env.platform.toLowerCase();
+const isWeb = platform === 'web';
 const appName = weex.config.env.appName;
 
 const mixins = {
@@ -14,8 +15,7 @@ const mixins = {
         },
 
         preventDefault (e) {
-            const platform = weex.config.env.platform;
-            if (platform.toLocaleLowerCase() === 'web') {
+            if (isWeb) {
                 e.preventDefault && e.preventDefault();
                 e.stopPropagation && e.stopPropagation();
             } else {
