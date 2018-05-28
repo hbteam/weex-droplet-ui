@@ -86,6 +86,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var width = weex.config.env.deviceWidth;
+var height = weex.config.env.deviceHeight;
+var platform = weex.config.env.platform.toLowerCase();
+var isWeb = platform === 'web';
+var appName = weex.config.env.appName;
+
+var mixins = {
+    methods: {
+        getPageHeight: function getPageHeight() {
+            if (platform === 'android') {
+                return 750 / width * height;
+            }
+            return height;
+        },
+        preventDefault: function preventDefault(e) {
+            e.preventDefault && e.preventDefault();
+            e.stopPropagation && e.stopPropagation();
+        }
+    }
+};
+
+exports.default = mixins;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -99,43 +132,6 @@ Object.defineProperty(exports, 'default', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var width = weex.config.env.deviceWidth;
-var height = weex.config.env.deviceHeight;
-var platform = weex.config.env.platform.toLowerCase();
-var appName = weex.config.env.appName;
-
-var mixins = {
-    methods: {
-        getPageHeight: function getPageHeight() {
-            if (platform === 'android') {
-                return 750 / width * height;
-            }
-            return height;
-        },
-
-
-        // 处理点击穿透问题
-        preventDefault: function preventDefault(e) {
-            var platform = weex.config.env.platform;
-            if (platform.toLocaleLowerCase() === 'web' && e.preventDefault) {
-                e.preventDefault();
-            }
-        }
-    }
-};
-
-exports.default = mixins;
 
 /***/ }),
 /* 2 */
@@ -306,7 +302,34 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(3);
 
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         width: {
             type: String,
@@ -384,7 +407,7 @@ exports.default = {
             };
         },
         handleClick: function handleClick(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             if (this.disabled || this.promiseDisabled) return;
             if (this.disableOnPromise) {
                 var _promise = this.disableOnPromise();
@@ -410,25 +433,7 @@ exports.default = {
             }
         }
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 8 */
@@ -903,11 +908,11 @@ exports.default = {
 
     methods: {
         blur: function blur(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             this.$emit('wxBlur', this.inputValue);
         },
         input: function input(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
@@ -1136,7 +1141,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _wxIcon = __webpack_require__(0);
+var _wxIcon = __webpack_require__(1);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -1576,7 +1581,7 @@ var _wxSearch = __webpack_require__(16);
 
 var _wxSearch2 = _interopRequireDefault(_wxSearch);
 
-var _wxIcon = __webpack_require__(0);
+var _wxIcon = __webpack_require__(1);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -2836,56 +2841,15 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         width: {
             type: String
@@ -2946,11 +2910,58 @@ exports.default = {
             };
         },
         handleClick: function handleClick(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             this.$emit('wxClick', e);
         }
     }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 65 */
@@ -2962,63 +2973,15 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         defaultChecked: {
             type: Boolean,
@@ -3055,14 +3018,68 @@ exports.default = {
 
     methods: {
         handleClick: function handleClick(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             if (this.disabled) return;
             this.checked = !this.checked;
             this.$emit('input', this.checked);
             this.$emit('wxChange', this.checked);
         }
     }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 66 */
@@ -3075,7 +3092,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(1);
+var _mixins = __webpack_require__(0);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
@@ -3156,7 +3173,7 @@ exports.default = {
         cancel: function cancel(e) {
             var _this = this;
 
-            e.stopPropagation();
+            this.preventDefault(e);
             if (this.useDefaultFooter) {
                 this.hideDialog(function () {
                     _this.$emit('cancel');
@@ -3169,7 +3186,7 @@ exports.default = {
         confirm: function confirm(e) {
             var _this2 = this;
 
-            e.stopPropagation();
+            this.preventDefault(e);
             if (this.useDefaultFooter && this.clickConfirmHide) {
                 this.hideDialog(function () {
                     _this2.$emit('confirm');
@@ -3230,11 +3247,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(1);
+var _mixins = __webpack_require__(0);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
-var _wxIcon = __webpack_require__(0);
+var _wxIcon = __webpack_require__(1);
 
 var _wxIcon2 = _interopRequireDefault(_wxIcon);
 
@@ -3462,11 +3479,11 @@ exports.default = {
             }
         },
         handleChange: function handleChange(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             this.$emit('input', e.value);
         },
         blur: function blur(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             this.$emit('wxBlur', this.inputValue);
         },
         clickHandler: function clickHandler() {
@@ -3489,80 +3506,15 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         hasBackIcon: {
             type: Boolean,
@@ -3621,7 +3573,7 @@ exports.default = {
             };
         },
         handleClick: function handleClick(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             if (this.useDefaultBack) {
                 this.$router.back();
             } else {
@@ -3629,7 +3581,78 @@ exports.default = {
             }
         }
     }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 69 */
@@ -3642,7 +3665,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mixins = __webpack_require__(1);
+var _mixins = __webpack_require__(0);
 
 var _mixins2 = _interopRequireDefault(_mixins);
 

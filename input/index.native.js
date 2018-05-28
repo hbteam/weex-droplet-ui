@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ 0:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -219,7 +219,7 @@ var _index = __webpack_require__(13);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(0);
+var _index3 = __webpack_require__(1);
 
 var _index4 = _interopRequireDefault(_index3);
 
@@ -456,11 +456,11 @@ exports.default = {
 
     methods: {
         blur: function blur(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             this.$emit('wxBlur', this.inputValue);
         },
         input: function input(e) {
-            e.stopPropagation();
+            this.preventDefault(e);
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
