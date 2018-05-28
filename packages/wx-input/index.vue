@@ -19,7 +19,9 @@
     </div>
 </template>
 <script>
+    import mixins from '../utils/mixins'
     export default {
+        mixins:[mixins],
         props: {
             type: {
                 type: String,
