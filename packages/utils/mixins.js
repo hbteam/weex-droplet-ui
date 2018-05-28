@@ -13,11 +13,13 @@ const mixins = {
             return height;
         },
 
-        // 处理点击穿透问题
         preventDefault (e) {
             const platform = weex.config.env.platform;
-            if (platform.toLocaleLowerCase() === 'web' && e.preventDefault) {
-                e.preventDefault();
+            if (platform.toLocaleLowerCase() === 'web') {
+                e.preventDefault && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
+            } else {
+                e.stopPropagation();
             }
         }
     }

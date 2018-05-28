@@ -47,7 +47,9 @@
 
 </style>
 <script>
+    import mixins from '../utils/mixins'
     export default {
+        mixins:[mixins],
         props: {
             width: {
                 type: String
@@ -109,7 +111,7 @@
             },
 
             handleClick (e) {
-                e.stopPropagation();
+                this.preventDefault(e);
                 this.$emit('wxClick', e);
             },
         }

@@ -226,12 +226,12 @@
             },
 
             handleChange (e) {
-                e.stopPropagation();
+                this.preventDefault(e);
                 this.$emit('input', e.value)
             },
 
             blur (e) {
-                e.stopPropagation();
+                this.preventDefault(e);
                 this.$emit('wxBlur', this.inputValue);
             },
 

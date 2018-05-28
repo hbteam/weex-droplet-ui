@@ -54,7 +54,10 @@
 
 </style>
 <script>
+    import mixins from '../utils/mixins';
+
     export default {
+        mixins:[mixins],
         props: {
             defaultChecked: {
                 type: Boolean,
@@ -91,7 +94,7 @@
 
         methods: {
             handleClick (e) {
-                e.stopPropagation();
+                this.preventDefault(e);
                 if (this.disabled) return;
                 this.checked = !this.checked;
                 this.$emit('input', this.checked);

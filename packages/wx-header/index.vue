@@ -71,7 +71,9 @@
     
 </style>
 <script>
+    import mixins from '../utils/mixins'
     export default {
+        mixins:[mixins],
         props: {
             hasBackIcon: {
                 type: Boolean,
@@ -133,7 +135,7 @@
             },
 
             handleClick (e) {
-                e.stopPropagation();
+                this.preventDefault(e);
                 if (this.useDefaultBack) {
                     this.$router.back()
                 } else {

@@ -19,7 +19,10 @@
 </style>
 <script type="text/javascript">
     import '../utils/finally';
+    import mixins from '../utils/mixins';
+
     export default {
+        mixins:[mixins],
         props: {
             width: {
                 type: String,
@@ -97,7 +100,7 @@
             },
 
             handleClick (e) {
-                e.stopPropagation();
+                this.preventDefault(e);
                 if (this.disabled || this.promiseDisabled) return;
                 if (this.disableOnPromise) {
                     const _promise = this.disableOnPromise();
