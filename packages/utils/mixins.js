@@ -15,12 +15,8 @@ const mixins = {
         },
 
         preventDefault (e) {
-            if (isWeb) {
-                e.preventDefault && e.preventDefault();
-                e.stopPropagation && e.stopPropagation();
-            } else {
-                e.stopPropagation();
-            }
+            e.preventDefault && e.preventDefault();
+            e.stopPropagation && e.stopPropagation();
         }
     }
 }
