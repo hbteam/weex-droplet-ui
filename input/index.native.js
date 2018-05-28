@@ -80,6 +80,40 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var width = weex.config.env.deviceWidth;
+var height = weex.config.env.deviceHeight;
+var platform = weex.config.env.platform.toLowerCase();
+var isWeb = platform === 'web';
+var appName = weex.config.env.appName;
+
+var mixins = {
+    methods: {
+        getPageHeight: function getPageHeight() {
+            if (platform === 'android') {
+                return 750 / width * height;
+            }
+            return height;
+        },
+        preventDefault: function preventDefault(e) {
+            e.preventDefault && e.preventDefault();
+            e.stopPropagation && e.stopPropagation();
+        }
+    }
+};
+
+exports.default = mixins;
+
+/***/ }),
+
 /***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -382,9 +416,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _props;
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _mixins = __webpack_require__(0);
 
-//
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } //
 //
 //
 //
@@ -406,6 +444,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: (_props = {
         type: {
             type: String,

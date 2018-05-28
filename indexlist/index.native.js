@@ -834,9 +834,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _props;
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _mixins = __webpack_require__(0);
 
-//
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } //
 //
 //
 //
@@ -858,6 +862,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: (_props = {
         type: {
             type: String,
