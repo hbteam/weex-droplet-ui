@@ -672,7 +672,9 @@ exports.default = {
         },
         styles: {
             type: Object,
-            default: {}
+            default: function _default() {
+                return {};
+            }
         }
     },
 
