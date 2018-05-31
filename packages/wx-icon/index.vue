@@ -20,8 +20,10 @@
             },
             styles: {
                 type: Object,
-                default: {}
-            }
+                default: function () {
+                    return {}
+                }
+            },
         },
 
         data () {
