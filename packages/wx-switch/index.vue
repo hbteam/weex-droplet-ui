@@ -72,7 +72,6 @@
                 animation.transition(el, {
                     styles: {
                         'backgroundColor': color,
-                        'transition-property': 'background-color',
                     },
                     duration: 150,
                     timingFunction: 'linear',
