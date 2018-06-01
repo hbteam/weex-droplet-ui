@@ -18,6 +18,7 @@ import WxScrollerbar from './packages/wx-scrollerbar';
 import WxProgress from './packages/wx-progress';
 import WxRange from './packages/wx-range';
 import WxPicker from './packages/wx-picker';
+import WxSwitch from './packages/wx-switch';
 
 export {
     WxButton,
@@ -39,5 +40,6 @@ export {
     WxScrollerbar,
     WxProgress,
     WxRange,
-    WxPicker
+    WxPicker,
+    WxSwitch
 };
