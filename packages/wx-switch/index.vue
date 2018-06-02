@@ -10,7 +10,7 @@
 <style scoped>
     .wx-switch {
         position: relative;
-        width: 120px;
+        width: 104px;
         height: 64px;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -45,6 +45,15 @@
         props: {
             value: {
                 type: Boolean,
+            },
+            disabled: {
+                type: Boolean,
+            },
+            opendedColor: {
+                type: String,
+            },
+            closedColor: {
+                type: String,
             },
         },
 
@@ -82,7 +91,7 @@
 
             blkAnimation (isInit = false) {
                 let el = this.$refs.blk;
-                let x = this.opened ? '58px' : '0px';
+                let x = this.opened ? '42px' : '0px';
                 animation.transition(el, {
                     styles: {
                         transform: `translate(${x})`,
