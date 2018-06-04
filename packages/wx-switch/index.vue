@@ -40,9 +40,11 @@
 
 </style>
 <script>
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     export default {
+        mixins:[mixins],
         props: {
             value: {
                 type: Boolean,
@@ -75,7 +77,8 @@
         },
 
         methods: {
-            handleClick () {
+            handleClick (e) {
+                this.preventDefault(e);
                 if (this.disabled) return;
                 this.checked = !this.checked;
                 this.animation();
