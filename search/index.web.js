@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 193);
+/******/ 	return __webpack_require__(__webpack_require__.s = 201);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -340,19 +340,19 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 149:
+/***/ 155:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(236)
+  __webpack_require__(247)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(171),
+  __webpack_require__(178),
   /* template */
-  __webpack_require__(215),
+  __webpack_require__(225),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -405,7 +405,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 171:
+/***/ 178:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -483,42 +483,6 @@ if(false) {
  // When the module is disposed, remove the <style> tags
  module.hot.dispose(function() { update(); });
 }
-
-/***/ }),
-
-/***/ 193:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(149);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
-
-/***/ 196:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(true);
-// imports
-
-
-// module
-exports.push([module.i, "\n.result[data-v-29d4a48c] {\n    width: 10rem;\n    height: 0.53333rem;\n}\n.m-b-20[data-v-29d4a48c] {\n    margin-bottom: 0.26667rem;\n}\n.f32[data-v-29d4a48c] {\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/search/index.vue?5ae72a72"],"names":[],"mappings":";AA0CA;IACA,aAAA;IACA,mBAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-search\n            v-model=\"searchContent1\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent1}}</text>\n        </div>\n\n        <wx-search\n            v-model=\"searchContent2\"\n            placeholder=\"请输入\"\n            :autofocus=\"true\"\n            bgColor=\"#4676FF\"\n            innerBgColor=\"#fff\"\n            cancelColor=\"#fff\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent2}}</text>\n        </div>\n    </div>\n</template>\n\n<script>\n    import WxSearch from '../../packages/wx-search/index'\n\n    export default {\n        data () {\n            return {\n                searchContent1: '',\n                searchContent2: ''\n            }\n        },\n\n        methods: {\n\n        },\n\n        components: {WxSearch}\n    }\n</script>\n<style scoped>\n    .result {\n        width: 750px;\n        height: 40px;\n    }\n    .m-b-20 {\n        margin-bottom: 20px;\n    }\n    .f32 {\n        font-size: 32px;\n    }\n</style>\n"],"sourceRoot":""}]);
-
-// exports
-
 
 /***/ }),
 
@@ -744,7 +708,66 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 215:
+/***/ 201:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(155);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
+
+/***/ 205:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.result[data-v-29d4a48c] {\n    width: 10rem;\n    height: 0.53333rem;\n}\n.m-b-20[data-v-29d4a48c] {\n    margin-bottom: 0.26667rem;\n}\n.f32[data-v-29d4a48c] {\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/search/index.vue?5ae72a72"],"names":[],"mappings":";AA0CA;IACA,aAAA;IACA,mBAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-search\n            v-model=\"searchContent1\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent1}}</text>\n        </div>\n\n        <wx-search\n            v-model=\"searchContent2\"\n            placeholder=\"请输入\"\n            :autofocus=\"true\"\n            bgColor=\"#4676FF\"\n            innerBgColor=\"#fff\"\n            cancelColor=\"#fff\">\n        </wx-search>\n        <div class=\"result m-b-20\">\n            <text class=\"f32\">{{searchContent2}}</text>\n        </div>\n    </div>\n</template>\n\n<script>\n    import WxSearch from '../../packages/wx-search/index'\n\n    export default {\n        data () {\n            return {\n                searchContent1: '',\n                searchContent2: ''\n            }\n        },\n\n        methods: {\n\n        },\n\n        components: {WxSearch}\n    }\n</script>\n<style scoped>\n    .result {\n        width: 750px;\n        height: 40px;\n    }\n    .m-b-20 {\n        margin-bottom: 20px;\n    }\n    .f32 {\n        font-size: 32px;\n    }\n</style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(34);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 225:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -796,36 +819,13 @@ if (false) {
 
 /***/ }),
 
-/***/ 22:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(34);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 236:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(196);
+var content = __webpack_require__(205);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

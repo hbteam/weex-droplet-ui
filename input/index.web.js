@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 183);
+/******/ 	return __webpack_require__(__webpack_require__.s = 191);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -340,19 +340,19 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 140:
+/***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(239)
+  __webpack_require__(250)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(161),
+  __webpack_require__(168),
   /* template */
-  __webpack_require__(218),
+  __webpack_require__(228),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -405,7 +405,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 161:
+/***/ 168:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -495,27 +495,6 @@ if(false) {
 
 /***/ }),
 
-/***/ 183:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(140);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
-
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -539,18 +518,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 199:
+/***/ 191:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(true);
-// imports
+"use strict";
 
 
-// module
-exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n.icon {\n    font-size: 0.58667rem;\n    color:#DEDEDE;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    text-align: center;\n    line-height: 1.33333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?55bd0c31"],"names":[],"mappings":";AAkBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AACA;IACA,sBAAA;IACA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input \n            class=\"demo\"\n            placeholder=\"请输入手机号\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n                \n        <wx-input \n            class=\"demo\"\n            width=\"500px\"\n            type=\"password\"\n            placeholder=\"请输入密码\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n    .icon {\n        font-size: 44px;\n        color:#DEDEDE;\n        width: 100px;\n        height: 100px;\n        text-align: center;\n        line-height: 100px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index';\n    import WxIcon from '../../packages/wx-icon/index';\n\n    export default {\n        data () {\n            return {\n            }\n        },\n        components: { WxInput, WxIcon }\n    }\n</script>\n"],"sourceRoot":""}]);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-// exports
+var _index = __webpack_require__(146);
 
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
 
 /***/ }),
 
@@ -776,7 +761,22 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 218:
+/***/ 208:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left: 0.53333rem;\n    margin-right: 0.53333rem;\n}\n.icon {\n    font-size: 0.58667rem;\n    color:#DEDEDE;\n    width: 1.33333rem;\n    height: 1.33333rem;\n    text-align: center;\n    line-height: 1.33333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/input/index.vue?55bd0c31"],"names":[],"mappings":";AAkBA;IACA,uBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AACA;IACA,sBAAA;IACA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,mBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div>\n        <wx-input \n            class=\"demo\"\n            placeholder=\"请输入手机号\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n                \n        <wx-input \n            class=\"demo\"\n            width=\"500px\"\n            type=\"password\"\n            placeholder=\"请输入密码\">\n            <wx-icon class=\"icon\" slot=\"left\" name=\"search\"></wx-icon>\n        </wx-input>\n    </div>\n</template>\n<style scope>\n    .demo {\n        margin-top: 52px;\n        margin-left: 40px;\n        margin-right: 40px;\n    }\n    .icon {\n        font-size: 44px;\n        color:#DEDEDE;\n        width: 100px;\n        height: 100px;\n        text-align: center;\n        line-height: 100px;\n    }\n</style>\n<script>\n    import WxInput from '../../packages/wx-input/index';\n    import WxIcon from '../../packages/wx-icon/index';\n\n    export default {\n        data () {\n            return {\n            }\n        },\n        components: { WxInput, WxIcon }\n    }\n</script>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 228:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -923,13 +923,13 @@ exports.default = {
 
 /***/ }),
 
-/***/ 239:
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(199);
+var content = __webpack_require__(208);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

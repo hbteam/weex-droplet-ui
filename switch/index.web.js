@@ -6,9 +6,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["npm/weex-droplet-ui/example/button/index"] = factory();
+		exports["npm/weex-droplet-ui/example/switch/index"] = factory();
 	else
-		root["npm/weex-droplet-ui/example/button/index"] = factory();
+		root["npm/weex-droplet-ui/example/switch/index"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 182);
+/******/ 	return __webpack_require__(__webpack_require__.s = 202);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -7566,46 +7566,7 @@ if(false) {
 /***/ }),
 /* 135 */,
 /* 136 */,
-/* 137 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(159),
-  /* template */
-  __webpack_require__(233),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/button/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-47078196", Component.options)
-  } else {
-    hotAPI.reload("data-v-47078196", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 137 */,
 /* 138 */,
 /* 139 */,
 /* 140 */,
@@ -7624,113 +7585,53 @@ module.exports = Component.exports
 /* 153 */,
 /* 154 */,
 /* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(257)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(179),
+  /* template */
+  __webpack_require__(237),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/switch/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-67367718", Component.options)
+  } else {
+    hotAPI.reload("data-v-67367718", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+module.exports = Component.exports
 
-var _index = __webpack_require__(43);
-
-var modal = weex.requireModule('modal'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    data: function data() {
-        return {
-            disabled: true
-        };
-    },
-
-    components: {
-        WxButton: _index.WxButton
-    },
-    mounted: function mounted() {
-        var _this = this;
-
-        setTimeout(function () {
-            _this.disabled = false;
-        }, 2000);
-    },
-
-    methods: {
-        wxClickHandle1: function wxClickHandle1() {
-            modal.toast({
-                message: 'clicked 1'
-            });
-        },
-
-
-        /**
-         * 1. 点击按钮，会执行wxClickHandle2()方法，且必须返回Promise。
-         * 2. 解决避免在请求未结束时产生重复提交或请求
-         * 3. 无论结果是resolve或者reject，button都会恢复至可点击状态。
-         * @return {Promise} promise
-         */
-        wxClickHandle2: function wxClickHandle2() {
-            modal.toast({
-                message: 'clicked 2'
-            });
-            return this.request().then(function (data) {
-                // TODO
-                console.log(data);
-            }).catch(function (data) {
-                // TODO
-                console.log(data);
-            });
-        },
-
-
-        /**
-         * 模拟Promise封装接口请求方法，必须返回Promise
-         * @return {Promise} promise
-         */
-        request: function request() {
-            return new Promise(function (resolve, reject) {
-                var result1 = '接口调用成功';
-                var result2 = '接口调用失败';
-                setTimeout(function () {
-                    if (true) {
-                        resolve(result1);
-                    } else {
-                        reject(result2);
-                    }
-                }, 2000);
-            });
-        }
-    }
-};
 
 /***/ }),
+/* 157 */,
+/* 158 */,
+/* 159 */,
 /* 160 */,
 /* 161 */,
 /* 162 */,
@@ -7750,29 +7651,92 @@ exports.default = {
 /* 176 */,
 /* 177 */,
 /* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
-var _index = __webpack_require__(137);
+var _index = __webpack_require__(43);
 
-var _index2 = _interopRequireDefault(_index);
+exports.default = {
+    data: function data() {
+        return {
+            value1: false,
+            value2: true
+        };
+    },
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
+    methods: {
+        handleChange: function handleChange(checked) {},
+        handleClick: function handleClick(checked) {}
+    },
+
+    components: {
+        WxSwitch: _index.WxSwitch,
+        WxCell: _index.WxCell
+    }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
+/* 180 */,
+/* 181 */,
+/* 182 */,
 /* 183 */,
 /* 184 */,
 /* 185 */,
@@ -7792,7 +7756,26 @@ exports.default = new Vue(_index2.default);
 /* 199 */,
 /* 200 */,
 /* 201 */,
-/* 202 */,
+/* 202 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(156);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
 /* 203 */,
 /* 204 */,
 /* 205 */,
@@ -7805,7 +7788,20 @@ exports.default = new Vue(_index2.default);
 /* 212 */,
 /* 213 */,
 /* 214 */,
-/* 215 */,
+/* 215 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.wx-demo {\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-text {\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/switch/index.vue?dcfa4060"],"names":[],"mappings":";AA2CA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AACA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-cell \n            text=\"有无住房\"\n            width=\"690px\"\n            height=\"140px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            :hasArrow=\"false\"\n            @wxClick=\"handleClick\">\n                <wx-switch \n                    slot=\"right\"\n                    class=\"switch\" \n                    v-model=\"value1\" \n                    @wxChange=\"handleChange\" \n                    :disabled=\"false\">\n                </wx-switch>\n        </wx-cell>\n        <wx-cell \n            text=\"有公积金\"\n            width=\"690px\"\n            height=\"120px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            :hasArrow=\"false\"\n            @wxClick=\"handleClick\">\n                <wx-switch \n                    slot=\"right\"\n                    class=\"switch\" \n                    v-model=\"value2\" \n                    @wxChange=\"handleChange\" \n                    :disabled=\"false\">\n                </wx-switch>\n        </wx-cell>\n\n        <div style=\"padding-top: 30px\">\n            <text class=\"wx-text\">有公积金：{{ value1 }}</text>\n            <text class=\"wx-text\">有无住房：{{ value2 }}</text>\n        </div>\n    </div>\n</template>\n\n<style type=\"text/css\">\n    .wx-demo {\n        align-items: center;\n    }\n    .wx-text {\n        font-size: 32px;\n    }\n</style>\n\n<script>\n    import { WxSwitch, WxCell } from '../../index';\n\n    export default {\n        data () {\n            return {\n                value1: false,\n                value2: true,\n            }\n        },\n\n        methods: {\n            handleChange (checked) {\n\n            },\n            handleClick (checked) {\n\n            },\n        },\n\n        components: {\n            WxSwitch,\n            WxCell\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
 /* 216 */,
 /* 217 */,
 /* 218 */,
@@ -7823,53 +7819,156 @@ exports.default = new Vue(_index2.default);
 /* 230 */,
 /* 231 */,
 /* 232 */,
-/* 233 */
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "wx-demo weex-ct",
     attrs: {}
-  }, [_c('wx-button', {
+  }, [_c('wx-cell', {
     attrs: {
-      "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
-      "textColor": "#fff",
+      "text": "有无住房",
+      "width": "690px",
+      "height": "140px",
+      "textColor": "#333",
       "textFontSize": "32px",
-      "disabled": _vm.disabled,
+      "hasArrow": false,
       "data-evt-wxClick": ""
     },
     on: {
-      "wxClick": _vm.wxClickHandle1
+      "wxClick": _vm.handleClick
     },
     nativeOn: {
-      "wxClick": _vm.wxClickHandle1
+      "wxClick": _vm.handleClick
     }
-  }, [_vm._v("normal button")]), _vm._v(" "), _c('wx-button', {
+  }, [_c('wx-switch', {
+    staticClass: "switch",
     attrs: {
-      "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
-      "textColor": "#fff",
-      "textFontSize": "32px",
+      "slot": "right",
       "disabled": false,
-      "styles": {
-        'margin-left': '50px',
-        'margin-top': '80px',
-        'background-color': '#F37B1D',
+      "data-evt-wxChange": ""
+    },
+    on: {
+      "wxChange": _vm.handleChange
+    },
+    nativeOn: {
+      "wxChange": _vm.handleChange
+    },
+    slot: "right",
+    model: {
+      value: (_vm.value1),
+      callback: function($$v) {
+        _vm.value1 = $$v
       },
-      "disabledBgColor": "#e5e5e5",
-      "disableOnPromise": _vm.wxClickHandle2
+      expression: "value1"
     }
-  }, [_vm._v("promise button")])], 1)
+  })], 1), _vm._v(" "), _c('wx-cell', {
+    attrs: {
+      "text": "有公积金",
+      "width": "690px",
+      "height": "120px",
+      "textColor": "#333",
+      "textFontSize": "32px",
+      "hasArrow": false,
+      "data-evt-wxClick": ""
+    },
+    on: {
+      "wxClick": _vm.handleClick
+    },
+    nativeOn: {
+      "wxClick": _vm.handleClick
+    }
+  }, [_c('wx-switch', {
+    staticClass: "switch",
+    attrs: {
+      "slot": "right",
+      "disabled": false,
+      "data-evt-wxChange": ""
+    },
+    on: {
+      "wxChange": _vm.handleChange
+    },
+    nativeOn: {
+      "wxChange": _vm.handleChange
+    },
+    slot: "right",
+    model: {
+      value: (_vm.value2),
+      callback: function($$v) {
+        _vm.value2 = $$v
+      },
+      expression: "value2"
+    }
+  })], 1), _vm._v(" "), _c('div', {
+    staticClass: " weex-ct",
+    staticStyle: {
+      "padding-top": "0.4rem"
+    },
+    attrs: {}
+  }, [_c('p', {
+    staticClass: "wx-text weex-el weex-text",
+    attrs: {}
+  }, [_vm._v("有公积金：" + _vm._s(_vm.value1))]), _vm._v(" "), _c('p', {
+    staticClass: "wx-text weex-el weex-text",
+    attrs: {}
+  }, [_vm._v("有无住房：" + _vm._s(_vm.value2))])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-47078196", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-67367718", module.exports)
   }
+}
+
+/***/ }),
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(215);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("53fd66cb", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-67367718\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-67367718\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
 }
 
 /***/ })

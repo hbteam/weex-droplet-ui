@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 137);
+/******/ 	return __webpack_require__(__webpack_require__.s = 143);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -150,21 +150,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 116:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(181)
+__vue_styles__.push(__webpack_require__(190)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(160)
+__vue_exports__ = __webpack_require__(167)
 
 /* template */
-var __vue_template__ = __webpack_require__(200)
+var __vue_template__ = __webpack_require__(210)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -218,7 +218,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 137:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -228,7 +228,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(116);
+var _index = __webpack_require__(121);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -239,7 +239,7 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 160:
+/***/ 167:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -347,7 +347,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 181:
+/***/ 190:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -365,42 +365,6 @@ module.exports = {
     "lineHeight": "100"
   }
 }
-
-/***/ }),
-
-/***/ 200:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-input', {
-    staticClass: ["demo"],
-    attrs: {
-      "placeholder": "请输入手机号"
-    }
-  }, [_c('wx-icon', {
-    staticClass: ["icon"],
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1), _c('wx-input', {
-    staticClass: ["demo"],
-    attrs: {
-      "width": "500px",
-      "type": "password",
-      "placeholder": "请输入密码"
-    }
-  }, [_c('wx-icon', {
-    staticClass: ["icon"],
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
 
 /***/ }),
 
@@ -506,6 +470,42 @@ exports.default = {
         }
     }
 };
+
+/***/ }),
+
+/***/ 210:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-input', {
+    staticClass: ["demo"],
+    attrs: {
+      "placeholder": "请输入手机号"
+    }
+  }, [_c('wx-icon', {
+    staticClass: ["icon"],
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1), _c('wx-input', {
+    staticClass: ["demo"],
+    attrs: {
+      "width": "500px",
+      "type": "password",
+      "placeholder": "请输入密码"
+    }
+  }, [_c('wx-icon', {
+    staticClass: ["icon"],
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1)], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 
 /***/ }),
 

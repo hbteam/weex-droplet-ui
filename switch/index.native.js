@@ -6,9 +6,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["npm/weex-droplet-ui/example/indexlist/index"] = factory();
+		exports["npm/weex-droplet-ui/example/switch/index"] = factory();
 	else
-		root["npm/weex-droplet-ui/example/indexlist/index"] = factory();
+		root["npm/weex-droplet-ui/example/switch/index"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 142);
+/******/ 	return __webpack_require__(__webpack_require__.s = 154);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -6557,17 +6557,32 @@ module.exports.render._withStripped = true
 /* 117 */,
 /* 118 */,
 /* 119 */,
-/* 120 */
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
+/* styles */
+__vue_styles__.push(__webpack_require__(189)
+)
+
 /* script */
-__vue_exports__ = __webpack_require__(166)
+__vue_exports__ = __webpack_require__(178)
 
 /* template */
-var __vue_template__ = __webpack_require__(213)
+var __vue_template__ = __webpack_require__(209)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -6579,9 +6594,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/indexlist/index.vue"
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/switch/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-440e49c0"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -6596,17 +6612,6 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
 /* 132 */,
 /* 133 */,
 /* 134 */,
@@ -6617,26 +6622,7 @@ module.exports = __vue_exports__
 /* 139 */,
 /* 140 */,
 /* 141 */,
-/* 142 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(120);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_index2.default.el = '#root';
-exports.default = new Vue(_index2.default);
-
-/***/ }),
+/* 142 */,
 /* 143 */,
 /* 144 */,
 /* 145 */,
@@ -6648,7 +6634,26 @@ exports.default = new Vue(_index2.default);
 /* 151 */,
 /* 152 */,
 /* 153 */,
-/* 154 */,
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(131);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_index2.default.el = '#root';
+exports.default = new Vue(_index2.default);
+
+/***/ }),
 /* 155 */,
 /* 156 */,
 /* 157 */,
@@ -6660,63 +6665,7 @@ exports.default = new Vue(_index2.default);
 /* 163 */,
 /* 164 */,
 /* 165 */,
-/* 166 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _index = __webpack_require__(33);
-
-var modal = weex.requireModule('modal'); //
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    components: {
-        WxIndexlist: _index.WxIndexlist
-    },
-
-    data: function data() {
-        return {};
-    },
-
-
-    methods: {
-        handleChange: function handleChange(item) {
-            console.log(item);
-        },
-        getData: function getData() {
-            var list = [];
-            for (var i = 0; i < 26; i++) {
-                list.push({
-                    text: String.fromCharCode(65 + i),
-                    list: [{
-                        text: String.fromCharCode(65 + i) + 1
-                    }, {
-                        text: String.fromCharCode(65 + i) + 2
-                    }, {
-                        text: String.fromCharCode(65 + i) + 3
-                    }, {
-                        text: String.fromCharCode(65 + i) + 4
-                    }]
-                });
-            }
-            return list;
-        }
-    }
-};
-
-/***/ }),
+/* 166 */,
 /* 167 */,
 /* 168 */,
 /* 169 */,
@@ -6728,7 +6677,89 @@ exports.default = {
 /* 175 */,
 /* 176 */,
 /* 177 */,
-/* 178 */,
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _index = __webpack_require__(33);
+
+exports.default = {
+    data: function data() {
+        return {
+            value1: false,
+            value2: true
+        };
+    },
+
+
+    methods: {
+        handleChange: function handleChange(checked) {},
+        handleClick: function handleClick(checked) {}
+    },
+
+    components: {
+        WxSwitch: _index.WxSwitch,
+        WxCell: _index.WxCell
+    }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
 /* 179 */,
 /* 180 */,
 /* 181 */,
@@ -6739,7 +6770,19 @@ exports.default = {
 /* 186 */,
 /* 187 */,
 /* 188 */,
-/* 189 */,
+/* 189 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-demo": {
+    "alignItems": "center"
+  },
+  "wx-text": {
+    "fontSize": "32"
+  }
+}
+
+/***/ }),
 /* 190 */,
 /* 191 */,
 /* 192 */,
@@ -6759,24 +6802,79 @@ exports.default = {
 /* 206 */,
 /* 207 */,
 /* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */
+/* 209 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wx-demo"]
-  }, [_c('wx-indexlist', {
+  }, [_c('wx-cell', {
     attrs: {
-      "items": _vm.getData()
+      "text": "有无住房",
+      "width": "690px",
+      "height": "140px",
+      "textColor": "#333",
+      "textFontSize": "32px",
+      "hasArrow": false
+    },
+    on: {
+      "wxClick": _vm.handleClick
+    }
+  }, [_c('wx-switch', {
+    staticClass: ["switch"],
+    attrs: {
+      "slot": "right",
+      "disabled": false
     },
     on: {
       "wxChange": _vm.handleChange
+    },
+    slot: "right",
+    model: {
+      value: (_vm.value1),
+      callback: function($$v) {
+        _vm.value1 = $$v
+      },
+      expression: "value1"
     }
-  })], 1)
+  })], 1), _c('wx-cell', {
+    attrs: {
+      "text": "有公积金",
+      "width": "690px",
+      "height": "120px",
+      "textColor": "#333",
+      "textFontSize": "32px",
+      "hasArrow": false
+    },
+    on: {
+      "wxClick": _vm.handleClick
+    }
+  }, [_c('wx-switch', {
+    staticClass: ["switch"],
+    attrs: {
+      "slot": "right",
+      "disabled": false
+    },
+    on: {
+      "wxChange": _vm.handleChange
+    },
+    slot: "right",
+    model: {
+      value: (_vm.value2),
+      callback: function($$v) {
+        _vm.value2 = $$v
+      },
+      expression: "value2"
+    }
+  })], 1), _c('div', {
+    staticStyle: {
+      paddingTop: "30px"
+    }
+  }, [_c('text', {
+    staticClass: ["wx-text"]
+  }, [_vm._v("有公积金：" + _vm._s(_vm.value1))]), _c('text', {
+    staticClass: ["wx-text"]
+  }, [_vm._v("有无住房：" + _vm._s(_vm.value2))])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
