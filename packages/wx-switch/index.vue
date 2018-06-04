@@ -1,10 +1,9 @@
 <template>
     <div class="wx-switch" 
-        :class="{'switch-off': !opened}"
-        :style="{'background-color': opened ? '#1890ff' : '#e2e2e2'}"
-        ref="switch"
+        :style="{'background-color': checked ? checkedColor : '#d9d9d9'}"
         @click="handleClick">
-        <text class="blk" ref="blk"></text> 
+        <text ref="switchCore" class="switch-core"></text>
+        <text class="blk" ref="blk" :style="blkStyle"></text> 
     </div>
 </template>
 <style scoped>
@@ -12,29 +11,31 @@
         position: relative;
         width: 104px;
         height: 64px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 26px;
-        padding-right: 26px;
         border-radius: 64px;
         border-width: 1px;
         border-style: solid;
         border-color: #ddd;
+        background-color: #d9d9d9;
     }
     
     .blk {
         position: absolute;
-        top: 4px;
+        top: 5px;
         left: 0px;
+        z-index: 100;
         height: 52px;
         width: 56px;
         background-color: #fff;
         border-radius: 52px;
     }
 
-    .switch-off {
-        background-color: #e2e2e2;
-        border-color: #ccc;
+    .switch-core {
+        position: absolute;
+        top: 0;
+        width: 102px;
+        height: 62px;
+        background-color: #fdfdfd;
+        border-radius: 62px;
     }
 
 </style>
@@ -49,40 +50,46 @@
             disabled: {
                 type: Boolean,
             },
-            opendedColor: {
+
+            checkedColor: {
                 type: String,
-            },
-            closedColor: {
-                type: String,
-            },
+                default: '#26a2ff',
+            }
         },
 
         data () {
             return {
-                opened: false
+                checked: false,
+                blkStyle: {},
             }
         },
 
+        created () {
+            this.initBlkStyle();
+        },
+
         mounted () {
-            this.opened = this.value;
+            this.checked = this.value;
             this.blkAnimation(true);
+            this.animation(true);
         },
 
         methods: {
             handleClick () {
-                this.opened = !this.opened;
+                if (this.disabled) return;
+                this.checked = !this.checked;
                 this.animation();
                 this.blkAnimation();
             },
 
-            animation () {
-                let el = this.$refs.switch;
-                let color = this.opened ? '#1890ff' : '#e2e2e2';
+            animation (isInit = false) {
+                let el = this.$refs.switchCore;
+                let s = this.checked ? '0' : '1';
                 animation.transition(el, {
                     styles: {
-                        'backgroundColor': color,
+                        transform: `scale(${s})`
                     },
-                    duration: 150,
+                    duration: isInit ? 0 : 300,
                     timingFunction: 'linear',
                     needLayout: false,
                     delay: 0
@@ -91,20 +98,36 @@
 
             blkAnimation (isInit = false) {
                 let el = this.$refs.blk;
-                let x = this.opened ? '42px' : '0px';
+                let x = this.checked ? '42px' : '0px';
                 animation.transition(el, {
                     styles: {
-                        transform: `translate(${x})`,
+                        transform: `translateX(${x})`
                     },
-                    duration: isInit ? 0 : 150,
+                    duration: isInit ? 0 : 300,
                     timingFunction: 'linear',
                     needLayout: false,
                     delay: 0
                 }, () => {
-                    this.$emit('wxChange', this.opened);
-                    this.$emit('input', this.opened);
+                    this.$emit('wxChange', this.checked);
+                    this.$emit('input', this.checked);
                 });
             },
+
+            // android不支持阴影
+            initBlkStyle () {
+                const platform = weex.config.env.platform.toLowerCase();
+                if (platform === 'android') {
+                    this.blkStyle = {
+                        'border-width': '1px',
+                        'border-style': 'solid',
+                        'border-color': '#d9d9d9',
+                    }
+                } else {
+                    this.blkStyle = {
+                        'box-shadow': '0 1px 3px rgba(0,0,0,.4)',
+                    }
+                }
+            }
         }
     }
 </script>

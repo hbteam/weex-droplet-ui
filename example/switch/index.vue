@@ -1,6 +1,11 @@
 <template>
     <div class="wx-demo">
-        <wx-switch class="switch" v-model="value" @wxChange="handleChange"></wx-switch>
+        <wx-switch 
+            class="switch" 
+            v-model="value" 
+            @wxChange="handleChange" 
+            :disabled="false">
+        </wx-switch>
         <text>{{ value }}</text>
     </div>
 </template>
@@ -12,7 +17,6 @@
     }
     .switch {
         margin-top: 100px;
-        /*margin-left: 100px;*/
     }
 </style>
 
@@ -22,7 +26,7 @@
     export default {
         data () {
             return {
-                value: true,
+                value: false,
             }
         },
 
