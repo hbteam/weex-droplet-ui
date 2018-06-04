@@ -3,7 +3,7 @@
         <wx-cell 
             text="有无住房"
             width="690px"
-            height="120px"
+            height="140px"
             textColor="#333"
             textFontSize="32px"
             :hasArrow="false"
