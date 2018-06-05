@@ -710,7 +710,7 @@ exports.default = {
 module.exports = {
   "icon-font": {
     "fontFamily": "dropletUiIconfont",
-    "color": "#4d4d4d",
+    "color": "#666666",
     "fontSize": "32"
   }
 }

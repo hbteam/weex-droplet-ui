@@ -508,7 +508,7 @@ exports.default = {
 module.exports = {
   "icon-font": {
     "fontFamily": "dropletUiIconfont",
-    "color": "#4d4d4d",
+    "color": "#666666",
     "fontSize": "32"
   }
 }
@@ -3429,8 +3429,6 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
-//
-//
 
 exports.default = {
     mixins: [_mixins2.default],
@@ -5928,11 +5926,6 @@ module.exports = {
   "wx-unit": {
     "fontSize": "32",
     "width": "50"
-  },
-  "wx-enter": {
-    "color": "#7A818B",
-    "fontSize": "32",
-    "marginTop": "30"
   },
   "right-arrow": {
     "width": "22",

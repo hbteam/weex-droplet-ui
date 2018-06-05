@@ -508,7 +508,7 @@ exports.default = {
 module.exports = {
   "icon-font": {
     "fontFamily": "dropletUiIconfont",
-    "color": "#4d4d4d",
+    "color": "#666666",
     "fontSize": "32"
   }
 }
@@ -3429,8 +3429,6 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
-//
-//
 
 exports.default = {
     mixins: [_mixins2.default],
@@ -5929,11 +5927,6 @@ module.exports = {
     "fontSize": "32",
     "width": "50"
   },
-  "wx-enter": {
-    "color": "#7A818B",
-    "fontSize": "32",
-    "marginTop": "30"
-  },
   "right-arrow": {
     "width": "22",
     "height": "22",
@@ -7027,8 +7020,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var PICKER_DATA = exports.PICKER_DATA = {
-    list: [{ name: '李娜', value: 0 }, { name: '丁超', value: 1 }, { name: '江武', value: 2 }, { name: '尹士鹏', value: 3 }, { name: '周灰灰', value: 4 }, { name: '杨泉', value: 5 }, { name: '厚本金融公司', value: 6 }, { name: '揽胜', value: 7 }, { name: '陆地巡洋舰', value: 8 }, { name: '航空母舰', value: 9 }, { name: '天宫一号', value: 10 }, { name: '红岸工程', value: 11 }],
-    defaultValue: { name: '厚本金融公司', value: 6 },
+    list: [{ name: '2012', value: 0 }, { name: '后天', value: 1 }, { name: '星际穿越', value: 2 }, { name: '星际迷航', value: 3 }, { name: 'X战警', value: 4 }, { name: '盗梦空间', value: 5 }, { name: '源代码', value: 6 }, { name: '黑客帝国', value: 7 }, { name: '超验骇客', value: 8 }, { name: '火星救援', value: 9 }, { name: '阿凡达', value: 10 }, { name: '普罗米修斯', value: 11 }],
+    defaultValue: { name: '盗梦空间', value: 6 },
     displayValue: function displayValue(item) {
         return item.name;
     }
@@ -7220,6 +7213,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
@@ -7261,7 +7260,7 @@ exports.default = {
             this.visible3 = false;
         }
     },
-    components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup, Picker3: _picker2.default }
+    components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup, Picker3: _picker2.default, WxField: _index.WxField }
 };
 
 /***/ }),
@@ -7659,41 +7658,51 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('div', {
     staticClass: ["wrap"]
-  }, [_c('wx-button', {
-    staticClass: ["button"],
+  }, [_c('wx-field', {
     attrs: {
-      "height": "80px",
+      "label": "最喜欢的电影",
+      "labelPosition": "top",
+      "placeholder": "请选择电影",
       "width": "690px",
-      "textColor": "#fff",
-      "textFontSize": "32px"
+      "disabled": true,
+      "hasArrow": true,
+      "height": "200px"
     },
     on: {
       "wxClick": function($event) {
         _vm.visible = true
       }
+    },
+    model: {
+      value: (_vm.selectedData.name),
+      callback: function($$v) {
+        _vm.$set(_vm.selectedData, "name", $$v)
+      },
+      expression: "selectedData.name"
     }
-  }, [_vm._v("点击选择")]), _c('text', {
-    staticStyle: {
-      fontSize: "32px"
-    }
-  }, [_vm._v(_vm._s(_vm.selectedData.name))]), _c('wx-button', {
-    staticClass: ["button"],
+  }), _c('wx-field', {
     attrs: {
-      "height": "80px",
+      "label": "通讯地址",
+      "labelPosition": "top",
+      "placeholder": "请选择地址",
       "width": "690px",
-      "textColor": "#fff",
-      "textFontSize": "32px"
+      "disabled": true,
+      "hasArrow": true,
+      "height": "200px"
     },
     on: {
       "wxClick": function($event) {
         _vm.visible3 = true
       }
+    },
+    model: {
+      value: (_vm.address),
+      callback: function($$v) {
+        _vm.address = $$v
+      },
+      expression: "address"
     }
-  }, [_vm._v("地址选择")]), _c('text', {
-    staticStyle: {
-      fontSize: "32px"
-    }
-  }, [_vm._v(_vm._s(_vm.address))])], 1)], 1)
+  })], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
