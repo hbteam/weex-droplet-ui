@@ -991,7 +991,7 @@ exports.default = {
     data: function data() {
         return {
             style: {
-                top: '100px',
+                top: '0px',
                 'background-color': 'rgba(0,0,0,0.6)'
             }
         };
@@ -6557,7 +6557,7 @@ var __vue_styles__ = []
 __vue_exports__ = __webpack_require__(163)
 
 /* template */
-var __vue_template__ = __webpack_require__(216)
+var __vue_template__ = __webpack_require__(217)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -6754,7 +6754,8 @@ exports.default = {
 /* 213 */,
 /* 214 */,
 /* 215 */,
-/* 216 */
+/* 216 */,
+/* 217 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

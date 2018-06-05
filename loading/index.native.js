@@ -156,11 +156,15 @@ module.exports.render._withStripped = true
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
+/* styles */
+__vue_styles__.push(__webpack_require__(188)
+)
+
 /* script */
 __vue_exports__ = __webpack_require__(168)
 
 /* template */
-var __vue_template__ = __webpack_require__(208)
+var __vue_template__ = __webpack_require__(209)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -175,6 +179,7 @@ if (typeof __vue_options__ === "function") {
 __vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/loading/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-ec290cb4"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -261,6 +266,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
@@ -329,6 +341,18 @@ module.exports = __vue_exports__
 
 /***/ }),
 
+/***/ 188:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-demo": {
+    "marginLeft": "30",
+    "marginTop": "60"
+  }
+}
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -352,19 +376,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-button', {
+  return _c('div', {
+    staticClass: ["wx-demo"]
+  }, [_c('wx-button', {
+    staticClass: ["button"],
+    attrs: {
+      "width": "690px"
+    },
     on: {
       "wxClick": _vm.openLoading
     }
   }, [_vm._v("打开Loading")]), _c('wx-loading', {
     attrs: {
       "opacity": "0.6",
-      "visible": _vm.visible,
-      "top": "0px"
+      "visible": _vm.visible
     }
   })], 1)
 },staticRenderFns: []}
@@ -435,7 +464,7 @@ exports.default = {
     data: function data() {
         return {
             style: {
-                top: '100px',
+                top: '0px',
                 'background-color': 'rgba(0,0,0,0.6)'
             }
         };

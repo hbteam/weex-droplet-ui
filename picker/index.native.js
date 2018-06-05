@@ -991,7 +991,7 @@ exports.default = {
     data: function data() {
         return {
             style: {
-                top: '100px',
+                top: '0px',
                 'background-color': 'rgba(0,0,0,0.6)'
             }
         };
@@ -6952,14 +6952,14 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(194)
+__vue_styles__.push(__webpack_require__(195)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(170)
 
 /* template */
-var __vue_template__ = __webpack_require__(217)
+var __vue_template__ = __webpack_require__(218)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -7063,14 +7063,14 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(188)
+__vue_styles__.push(__webpack_require__(189)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(171)
 
 /* template */
-var __vue_template__ = __webpack_require__(209)
+var __vue_template__ = __webpack_require__(210)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -7460,7 +7460,8 @@ exports.default = {
 /* 185 */,
 /* 186 */,
 /* 187 */,
-/* 188 */
+/* 188 */,
+/* 189 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -7489,12 +7490,12 @@ module.exports = {
 }
 
 /***/ }),
-/* 189 */,
 /* 190 */,
 /* 191 */,
 /* 192 */,
 /* 193 */,
-/* 194 */
+/* 194 */,
+/* 195 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -7524,7 +7525,6 @@ module.exports = {
 }
 
 /***/ }),
-/* 195 */,
 /* 196 */,
 /* 197 */,
 /* 198 */,
@@ -7538,7 +7538,8 @@ module.exports = {
 /* 206 */,
 /* 207 */,
 /* 208 */,
-/* 209 */
+/* 209 */,
+/* 210 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -7602,14 +7603,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 210 */,
 /* 211 */,
 /* 212 */,
 /* 213 */,
 /* 214 */,
 /* 215 */,
 /* 216 */,
-/* 217 */
+/* 217 */,
+/* 218 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

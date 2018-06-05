@@ -346,13 +346,13 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(251)
+  __webpack_require__(253)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(168),
   /* template */
-  __webpack_require__(229),
+  __webpack_require__(230),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -761,7 +761,7 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -773,48 +773,6 @@ exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left
 
 // exports
 
-
-/***/ }),
-
-/***/ 229:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-input', {
-    staticClass: "demo",
-    attrs: {
-      "placeholder": "请输入手机号"
-    }
-  }, [_c('wx-icon', {
-    staticClass: "icon",
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1), _vm._v(" "), _c('wx-input', {
-    staticClass: "demo",
-    attrs: {
-      "width": "500px",
-      "type": "password",
-      "placeholder": "请输入密码"
-    }
-  }, [_c('wx-icon', {
-    staticClass: "icon",
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-34dd637c", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -923,13 +881,55 @@ exports.default = {
 
 /***/ }),
 
-/***/ 251:
+/***/ 230:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-input', {
+    staticClass: "demo",
+    attrs: {
+      "placeholder": "请输入手机号"
+    }
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1), _vm._v(" "), _c('wx-input', {
+    staticClass: "demo",
+    attrs: {
+      "width": "500px",
+      "type": "password",
+      "placeholder": "请输入密码"
+    }
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1)], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-34dd637c", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 253:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(208);
+var content = __webpack_require__(209);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

@@ -991,7 +991,7 @@ exports.default = {
     data: function data() {
         return {
             style: {
-                top: '100px',
+                top: '0px',
                 'background-color': 'rgba(0,0,0,0.6)'
             }
         };
@@ -6569,14 +6569,14 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(192)
+__vue_styles__.push(__webpack_require__(193)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(179)
 
 /* template */
-var __vue_template__ = __webpack_require__(213)
+var __vue_template__ = __webpack_require__(214)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -6763,7 +6763,8 @@ exports.default = {
 /* 189 */,
 /* 190 */,
 /* 191 */,
-/* 192 */
+/* 192 */,
+/* 193 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -6773,7 +6774,6 @@ module.exports = {
 }
 
 /***/ }),
-/* 193 */,
 /* 194 */,
 /* 195 */,
 /* 196 */,
@@ -6793,7 +6793,8 @@ module.exports = {
 /* 210 */,
 /* 211 */,
 /* 212 */,
-/* 213 */
+/* 213 */,
+/* 214 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
