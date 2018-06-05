@@ -1,26 +1,57 @@
 <template>
     <div class="wx-demo">
+
         <wx-button 
           height="80px"
-          width="450px"
-          borderRadius="200px"
+          width="690px"
+          class="button"
           textColor="#fff"
           textFontSize="32px"
-          :disabled="disabled"
           @wxClick="wxClickHandle1">normal button</wx-button>
 
         <wx-button 
+          height="80px"
+          width="690px"
+          class="button"
+          textColor="#fff"
+          :disabled="true"
+          disabledBgColor="rgba(70,118,255,0.3)"
+          textFontSize="32px"
+          @wxClick="wxClickHandle1">normal disabled button</wx-button>
+
+
+        <wx-button 
             height="80px"
-            width="450px"
-            borderRadius="200px"
+            width="690px"
+            class="button"
             textColor="#fff"
             textFontSize="32px"
             :disabled="false"
-            :styles="{'margin-left': '50px','margin-top': '80px', 'background-color': '#F37B1D',}"
-            disabledBgColor="#e5e5e5"
+            :styles="{'background-color': '#F37B1D'}"
+            disabledBgColor="rgba(243,123,29,0.3)"
             :disableOnPromise="wxClickHandle2">promise button</wx-button>
+
+        <wx-button 
+            height="80px"
+            width="690px"
+            class="button"
+            textColor="#4d4d4d"
+            textFontSize="32px"
+            :styles="btnStyle"
+            @wxClick="wxClickHandle1">确定</wx-button>
     </div>
 </template>
+
+<style type="text/css">
+  .wx-demo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+</style>
 
 <script>
     import { WxButton } from '../../index';
@@ -28,21 +59,22 @@
     export default {
         data(){
             return {
-                disabled: true
+                btnStyle: {
+                  'background-color': '#fff', 
+                  'border-width': '1px',
+                  'border-style': 'solid',
+                  'border-color': '#A5A5A5',
+                },
             }
         },
       components: {
           WxButton 
       },
-      mounted () {
-          setTimeout(()=> {
-              this.disabled = false
-          }, 2000)
-      },
+
       methods: {
           wxClickHandle1 () {
               modal.toast({
-                  message: 'clicked 1'
+                  message: `clicked`,
               });
           },
 
