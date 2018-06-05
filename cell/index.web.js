@@ -7707,6 +7707,14 @@ var modal = weex.requireModule('modal');
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     components: { WxCell: _index.WxCell },
@@ -7805,7 +7813,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.cell {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.hb-content {\n    position: absolute;\n    left: 2.66667rem;\n}\n.hb-content-text {\n    margin-top: 0.13333rem;\n    font-size: 0.37333rem;\n    color: #666;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/cell/index.vue?3b9e2da9"],"names":[],"mappings":";AA+CA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CAEA;AACA;IACA,mBAAA;IACA,iBAAA;CACA;AACA;IACA,uBAAA;IACA,sBAAA;IACA,YAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"cell\">\n        <wx-cell \n            text=\"纯文本内容\" \n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell \n            text=\"两侧内容\"\n            icon=\"\"\n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#666\"\n            textFontSize=\"32px\"\n            :hasArrow=\"false\"\n            @wxClick=\"handleClick\">\n                <text style=\"padding-right:20px; color: #000\" slot=\"left\">LEFT</text>\n                <text style=\"color: #333\" slot=\"right\">RIGHT</text>\n            </wx-cell>\n        <wx-cell \n            text=\"左侧图片icon\" \n            icon=\"http://ww4.sinaimg.cn/large/0060lm7Tgw1fb5ow9ddswj302s02gglh.jpg\"\n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell\n                text=\"中间内容\"\n                height=\"100px\"\n                width=\"690px\"\n                textColor=\"#333\"\n                textFontSize=\"32px\"\n                @wxClick=\"handleClick\">\n            <div class=\"hb-content\" slot=\"left\">\n                <text class=\"hb-content-text\">王小二</text>\n                <text class=\"hb-content-text\">230104198402132613</text>\n            </div>\n        </wx-cell>\n    </div>\n</template>\n\n<style>\n    .cell {\n        flex-direction: column;\n        align-items: center;\n\n    }\n    .hb-content {\n        position: absolute;\n        left: 200px;\n    }\n    .hb-content-text {\n        margin-top: 10px;\n        font-size: 28px;\n        color: #666;\n    }\n</style>\n\n<script>\n    import { WxCell } from '../../index';\n    const modal = weex.requireModule('modal');\n    // import WxCell from 'weex-droplet-ui/packages/wx-cell';\n    export default {\n        components: { WxCell },\n        methods: {\n            handleClick () {\n                modal.toast({\n                    message: 'test'\n                });\n            }\n        }\n    };\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.cell {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.hb-content {\n    position: absolute;\n    left: 2.66667rem;\n}\n.hb-content-text {\n    margin-top: 0.13333rem;\n    font-size: 0.37333rem;\n    color: #666;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/cell/index.vue?fb2a2be8"],"names":[],"mappings":";AAuDA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CAEA;AACA;IACA,mBAAA;IACA,iBAAA;CACA;AACA;IACA,uBAAA;IACA,sBAAA;IACA,YAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"cell\">\n        <wx-cell \n            text=\"纯文本内容\" \n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            :hasArrow=\"false\"\n            @wxClick=\"handleClick\"></wx-cell>\n        <wx-cell \n            text=\"纯文本内容\" \n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell \n            text=\"两侧内容\"\n            icon=\"\"\n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#666\"\n            textFontSize=\"32px\"\n            :hasArrow=\"false\"\n            @wxClick=\"handleClick\">\n                <text style=\"padding-right:20px; color: #000\" slot=\"left\">LEFT</text>\n                <text style=\"color: #333\" slot=\"right\">RIGHT</text>\n            </wx-cell>\n        <wx-cell \n            text=\"左侧图片icon\" \n            icon=\"http://ww4.sinaimg.cn/large/0060lm7Tgw1fb5ow9ddswj302s02gglh.jpg\"\n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell\n                text=\"中间内容\"\n                height=\"100px\"\n                width=\"690px\"\n                textColor=\"#333\"\n                textFontSize=\"32px\"\n                @wxClick=\"handleClick\">\n            <div class=\"hb-content\" slot=\"left\">\n                <text class=\"hb-content-text\">王小二</text>\n                <text class=\"hb-content-text\">230104198402132613</text>\n            </div>\n        </wx-cell>\n    </div>\n</template>\n\n<style>\n    .cell {\n        flex-direction: column;\n        align-items: center;\n\n    }\n    .hb-content {\n        position: absolute;\n        left: 200px;\n    }\n    .hb-content-text {\n        margin-top: 10px;\n        font-size: 28px;\n        color: #666;\n    }\n</style>\n\n<script>\n    import { WxCell } from '../../index';\n    const modal = weex.requireModule('modal');\n    // import WxCell from 'weex-droplet-ui/packages/wx-cell';\n    export default {\n        components: { WxCell },\n        methods: {\n            handleClick () {\n                modal.toast({\n                    message: 'test'\n                });\n            }\n        }\n    };\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -7842,6 +7850,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "cell weex-ct",
     attrs: {}
   }, [_c('wx-cell', {
+    attrs: {
+      "text": "纯文本内容",
+      "height": "100px",
+      "width": "690px",
+      "textColor": "#333",
+      "textFontSize": "32px",
+      "hasArrow": false,
+      "data-evt-wxClick": ""
+    },
+    on: {
+      "wxClick": _vm.handleClick
+    },
+    nativeOn: {
+      "wxClick": _vm.handleClick
+    }
+  }), _vm._v(" "), _c('wx-cell', {
     attrs: {
       "text": "纯文本内容",
       "height": "100px",

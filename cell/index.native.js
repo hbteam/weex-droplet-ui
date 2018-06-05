@@ -6728,6 +6728,14 @@ var modal = weex.requireModule('modal');
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     components: { WxCell: _index.WxCell },
@@ -6811,6 +6819,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["cell"]
   }, [_c('wx-cell', {
+    attrs: {
+      "text": "纯文本内容",
+      "height": "100px",
+      "width": "690px",
+      "textColor": "#333",
+      "textFontSize": "32px",
+      "hasArrow": false
+    },
+    on: {
+      "wxClick": _vm.handleClick
+    }
+  }), _c('wx-cell', {
     attrs: {
       "text": "纯文本内容",
       "height": "100px",
