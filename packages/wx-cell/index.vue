@@ -27,9 +27,9 @@
     }
 
     .icon {
-        width: 36px;
-        height: 34px;
-        padding-left: 20px;
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
     }
 
     .right-arrow {
