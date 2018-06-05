@@ -7975,13 +7975,13 @@ var areas = exports.areas = {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(246)
+  __webpack_require__(247)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(171),
   /* template */
-  __webpack_require__(223),
+  __webpack_require__(224),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -8050,7 +8050,7 @@ var _data = __webpack_require__(194);
 
 var _address = __webpack_require__(135);
 
-var _picker = __webpack_require__(222);
+var _picker = __webpack_require__(223);
 
 var _picker2 = _interopRequireDefault(_picker);
 
@@ -8460,19 +8460,20 @@ exports.push([module.i, "\n.wx-demo[data-v-3053d0c4] {\n}\n.flex[data-v-3053d0c4
 /* 219 */,
 /* 220 */,
 /* 221 */,
-/* 222 */
+/* 222 */,
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(249)
+  __webpack_require__(250)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(172),
   /* template */
-  __webpack_require__(227),
+  __webpack_require__(228),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -8504,7 +8505,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8654,10 +8655,10 @@ if (false) {
 }
 
 /***/ }),
-/* 224 */,
 /* 225 */,
 /* 226 */,
-/* 227 */
+/* 227 */,
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8770,7 +8771,6 @@ if (false) {
 }
 
 /***/ }),
-/* 228 */,
 /* 229 */,
 /* 230 */,
 /* 231 */,
@@ -8788,7 +8788,8 @@ if (false) {
 /* 243 */,
 /* 244 */,
 /* 245 */,
-/* 246 */
+/* 246 */,
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -8814,9 +8815,9 @@ if(false) {
 }
 
 /***/ }),
-/* 247 */,
 /* 248 */,
-/* 249 */
+/* 249 */,
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag

@@ -7570,13 +7570,17 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(256)
+}
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(159),
   /* template */
-  __webpack_require__(233),
+  __webpack_require__(234),
   /* styles */
-  null,
+  injectStyle,
   /* scopeId */
   null,
   /* moduleIdentifier (server only) */
@@ -7663,29 +7667,58 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
         return {
-            disabled: true
+            btnStyle: {
+                'background-color': '#fff',
+                'border-width': '1px',
+                'border-style': 'solid',
+                'border-color': '#A5A5A5'
+            }
         };
     },
 
     components: {
         WxButton: _index.WxButton
     },
-    mounted: function mounted() {
-        var _this = this;
-
-        setTimeout(function () {
-            _this.disabled = false;
-        }, 2000);
-    },
 
     methods: {
         wxClickHandle1: function wxClickHandle1() {
             modal.toast({
-                message: 'clicked 1'
+                message: 'clicked'
             });
         },
 
@@ -7803,7 +7836,20 @@ exports.default = new Vue(_index2.default);
 /* 210 */,
 /* 211 */,
 /* 212 */,
-/* 213 */,
+/* 213 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.wx-demo {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n}\n.button {\n  margin-top: 0.53333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/button/index.vue?190dce6d"],"names":[],"mappings":";AA6CA;EACA,6BAAA;EAAA,8BAAA;EAAA,+BAAA;UAAA,uBAAA;EACA,0BAAA;EAAA,4BAAA;UAAA,oBAAA;CACA;AAEA;EACA,uBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n\n        <wx-button \n          height=\"80px\"\n          width=\"690px\"\n          class=\"button\"\n          textColor=\"#fff\"\n          textFontSize=\"32px\"\n          @wxClick=\"wxClickHandle1\">normal button</wx-button>\n\n        <wx-button \n          height=\"80px\"\n          width=\"690px\"\n          class=\"button\"\n          textColor=\"#fff\"\n          :disabled=\"true\"\n          disabledBgColor=\"rgba(70,118,255,0.3)\"\n          textFontSize=\"32px\"\n          @wxClick=\"wxClickHandle1\">normal disabled button</wx-button>\n\n\n        <wx-button \n            height=\"80px\"\n            width=\"690px\"\n            class=\"button\"\n            textColor=\"#fff\"\n            textFontSize=\"32px\"\n            :disabled=\"false\"\n            :styles=\"{'background-color': '#F37B1D'}\"\n            disabledBgColor=\"rgba(243,123,29,0.3)\"\n            :disableOnPromise=\"wxClickHandle2\">promise button</wx-button>\n\n        <wx-button \n            height=\"80px\"\n            width=\"690px\"\n            class=\"button\"\n            textColor=\"#4d4d4d\"\n            textFontSize=\"32px\"\n            :styles=\"btnStyle\"\n            @wxClick=\"wxClickHandle1\">确定</wx-button>\n    </div>\n</template>\n\n<style type=\"text/css\">\n  .wx-demo {\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .button {\n    margin-top: 40px;\n  }\n</style>\n\n<script>\n    import { WxButton } from '../../index';\n    const modal = weex.requireModule('modal');\n    export default {\n        data(){\n            return {\n                btnStyle: {\n                  'background-color': '#fff', \n                  'border-width': '1px',\n                  'border-style': 'solid',\n                  'border-color': '#A5A5A5',\n                },\n            }\n        },\n      components: {\n          WxButton \n      },\n\n      methods: {\n          wxClickHandle1 () {\n              modal.toast({\n                  message: `clicked`,\n              });\n          },\n\n          /**\n           * 1. 点击按钮，会执行wxClickHandle2()方法，且必须返回Promise。\n           * 2. 解决避免在请求未结束时产生重复提交或请求\n           * 3. 无论结果是resolve或者reject，button都会恢复至可点击状态。\n           * @return {Promise} promise\n           */\n          wxClickHandle2 () {\n              modal.toast({\n                  message: 'clicked 2'\n              });\n              return this.request().then((data) => {\n                  // TODO\n                  console.log(data)\n              }).catch((data) => {\n                  // TODO\n                  console.log(data)\n              })\n          },\n\n          /**\n           * 模拟Promise封装接口请求方法，必须返回Promise\n           * @return {Promise} promise\n           */\n          request () {\n              return new Promise(function(resolve, reject) {\n                  const result1 = '接口调用成功';\n                  const result2 = '接口调用失败';\n                  setTimeout(() => {\n                      if (true) {\n                          resolve(result1);\n                      } else {\n                          reject(result2);\n                      }\n                  }, 2000);\n              });\n          },\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
 /* 214 */,
 /* 215 */,
 /* 216 */,
@@ -7823,7 +7869,8 @@ exports.default = new Vue(_index2.default);
 /* 230 */,
 /* 231 */,
 /* 232 */,
-/* 233 */
+/* 233 */,
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -7831,13 +7878,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "wx-demo weex-ct",
     attrs: {}
   }, [_c('wx-button', {
+    staticClass: "button",
     attrs: {
       "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
+      "width": "690px",
       "textColor": "#fff",
       "textFontSize": "32px",
-      "disabled": _vm.disabled,
       "data-evt-wxClick": ""
     },
     on: {
@@ -7847,22 +7893,53 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "wxClick": _vm.wxClickHandle1
     }
   }, [_vm._v("normal button")]), _vm._v(" "), _c('wx-button', {
+    staticClass: "button",
     attrs: {
       "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
+      "width": "690px",
+      "textColor": "#fff",
+      "disabled": true,
+      "disabledBgColor": "rgba(70,118,255,0.3)",
+      "textFontSize": "32px",
+      "data-evt-wxClick": ""
+    },
+    on: {
+      "wxClick": _vm.wxClickHandle1
+    },
+    nativeOn: {
+      "wxClick": _vm.wxClickHandle1
+    }
+  }, [_vm._v("normal disabled button")]), _vm._v(" "), _c('wx-button', {
+    staticClass: "button",
+    attrs: {
+      "height": "80px",
+      "width": "690px",
       "textColor": "#fff",
       "textFontSize": "32px",
       "disabled": false,
       "styles": {
-        'margin-left': '50px',
-        'margin-top': '80px',
-        'background-color': '#F37B1D',
+        'background-color': '#F37B1D'
       },
-      "disabledBgColor": "#e5e5e5",
+      "disabledBgColor": "rgba(243,123,29,0.3)",
       "disableOnPromise": _vm.wxClickHandle2
     }
-  }, [_vm._v("promise button")])], 1)
+  }, [_vm._v("promise button")]), _vm._v(" "), _c('wx-button', {
+    staticClass: "button",
+    attrs: {
+      "height": "80px",
+      "width": "690px",
+      "textColor": "#4d4d4d",
+      "textFontSize": "32px",
+      "styles": _vm.btnStyle,
+      "data-evt-wxClick": ""
+    },
+    on: {
+      "wxClick": _vm.wxClickHandle1
+    },
+    nativeOn: {
+      "wxClick": _vm.wxClickHandle1
+    }
+  }, [_vm._v("确定")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -7870,6 +7947,53 @@ if (false) {
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-47078196", module.exports)
   }
+}
+
+/***/ }),
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(213);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("6a1a4c00", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-47078196\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-47078196\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
 }
 
 /***/ })

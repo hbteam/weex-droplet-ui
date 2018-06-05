@@ -7579,13 +7579,13 @@ if(false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(253)
+  __webpack_require__(254)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(166),
   /* template */
-  __webpack_require__(231),
+  __webpack_require__(232),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -7799,7 +7799,8 @@ exports.push([module.i, "\n.cell {\n    width: 9.2rem;\n    margin-left: 0.4rem;
 /* 228 */,
 /* 229 */,
 /* 230 */,
-/* 231 */
+/* 231 */,
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -7840,7 +7841,6 @@ if (false) {
 }
 
 /***/ }),
-/* 232 */,
 /* 233 */,
 /* 234 */,
 /* 235 */,
@@ -7861,7 +7861,8 @@ if (false) {
 /* 250 */,
 /* 251 */,
 /* 252 */,
-/* 253 */
+/* 253 */,
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag

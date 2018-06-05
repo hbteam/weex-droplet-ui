@@ -6555,11 +6555,15 @@ module.exports.render._withStripped = true
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
+/* styles */
+__vue_styles__.push(__webpack_require__(195)
+)
+
 /* script */
 __vue_exports__ = __webpack_require__(158)
 
 /* template */
-var __vue_template__ = __webpack_require__(217)
+var __vue_template__ = __webpack_require__(218)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -6574,6 +6578,7 @@ if (typeof __vue_options__ === "function") {
 __vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/button/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-846c34c4"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -6688,29 +6693,58 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
         return {
-            disabled: true
+            btnStyle: {
+                'background-color': '#fff',
+                'border-width': '1px',
+                'border-style': 'solid',
+                'border-color': '#A5A5A5'
+            }
         };
     },
 
     components: {
         WxButton: _index.WxButton
     },
-    mounted: function mounted() {
-        var _this = this;
-
-        setTimeout(function () {
-            _this.disabled = false;
-        }, 2000);
-    },
 
     methods: {
         wxClickHandle1: function wxClickHandle1() {
             modal.toast({
-                message: 'clicked 1'
+                message: 'clicked'
             });
         },
 
@@ -6792,7 +6826,20 @@ exports.default = {
 /* 192 */,
 /* 193 */,
 /* 194 */,
-/* 195 */,
+/* 195 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-demo": {
+    "flexDirection": "column",
+    "alignItems": "center"
+  },
+  "button": {
+    "marginTop": "40"
+  }
+}
+
+/***/ }),
 /* 196 */,
 /* 197 */,
 /* 198 */,
@@ -6814,41 +6861,64 @@ exports.default = {
 /* 214 */,
 /* 215 */,
 /* 216 */,
-/* 217 */
+/* 217 */,
+/* 218 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wx-demo"]
   }, [_c('wx-button', {
+    staticClass: ["button"],
     attrs: {
       "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
+      "width": "690px",
       "textColor": "#fff",
-      "textFontSize": "32px",
-      "disabled": _vm.disabled
+      "textFontSize": "32px"
     },
     on: {
       "wxClick": _vm.wxClickHandle1
     }
   }, [_vm._v("normal button")]), _c('wx-button', {
+    staticClass: ["button"],
     attrs: {
       "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
+      "width": "690px",
+      "textColor": "#fff",
+      "disabled": true,
+      "disabledBgColor": "rgba(70,118,255,0.3)",
+      "textFontSize": "32px"
+    },
+    on: {
+      "wxClick": _vm.wxClickHandle1
+    }
+  }, [_vm._v("normal disabled button")]), _c('wx-button', {
+    staticClass: ["button"],
+    attrs: {
+      "height": "80px",
+      "width": "690px",
       "textColor": "#fff",
       "textFontSize": "32px",
       "disabled": false,
       "styles": {
-        'margin-left': '50px',
-        'margin-top': '80px',
-        'background-color': '#F37B1D',
+        'background-color': '#F37B1D'
       },
-      "disabledBgColor": "#e5e5e5",
+      "disabledBgColor": "rgba(243,123,29,0.3)",
       "disableOnPromise": _vm.wxClickHandle2
     }
-  }, [_vm._v("promise button")])], 1)
+  }, [_vm._v("promise button")]), _c('wx-button', {
+    staticClass: ["button"],
+    attrs: {
+      "height": "80px",
+      "width": "690px",
+      "textColor": "#4d4d4d",
+      "textFontSize": "32px",
+      "styles": _vm.btnStyle
+    },
+    on: {
+      "wxClick": _vm.wxClickHandle1
+    }
+  }, [_vm._v("确定")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
