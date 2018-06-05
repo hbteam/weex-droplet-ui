@@ -24,28 +24,38 @@
             @wxChange="handleChangeAddress">
         </Picker3>
 
-        <wx-button 
-            height="80px"
-            width="450px"
-            borderRadius="200px"
-            textColor="#fff"
-            textFontSize="32px"
-            @wxClick="visible=true">点击选择</wx-button>
-        <text style="font-size:32px;">选中的值为：{{ selectedData.name }}</text>
+        <div class="wrap">
+            <wx-button 
+                height="80px"
+                width="690px"
+                class="button"
+                textColor="#fff"
+                textFontSize="32px"
+                @wxClick="visible=true">点击选择</wx-button>
+            <text style="font-size:32px;">{{ selectedData.name }}</text>
 
-        <wx-button 
-            height="80px"
-            width="450px"
-            borderRadius="200px"
-            textColor="#fff"
-            textFontSize="32px"
-            @wxClick="visible3=true">地址选择</wx-button>
-        <text style="font-size:32px;">选中地址值为：{{ address }}</text>
+            <wx-button 
+                height="80px"
+                width="690px"
+                class="button"
+                textColor="#fff"
+                textFontSize="32px"
+                @wxClick="visible3=true">地址选择</wx-button>
+            <text style="font-size:32px;">{{ address }}</text>
+        </div>
     </div>
 </template>
 <style scoped>
     .wx-demo {
+    }
 
+    .wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        margin-top: 60px;
     }
 
     .btn-wrap {
