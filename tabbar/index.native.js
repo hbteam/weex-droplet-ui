@@ -5868,9 +5868,9 @@ module.exports = {
     "fontSize": "32"
   },
   "icon": {
-    "width": "36",
-    "height": "34",
-    "paddingLeft": "20"
+    "width": "40",
+    "height": "40",
+    "marginRight": "20"
   },
   "right-arrow": {
     "width": "22",

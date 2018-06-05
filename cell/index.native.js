@@ -5868,9 +5868,9 @@ module.exports = {
     "fontSize": "32"
   },
   "icon": {
-    "width": "36",
-    "height": "34",
-    "paddingLeft": "20"
+    "width": "40",
+    "height": "40",
+    "marginRight": "20"
   },
   "right-arrow": {
     "width": "22",
@@ -6728,6 +6728,13 @@ var modal = weex.requireModule('modal');
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     components: { WxCell: _index.WxCell },
@@ -6770,15 +6777,17 @@ exports.default = {
 
 module.exports = {
   "cell": {
-    "width": "650",
-    "marginLeft": "50"
+    "flexDirection": "column",
+    "alignItems": "center"
   },
   "hb-content": {
     "position": "absolute",
     "left": "200"
   },
   "hb-content-text": {
-    "marginTop": "10"
+    "marginTop": "10",
+    "fontSize": "28",
+    "color": "#666666"
   }
 }
 
@@ -6810,10 +6819,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["cell"]
   }, [_c('wx-cell', {
     attrs: {
-      "text": "文字描述",
-      "icon": "",
-      "height": "200px",
+      "text": "纯文本内容",
+      "height": "100px",
+      "width": "690px",
       "textColor": "#333",
+      "textFontSize": "32px"
+    },
+    on: {
+      "wxClick": _vm.handleClick
+    }
+  }), _c('wx-cell', {
+    attrs: {
+      "text": "两侧内容",
+      "icon": "",
+      "height": "100px",
+      "width": "690px",
+      "textColor": "#666",
       "textFontSize": "32px",
       "hasArrow": false
     },
@@ -6821,20 +6842,28 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "wxClick": _vm.handleClick
     }
   }, [_c('text', {
+    staticStyle: {
+      paddingRight: "20px",
+      color: "#000"
+    },
     attrs: {
       "slot": "left"
     },
     slot: "left"
-  }, [_vm._v("标题")]), _c('text', {
+  }, [_vm._v("LEFT")]), _c('text', {
+    staticStyle: {
+      color: "#333"
+    },
     attrs: {
       "slot": "right"
     },
     slot: "right"
-  }, [_vm._v("图标")])]), _c('wx-cell', {
+  }, [_vm._v("RIGHT")])]), _c('wx-cell', {
     attrs: {
-      "text": "文字描述",
-      "icon": "http://ww2.sinaimg.cn/large/0060lm7Tgw1fb5paqsppfj302v02gmwx.jpg",
+      "text": "左侧图片icon",
+      "icon": "http://ww4.sinaimg.cn/large/0060lm7Tgw1fb5ow9ddswj302s02gglh.jpg",
       "height": "100px",
+      "width": "690px",
       "textColor": "#333",
       "textFontSize": "32px"
     },
@@ -6843,18 +6872,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('wx-cell', {
     attrs: {
-      "text": "文字描述",
+      "text": "中间内容",
       "height": "100px",
-      "textColor": "#333",
-      "textFontSize": "32px"
-    },
-    on: {
-      "wxClick": _vm.handleClick
-    }
-  }), _c('wx-cell', {
-    attrs: {
-      "text": "文字描述",
-      "height": "100px",
+      "width": "690px",
       "textColor": "#333",
       "textFontSize": "32px"
     },

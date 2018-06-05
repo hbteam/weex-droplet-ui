@@ -5868,9 +5868,9 @@ module.exports = {
     "fontSize": "32"
   },
   "icon": {
-    "width": "36",
-    "height": "34",
-    "paddingLeft": "20"
+    "width": "40",
+    "height": "40",
+    "marginRight": "20"
   },
   "right-arrow": {
     "width": "22",
@@ -6795,6 +6795,9 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
+//
+//
 
 exports.default = {
     components: {
@@ -6844,20 +6847,22 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports = {
-  "button": {
-    "marginBottom": "100"
+  "wx-demo": {
+    "flexDirection": "column",
+    "alignItems": "center"
   },
   "outer": {
-    "marginTop": "100",
+    "marginTop": "40",
     "backgroundColor": "rgba(0,0,0,0)",
-    "fontSize": "34"
+    "fontSize": "32"
   },
   "wx-text": {
     "fontSize": "32",
+    "marginTop": "100",
     "color": "#999999"
   },
   "attention": {
-    "fontSize": "46",
+    "fontSize": "40",
     "color": "#333333",
     "paddingTop": "20",
     "paddingBottom": "20"
@@ -6937,8 +6942,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["wx-demo"]
   }, [_c('text', {
-    staticClass: ["attention"]
-  }, [_vm._v("注: 使用自定义button添加有淡入淡出动画")]), _c('text', {
     staticClass: ["wx-text"]
   }, [_vm._v("dialog1: 使用自定义内容与自定义button")]), _c('wx-button', {
     staticClass: ["button"],

@@ -5419,7 +5419,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-cell[data-v-12f6cc8b] {\n    height: 1.33333rem;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    background-color: #fff;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    /*padding-right: 20px;*/\n    /*padding-left: 20px;*/\n}\n.wx-text[data-v-12f6cc8b] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    font-size: 0.42667rem;\n}\n.icon[data-v-12f6cc8b] {\n    width: 0.48rem;\n    height: 0.45333rem;\n    padding-left: 0.26667rem;\n}\n.right-arrow[data-v-12f6cc8b] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #979797;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #979797;\n    margin-right: 0.05333rem;\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-cell/index.vue?1fbc9242"],"names":[],"mappings":";AAWA;IACA,mBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,uBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,wBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,sBAAA;CACA;AAEA;IACA,eAAA;IACA,mBAAA;IACA,yBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,yBAAA;IACA,kCAAA;YAAA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-cell\" @click=\"handleClick\" :style=\"cellStyles\">\n        <slot name=\"left\"></slot>\n        <image class=\"icon\" v-if=\"icon\" :src=\"icon\"></image>\n        <text :style=\"textStyles\" class=\"wx-text\">{{ text }}</text>\n        <!--<slot></slot>-->\n        <slot name=\"right\"></slot>\n        <div v-if=\"hasArrow\" class=\"right-arrow\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-cell {\n        height: 100px;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        background-color: #fff;\n        flex-direction: row;\n        align-items: center;\n        /*padding-right: 20px;*/\n        /*padding-left: 20px;*/\n    }\n\n    .wx-text {\n        flex: 1;\n        font-size: 32px;\n    }\n\n    .icon {\n        width: 36px;\n        height: 34px;\n        padding-left: 20px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #979797;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #979797;\n        margin-right: 4px;\n        transform: rotate(-45deg);\n    }\n\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    export default {\n        mixins:[mixins],\n        props: {\n            width: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            icon: {\n                type: String,\n                default: ''\n            },\n            hasArrow: {\n                type: Boolean,\n                default: true\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                cellStyles: {},\n                textStyles: {},\n            }\n        },\n\n        created () {\n             this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                this.cellStyles = Object.assign({}, this.styles, baseCss);\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                this.preventDefault(e);\n                this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-cell[data-v-12f6cc8b] {\n    height: 1.33333rem;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    background-color: #fff;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    /*padding-right: 20px;*/\n    /*padding-left: 20px;*/\n}\n.wx-text[data-v-12f6cc8b] {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    font-size: 0.42667rem;\n}\n.icon[data-v-12f6cc8b] {\n    width: 0.53333rem;\n    height: 0.53333rem;\n    margin-right: 0.26667rem;\n}\n.right-arrow[data-v-12f6cc8b] {\n    width: 0.29333rem;\n    height: 0.29333rem;\n    border-bottom-width: 0.02667rem;\n    border-bottom-style: solid;\n    border-bottom-color: #979797;\n    border-right-width: 0.02667rem;\n    border-right-style: solid;\n    border-right-color: #979797;\n    margin-right: 0.05333rem;\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-cell/index.vue?7b310bcd"],"names":[],"mappings":";AAWA;IACA,mBAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,uBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,wBAAA;IACA,uBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;IACA,sBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,yBAAA;CACA;AAEA;IACA,kBAAA;IACA,mBAAA;IACA,gCAAA;IACA,2BAAA;IACA,6BAAA;IACA,+BAAA;IACA,0BAAA;IACA,4BAAA;IACA,yBAAA;IACA,kCAAA;YAAA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-cell\" @click=\"handleClick\" :style=\"cellStyles\">\n        <slot name=\"left\"></slot>\n        <image class=\"icon\" v-if=\"icon\" :src=\"icon\"></image>\n        <text :style=\"textStyles\" class=\"wx-text\">{{ text }}</text>\n        <!--<slot></slot>-->\n        <slot name=\"right\"></slot>\n        <div v-if=\"hasArrow\" class=\"right-arrow\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-cell {\n        height: 100px;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        background-color: #fff;\n        flex-direction: row;\n        align-items: center;\n        /*padding-right: 20px;*/\n        /*padding-left: 20px;*/\n    }\n\n    .wx-text {\n        flex: 1;\n        font-size: 32px;\n    }\n\n    .icon {\n        width: 40px;\n        height: 40px;\n        margin-right: 20px;\n    }\n\n    .right-arrow {\n        width: 22px;\n        height: 22px;\n        border-bottom-width: 2px;\n        border-bottom-style: solid;\n        border-bottom-color: #979797;\n        border-right-width: 2px;\n        border-right-style: solid;\n        border-right-color: #979797;\n        margin-right: 4px;\n        transform: rotate(-45deg);\n    }\n\n</style>\n<script>\n    import mixins from '../utils/mixins'\n    export default {\n        mixins:[mixins],\n        props: {\n            width: {\n                type: String\n            },\n            height: {\n                type: String,\n                default: '100px'\n            },\n            styles: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            text: {\n                type: String,\n                default: ''\n            },\n            icon: {\n                type: String,\n                default: ''\n            },\n            hasArrow: {\n                type: Boolean,\n                default: true\n            },\n            textColor: {\n                type: String,\n                default: '#ffffff'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                cellStyles: {},\n                textStyles: {},\n            }\n        },\n\n        created () {\n             this.setStyle();\n        },\n\n        methods: {\n            setStyle () {\n                const baseCss = {\n                    height: this.height,\n                    width: this.width,\n                };\n                this.cellStyles = Object.assign({}, this.styles, baseCss);\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            handleClick (e) {\n                this.preventDefault(e);\n                this.$emit('wxClick', e);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -7702,6 +7702,13 @@ var modal = weex.requireModule('modal');
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     components: { WxCell: _index.WxCell },
@@ -7800,7 +7807,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.cell {\n    width: 8.66667rem;\n    margin-left: 0.66667rem;\n}\n.hb-content {\n    position: absolute;\n    left: 2.66667rem;\n}\n.hb-content-text {\n    margin-top: 0.13333rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/cell/index.vue?29459104"],"names":[],"mappings":";AA2CA;IACA,kBAAA;IACA,wBAAA;CACA;AACA;IACA,mBAAA;IACA,iBAAA;CACA;AACA;IACA,uBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"cell\">\n        <wx-cell \n            text=\"文字描述\"\n            icon=\"\"\n            height=\"200px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            :hasArrow=\"false\"\n            @wxClick=\"handleClick\">\n                <text slot=\"left\">标题</text>\n                <text slot=\"right\">图标</text>\n            </wx-cell>\n        <wx-cell \n            text=\"文字描述\" \n            icon=\"http://ww2.sinaimg.cn/large/0060lm7Tgw1fb5paqsppfj302v02gmwx.jpg\"\n            height=\"100px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell \n            text=\"文字描述\" \n            height=\"100px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell\n                text=\"文字描述\"\n                height=\"100px\"\n                textColor=\"#333\"\n                textFontSize=\"32px\"\n                @wxClick=\"handleClick\">\n            <div class=\"hb-content\" slot=\"left\">\n                <text class=\"hb-content-text\">王小二</text>\n                <text class=\"hb-content-text\">230104198402132613</text>\n            </div>\n        </wx-cell>\n    </div>\n</template>\n\n<style>\n    .cell {\n        width: 650px;\n        margin-left: 50px;\n    }\n    .hb-content {\n        position: absolute;\n        left: 200px;\n    }\n    .hb-content-text {\n        margin-top: 10px;\n    }\n</style>\n\n<script>\n    import { WxCell } from '../../index';\n    const modal = weex.requireModule('modal');\n    // import WxCell from 'weex-droplet-ui/packages/wx-cell';\n    export default {\n        components: { WxCell },\n        methods: {\n            handleClick () {\n                modal.toast({\n                    message: 'test'\n                });\n            }\n        }\n    };\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.cell {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.hb-content {\n    position: absolute;\n    left: 2.66667rem;\n}\n.hb-content-text {\n    margin-top: 0.13333rem;\n    font-size: 0.37333rem;\n    color: #666;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/cell/index.vue?3b9e2da9"],"names":[],"mappings":";AA+CA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CAEA;AACA;IACA,mBAAA;IACA,iBAAA;CACA;AACA;IACA,uBAAA;IACA,sBAAA;IACA,YAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"cell\">\n        <wx-cell \n            text=\"纯文本内容\" \n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell \n            text=\"两侧内容\"\n            icon=\"\"\n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#666\"\n            textFontSize=\"32px\"\n            :hasArrow=\"false\"\n            @wxClick=\"handleClick\">\n                <text style=\"padding-right:20px; color: #000\" slot=\"left\">LEFT</text>\n                <text style=\"color: #333\" slot=\"right\">RIGHT</text>\n            </wx-cell>\n        <wx-cell \n            text=\"左侧图片icon\" \n            icon=\"http://ww4.sinaimg.cn/large/0060lm7Tgw1fb5ow9ddswj302s02gglh.jpg\"\n            height=\"100px\"\n            width=\"690px\"\n            textColor=\"#333\"\n            textFontSize=\"32px\"\n            @wxClick=\"handleClick\"></wx-cell>\n\n        <wx-cell\n                text=\"中间内容\"\n                height=\"100px\"\n                width=\"690px\"\n                textColor=\"#333\"\n                textFontSize=\"32px\"\n                @wxClick=\"handleClick\">\n            <div class=\"hb-content\" slot=\"left\">\n                <text class=\"hb-content-text\">王小二</text>\n                <text class=\"hb-content-text\">230104198402132613</text>\n            </div>\n        </wx-cell>\n    </div>\n</template>\n\n<style>\n    .cell {\n        flex-direction: column;\n        align-items: center;\n\n    }\n    .hb-content {\n        position: absolute;\n        left: 200px;\n    }\n    .hb-content-text {\n        margin-top: 10px;\n        font-size: 28px;\n        color: #666;\n    }\n</style>\n\n<script>\n    import { WxCell } from '../../index';\n    const modal = weex.requireModule('modal');\n    // import WxCell from 'weex-droplet-ui/packages/wx-cell';\n    export default {\n        components: { WxCell },\n        methods: {\n            handleClick () {\n                modal.toast({\n                    message: 'test'\n                });\n            }\n        }\n    };\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -7838,10 +7845,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {}
   }, [_c('wx-cell', {
     attrs: {
-      "text": "文字描述",
-      "icon": "",
-      "height": "200px",
+      "text": "纯文本内容",
+      "height": "100px",
+      "width": "690px",
       "textColor": "#333",
+      "textFontSize": "32px",
+      "data-evt-wxClick": ""
+    },
+    on: {
+      "wxClick": _vm.handleClick
+    },
+    nativeOn: {
+      "wxClick": _vm.handleClick
+    }
+  }), _vm._v(" "), _c('wx-cell', {
+    attrs: {
+      "text": "两侧内容",
+      "icon": "",
+      "height": "100px",
+      "width": "690px",
+      "textColor": "#666",
       "textFontSize": "32px",
       "hasArrow": false,
       "data-evt-wxClick": ""
@@ -7854,21 +7877,29 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('p', {
     staticClass: " weex-el weex-text",
+    staticStyle: {
+      "padding-right": "0.26667rem",
+      "color": "#000"
+    },
     attrs: {
       "slot": "left"
     },
     slot: "left"
-  }, [_vm._v("标题")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("LEFT")]), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
+    staticStyle: {
+      "color": "#333"
+    },
     attrs: {
       "slot": "right"
     },
     slot: "right"
-  }, [_vm._v("图标")])]), _vm._v(" "), _c('wx-cell', {
+  }, [_vm._v("RIGHT")])]), _vm._v(" "), _c('wx-cell', {
     attrs: {
-      "text": "文字描述",
-      "icon": "http://ww2.sinaimg.cn/large/0060lm7Tgw1fb5paqsppfj302v02gmwx.jpg",
+      "text": "左侧图片icon",
+      "icon": "http://ww4.sinaimg.cn/large/0060lm7Tgw1fb5ow9ddswj302s02gglh.jpg",
       "height": "100px",
+      "width": "690px",
       "textColor": "#333",
       "textFontSize": "32px",
       "data-evt-wxClick": ""
@@ -7881,22 +7912,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('wx-cell', {
     attrs: {
-      "text": "文字描述",
+      "text": "中间内容",
       "height": "100px",
-      "textColor": "#333",
-      "textFontSize": "32px",
-      "data-evt-wxClick": ""
-    },
-    on: {
-      "wxClick": _vm.handleClick
-    },
-    nativeOn: {
-      "wxClick": _vm.handleClick
-    }
-  }), _vm._v(" "), _c('wx-cell', {
-    attrs: {
-      "text": "文字描述",
-      "height": "100px",
+      "width": "690px",
       "textColor": "#333",
       "textFontSize": "32px",
       "data-evt-wxClick": ""

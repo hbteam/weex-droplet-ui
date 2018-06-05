@@ -5868,9 +5868,9 @@ module.exports = {
     "fontSize": "32"
   },
   "icon": {
-    "width": "36",
-    "height": "34",
-    "paddingLeft": "20"
+    "width": "40",
+    "height": "40",
+    "marginRight": "20"
   },
   "right-arrow": {
     "width": "22",
@@ -7210,6 +7210,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
@@ -7489,6 +7499,13 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
+  "wrap": {
+    "flexDirection": "column",
+    "alignItems": "center"
+  },
+  "button": {
+    "marginTop": "60"
+  },
   "btn-wrap": {
     "backgroundColor": "#cccccc",
     "height": "88",
@@ -7640,11 +7657,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "wxConfirm": _vm.confirmAddressPicker,
       "wxChange": _vm.handleChangeAddress
     }
-  }), _c('wx-button', {
+  }), _c('div', {
+    staticClass: ["wrap"]
+  }, [_c('wx-button', {
+    staticClass: ["button"],
     attrs: {
       "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
+      "width": "690px",
       "textColor": "#fff",
       "textFontSize": "32px"
     },
@@ -7657,11 +7676,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       fontSize: "32px"
     }
-  }, [_vm._v("选中的值为：" + _vm._s(_vm.selectedData.name))]), _c('wx-button', {
+  }, [_vm._v(_vm._s(_vm.selectedData.name))]), _c('wx-button', {
+    staticClass: ["button"],
     attrs: {
       "height": "80px",
-      "width": "450px",
-      "borderRadius": "200px",
+      "width": "690px",
       "textColor": "#fff",
       "textFontSize": "32px"
     },
@@ -7674,7 +7693,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       fontSize: "32px"
     }
-  }, [_vm._v("选中地址值为：" + _vm._s(_vm.address))])], 1)
+  }, [_vm._v(_vm._s(_vm.address))])], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
