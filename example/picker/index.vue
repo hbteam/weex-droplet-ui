@@ -25,23 +25,29 @@
         </Picker3>
 
         <div class="wrap">
-            <wx-button 
-                height="80px"
+            <wx-field
+                label="最喜欢的电影"
+                labelPosition="top"
+                placeholder="请选择电影"
                 width="690px"
-                class="button"
-                textColor="#fff"
-                textFontSize="32px"
-                @wxClick="visible=true">点击选择</wx-button>
-            <text style="font-size:32px;">{{ selectedData.name }}</text>
+                :disabled="true"
+                :hasArrow="true"
+                @wxClick="visible=true"
+                v-model="selectedData.name"
+                height="200px">
+            </wx-field>
 
-            <wx-button 
-                height="80px"
+            <wx-field
+                label="通讯地址"
+                labelPosition="top"
+                placeholder="请选择地址"
                 width="690px"
-                class="button"
-                textColor="#fff"
-                textFontSize="32px"
-                @wxClick="visible3=true">地址选择</wx-button>
-            <text style="font-size:32px;">{{ address }}</text>
+                :disabled="true"
+                :hasArrow="true"
+                @wxClick="visible3=true"
+                v-model="address"
+                height="200px">
+            </wx-field>
         </div>
     </div>
 </template>
@@ -77,7 +83,7 @@
     }
 </style>
 <script>
-    import { WxPicker, WxButton, WxPopup } from '../../index';
+    import { WxPicker, WxButton, WxPopup, WxField } from '../../index';
     import { PICKER_DATA } from './data';
     import { provins, citys, areas } from './address';
     import Picker3 from './picker-3.vue';
@@ -128,6 +134,6 @@
                 this.visible3 = false;
             },
         },
-        components: { WxPicker, WxButton, WxPopup, Picker3 }
+        components: { WxPicker, WxButton, WxPopup, Picker3, WxField }
     }
 </script>

@@ -66,9 +66,7 @@
     }
 
     .wx-enter {
-        color: #7A818B;
-        font-size: 32px;
-        margin-top: 30px;
+        
     }
 
     .right-arrow {

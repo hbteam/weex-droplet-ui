@@ -4,7 +4,7 @@
 <style scoped>
     .icon-font {
         font-family: dropletUiIconfont;
-        color: #4d4d4d;
+        color: #666;
         font-size: 32px;
     }
 </style>
