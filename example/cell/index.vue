@@ -6,6 +6,14 @@
             width="690px"
             textColor="#333"
             textFontSize="32px"
+            :hasArrow="false"
+            @wxClick="handleClick"></wx-cell>
+        <wx-cell 
+            text="纯文本内容" 
+            height="100px"
+            width="690px"
+            textColor="#333"
+            textFontSize="32px"
             @wxClick="handleClick"></wx-cell>
 
         <wx-cell 
