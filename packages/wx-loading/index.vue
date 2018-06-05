@@ -52,7 +52,7 @@
         data(){
             return {
                 style: {
-                    top:'100px',
+                    top:'0px',
                     'background-color': `rgba(0,0,0,0.6)`
                 }
             }
