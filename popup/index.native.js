@@ -6472,7 +6472,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }) : _vm._e(), (_vm.disabled) ? _c('text', {
     staticClass: ["wx-input"],
     style: _vm.cliTextStyles
-  }, [_vm._v(_vm._s(_vm.value == '' ? _vm.placeholder : _vm.value))]) : _vm._e(), (_vm.unit) ? _c('text', {
+  }, [_vm._v(_vm._s(_vm.value === '' ? _vm.placeholder : _vm.value))]) : _vm._e(), (_vm.unit) ? _c('text', {
     staticClass: ["wx-unit"]
   }, [_vm._v(_vm._s(_vm.unit))]) : _vm._e(), (_vm.hasArrow) ? _c('wx-icon', {
     staticClass: ["wx-enter"],
