@@ -3546,7 +3546,7 @@ exports.default = {
             };
             this.cliTextStyles = Object.assign({}, cliTextCss);
 
-            if (this.titleWidth !== null) {
+            if (this.titleWidth) {
                 // textTitleStyles 样式
                 var titleStyles = {
                     width: this.titleWidth
