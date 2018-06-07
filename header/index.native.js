@@ -3589,6 +3589,80 @@ var _mixins2 = _interopRequireDefault(_mixins);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var animation = weex.requireModule('animation'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
     mixins: [_mixins2.default],
     props: {
@@ -3650,85 +3724,30 @@ exports.default = {
         },
         handleClick: function handleClick(e) {
             this.preventDefault(e);
-            if (this.useDefaultBack) {
-                this.$router.back();
-            } else {
-                this.$emit('wxBack');
-            }
+            this.animated();
+        },
+        animated: function animated() {
+            var _this = this;
+
+            var el = this.$refs.arrow;
+            animation.transition(el, {
+                styles: {
+                    opacity: '0.5'
+                },
+                duration: 50,
+                timingFunction: 'ease-in',
+                needLayout: false,
+                delay: 0
+            }, function () {
+                if (_this.useDefaultBack) {
+                    _this.$router.back();
+                } else {
+                    _this.$emit('wxBack');
+                }
+            });
         }
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 71 */
@@ -6293,6 +6312,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["title"],
     style: _vm.getTitleStyle()
   }, [_vm._v(_vm._s(_vm.text))])]), (_vm.hasBackIcon) ? _c('div', {
+    ref: "arrow",
     staticClass: ["header-arrow"],
     on: {
       "click": _vm.handleClick
@@ -6683,6 +6703,7 @@ var modal = weex.requireModule('modal'); //
 //
 //
 
+var navigator = weex.requireModule('navigator');
 exports.default = {
     components: {
         WxHeader: _index.WxHeader
@@ -6694,9 +6715,7 @@ exports.default = {
 
     methods: {
         wxBackHandle: function wxBackHandle() {
-            modal.toast({
-                message: 'back'
-            });
+            navigator.pop({ animated: 'true' });
         }
     }
 };
