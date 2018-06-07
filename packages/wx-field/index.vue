@@ -213,7 +213,7 @@
                 }
                 this.cliTextStyles = Object.assign({},  cliTextCss)
 
-                if(this.titleWidth !== null ){
+                if(this.titleWidth ){
                     // textTitleStyles 样式
                     const titleStyles = {
                         width: this.titleWidth
