@@ -1,6 +1,6 @@
 <template>
     <div class="wx-field" :style="fieldStyles" @click="clickHandler">
-        <text :class="[labelPosition=='top'?'wx-text-top':'wx-text']" :style="textTitleStyles">{{ label }}</text>
+        <text :class="[labelPosition==='top'?'wx-text-top':'wx-text']" :style="textTitleStyles">{{ label }}</text>
         <div class="wx-content">
             <input
                     v-if="!disabled"
@@ -176,7 +176,7 @@
         },
         watch: {
             'value': function () {
-                if(this.value != ''){
+                if(this.value !== ''){
                     this.cliTextStyles.color = '#333333'
                 }else{
                     this.cliTextStyles.color = '#999999'
@@ -209,11 +209,11 @@
                 }
                 const cliTextCss = {
                     width: width.replace('px','') - 26 + 'px',
-                    color: this.value == '' ? '#999999' : '#333333'
+                    color: this.value === '' ? '#999999' : '#333333'
                 }
                 this.cliTextStyles = Object.assign({},  cliTextCss)
 
-                if(this.titleWidth != null ){
+                if(this.titleWidth !== null ){
                     // textTitleStyles 样式
                     const titleStyles = {
                         width: this.titleWidth
