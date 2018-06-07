@@ -3509,7 +3509,7 @@ exports.default = {
 
     watch: {
         'value': function value() {
-            if (this.value != '') {
+            if (this.value !== '') {
                 this.cliTextStyles.color = '#333333';
             } else {
                 this.cliTextStyles.color = '#999999';
@@ -3542,11 +3542,11 @@ exports.default = {
             }
             var cliTextCss = {
                 width: width.replace('px', '') - 26 + 'px',
-                color: this.value == '' ? '#999999' : '#333333'
+                color: this.value === '' ? '#999999' : '#333333'
             };
             this.cliTextStyles = Object.assign({}, cliTextCss);
 
-            if (this.titleWidth != null) {
+            if (this.titleWidth !== null) {
                 // textTitleStyles 样式
                 var titleStyles = {
                     width: this.titleWidth
@@ -6450,7 +6450,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.clickHandler
     }
   }, [_c('text', {
-    class: [_vm.labelPosition == 'top' ? 'wx-text-top' : 'wx-text'],
+    class: [_vm.labelPosition === 'top' ? 'wx-text-top' : 'wx-text'],
     style: _vm.textTitleStyles
   }, [_vm._v(_vm._s(_vm.label))]), _c('div', {
     staticClass: ["wx-content"]
