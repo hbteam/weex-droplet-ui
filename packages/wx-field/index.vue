@@ -14,7 +14,7 @@
                     :disabled="disabled"
                     :value="value"
                     :placeholder="placeholder"/>
-            <text v-if="disabled" class="wx-input" :style="cliTextStyles">{{value=='' ? placeholder : value}}</text>
+            <text v-if="disabled" class="wx-input" :style="cliTextStyles">{{value === '' ? placeholder : value}}</text>
             <text class="wx-unit" v-if="unit">{{unit}}</text>
             <wx-icon name="enter" v-if="hasArrow" class="wx-enter"></wx-icon>
         </div>
