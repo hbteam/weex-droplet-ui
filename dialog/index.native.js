@@ -3734,7 +3734,7 @@ exports.default = {
                 styles: {
                     opacity: '0.5'
                 },
-                duration: 1000,
+                duration: 100,
                 timingFunction: 'ease-in',
                 needLayout: false,
                 delay: 0
