@@ -6,7 +6,8 @@
                 <text class="title" :style="getTitleStyle()">{{ text }}</text>
             </div>
             <div class="header-arrow" 
-                @click="handleClick" 
+                @click="handleClick"
+                ref="arrow" 
                 v-if="hasBackIcon">
                 <text :style="getArrowStyle()" class="icon-arrow-left"></text>
             </div>
@@ -71,7 +72,9 @@
     
 </style>
 <script>
-    import mixins from '../utils/mixins'
+    import mixins from '../utils/mixins';
+    const animation = weex.requireModule('animation');
+
     export default {
         mixins:[mixins],
         props: {
@@ -136,12 +139,27 @@
 
             handleClick (e) {
                 this.preventDefault(e);
-                if (this.useDefaultBack) {
-                    this.$router.back()
-                } else {
-                    this.$emit('wxBack')
-                }
-            }
+                this.animated();
+            },
+
+            animated () {
+                const el = this.$refs.arrow;
+                animation.transition(el, {
+                    styles: {
+                        opacity: '0.5',
+                    },
+                    duration: 200,
+                    timingFunction: 'ease-in',
+                    needLayout: false,
+                    delay: 0
+                }, () => {
+                    if (this.useDefaultBack) {
+                        this.$router.back();
+                    } else {
+                        this.$emit('wxBack');
+                    }
+                });
+            },
         }
     }
 </script>

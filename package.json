@@ -1,6 +1,6 @@
 {
   "name": "weex-droplet-ui",
-  "version": "1.0.0-alpha.89",
+  "version": "1.0.0-alpha.90",
   "description": "weex ui",
   "main": "index.js",
   "lib": "vue",
@@ -11,7 +11,7 @@
     "watch": "webpack --progress --watch",
     "serve": "anywhere -d build/example/ -p 8111",
     "start": "npm run build && (npm run serve & npm run watch)",
-    "gh-pages": "node_modules/.bin/gh-pages -d build/example"
+    "gh-pages": "npm run build && node_modules/.bin/gh-pages -d build/example"
   },
   "keywords": [
     "weex",

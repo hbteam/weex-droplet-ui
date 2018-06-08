@@ -21,6 +21,7 @@
 <script>
     import { WxHeader } from '../../index';
     const modal = weex.requireModule('modal');
+    const navigator = weex.requireModule('navigator');
     export default {
         components: {
             WxHeader
@@ -35,9 +36,7 @@
         },
         methods: {
             wxBackHandle () {
-                modal.toast({
-                    message: 'back'
-                })
+                navigator.pop({animated: 'true'});
             },
         }
     }
