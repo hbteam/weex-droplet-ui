@@ -141,7 +141,7 @@
         data () {
             return {
                  checked: false,
-                 checked2: false,
+                 checked2: true,
                  checked3: false,
                  checked4: true,
                  checked5: false,

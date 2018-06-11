@@ -115,6 +115,14 @@
         watch: {
             value (v) {
                 this.checked = v;
+            },
+
+            checked () {
+                if (!this.disabled) {
+                    this.boxStyle = {
+                        'border-color': this.checked ? this.checkedColor : '#DCDCDC'
+                    }
+                }
             }
         }
     }
