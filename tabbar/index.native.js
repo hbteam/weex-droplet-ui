@@ -3279,6 +3279,13 @@ exports.default = {
     watch: {
         value: function value(v) {
             this.checked = v;
+        },
+        checked: function checked() {
+            if (!this.disabled) {
+                this.boxStyle = {
+                    'border-color': this.checked ? this.checkedColor : '#DCDCDC'
+                };
+            }
         }
     }
 }; //
