@@ -3180,6 +3180,10 @@ exports.default = {
         padding: {
             width: String,
             default: '20px'
+        },
+        checkedColor: {
+            width: String,
+            default: '#027FF3'
         }
     },
 
@@ -6637,7 +6641,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         'padding-right': _vm.padding
       },
       attrs: {
-        "checkedColor": "#027FF3"
+        "checkedColor": _vm.checkedColor
       },
       model: {
         value: (item.checked),
