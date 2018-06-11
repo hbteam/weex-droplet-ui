@@ -6612,14 +6612,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["wx-checkbox-list"],
     style: {
-      width: this.width
+      width: _vm.width
     }
   }, _vm._l((_vm.value), function(item) {
     return _c('div', {
       staticClass: ["cell"],
       style: {
-        width: this.width,
-        height: '100px'
+        width: _vm.width,
+        height: _vm.height
       },
       on: {
         "click": function($event) {
