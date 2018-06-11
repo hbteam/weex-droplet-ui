@@ -5,6 +5,7 @@ import WxNavbar from './packages/wx-navbar';
 import WxTabbar from './packages/wx-tabbar';
 import WxCell from './packages/wx-cell';
 import WxCheckbox from './packages/wx-checkbox';
+import WxCheckboxList from './packages/wx-checkbox-list';
 import WxRadio from './packages/wx-radio';
 import WxField from './packages/wx-field';
 import WxInput from './packages/wx-input';
@@ -28,6 +29,7 @@ export {
     WxTabbar,
     WxCell,
     WxCheckbox,
+    WxCheckboxList,
     WxRadio,
     WxField,
     WxInput,

@@ -3,7 +3,7 @@
         <text v-if="align === 'left'" 
             class="wx-text align-left">{{ text }}</text>
         <!-- CheckBox -->
-        <div class="wx-box" :style="{'border-color':checked ? checkedColor : '#DCDCDC'}">
+        <div class="wx-box" :style="boxStyle">
             <div v-if="checked" class="checked" :style="{'border-right-color': checkedColor, 'border-bottom-color': checkedColor}"></div>
         </div>
         <text v-if="align === 'right'" 
@@ -59,9 +59,8 @@
     export default {
         mixins:[mixins],
         props: {
-            defaultChecked: {
+            value: {
                 type: Boolean,
-                default: false
             },
             disabled: {
                 type: Boolean,
@@ -85,11 +84,22 @@
         data () {
             return {
                 checked: false,
+                boxStyle: {},
             }
         },
 
         created () {
-            this.checked = this.defaultChecked;
+            this.checked = this.value;
+            if (!this.disabled) {
+                this.boxStyle = {
+                    'border-color': this.checked ? this.checkedColor : '#DCDCDC'
+                }
+            } else {
+                this.boxStyle = {
+                    'border-color': '#DCDCDC',
+                    'background-color': '#f2f3f4',
+                }
+            }
         },
 
         methods: {
@@ -97,9 +107,15 @@
                 this.preventDefault(e);
                 if (this.disabled) return;
                 this.checked = !this.checked;
-                this.$emit('input', this.checked);
                 this.$emit('wxChange', this.checked);
+                this.$emit('input', this.checked);
             },
+        },
+
+        watch: {
+            value (v) {
+                this.checked = v;
+            }
         }
     }
 </script>
