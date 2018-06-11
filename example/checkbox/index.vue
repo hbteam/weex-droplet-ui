@@ -98,6 +98,7 @@
             width="750px"
             height="100px"
             padding="20px"
+            checkedColor="red"
             @wxChange="handleChange">
         </wx-checkbox-list>
         <div class="result">

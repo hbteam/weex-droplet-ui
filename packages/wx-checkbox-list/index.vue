@@ -8,7 +8,7 @@
                  :style="{'padding-right': padding}"
                 class="checkbox"
                 v-model="item.checked"
-                checkedColor="#027FF3">
+                :checkedColor="checkedColor">
             </wx-checkbox>
         </div>
     </div>
@@ -48,6 +48,10 @@
             padding: {
                 width: String,
                 default: '20px'
+            },
+            checkedColor: {
+                width: String,
+                default: '#027FF3'
             },
         },
 
