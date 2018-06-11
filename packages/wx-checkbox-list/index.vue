@@ -1,7 +1,7 @@
 <template>
-    <div class="wx-checkbox-list" :style="{width: this.width}">
+    <div class="wx-checkbox-list" :style="{width: width}">
         <div class="cell"  
-            :style="{width: this.width, height: '100px'}"
+            :style="{width: width, height: height}"
             v-for="item in value" @click="handleClick(item)">
             <text class="wx-text" :style="{'padding-left': padding}">{{ item.title }}</text>
             <wx-checkbox
