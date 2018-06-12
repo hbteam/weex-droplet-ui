@@ -3168,10 +3168,18 @@ exports.default = {
     mixins: [_mixins2.default],
     props: {
         options: {
-            type: Array
+            type: Array,
+            default: function _default() {
+                return [];
+            },
+            required: true
         },
         value: {
-            type: Array
+            type: Array,
+            default: function _default() {
+                return [];
+            },
+            required: true
         },
         width: {
             width: String,
@@ -3235,7 +3243,8 @@ exports.default = {
     mixins: [_mixins2.default],
     props: {
         value: {
-            type: Boolean
+            type: Boolean,
+            required: true
         },
         disabled: {
             type: Boolean,
