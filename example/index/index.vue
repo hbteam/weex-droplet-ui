@@ -26,6 +26,7 @@
     const componentNameArr = Object.keys(all).map(item => {
         return item.toLowerCase().replace('wx', '');
     });
+    componentNameArr = componentNameArr.filter(name => name !== 'checkboxlist')
     
     export default {
         components: { WxCell },
