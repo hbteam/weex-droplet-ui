@@ -61,6 +61,7 @@
         props: {
             value: {
                 type: Boolean,
+                required: true
             },
             disabled: {
                 type: Boolean,

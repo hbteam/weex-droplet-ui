@@ -37,9 +37,17 @@
         props: {
             options: {
                 type: Array,
+                default: function () {
+                    return []
+                },
+                required: true
             },
             value: {
                 type: Array,
+                default: function () {
+                    return []
+                },
+                required: true
             },
             width: {
                 width: String,
