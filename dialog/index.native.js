@@ -5358,7 +5358,7 @@ exports.default = {
 
         checkedColor: {
             type: String,
-            default: '#26a2ff'
+            default: '#027FF3'
         }
     },
 
