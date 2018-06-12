@@ -67,7 +67,7 @@
             handleClick (item) {
                 if (item.disabled) return;
                 item.checked = !item.checked;
-                this.fire(item);             
+                this.fire();             
             },
 
             fire () {
