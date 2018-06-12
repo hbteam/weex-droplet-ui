@@ -7,6 +7,7 @@
             <wx-checkbox
                  :style="{'padding-right': padding}"
                 class="checkbox"
+                :disabled="item.disabled"
                 v-model="item.checked"
                 :checkedColor="checkedColor">
             </wx-checkbox>
@@ -59,17 +60,22 @@
         },
 
         created () {
-            this.handleClick();
+            this.fire();
         },
 
         methods: {
-            handleClick (item = {}) {
+            handleClick (item) {
+                if (item.disabled) return;
                 item.checked = !item.checked;
+                this.fire(item);             
+            },
+
+            fire () {
                 const list = [];
                 this.options.forEach(item => item.checked && list.push(item.value));
                 this.$emit('input', list);
                 this.$emit('wxChange', list);
-            },
+            }
         },
         components: { WxCheckbox }
     }

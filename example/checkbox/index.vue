@@ -148,7 +148,7 @@
                  checked4: true,
                  checked5: false,
                  options: [
-                    { title: '爱看电影', value: 1, checked: false },
+                    { title: '爱看电影', value: 1, checked: false, disabled: true },
                     { title: '爱看小说', value: 2, checked: true },
                     { title: '爱看抖音', value: 3, checked: false },
                     { title: '爱刷微博', value: 4, checked: true }
@@ -161,6 +161,7 @@
         },
         methods: {
             handleClick () {
+                // 第一个例子使用
                 this.checked = !this.checked;
             },
             handleChange (checkedListValue) {
