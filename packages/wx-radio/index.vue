@@ -158,6 +158,7 @@
             },
 
             handleClick (item) {
+                if (item.checked) return;
                 this.options.forEach(el => {
                     el.checked = false;
                 });
