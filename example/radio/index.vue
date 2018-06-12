@@ -97,7 +97,7 @@
         data () {
             return {
                  options1: [
-                    {title: '爱看电影', value: 1, checked: true},
+                    {title: '爱看电影', value: 1, checked: false, disabled: true},
                     {title: '爱看小说', value: 2, checked: false},
                     {title: '爱玩游戏', value: 3, checked: false},
                  ],

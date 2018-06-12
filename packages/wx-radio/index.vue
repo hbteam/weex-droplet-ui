@@ -149,13 +149,16 @@
             },
 
             getRadioStyle (item) {
-                return {
+                const style = {
                     height: this.size,
                     width: this.size,
                     'border-radius': this.size,
                     'background-color': item.checked ? this.checkedColor : '#fff',
                 };
-                
+                if (item.disabled) {
+                    style['background-color'] = '#d9d9d9';
+                }
+                return style;
             },
 
             initChecked () {
@@ -168,7 +171,7 @@
             },
 
             handleClick (item) {
-                if (item.checked) return;
+                if (item.checked || item.disabled) return;
                 this.options.forEach(el => {
                     el.checked = false;
                 });
