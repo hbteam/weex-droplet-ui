@@ -6968,6 +6968,9 @@ var modal = weex.requireModule('modal');
 var componentNameArr = Object.keys(all).map(function (item) {
     return item.toLowerCase().replace('wx', '');
 });
+componentNameArr = componentNameArr.filter(function (name) {
+    return name !== 'checkboxlist';
+});
 
 exports.default = {
     components: { WxCell: _index.WxCell },
