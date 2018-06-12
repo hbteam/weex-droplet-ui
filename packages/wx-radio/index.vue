@@ -1,27 +1,28 @@
 <template>
-    <div class="wx-radio-items">
+    <div class="wx-radio-items" :style="{'flex-direction': direction, 'width': width}">
         <div class="wx-radio-item" 
-            v-for="item in items" 
+            v-for="item in options" 
+            :style="rowStyle"
             @click="handleClick(item)">
-            <text :style="textStyles" v-if="align === 'left'" class="wx-radio-label-right">{{ item.label }}</text>
+            <text :style="textStyles" v-if="align === 'left'" class="wx-radio-label-right">{{ item.title }}</text>
             <div class="wx-radio"
                 :style="getRadioStyle(item)"
                 :class="[item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked']">
                 <text v-if="item.checked" :style="checkedStyle" class="checked"></text>
             </div>
-            <text :style="textStyles" v-if="align === 'right'" class="wx-radio-label-left">{{ item.label }}</text>
+            <text :style="textStyles" v-if="align === 'right'" class="wx-radio-label-left">{{ item.title }}</text>
         </div>
     </div>
 </template>
 <style scoped>
     .wx-radio-items {
         flex-direction: row;
+        justify-content: space-between;
     }
 
     .wx-radio-item {
         flex-direction: row;
         align-items: center;
-        padding-right: 20px;
     }
 
     .wx-radio-label-right {
@@ -49,13 +50,8 @@
     }
 
     .checked {
-        /*width: 20px;*/
-        /*height: 20px;*/
-        /*border-radius: 20px;*/
         background-color: #fff;
         position: absolute;
-        /*top: 10px;*/
-        /*left: 10px;*/
         z-index: 100;
     }
 
@@ -63,19 +59,31 @@
 <script>
     export default {
         props: {
+            width: {
+                type: String,
+                default: '750px'
+            },
             size: {
                 type: String,
-                default: '50px'
+                default: '44px'
             },
             align: {
                 type: String,
                 default: 'left'
             },
-            items: {
+            direction: {
+                type: String,
+                default: 'row'
+            },
+            options: {
                 type: Array,
                 default: function () {
                     return []
                 },
+                required: true
+            },
+            value: {
+                type: Object,
                 required: true
             },
             checkedColor: {
@@ -96,12 +104,14 @@
             return {
                 checkedStyle: {},
                 textStyles: {},
+                rowStyle: {},
             }
         },
 
         created () {
             this.setCheckedStyle();
             this.setTextStyle();
+            this.setRowStyle();
         },
 
         methods: {
@@ -110,6 +120,19 @@
                     color: this.textColor,
                     fontSize: this.textFontSize
                 };
+            },
+
+            setRowStyle () {
+                if (this.direction === 'column') {
+                    this.rowStyle = { 
+                        'width': this.width,
+                        'justify-content': 'space-between',
+                        'padding-top': '24px',
+                        'padding-bottom': '24px',
+                        'padding-left': '40px',
+                        'padding-right': '40px',
+                    }
+                }
             },
 
             setCheckedStyle () {
@@ -135,11 +158,12 @@
             },
 
             handleClick (item) {
-                this.items.forEach(el => {
+                this.options.forEach(el => {
                     el.checked = false;
                 });
                 item.checked = true;
-                this.$emit('wxChange', item);
+                this.$emit('wxChange', item.value);
+                this.$emit('input', item.value);
             },
         }
     }

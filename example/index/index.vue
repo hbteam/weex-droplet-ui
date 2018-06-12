@@ -23,7 +23,7 @@
     const navigator = weex.requireModule('navigator');
     const modal = weex.requireModule('modal');
 
-    const componentNameArr = Object.keys(all).map(item => {
+    let componentNameArr = Object.keys(all).map(item => {
         return item.toLowerCase().replace('wx', '');
     });
     componentNameArr = componentNameArr.filter(name => name !== 'checkboxlist')
