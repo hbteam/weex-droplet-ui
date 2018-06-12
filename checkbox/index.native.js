@@ -3162,10 +3162,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
     mixins: [_mixins2.default],
     props: {
+        options: {
+            type: Array
+        },
         value: {
             type: Array
         },
@@ -3187,21 +3191,24 @@ exports.default = {
         }
     },
 
-    data: function data() {
-        return {
-            checked: false
-        };
-    },
-    mounted: function mounted() {
-        this.checked = this.value;
+    created: function created() {
+        this.fire();
     },
 
 
     methods: {
         handleClick: function handleClick(item) {
+            if (item.disabled) return;
             item.checked = !item.checked;
-            this.$emit('input', this.value);
-            this.$emit('wxChange', this.value);
+            this.fire(item);
+        },
+        fire: function fire() {
+            var list = [];
+            this.options.forEach(function (item) {
+                return item.checked && list.push(item.value);
+            });
+            this.$emit('input', list);
+            this.$emit('wxChange', list);
         }
     },
     components: { WxCheckbox: _wxCheckbox2.default }
@@ -4822,6 +4829,7 @@ exports.default = {
         this.setCheckedStyle();
         this.setTextStyle();
         this.setRowStyle();
+        this.initChecked();
     },
 
 
@@ -4856,15 +4864,29 @@ exports.default = {
             };
         },
         getRadioStyle: function getRadioStyle(item) {
-            return {
+            var style = {
                 height: this.size,
                 width: this.size,
                 'border-radius': this.size,
                 'background-color': item.checked ? this.checkedColor : '#fff'
             };
+            if (item.disabled) {
+                style['background-color'] = '#d9d9d9';
+            }
+            return style;
+        },
+        initChecked: function initChecked() {
+            var _this = this;
+
+            this.options.forEach(function (item) {
+                if (item.checked) {
+                    _this.$emit('wxChange', item.value);
+                    _this.$emit('input', item.value);
+                }
+            });
         },
         handleClick: function handleClick(item) {
-            if (item.checked) return;
+            if (item.checked || item.disabled) return;
             this.options.forEach(function (el) {
                 el.checked = false;
             });
@@ -6647,7 +6669,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     style: {
       width: _vm.width
     }
-  }, _vm._l((_vm.value), function(item) {
+  }, _vm._l((_vm.options), function(item) {
     return _c('div', {
       staticClass: ["cell"],
       style: {
@@ -6670,6 +6692,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         'padding-right': _vm.padding
       },
       attrs: {
+        "disabled": item.disabled,
         "checkedColor": _vm.checkedColor
       },
       model: {
@@ -7094,6 +7117,7 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
 
 exports.default = {
     components: {
@@ -7108,17 +7132,19 @@ exports.default = {
             checked3: false,
             checked4: true,
             checked5: false,
-            list: [{ title: '爱看电影', value: 1, checked: false }, { title: '爱看小说', value: 2, checked: true }, { title: '爱看抖音', value: 3, checked: false }, { title: '爱刷微博', value: 4, checked: true }]
+            options: [{ title: '爱看电影', value: 1, checked: false, disabled: true }, { title: '爱看小说', value: 2, checked: true }, { title: '爱看抖音', value: 3, checked: false }, { title: '爱刷微博', value: 4, checked: true }],
+            list: []
         };
     },
     created: function created() {},
 
     methods: {
         handleClick: function handleClick() {
+            // 第一个例子使用
             this.checked = !this.checked;
         },
-        handleChange: function handleChange(list) {
-            console.log(JSON.parse(JSON.stringify(list)));
+        handleChange: function handleChange(checkedListValue) {
+            console.log(checkedListValue);
         }
     }
 };
@@ -7357,6 +7383,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["title"]
   }, [_vm._v("checkbox-list")]), _c('wx-checkbox-list', {
     attrs: {
+      "options": _vm.options,
       "width": "750px",
       "height": "100px",
       "padding": "20px",
@@ -7374,9 +7401,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('div', {
     staticClass: ["result"]
-  }, _vm._l((_vm.list), function(item) {
-    return _c('text', [_vm._v(_vm._s(item.checked) + ",")])
-  }))], 1)
+  }, [_c('text', [_vm._v("[" + _vm._s(_vm.list.join()) + "]")])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

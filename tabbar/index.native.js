@@ -3162,10 +3162,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
     mixins: [_mixins2.default],
     props: {
+        options: {
+            type: Array
+        },
         value: {
             type: Array
         },
@@ -3187,21 +3191,24 @@ exports.default = {
         }
     },
 
-    data: function data() {
-        return {
-            checked: false
-        };
-    },
-    mounted: function mounted() {
-        this.checked = this.value;
+    created: function created() {
+        this.fire();
     },
 
 
     methods: {
         handleClick: function handleClick(item) {
+            if (item.disabled) return;
             item.checked = !item.checked;
-            this.$emit('input', this.value);
-            this.$emit('wxChange', this.value);
+            this.fire(item);
+        },
+        fire: function fire() {
+            var list = [];
+            this.options.forEach(function (item) {
+                return item.checked && list.push(item.value);
+            });
+            this.$emit('input', list);
+            this.$emit('wxChange', list);
         }
     },
     components: { WxCheckbox: _wxCheckbox2.default }
@@ -4822,6 +4829,7 @@ exports.default = {
         this.setCheckedStyle();
         this.setTextStyle();
         this.setRowStyle();
+        this.initChecked();
     },
 
 
@@ -4856,15 +4864,29 @@ exports.default = {
             };
         },
         getRadioStyle: function getRadioStyle(item) {
-            return {
+            var style = {
                 height: this.size,
                 width: this.size,
                 'border-radius': this.size,
                 'background-color': item.checked ? this.checkedColor : '#fff'
             };
+            if (item.disabled) {
+                style['background-color'] = '#d9d9d9';
+            }
+            return style;
+        },
+        initChecked: function initChecked() {
+            var _this = this;
+
+            this.options.forEach(function (item) {
+                if (item.checked) {
+                    _this.$emit('wxChange', item.value);
+                    _this.$emit('input', item.value);
+                }
+            });
         },
         handleClick: function handleClick(item) {
-            if (item.checked) return;
+            if (item.checked || item.disabled) return;
             this.options.forEach(function (el) {
                 el.checked = false;
             });
@@ -6647,7 +6669,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     style: {
       width: _vm.width
     }
-  }, _vm._l((_vm.value), function(item) {
+  }, _vm._l((_vm.options), function(item) {
     return _c('div', {
       staticClass: ["cell"],
       style: {
@@ -6670,6 +6692,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         'padding-right': _vm.padding
       },
       attrs: {
+        "disabled": item.disabled,
         "checkedColor": _vm.checkedColor
       },
       model: {
