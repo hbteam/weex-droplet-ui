@@ -4767,26 +4767,34 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
 
 exports.default = {
     props: {
+        width: {
+            type: String,
+            default: '750px'
+        },
         size: {
             type: String,
-            default: '50px'
+            default: '44px'
         },
         align: {
             type: String,
             default: 'left'
         },
-        items: {
+        direction: {
+            type: String,
+            default: 'row'
+        },
+        options: {
             type: Array,
             default: function _default() {
                 return [];
             },
+            required: true
+        },
+        value: {
+            type: Object,
             required: true
         },
         checkedColor: {
@@ -4806,12 +4814,14 @@ exports.default = {
     data: function data() {
         return {
             checkedStyle: {},
-            textStyles: {}
+            textStyles: {},
+            rowStyle: {}
         };
     },
     created: function created() {
         this.setCheckedStyle();
         this.setTextStyle();
+        this.setRowStyle();
     },
 
 
@@ -4821,6 +4831,18 @@ exports.default = {
                 color: this.textColor,
                 fontSize: this.textFontSize
             };
+        },
+        setRowStyle: function setRowStyle() {
+            if (this.direction === 'column') {
+                this.rowStyle = {
+                    'width': this.width,
+                    'justify-content': 'space-between',
+                    'padding-top': '24px',
+                    'padding-bottom': '24px',
+                    'padding-left': '40px',
+                    'padding-right': '40px'
+                };
+            }
         },
         setCheckedStyle: function setCheckedStyle() {
             var value = Number(this.size.replace('px', '')) / 2;
@@ -4842,11 +4864,13 @@ exports.default = {
             };
         },
         handleClick: function handleClick(item) {
-            this.items.forEach(function (el) {
+            if (item.checked) return;
+            this.options.forEach(function (el) {
                 el.checked = false;
             });
             item.checked = true;
-            this.$emit('wxChange', item);
+            this.$emit('wxChange', item.value);
+            this.$emit('input', item.value);
         }
     }
 };
@@ -5927,12 +5951,12 @@ module.exports = {
 
 module.exports = {
   "wx-radio-items": {
-    "flexDirection": "row"
+    "flexDirection": "row",
+    "justifyContent": "space-between"
   },
   "wx-radio-item": {
     "flexDirection": "row",
-    "alignItems": "center",
-    "paddingRight": "20"
+    "alignItems": "center"
   },
   "wx-radio-label-right": {
     "paddingRight": "10"
@@ -6534,10 +6558,15 @@ module.exports.render._withStripped = true
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["wx-radio-items"]
-  }, _vm._l((_vm.items), function(item) {
+    staticClass: ["wx-radio-items"],
+    style: {
+      'flex-direction': _vm.direction,
+      'width': _vm.width
+    }
+  }, _vm._l((_vm.options), function(item) {
     return _c('div', {
       staticClass: ["wx-radio-item"],
+      style: _vm.rowStyle,
       on: {
         "click": function($event) {
           _vm.handleClick(item)
@@ -6546,7 +6575,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [(_vm.align === 'left') ? _c('text', {
       staticClass: ["wx-radio-label-right"],
       style: _vm.textStyles
-    }, [_vm._v(_vm._s(item.label))]) : _vm._e(), _c('div', {
+    }, [_vm._v(_vm._s(item.title))]) : _vm._e(), _c('div', {
       staticClass: ["wx-radio"],
       class: [item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked'],
       style: _vm.getRadioStyle(item)
@@ -6556,7 +6585,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }) : _vm._e()]), (_vm.align === 'right') ? _c('text', {
       staticClass: ["wx-radio-label-left"],
       style: _vm.textStyles
-    }, [_vm._v(_vm._s(item.label))]) : _vm._e()])
+    }, [_vm._v(_vm._s(item.title))]) : _vm._e()])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true

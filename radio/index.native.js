@@ -4767,26 +4767,34 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
 
 exports.default = {
     props: {
+        width: {
+            type: String,
+            default: '750px'
+        },
         size: {
             type: String,
-            default: '50px'
+            default: '44px'
         },
         align: {
             type: String,
             default: 'left'
         },
-        items: {
+        direction: {
+            type: String,
+            default: 'row'
+        },
+        options: {
             type: Array,
             default: function _default() {
                 return [];
             },
+            required: true
+        },
+        value: {
+            type: Object,
             required: true
         },
         checkedColor: {
@@ -4806,12 +4814,14 @@ exports.default = {
     data: function data() {
         return {
             checkedStyle: {},
-            textStyles: {}
+            textStyles: {},
+            rowStyle: {}
         };
     },
     created: function created() {
         this.setCheckedStyle();
         this.setTextStyle();
+        this.setRowStyle();
     },
 
 
@@ -4821,6 +4831,18 @@ exports.default = {
                 color: this.textColor,
                 fontSize: this.textFontSize
             };
+        },
+        setRowStyle: function setRowStyle() {
+            if (this.direction === 'column') {
+                this.rowStyle = {
+                    'width': this.width,
+                    'justify-content': 'space-between',
+                    'padding-top': '24px',
+                    'padding-bottom': '24px',
+                    'padding-left': '40px',
+                    'padding-right': '40px'
+                };
+            }
         },
         setCheckedStyle: function setCheckedStyle() {
             var value = Number(this.size.replace('px', '')) / 2;
@@ -4842,11 +4864,13 @@ exports.default = {
             };
         },
         handleClick: function handleClick(item) {
-            this.items.forEach(function (el) {
+            if (item.checked) return;
+            this.options.forEach(function (el) {
                 el.checked = false;
             });
             item.checked = true;
-            this.$emit('wxChange', item);
+            this.$emit('wxChange', item.value);
+            this.$emit('input', item.value);
         }
     }
 };
@@ -5927,12 +5951,12 @@ module.exports = {
 
 module.exports = {
   "wx-radio-items": {
-    "flexDirection": "row"
+    "flexDirection": "row",
+    "justifyContent": "space-between"
   },
   "wx-radio-item": {
     "flexDirection": "row",
-    "alignItems": "center",
-    "paddingRight": "20"
+    "alignItems": "center"
   },
   "wx-radio-label-right": {
     "paddingRight": "10"
@@ -6534,10 +6558,15 @@ module.exports.render._withStripped = true
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["wx-radio-items"]
-  }, _vm._l((_vm.items), function(item) {
+    staticClass: ["wx-radio-items"],
+    style: {
+      'flex-direction': _vm.direction,
+      'width': _vm.width
+    }
+  }, _vm._l((_vm.options), function(item) {
     return _c('div', {
       staticClass: ["wx-radio-item"],
+      style: _vm.rowStyle,
       on: {
         "click": function($event) {
           _vm.handleClick(item)
@@ -6546,7 +6575,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [(_vm.align === 'left') ? _c('text', {
       staticClass: ["wx-radio-label-right"],
       style: _vm.textStyles
-    }, [_vm._v(_vm._s(item.label))]) : _vm._e(), _c('div', {
+    }, [_vm._v(_vm._s(item.title))]) : _vm._e(), _c('div', {
       staticClass: ["wx-radio"],
       class: [item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked'],
       style: _vm.getRadioStyle(item)
@@ -6556,7 +6585,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }) : _vm._e()]), (_vm.align === 'right') ? _c('text', {
       staticClass: ["wx-radio-label-left"],
       style: _vm.textStyles
-    }, [_vm._v(_vm._s(item.label))]) : _vm._e()])
+    }, [_vm._v(_vm._s(item.title))]) : _vm._e()])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -6967,6 +6996,75 @@ var modal = weex.requireModule('modal'); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     components: {
@@ -6974,18 +7072,19 @@ exports.default = {
     },
     data: function data() {
         return {
-            items: [{ label: '有公积金', value: '0', checked: true }, { label: '无公积金', value: '1', checked: false }],
-            selected: null
+            options1: [{ title: '爱看电影', value: 1, checked: true }, { title: '爱看小说', value: 2, checked: false }, { title: '爱玩游戏', value: 3, checked: false }],
+            options2: [{ title: '爱看电影', value: 1, checked: true }, { title: '爱看小说', value: 2, checked: false }, { title: '爱玩游戏', value: 3, checked: false }],
+            selected1: null,
+            selected2: null
         };
     },
     created: function created() {
-        this.selected = this.items[0];
+        this.selected1 = this.options1[0].value;
+        this.selected2 = this.options2[0].value;
     },
 
     methods: {
-        handleChange: function handleChange(item) {
-            this.selected = item;
-        }
+        handleChange: function handleChange(value) {}
     }
 };
 
@@ -7020,8 +7119,43 @@ exports.default = {
 
 module.exports = {
   "wx-demo": {
-    "marginTop": "100",
-    "marginLeft": "100"
+    "flexDirection": "column",
+    "alignItems": "center"
+  },
+  "radio1": {
+    "height": "150",
+    "backgroundColor": "#ffffff"
+  },
+  "radio2": {
+    "backgroundColor": "#ffffff"
+  },
+  "title": {
+    "width": "750",
+    "backgroundColor": "#fafafa",
+    "color": "#888888",
+    "height": "100",
+    "lineHeight": "100",
+    "paddingLeft": "20"
+  },
+  "selected": {
+    "width": "750",
+    "paddingLeft": "40",
+    "paddingRight": "40",
+    "flexDirection": "row",
+    "justifyContent": "space-between",
+    "height": "80",
+    "alignItems": "center",
+    "backgroundColor": "#fafafa",
+    "marginTop": "20",
+    "marginBottom": "40"
+  },
+  "name": {
+    "color": "#4d4d4d",
+    "fontSize": "32"
+  },
+  "value": {
+    "color": "#888888",
+    "fontSize": "32"
   }
 }
 
@@ -7054,23 +7188,66 @@ module.exports = {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wx-demo"]
-  }, [_c('wx-radio', {
+  }, [_c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("row")]), _c('wx-radio', {
+    staticClass: ["radio1"],
     attrs: {
       "checkedColor": "#027FF3",
-      "size": "50px",
-      "align": "left",
+      "size": "44px",
+      "width": "670px",
+      "align": "right",
       "textColor": "#4D4D4D",
       "textFontSize": "32px",
-      "items": _vm.items
+      "direction": "row",
+      "options": _vm.options1
     },
     on: {
       "wxChange": _vm.handleChange
+    },
+    model: {
+      value: (_vm.selected1),
+      callback: function($$v) {
+        _vm.selected1 = $$v
+      },
+      expression: "selected1"
     }
-  }), _c('text', {
-    staticStyle: {
-      marginTop: "100px"
+  }), _c('div', {
+    staticClass: ["selected"]
+  }, [_c('text', {
+    staticClass: ["name"]
+  }, [_vm._v("选中的value")]), _c('text', {
+    staticClass: ["value"]
+  }, [_vm._v(_vm._s(_vm.selected1))])]), _c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("column")]), _c('wx-radio', {
+    staticClass: ["radio2"],
+    attrs: {
+      "checkedColor": "#027FF3",
+      "size": "44px",
+      "align": "left",
+      "textColor": "#4D4D4D",
+      "textFontSize": "32px",
+      "direction": "column",
+      "options": _vm.options2
+    },
+    on: {
+      "wxChange": _vm.handleChange
+    },
+    model: {
+      value: (_vm.selected2),
+      callback: function($$v) {
+        _vm.selected2 = $$v
+      },
+      expression: "selected2"
     }
-  }, [_vm._v(_vm._s(_vm.selected.label))])], 1)
+  }), _c('div', {
+    staticClass: ["selected"]
+  }, [_c('text', {
+    staticClass: ["name"]
+  }, [_vm._v("选中的value")]), _c('text', {
+    staticClass: ["value"]
+  }, [_vm._v(_vm._s(_vm.selected2))])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

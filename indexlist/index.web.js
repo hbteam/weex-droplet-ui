@@ -4681,26 +4681,34 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
 
 exports.default = {
     props: {
+        width: {
+            type: String,
+            default: '750px'
+        },
         size: {
             type: String,
-            default: '50px'
+            default: '44px'
         },
         align: {
             type: String,
             default: 'left'
         },
-        items: {
+        direction: {
+            type: String,
+            default: 'row'
+        },
+        options: {
             type: Array,
             default: function _default() {
                 return [];
             },
+            required: true
+        },
+        value: {
+            type: Object,
             required: true
         },
         checkedColor: {
@@ -4720,12 +4728,14 @@ exports.default = {
     data: function data() {
         return {
             checkedStyle: {},
-            textStyles: {}
+            textStyles: {},
+            rowStyle: {}
         };
     },
     created: function created() {
         this.setCheckedStyle();
         this.setTextStyle();
+        this.setRowStyle();
     },
 
 
@@ -4735,6 +4745,18 @@ exports.default = {
                 color: this.textColor,
                 fontSize: this.textFontSize
             };
+        },
+        setRowStyle: function setRowStyle() {
+            if (this.direction === 'column') {
+                this.rowStyle = {
+                    'width': this.width,
+                    'justify-content': 'space-between',
+                    'padding-top': '24px',
+                    'padding-bottom': '24px',
+                    'padding-left': '40px',
+                    'padding-right': '40px'
+                };
+            }
         },
         setCheckedStyle: function setCheckedStyle() {
             var value = Number(this.size.replace('px', '')) / 2;
@@ -4756,11 +4778,13 @@ exports.default = {
             };
         },
         handleClick: function handleClick(item) {
-            this.items.forEach(function (el) {
+            if (item.checked) return;
+            this.options.forEach(function (el) {
                 el.checked = false;
             });
             item.checked = true;
-            this.$emit('wxChange', item);
+            this.$emit('wxChange', item.value);
+            this.$emit('input', item.value);
         }
     }
 };
@@ -5651,7 +5675,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-radio-items[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-radio-item[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    padding-right: 0.26667rem;\n}\n.wx-radio-label-right[data-v-35b82088] {\n    padding-right: 0.13333rem;\n}\n.wx-radio-label-left[data-v-35b82088] {\n    padding-left: 0.13333rem;\n}\n.wx-radio[data-v-35b82088] {\n    position: relative;\n    border-radius: 0.53333rem;\n}\n.wx-radio-checked[data-v-35b82088] {\n    border-width: 0px;\n}\n.wx-radio-nochecked[data-v-35b82088] {\n    background-color: #fff;\n    border-width: 0.02667rem;\n    border-style: solid;\n    border-color: #ddd;\n}\n.checked[data-v-35b82088] {\n    /*width: 20px;*/\n    /*height: 20px;*/\n    /*border-radius: 20px;*/\n    background-color: #fff;\n    position: absolute;\n    /*top: 10px;*/\n    /*left: 10px;*/\n    z-index: 100;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-radio/index.vue?47bcfcc5"],"names":[],"mappings":";AAgBA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;CACA;AAEA;IACA,yBAAA;CACA;AAEA;IACA,mBAAA;IACA,0BAAA;CACA;AAEA;IACA,kBAAA;CACA;AAEA;IACA,uBAAA;IACA,yBAAA;IACA,oBAAA;IACA,mBAAA;CACA;AAEA;IACA,gBAAA;IACA,iBAAA;IACA,wBAAA;IACA,uBAAA;IACA,mBAAA;IACA,cAAA;IACA,eAAA;IACA,aAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-radio-items\">\n        <div class=\"wx-radio-item\" \n            v-for=\"item in items\" \n            @click=\"handleClick(item)\">\n            <text :style=\"textStyles\" v-if=\"align === 'left'\" class=\"wx-radio-label-right\">{{ item.label }}</text>\n            <div class=\"wx-radio\"\n                :style=\"getRadioStyle(item)\"\n                :class=\"[item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked']\">\n                <text v-if=\"item.checked\" :style=\"checkedStyle\" class=\"checked\"></text>\n            </div>\n            <text :style=\"textStyles\" v-if=\"align === 'right'\" class=\"wx-radio-label-left\">{{ item.label }}</text>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-radio-items {\n        flex-direction: row;\n    }\n\n    .wx-radio-item {\n        flex-direction: row;\n        align-items: center;\n        padding-right: 20px;\n    }\n\n    .wx-radio-label-right {\n        padding-right: 10px;\n    }\n\n    .wx-radio-label-left {\n        padding-left: 10px;\n    }\n\n    .wx-radio {\n        position: relative;\n        border-radius: 40px;\n    }\n\n    .wx-radio-checked {\n        border-width: 0px;\n    }\n\n    .wx-radio-nochecked {\n        background-color: #fff;\n        border-width: 2px;\n        border-style: solid;\n        border-color: #ddd;\n    }\n\n    .checked {\n        /*width: 20px;*/\n        /*height: 20px;*/\n        /*border-radius: 20px;*/\n        background-color: #fff;\n        position: absolute;\n        /*top: 10px;*/\n        /*left: 10px;*/\n        z-index: 100;\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            size: {\n                type: String,\n                default: '50px'\n            },\n            align: {\n                type: String,\n                default: 'left'\n            },\n            items: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            checkedColor: {\n                type: String,\n                default: '#027FF3'\n            },\n            textColor: {\n                type: String,\n                default: '#4D4D4D'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                checkedStyle: {},\n                textStyles: {},\n            }\n        },\n\n        created () {\n            this.setCheckedStyle();\n            this.setTextStyle();\n        },\n\n        methods: {\n            setTextStyle () {\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            setCheckedStyle () {\n                const value = Number(this.size.replace('px', '')) / 2;\n                const size = value + 'px';\n                this.checkedStyle = {\n                    height: size,\n                    width: size,\n                    'border-radius': size,\n                    top: value / 2 + 'px',\n                    left: value / 2 + 'px',\n                };\n            },\n\n            getRadioStyle (item) {\n                return {\n                    height: this.size,\n                    width: this.size,\n                    'border-radius': this.size,\n                    'background-color': item.checked ? this.checkedColor : '#fff',\n                };\n                \n            },\n\n            handleClick (item) {\n                this.items.forEach(el => {\n                    el.checked = false;\n                });\n                item.checked = true;\n                this.$emit('wxChange', item);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-radio-items[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n}\n.wx-radio-item[data-v-35b82088] {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wx-radio-label-right[data-v-35b82088] {\n    padding-right: 0.13333rem;\n}\n.wx-radio-label-left[data-v-35b82088] {\n    padding-left: 0.13333rem;\n}\n.wx-radio[data-v-35b82088] {\n    position: relative;\n    border-radius: 0.53333rem;\n}\n.wx-radio-checked[data-v-35b82088] {\n    border-width: 0px;\n}\n.wx-radio-nochecked[data-v-35b82088] {\n    background-color: #fff;\n    border-width: 0.02667rem;\n    border-style: solid;\n    border-color: #ddd;\n}\n.checked[data-v-35b82088] {\n    background-color: #fff;\n    position: absolute;\n    z-index: 100;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-radio/index.vue?03759668"],"names":[],"mappings":";AAiBA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;CACA;AAEA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,0BAAA;CACA;AAEA;IACA,yBAAA;CACA;AAEA;IACA,mBAAA;IACA,0BAAA;CACA;AAEA;IACA,kBAAA;CACA;AAEA;IACA,uBAAA;IACA,yBAAA;IACA,oBAAA;IACA,mBAAA;CACA;AAEA;IACA,uBAAA;IACA,mBAAA;IACA,aAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-radio-items\" :style=\"{'flex-direction': direction, 'width': width}\">\n        <div class=\"wx-radio-item\" \n            v-for=\"item in options\" \n            :style=\"rowStyle\"\n            @click=\"handleClick(item)\">\n            <text :style=\"textStyles\" v-if=\"align === 'left'\" class=\"wx-radio-label-right\">{{ item.title }}</text>\n            <div class=\"wx-radio\"\n                :style=\"getRadioStyle(item)\"\n                :class=\"[item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked']\">\n                <text v-if=\"item.checked\" :style=\"checkedStyle\" class=\"checked\"></text>\n            </div>\n            <text :style=\"textStyles\" v-if=\"align === 'right'\" class=\"wx-radio-label-left\">{{ item.title }}</text>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-radio-items {\n        flex-direction: row;\n        justify-content: space-between;\n    }\n\n    .wx-radio-item {\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .wx-radio-label-right {\n        padding-right: 10px;\n    }\n\n    .wx-radio-label-left {\n        padding-left: 10px;\n    }\n\n    .wx-radio {\n        position: relative;\n        border-radius: 40px;\n    }\n\n    .wx-radio-checked {\n        border-width: 0px;\n    }\n\n    .wx-radio-nochecked {\n        background-color: #fff;\n        border-width: 2px;\n        border-style: solid;\n        border-color: #ddd;\n    }\n\n    .checked {\n        background-color: #fff;\n        position: absolute;\n        z-index: 100;\n    }\n\n</style>\n<script>\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            size: {\n                type: String,\n                default: '44px'\n            },\n            align: {\n                type: String,\n                default: 'left'\n            },\n            direction: {\n                type: String,\n                default: 'row'\n            },\n            options: {\n                type: Array,\n                default: function () {\n                    return []\n                },\n                required: true\n            },\n            value: {\n                type: Object,\n                required: true\n            },\n            checkedColor: {\n                type: String,\n                default: '#027FF3'\n            },\n            textColor: {\n                type: String,\n                default: '#4D4D4D'\n            },\n            textFontSize: {\n                type: String,\n                default: '32px'\n            }\n        },\n\n        data () {\n            return {\n                checkedStyle: {},\n                textStyles: {},\n                rowStyle: {},\n            }\n        },\n\n        created () {\n            this.setCheckedStyle();\n            this.setTextStyle();\n            this.setRowStyle();\n        },\n\n        methods: {\n            setTextStyle () {\n                this.textStyles = {\n                    color: this.textColor,\n                    fontSize: this.textFontSize\n                };\n            },\n\n            setRowStyle () {\n                if (this.direction === 'column') {\n                    this.rowStyle = { \n                        'width': this.width,\n                        'justify-content': 'space-between',\n                        'padding-top': '24px',\n                        'padding-bottom': '24px',\n                        'padding-left': '40px',\n                        'padding-right': '40px',\n                    }\n                }\n            },\n\n            setCheckedStyle () {\n                const value = Number(this.size.replace('px', '')) / 2;\n                const size = value + 'px';\n                this.checkedStyle = {\n                    height: size,\n                    width: size,\n                    'border-radius': size,\n                    top: value / 2 + 'px',\n                    left: value / 2 + 'px',\n                };\n            },\n\n            getRadioStyle (item) {\n                return {\n                    height: this.size,\n                    width: this.size,\n                    'border-radius': this.size,\n                    'background-color': item.checked ? this.checkedColor : '#fff',\n                };\n                \n            },\n\n            handleClick (item) {\n                if (item.checked) return;\n                this.options.forEach(el => {\n                    el.checked = false;\n                });\n                item.checked = true;\n                this.$emit('wxChange', item.value);\n                this.$emit('input', item.value);\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -7009,10 +7033,15 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "wx-radio-items weex-ct",
+    style: ({
+      'flex-direction': _vm.direction,
+      'width': _vm._px2rem(_vm.width, 75)
+    }),
     attrs: {}
-  }, _vm._l((_vm.items), function(item) {
+  }, _vm._l((_vm.options), function(item) {
     return _c('div', {
       staticClass: "wx-radio-item weex-ct",
+      style: (_vm._px2rem(_vm.rowStyle, 75)),
       attrs: {
         "data-evt-click": ""
       },
@@ -7032,7 +7061,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "wx-radio-label-right weex-el weex-text",
       style: (_vm._processExclusiveStyle(_vm.textStyles, 75, 'text')),
       attrs: {}
-    }, [_vm._v(_vm._s(item.label))]) : _vm._e(), _vm._v(" "), _c('div', {
+    }, [_vm._v(_vm._s(item.title))]) : _vm._e(), _vm._v(" "), _c('div', {
       staticClass: "wx-radio weex-ct",
       class: [item.checked ? 'wx-radio-checked' : 'wx-radio-nochecked'],
       style: (_vm._px2rem(_vm.getRadioStyle(item), 75)),
@@ -7045,7 +7074,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "wx-radio-label-left weex-el weex-text",
       style: (_vm._processExclusiveStyle(_vm.textStyles, 75, 'text')),
       attrs: {}
-    }, [_vm._v(_vm._s(item.label))]) : _vm._e()])
+    }, [_vm._v(_vm._s(item.title))]) : _vm._e()])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
