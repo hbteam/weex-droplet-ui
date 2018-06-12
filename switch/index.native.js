@@ -3200,7 +3200,7 @@ exports.default = {
         handleClick: function handleClick(item) {
             if (item.disabled) return;
             item.checked = !item.checked;
-            this.fire(item);
+            this.fire();
         },
         fire: function fire() {
             var list = [];
