@@ -112,6 +112,7 @@
             this.setCheckedStyle();
             this.setTextStyle();
             this.setRowStyle();
+            this.initChecked();
         },
 
         methods: {
@@ -155,6 +156,15 @@
                     'background-color': item.checked ? this.checkedColor : '#fff',
                 };
                 
+            },
+
+            initChecked () {
+                this.options.forEach(item => {
+                    if (item.checked) {
+                        this.$emit('wxChange', item.value);
+                        this.$emit('input', item.value);
+                    }
+                });
             },
 
             handleClick (item) {

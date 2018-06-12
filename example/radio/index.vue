@@ -102,8 +102,8 @@
                     {title: '爱玩游戏', value: 3, checked: false},
                  ],
                  options2: [
-                    {title: '爱看电影', value: 1, checked: true},
-                    {title: '爱看小说', value: 2, checked: false},
+                    {title: '爱看电影', value: 1, checked: false},
+                    {title: '爱看小说', value: 2, checked: true},
                     {title: '爱玩游戏', value: 3, checked: false},
                  ],
                  selected1: null,
@@ -111,8 +111,7 @@
             }
         },
         created () {
-            this.selected1 = this.options1[0].value;
-            this.selected2 = this.options2[0].value;
+            
         },
         methods: {
             handleChange (value) {

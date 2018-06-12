@@ -2,7 +2,7 @@
     <div class="wx-checkbox-list" :style="{width: width}">
         <div class="cell"  
             :style="{width: width, height: height}"
-            v-for="item in value" @click="handleClick(item)">
+            v-for="item in options" @click="handleClick(item)">
             <text class="wx-text" :style="{'padding-left': padding}">{{ item.title }}</text>
             <wx-checkbox
                  :style="{'padding-right': padding}"
@@ -34,6 +34,9 @@
     export default {
         mixins:[mixins],
         props: {
+            options: {
+                type: Array,
+            },
             value: {
                 type: Array,
             },
@@ -55,21 +58,17 @@
             },
         },
 
-        data () {
-            return {
-                checked: false,
-            }
-        },
-
-        mounted () {
-            this.checked = this.value;
+        created () {
+            this.handleClick();
         },
 
         methods: {
-            handleClick (item) {
+            handleClick (item = {}) {
                 item.checked = !item.checked;
-                this.$emit('input', this.value);
-                this.$emit('wxChange', this.value);
+                const list = [];
+                this.options.forEach(item => item.checked && list.push(item.value));
+                this.$emit('input', list);
+                this.$emit('wxChange', list);
             },
         },
         components: { WxCheckbox }
