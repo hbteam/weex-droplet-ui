@@ -1,4 +1,4 @@
-# weex-droplet-ui
+# 水滴UI
 
 ## install
 npm i weex-droplet-ui -S
