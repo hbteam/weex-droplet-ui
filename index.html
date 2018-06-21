@@ -11,50 +11,44 @@
 </head>
 
 <body>
-<div id="app">Loading...</div>
-<script>
-  window.$docsify = {
-    name: 'Weex Ui',
-    search: 'auto',
-    themeColor: '#F7C242',
-    coverpage: 'docs/_coverpage.md',
-    homepage: 'README.md',
-    loadSidebar: 'docs/_sidebar.md',
-    loadNavbar: 'docs/_navbar.md',
-    auto2top: true,
-    nameLink: {
-      '/cn/': '#/cn/',
-      '/': '#/'
-    },
-    alias: {
-      '/.*/_navbar.md': 'docs/_navbar.md',
-      '/cn/.*/_sidebar.md': 'docs/cn/_sidebar.md',
-      '/packages/.*/_sidebar.md': 'docs/_sidebar.md',
-      '/cn/': 'README_cn.md',
-      '/cn/packages/(.*)/': 'packages/$1/README_cn.md',
-      '/cn/with-weex-toolkit': 'docs/with-weex-toolkit_cn.md'
-    },
-    basePath: location.port === '3000' ? '/' : '/weex-ui/',
-    repo: 'alibaba/weex-ui',
-    ga: 'UA-57207999-2',
-    plugins: [
-      function (hook, vm) {
-        hook.beforeEach(function (html) {
-          var url = 'https://github.com/alibaba/weex-ui/blob/master/' + vm.route.file;
-          var editHtml = '[:memo: Edit Document](' + url + ')\n';
-          return html
-            + '\n----\n'
-            + editHtml
-        })
-      }
-    ]
-  }
-</script>
-<script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('./docs/dist/sw.js')
-  }
-</script>
-<script src="//h5.m.taobao.com/js/trip/weex-ui/docsify.min.js"></script>
+<div class="scroll-area">
+    <div class="scroll">这是一个跑马灯污染范围是大法官的非官方</div>
+    <div class="scroll">这是一个跑马灯污染范围是大法官的非官方</div>
+</div>
+
+<style type="text/css">
+  .scroll-area{
+    position:relative;
+    height:40px;
+    border:1px solid #ccc;
+    width:200px;
+    overflow:hidden;
+}
+                        
+.scroll{
+    position:absolute;
+    line-height:40px;
+    left:0;
+    top:0px;
+    white-space: nowrap;
+    animation:todayScroll 6s linear infinite;
+}
+                        
+.scroll:last-child{
+  left:100%;
+    animation:todayScroll2 6s linear 6s infinite;
+}
+                        
+@keyframes todayScroll {
+    0% {transform:translate(0%);}
+    100% {transform:translate(-250%);}
+}
+
+@keyframes todayScroll2 {
+    0% {transform:translate(100%);}
+    100% {transform:translate(-250%);}
+}
+                    
+</style>
 </body>
 </html>

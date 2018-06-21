@@ -20,6 +20,7 @@ import WxProgress from './packages/wx-progress';
 import WxRange from './packages/wx-range';
 import WxPicker from './packages/wx-picker';
 import WxSwitch from './packages/wx-switch';
+import WxMarquee from './packages/wx-marquee';
 
 export {
     WxButton,
@@ -43,5 +44,5 @@ export {
     WxProgress,
     WxRange,
     WxPicker,
-    WxSwitch
+    WxMarquee
 };
