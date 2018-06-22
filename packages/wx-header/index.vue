@@ -74,6 +74,7 @@
 <script>
     import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
+    const navigator = weex.requireModule('navigator');
 
     export default {
         mixins:[mixins],
@@ -154,7 +155,11 @@
                     delay: 0
                 }, () => {
                     if (this.useDefaultBack) {
-                        this.$router.back();
+                        if (this.$router && this.$router.back) {
+                            this.$router.back();
+                        } else {
+                            navigator.pop({animated: 'true'});
+                        }
                     } else {
                         this.$emit('wxBack');
                     }
