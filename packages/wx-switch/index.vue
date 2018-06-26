@@ -87,7 +87,8 @@
 
             animation (isInit = false) {
                 let el = this.$refs.switchCore;
-                let s = this.checked ? '0' : '1';
+                // 设置为0.1 解决奇怪的Y轴会覆盖点击问题
+                let s = this.checked ? '0.1' : '1';
                 animation.transition(el, {
                     styles: {
                         transform: `scale(${s})`
