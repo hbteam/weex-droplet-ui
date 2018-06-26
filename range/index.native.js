@@ -3868,6 +3868,8 @@ var animation = weex.requireModule('animation'); //
 //
 //
 
+var navigator = weex.requireModule('navigator');
+
 exports.default = {
     mixins: [_mixins2.default],
     props: {
@@ -3945,7 +3947,11 @@ exports.default = {
                 delay: 0
             }, function () {
                 if (_this.useDefaultBack) {
-                    _this.$router.back();
+                    if (_this.$router && _this.$router.back) {
+                        _this.$router.back();
+                    } else {
+                        navigator.pop({ animated: 'true' });
+                    }
                 } else {
                     _this.$emit('wxBack');
                 }
@@ -5421,7 +5427,8 @@ exports.default = {
             var isInit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
             var el = this.$refs.switchCore;
-            var s = this.checked ? '0' : '1';
+            // 设置为0.1 解决奇怪的Y轴会覆盖点击问题
+            var s = this.checked ? '0.1' : '1';
             _animation.transition(el, {
                 styles: {
                     transform: 'scale(' + s + ')'
