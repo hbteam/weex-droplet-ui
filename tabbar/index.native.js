@@ -4284,9 +4284,12 @@ var _is = __webpack_require__(50);
 
 var _is2 = _interopRequireDefault(_is);
 
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var animation = weex.requireModule('animation'); //
 //
 //
 //
@@ -4354,6 +4357,9 @@ var animation = weex.requireModule('animation'); //
 //
 //
 //
+//
+
+var animation = weex.requireModule('animation');
 
 var getIndex = function getIndex(list, item) {
     if (list && list.length < 1) {
@@ -4372,6 +4378,7 @@ var getIndex = function getIndex(list, item) {
 };
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         visible: {
             type: Boolean,
@@ -4428,12 +4435,14 @@ exports.default = {
             return '';
         },
         ontouchstart: function ontouchstart(e) {
+            this.preventDefault(e);
             if (this.data.list.length <= 1) {
                 return;
             }
             this.startY = e.changedTouches[0].screenY;
         },
         ontouchmove: function ontouchmove(e) {
+            this.preventDefault(e);
             if (this.data.list.length <= 1) {
                 return;
             }
@@ -4443,6 +4452,7 @@ exports.default = {
             this.move(y);
         },
         ontouchend: function ontouchend(e) {
+            this.preventDefault(e);
             if (this.data.list.length <= 1) {
                 return;
             }
@@ -4538,7 +4548,14 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
+
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var animation = weex.requireModule('animation'); //
 //
 //
 //
@@ -4563,8 +4580,8 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 
-var animation = weex.requireModule('animation');
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         width: {
             type: String,
@@ -6341,7 +6358,10 @@ module.exports.render._withStripped = true
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["wx-container"]
+    staticClass: ["wx-container"],
+    on: {
+      "touchstart": _vm.preventDefault
+    }
   }, [(_vm.visible && _vm.hasOverley) ? _c('div', {
     ref: "overlay",
     staticClass: ["mask", "wx-overlay"],
@@ -6854,7 +6874,10 @@ module.exports.render._withStripped = true
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return (_vm.visible) ? _c('div', {
-    staticClass: ["wx-picker-wrapper"]
+    staticClass: ["wx-picker-wrapper"],
+    on: {
+      "touchstart": _vm.preventDefault
+    }
   }, [_c('div', {
     staticClass: ["wx-picker"],
     on: {
