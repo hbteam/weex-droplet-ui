@@ -9,8 +9,8 @@
             @wxChange="handleBottom">
             <div>
                 <div class="btn-wrap">
-                    <text class="btn" @click="handleCancel">取消</text>
-                    <text class="btn" @click="handleFinish">完成</text>
+                    <text class="btn" @click="handleCancel('wxPopup')">取消</text>
+                    <text class="btn" @click="handleFinish('wxPopup')">完成</text>
                 </div>
                 <wx-picker :data="data" :visible="visible" @wxChange="handleChange"></wx-picker>
             </div>
@@ -48,7 +48,38 @@
                 v-model="address"
                 height="200px">
             </wx-field>
+
+            <wx-field
+                label="年份"
+                labelPosition="top"
+                placeholder="请选择年"
+                width="690px"
+                :disabled="true"
+                :hasArrow="true"
+                @wxClick="visibleYears=true"
+                v-model="selectedYear"
+                height="200px">
+            </wx-field>
         </div>
+
+
+        <wx-popup 
+            :visible="visibleYears" 
+            position="bottom" 
+            :hasOverley="true"
+            height="488px"
+            ref="popupYears"
+            @wxChange="showYears">
+            <div>
+                <div class="btn-wrap">
+                    <text class="btn" @click="handleCancel('popupYears')">取消</text>
+                    <text class="btn" @click="handleFinish('popupYears')">完成</text>
+                </div>
+                <wx-picker :data="years" :visible="visibleYears" @wxChange="changeYear"></wx-picker>
+            </div>
+        </wx-popup>
+
+
     </div>
 </template>
 <style scoped>
@@ -84,17 +115,20 @@
 </style>
 <script>
     import { WxPicker, WxButton, WxPopup, WxField } from '../../index';
-    import { PICKER_DATA } from './data';
+    import { PICKER_DATA, YEARS } from './data';
     import { provins, citys, areas } from './address';
     import Picker3 from './picker-3.vue';
-
+    console.log(YEARS)
     export default {
         data () {
             return {
                 data: PICKER_DATA,
+                years: YEARS,
                 visible: false,
                 visible3: false,
+                visibleYears: false,
                 selectedData: PICKER_DATA.defaultValue,
+                selectedYear: YEARS.defaultValue,
                 address: '',
                 defaultAddress: ['湖南省','长沙市','开福区'],
             }
@@ -113,12 +147,12 @@
                 this.selectedData = data;
             },
 
-            handleCancel () {
-                this.$refs.wxPopup.hide();
+            handleCancel (ref) {
+                this.$refs[ref].hide();
             },
 
-            handleFinish () {
-                this.$refs.wxPopup.hide();
+            handleFinish (ref) {
+                this.$refs[ref].hide();
             },
 
             handleChangeAddress (address) {
@@ -133,6 +167,16 @@
             cancelAddressPicker () {
                 this.visible3 = false;
             },
+
+
+            showYears (visible) {
+                this.visibleYears = visible;
+            },
+
+            changeYear (data) {
+                this.selectedYear = data;
+            },
+
         },
         components: { WxPicker, WxButton, WxPopup, Picker3, WxField }
     }

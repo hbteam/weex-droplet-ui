@@ -18,3 +18,17 @@ export const PICKER_DATA = {
         return item.name;
     }
 };
+
+
+let year = new Date().getFullYear();
+let arr = [];
+for (let i = year - 50; i < year + 50; i++ ) {
+    arr.push(i);
+}
+export const YEARS = {
+    list: arr,
+    defaultValue: year,
+    displayValue (year) {
+        return year;
+    }
+}
