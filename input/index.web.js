@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 197);
+/******/ 	return __webpack_require__(__webpack_require__.s = 199);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -340,19 +340,19 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 152:
+/***/ 153:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(260)
+  __webpack_require__(264)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(174),
+  __webpack_require__(175),
   /* template */
-  __webpack_require__(237),
+  __webpack_require__(240),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -405,7 +405,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 174:
+/***/ 175:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -495,7 +495,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 197:
+/***/ 199:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -505,7 +505,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(152);
+var _index = __webpack_require__(153);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -748,7 +748,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(32);
+var _index = __webpack_require__(33);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -761,7 +761,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 215:
+/***/ 216:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -773,48 +773,6 @@ exports.push([module.i, "\n.demo {\n    margin-top: 0.69333rem;\n    margin-left
 
 // exports
 
-
-/***/ }),
-
-/***/ 237:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('wx-input', {
-    staticClass: "demo",
-    attrs: {
-      "placeholder": "请输入手机号"
-    }
-  }, [_c('wx-icon', {
-    staticClass: "icon",
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1), _vm._v(" "), _c('wx-input', {
-    staticClass: "demo",
-    attrs: {
-      "width": "500px",
-      "type": "password",
-      "placeholder": "请输入密码"
-    }
-  }, [_c('wx-icon', {
-    staticClass: "icon",
-    attrs: {
-      "slot": "left",
-      "name": "search"
-    },
-    slot: "left"
-  })], 1)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-34dd637c", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -923,13 +881,55 @@ exports.default = {
 
 /***/ }),
 
-/***/ 260:
+/***/ 240:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('wx-input', {
+    staticClass: "demo",
+    attrs: {
+      "placeholder": "请输入手机号"
+    }
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1), _vm._v(" "), _c('wx-input', {
+    staticClass: "demo",
+    attrs: {
+      "width": "500px",
+      "type": "password",
+      "placeholder": "请输入密码"
+    }
+  }, [_c('wx-icon', {
+    staticClass: "icon",
+    attrs: {
+      "slot": "left",
+      "name": "search"
+    },
+    slot: "left"
+  })], 1)], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-34dd637c", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(215);
+var content = __webpack_require__(216);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -950,7 +950,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 28:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -999,19 +999,19 @@ exports.default = mixins;
 
 /***/ }),
 
-/***/ 32:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(40)
+  __webpack_require__(41)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(24),
   /* template */
-  __webpack_require__(36),
+  __webpack_require__(37),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1044,7 +1044,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 36:
+/***/ 37:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1147,13 +1147,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 40:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(28);
+var content = __webpack_require__(29);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

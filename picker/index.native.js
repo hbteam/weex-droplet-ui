@@ -592,7 +592,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(18);
+var _index = __webpack_require__(19);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -614,7 +614,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(19);
+var _index = __webpack_require__(20);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -636,7 +636,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(20);
+var _index = __webpack_require__(21);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -658,7 +658,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(21);
+var _index = __webpack_require__(22);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -673,18 +673,143 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.WxSwitch = exports.WxPicker = exports.WxRange = exports.WxProgress = exports.WxScrollerbar = exports.WxIndexlist = exports.WxIcon = exports.WxSearch = exports.WxLoading = exports.WxActionsheet = exports.WxPopup = exports.WxInput = exports.WxField = exports.WxRadio = exports.WxCheckboxList = exports.WxCheckbox = exports.WxCell = exports.WxTabbar = exports.WxNavbar = exports.WxHeader = exports.WxDialog = exports.WxButton = undefined;
+
+var _wxButton = __webpack_require__(3);
+
+var _wxButton2 = _interopRequireDefault(_wxButton);
+
+var _wxDialog = __webpack_require__(38);
+
+var _wxDialog2 = _interopRequireDefault(_wxDialog);
+
+var _wxHeader = __webpack_require__(40);
+
+var _wxHeader2 = _interopRequireDefault(_wxHeader);
+
+var _wxNavbar = __webpack_require__(42);
+
+var _wxNavbar2 = _interopRequireDefault(_wxNavbar);
+
+var _wxTabbar = __webpack_require__(49);
+
+var _wxTabbar2 = _interopRequireDefault(_wxTabbar);
+
+var _wxCell = __webpack_require__(36);
+
+var _wxCell2 = _interopRequireDefault(_wxCell);
+
+var _wxCheckbox = __webpack_require__(2);
+
+var _wxCheckbox2 = _interopRequireDefault(_wxCheckbox);
+
+var _wxCheckboxList = __webpack_require__(37);
+
+var _wxCheckboxList2 = _interopRequireDefault(_wxCheckboxList);
+
+var _wxRadio = __webpack_require__(45);
+
+var _wxRadio2 = _interopRequireDefault(_wxRadio);
+
+var _wxField = __webpack_require__(39);
+
+var _wxField2 = _interopRequireDefault(_wxField);
+
+var _wxInput = __webpack_require__(14);
+
+var _wxInput2 = _interopRequireDefault(_wxInput);
+
+var _wxPopup = __webpack_require__(44);
+
+var _wxPopup2 = _interopRequireDefault(_wxPopup);
+
+var _wxActionsheet = __webpack_require__(35);
+
+var _wxActionsheet2 = _interopRequireDefault(_wxActionsheet);
+
+var _wxLoading = __webpack_require__(15);
+
+var _wxLoading2 = _interopRequireDefault(_wxLoading);
+
+var _wxSearch = __webpack_require__(17);
+
+var _wxSearch2 = _interopRequireDefault(_wxSearch);
+
+var _wxIcon = __webpack_require__(1);
+
+var _wxIcon2 = _interopRequireDefault(_wxIcon);
+
+var _wxIndexlist = __webpack_require__(41);
+
+var _wxIndexlist2 = _interopRequireDefault(_wxIndexlist);
+
+var _wxScrollerbar = __webpack_require__(47);
+
+var _wxScrollerbar2 = _interopRequireDefault(_wxScrollerbar);
+
+var _wxProgress = __webpack_require__(16);
+
+var _wxProgress2 = _interopRequireDefault(_wxProgress);
+
+var _wxRange = __webpack_require__(46);
+
+var _wxRange2 = _interopRequireDefault(_wxRange);
+
+var _wxPicker = __webpack_require__(43);
+
+var _wxPicker2 = _interopRequireDefault(_wxPicker);
+
+var _wxSwitch = __webpack_require__(48);
+
+var _wxSwitch2 = _interopRequireDefault(_wxSwitch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.WxButton = _wxButton2.default;
+exports.WxDialog = _wxDialog2.default;
+exports.WxHeader = _wxHeader2.default;
+exports.WxNavbar = _wxNavbar2.default;
+exports.WxTabbar = _wxTabbar2.default;
+exports.WxCell = _wxCell2.default;
+exports.WxCheckbox = _wxCheckbox2.default;
+exports.WxCheckboxList = _wxCheckboxList2.default;
+exports.WxRadio = _wxRadio2.default;
+exports.WxField = _wxField2.default;
+exports.WxInput = _wxInput2.default;
+exports.WxPopup = _wxPopup2.default;
+exports.WxActionsheet = _wxActionsheet2.default;
+exports.WxLoading = _wxLoading2.default;
+exports.WxSearch = _wxSearch2.default;
+exports.WxIcon = _wxIcon2.default;
+exports.WxIndexlist = _wxIndexlist2.default;
+exports.WxScrollerbar = _wxScrollerbar2.default;
+exports.WxProgress = _wxProgress2.default;
+exports.WxRange = _wxRange2.default;
+exports.WxPicker = _wxPicker2.default;
+exports.WxSwitch = _wxSwitch2.default;
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(27)
+__vue_styles__.push(__webpack_require__(28)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(22)
+__vue_exports__ = __webpack_require__(23)
 
 /* template */
-var __vue_template__ = __webpack_require__(31)
+var __vue_template__ = __webpack_require__(32)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -714,21 +839,21 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(26)
+__vue_styles__.push(__webpack_require__(27)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(23)
+__vue_exports__ = __webpack_require__(24)
 
 /* template */
-var __vue_template__ = __webpack_require__(30)
+var __vue_template__ = __webpack_require__(31)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -744,50 +869,6 @@ __vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-drople
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-d41e25fe"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(28)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(24)
-
-/* template */
-var __vue_template__ = __webpack_require__(32)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-progress/index.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-f297eac4"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -828,6 +909,50 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-progress/index.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-f297eac4"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(30)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(26)
+
+/* template */
+var __vue_template__ = __webpack_require__(34)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
 __vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-search/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
@@ -846,7 +971,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -950,7 +1075,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1029,7 +1154,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1160,7 +1285,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1311,7 +1436,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1339,7 +1464,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1361,7 +1486,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1379,7 +1504,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1424,7 +1549,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1443,7 +1568,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1483,7 +1608,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1499,7 +1624,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1541,131 +1666,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("取消")]) : _vm._e()])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.WxSwitch = exports.WxPicker = exports.WxRange = exports.WxProgress = exports.WxScrollerbar = exports.WxIndexlist = exports.WxIcon = exports.WxSearch = exports.WxLoading = exports.WxActionsheet = exports.WxPopup = exports.WxInput = exports.WxField = exports.WxRadio = exports.WxCheckboxList = exports.WxCheckbox = exports.WxCell = exports.WxTabbar = exports.WxNavbar = exports.WxHeader = exports.WxDialog = exports.WxButton = undefined;
-
-var _wxButton = __webpack_require__(3);
-
-var _wxButton2 = _interopRequireDefault(_wxButton);
-
-var _wxDialog = __webpack_require__(38);
-
-var _wxDialog2 = _interopRequireDefault(_wxDialog);
-
-var _wxHeader = __webpack_require__(40);
-
-var _wxHeader2 = _interopRequireDefault(_wxHeader);
-
-var _wxNavbar = __webpack_require__(42);
-
-var _wxNavbar2 = _interopRequireDefault(_wxNavbar);
-
-var _wxTabbar = __webpack_require__(49);
-
-var _wxTabbar2 = _interopRequireDefault(_wxTabbar);
-
-var _wxCell = __webpack_require__(36);
-
-var _wxCell2 = _interopRequireDefault(_wxCell);
-
-var _wxCheckbox = __webpack_require__(2);
-
-var _wxCheckbox2 = _interopRequireDefault(_wxCheckbox);
-
-var _wxCheckboxList = __webpack_require__(37);
-
-var _wxCheckboxList2 = _interopRequireDefault(_wxCheckboxList);
-
-var _wxRadio = __webpack_require__(45);
-
-var _wxRadio2 = _interopRequireDefault(_wxRadio);
-
-var _wxField = __webpack_require__(39);
-
-var _wxField2 = _interopRequireDefault(_wxField);
-
-var _wxInput = __webpack_require__(14);
-
-var _wxInput2 = _interopRequireDefault(_wxInput);
-
-var _wxPopup = __webpack_require__(44);
-
-var _wxPopup2 = _interopRequireDefault(_wxPopup);
-
-var _wxActionsheet = __webpack_require__(35);
-
-var _wxActionsheet2 = _interopRequireDefault(_wxActionsheet);
-
-var _wxLoading = __webpack_require__(15);
-
-var _wxLoading2 = _interopRequireDefault(_wxLoading);
-
-var _wxSearch = __webpack_require__(17);
-
-var _wxSearch2 = _interopRequireDefault(_wxSearch);
-
-var _wxIcon = __webpack_require__(1);
-
-var _wxIcon2 = _interopRequireDefault(_wxIcon);
-
-var _wxIndexlist = __webpack_require__(41);
-
-var _wxIndexlist2 = _interopRequireDefault(_wxIndexlist);
-
-var _wxScrollerbar = __webpack_require__(47);
-
-var _wxScrollerbar2 = _interopRequireDefault(_wxScrollerbar);
-
-var _wxProgress = __webpack_require__(16);
-
-var _wxProgress2 = _interopRequireDefault(_wxProgress);
-
-var _wxRange = __webpack_require__(46);
-
-var _wxRange2 = _interopRequireDefault(_wxRange);
-
-var _wxPicker = __webpack_require__(43);
-
-var _wxPicker2 = _interopRequireDefault(_wxPicker);
-
-var _wxSwitch = __webpack_require__(48);
-
-var _wxSwitch2 = _interopRequireDefault(_wxSwitch);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.WxButton = _wxButton2.default;
-exports.WxDialog = _wxDialog2.default;
-exports.WxHeader = _wxHeader2.default;
-exports.WxNavbar = _wxNavbar2.default;
-exports.WxTabbar = _wxTabbar2.default;
-exports.WxCell = _wxCell2.default;
-exports.WxCheckbox = _wxCheckbox2.default;
-exports.WxCheckboxList = _wxCheckboxList2.default;
-exports.WxRadio = _wxRadio2.default;
-exports.WxField = _wxField2.default;
-exports.WxInput = _wxInput2.default;
-exports.WxPopup = _wxPopup2.default;
-exports.WxActionsheet = _wxActionsheet2.default;
-exports.WxLoading = _wxLoading2.default;
-exports.WxSearch = _wxSearch2.default;
-exports.WxIcon = _wxIcon2.default;
-exports.WxIndexlist = _wxIndexlist2.default;
-exports.WxScrollerbar = _wxScrollerbar2.default;
-exports.WxProgress = _wxProgress2.default;
-exports.WxRange = _wxRange2.default;
-exports.WxPicker = _wxPicker2.default;
-exports.WxSwitch = _wxSwitch2.default;
 
 /***/ }),
 /* 35 */
@@ -7292,7 +7292,68 @@ var areas = exports.areas = {
 };
 
 /***/ }),
-/* 116 */,
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var PICKER_DATA = exports.PICKER_DATA = {
+    list: [{ name: '2012', value: 0 }, { name: '后天', value: 1 }, { name: '星际穿越', value: 2 }, { name: '星际迷航', value: 3 }, { name: 'X战警', value: 4 }, { name: '盗梦空间', value: 5 }, { name: '源代码', value: 6 }, { name: '黑客帝国', value: 7 }, { name: '超验骇客', value: 8 }, { name: '火星救援', value: 9 }, { name: '阿凡达', value: 10 }, { name: '普罗米修斯', value: 11 }],
+    defaultValue: { name: '盗梦空间', value: 6 },
+    displayValue: function displayValue(item) {
+        return item.name;
+    }
+};
+
+var currentYear = new Date().getFullYear();
+var currentMonth = new Date().getMonth() + 1;
+var currentDay = new Date().getDate();
+var arr = [];
+for (var i = currentYear - 50; i < currentYear + 50; i++) {
+    arr.push(i);
+}
+
+var YEARS = exports.YEARS = {
+    list: arr,
+    defaultValue: currentYear,
+    displayValue: function displayValue(y) {
+        return y;
+    }
+};
+
+var MONTHS = exports.MONTHS = {
+    list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    defaultValue: currentMonth,
+    displayValue: function displayValue(m) {
+        return m;
+    }
+};
+
+var getDays = exports.getDays = function getDays(y, m, d) {
+    var maxDay = getMaxDay(y || YEARS.defaultValue, m || MONTHS.defaultValue);
+    var arr = [];
+    for (var _i = 0; _i < maxDay; _i++) {
+        arr.push(_i + 1);
+    }
+    return {
+        list: arr,
+        defaultValue: d || currentDay,
+        displayValue: function displayValue(m) {
+            return m;
+        }
+    };
+};
+
+var getMaxDay = exports.getMaxDay = function getMaxDay(y, m) {
+    var d = new Date(y, m, 0);
+    return d.getDate();
+};
+
+/***/ }),
 /* 117 */,
 /* 118 */,
 /* 119 */,
@@ -7305,21 +7366,22 @@ var areas = exports.areas = {
 /* 126 */,
 /* 127 */,
 /* 128 */,
-/* 129 */
+/* 129 */,
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(201)
+__vue_styles__.push(__webpack_require__(203)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(175)
+__vue_exports__ = __webpack_require__(176)
 
 /* template */
-var __vue_template__ = __webpack_require__(224)
+var __vue_template__ = __webpack_require__(227)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -7349,7 +7411,6 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 130 */,
 /* 131 */,
 /* 132 */,
 /* 133 */,
@@ -7370,37 +7431,7 @@ module.exports = __vue_exports__
 /* 148 */,
 /* 149 */,
 /* 150 */,
-/* 151 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var PICKER_DATA = exports.PICKER_DATA = {
-    list: [{ name: '2012', value: 0 }, { name: '后天', value: 1 }, { name: '星际穿越', value: 2 }, { name: '星际迷航', value: 3 }, { name: 'X战警', value: 4 }, { name: '盗梦空间', value: 5 }, { name: '源代码', value: 6 }, { name: '黑客帝国', value: 7 }, { name: '超验骇客', value: 8 }, { name: '火星救援', value: 9 }, { name: '阿凡达', value: 10 }, { name: '普罗米修斯', value: 11 }],
-    defaultValue: { name: '盗梦空间', value: 6 },
-    displayValue: function displayValue(item) {
-        return item.name;
-    }
-};
-
-var year = new Date().getFullYear();
-var arr = [];
-for (var i = year - 50; i < year + 50; i++) {
-    arr.push(i);
-}
-var YEARS = exports.YEARS = {
-    list: arr,
-    defaultValue: year,
-    displayValue: function displayValue(year) {
-        return year;
-    }
-};
-
-/***/ }),
+/* 151 */,
 /* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7411,7 +7442,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(129);
+var _index = __webpack_require__(130);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -7436,14 +7467,14 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(195)
+__vue_styles__.push(__webpack_require__(197)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(176)
+__vue_exports__ = __webpack_require__(177)
 
 /* template */
-var __vue_template__ = __webpack_require__(216)
+var __vue_template__ = __webpack_require__(219)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -7473,7 +7504,50 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 162 */,
+/* 162 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(207)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(178)
+
+/* template */
+var __vue_template__ = __webpack_require__(231)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/picker/picker-date.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-763ce996"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
 /* 163 */,
 /* 164 */,
 /* 165 */,
@@ -7486,7 +7560,8 @@ module.exports = __vue_exports__
 /* 172 */,
 /* 173 */,
 /* 174 */,
-/* 175 */
+/* 175 */,
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7496,9 +7571,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(34);
+var _index = __webpack_require__(18);
 
-var _data = __webpack_require__(151);
+var _data = __webpack_require__(116);
 
 var _address = __webpack_require__(115);
 
@@ -7506,125 +7581,12 @@ var _picker = __webpack_require__(161);
 
 var _picker2 = _interopRequireDefault(_picker);
 
+var _pickerDate = __webpack_require__(162);
+
+var _pickerDate2 = _interopRequireDefault(_pickerDate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-console.log(_data.YEARS);
 exports.default = {
     data: function data() {
         return {
@@ -7674,11 +7636,133 @@ exports.default = {
             this.selectedYear = data;
         }
     },
-    components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup, Picker3: _picker2.default, WxField: _index.WxField }
-};
+    components: {
+        WxPicker: _index.WxPicker,
+        WxButton: _index.WxButton,
+        WxPopup: _index.WxPopup,
+        Picker3: _picker2.default,
+        WxField: _index.WxField,
+        PickerDate: _pickerDate2.default
+    }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7688,7 +7772,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(34);
+var _index = __webpack_require__(18);
 
 var _address = __webpack_require__(115);
 
@@ -7858,8 +7942,152 @@ exports.default = {
 };
 
 /***/ }),
-/* 177 */,
-/* 178 */,
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _index = __webpack_require__(18);
+
+var _data = __webpack_require__(116);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    data: function data() {
+        return {
+            years: _data.YEARS,
+            months: _data.MONTHS,
+            days: (0, _data.getDays)(),
+            visibleDate: false,
+            selectedDate: [],
+            selectedDateStr: []
+
+        };
+    },
+    created: function created() {
+        this.selectedDate = [_data.YEARS.defaultValue, _data.MONTHS.defaultValue, this.days.defaultValue];
+        this.formate();
+    },
+
+
+    methods: {
+        handleCancel: function handleCancel(ref) {
+            this.$refs[ref].hide();
+        },
+        handleFinish: function handleFinish(ref) {
+            this.$refs[ref].hide();
+        },
+        showYears: function showYears(visible) {
+            this.visibleDate = visible;
+        },
+        changeYear: function changeYear(y) {
+            this.selectedDate[0] = y;
+            this.formate();
+        },
+        changeMonth: function changeMonth(m) {
+            this.selectedDate[1] = m;
+            var currentMonth = new Date().getMonth() + 1;
+            var selectedDay = this.selectedDate[2];
+            var maxDay = (0, _data.getMaxDay)(this.selectedDate[0], m);
+            var d = selectedDay;
+            if (selectedDay > maxDay) {
+                d = maxDay;
+            }
+            this.days = (0, _data.getDays)(this.selectedDate[0], m, d);
+            this.formate();
+        },
+        changeDay: function changeDay(d) {
+            this.selectedDate[2] = d;
+            this.formate();
+        },
+        formate: function formate() {
+            this.selectedDateStr = this.selectedDate.join('-');
+        }
+    },
+    components: {
+        WxPicker: _index.WxPicker,
+        WxButton: _index.WxButton,
+        WxPopup: _index.WxPopup,
+        WxField: _index.WxField
+    }
+};
+
+/***/ }),
 /* 179 */,
 /* 180 */,
 /* 181 */,
@@ -7876,7 +8104,9 @@ exports.default = {
 /* 192 */,
 /* 193 */,
 /* 194 */,
-/* 195 */
+/* 195 */,
+/* 196 */,
+/* 197 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -7905,12 +8135,12 @@ module.exports = {
 }
 
 /***/ }),
-/* 196 */,
-/* 197 */,
 /* 198 */,
 /* 199 */,
 /* 200 */,
-/* 201 */
+/* 201 */,
+/* 202 */,
+/* 203 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -7940,12 +8170,41 @@ module.exports = {
 }
 
 /***/ }),
-/* 202 */,
-/* 203 */,
 /* 204 */,
 /* 205 */,
 /* 206 */,
-/* 207 */,
+/* 207 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "field": {
+    "marginLeft": "30"
+  },
+  "btn-wrap": {
+    "backgroundColor": "#cccccc",
+    "height": "88",
+    "fontSize": "38",
+    "flexDirection": "row",
+    "justifyContent": "space-between",
+    "alignItems": "center"
+  },
+  "btn": {
+    "lineHeight": "88",
+    "height": "88",
+    "width": "100",
+    "textAlign": "center",
+    "color": "#007aff",
+    "fontSize": "32"
+  },
+  "flex": {
+    "flexDirection": "row"
+  },
+  "flex-1": {
+    "flex": 1
+  }
+}
+
+/***/ }),
 /* 208 */,
 /* 209 */,
 /* 210 */,
@@ -7954,7 +8213,10 @@ module.exports = {
 /* 213 */,
 /* 214 */,
 /* 215 */,
-/* 216 */
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8018,14 +8280,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 217 */,
-/* 218 */,
-/* 219 */,
 /* 220 */,
 /* 221 */,
 /* 222 */,
 /* 223 */,
-/* 224 */
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8144,7 +8406,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "selectedYear"
     }
-  })], 1), _c('wx-popup', {
+  })], 1), _c('PickerDate'), _c('wx-popup', {
     ref: "popupYears",
     attrs: {
       "visible": _vm.visibleYears,
@@ -8180,6 +8442,99 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "wxChange": _vm.changeYear
     }
   })], 1)])], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wx-demo"]
+  }, [_c('wx-field', {
+    staticClass: ["field"],
+    attrs: {
+      "label": "日期",
+      "labelPosition": "top",
+      "placeholder": "请选择日期",
+      "width": "690px",
+      "disabled": true,
+      "hasArrow": true,
+      "height": "200px"
+    },
+    on: {
+      "wxClick": function($event) {
+        _vm.visibleDate = true
+      }
+    },
+    model: {
+      value: (_vm.selectedDateStr),
+      callback: function($$v) {
+        _vm.selectedDateStr = $$v
+      },
+      expression: "selectedDateStr"
+    }
+  }), _c('wx-popup', {
+    ref: "popupDate",
+    attrs: {
+      "visible": _vm.visibleDate,
+      "position": "bottom",
+      "hasOverley": true,
+      "height": "488px"
+    },
+    on: {
+      "wxChange": _vm.showYears
+    }
+  }, [_c('div', [_c('div', {
+    staticClass: ["btn-wrap"]
+  }, [_c('text', {
+    staticClass: ["btn"],
+    on: {
+      "click": function($event) {
+        _vm.handleCancel('popupDate')
+      }
+    }
+  }, [_vm._v("取消")]), _c('text', {
+    staticClass: ["btn"],
+    on: {
+      "click": function($event) {
+        _vm.handleFinish('popupDate')
+      }
+    }
+  }, [_vm._v("完成")])]), _c('div', {
+    staticClass: ["flex"]
+  }, [_c('wx-picker', {
+    staticClass: ["flex-1"],
+    attrs: {
+      "data": _vm.years,
+      "visible": _vm.visibleDate
+    },
+    on: {
+      "wxChange": _vm.changeYear
+    }
+  }), _c('wx-picker', {
+    staticClass: ["flex-1"],
+    attrs: {
+      "data": _vm.months,
+      "visible": _vm.visibleDate
+    },
+    on: {
+      "wxChange": _vm.changeMonth
+    }
+  }), _c('wx-picker', {
+    staticClass: ["flex-1"],
+    attrs: {
+      "data": _vm.days,
+      "visible": _vm.visibleDate
+    },
+    on: {
+      "wxChange": _vm.changeDay
+    }
+  })], 1)])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
