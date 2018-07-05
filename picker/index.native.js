@@ -7387,6 +7387,19 @@ var PICKER_DATA = exports.PICKER_DATA = {
     }
 };
 
+var year = new Date().getFullYear();
+var arr = [];
+for (var i = year - 50; i < year + 50; i++) {
+    arr.push(i);
+}
+var YEARS = exports.YEARS = {
+    list: arr,
+    defaultValue: year,
+    displayValue: function displayValue(year) {
+        return year;
+    }
+};
+
 /***/ }),
 /* 152 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -7579,14 +7592,49 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+console.log(_data.YEARS);
 exports.default = {
     data: function data() {
         return {
             data: _data.PICKER_DATA,
+            years: _data.YEARS,
             visible: false,
             visible3: false,
+            visibleYears: false,
             selectedData: _data.PICKER_DATA.defaultValue,
+            selectedYear: _data.YEARS.defaultValue,
             address: '',
             defaultAddress: ['湖南省', '长沙市', '开福区']
         };
@@ -7603,11 +7651,11 @@ exports.default = {
         handleChange: function handleChange(data) {
             this.selectedData = data;
         },
-        handleCancel: function handleCancel() {
-            this.$refs.wxPopup.hide();
+        handleCancel: function handleCancel(ref) {
+            this.$refs[ref].hide();
         },
-        handleFinish: function handleFinish() {
-            this.$refs.wxPopup.hide();
+        handleFinish: function handleFinish(ref) {
+            this.$refs[ref].hide();
         },
         handleChangeAddress: function handleChangeAddress(address) {
             this.address = address.join('/');
@@ -7618,6 +7666,12 @@ exports.default = {
         },
         cancelAddressPicker: function cancelAddressPicker() {
             this.visible3 = false;
+        },
+        showYears: function showYears(visible) {
+            this.visibleYears = visible;
+        },
+        changeYear: function changeYear(data) {
+            this.selectedYear = data;
         }
     },
     components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup, Picker3: _picker2.default, WxField: _index.WxField }
@@ -7993,12 +8047,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('text', {
     staticClass: ["btn"],
     on: {
-      "click": _vm.handleCancel
+      "click": function($event) {
+        _vm.handleCancel('wxPopup')
+      }
     }
   }, [_vm._v("取消")]), _c('text', {
     staticClass: ["btn"],
     on: {
-      "click": _vm.handleFinish
+      "click": function($event) {
+        _vm.handleFinish('wxPopup')
+      }
     }
   }, [_vm._v("完成")])]), _c('wx-picker', {
     attrs: {
@@ -8064,7 +8122,64 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "address"
     }
-  })], 1)], 1)
+  }), _c('wx-field', {
+    attrs: {
+      "label": "年份",
+      "labelPosition": "top",
+      "placeholder": "请选择年",
+      "width": "690px",
+      "disabled": true,
+      "hasArrow": true,
+      "height": "200px"
+    },
+    on: {
+      "wxClick": function($event) {
+        _vm.visibleYears = true
+      }
+    },
+    model: {
+      value: (_vm.selectedYear),
+      callback: function($$v) {
+        _vm.selectedYear = $$v
+      },
+      expression: "selectedYear"
+    }
+  })], 1), _c('wx-popup', {
+    ref: "popupYears",
+    attrs: {
+      "visible": _vm.visibleYears,
+      "position": "bottom",
+      "hasOverley": true,
+      "height": "488px"
+    },
+    on: {
+      "wxChange": _vm.showYears
+    }
+  }, [_c('div', [_c('div', {
+    staticClass: ["btn-wrap"]
+  }, [_c('text', {
+    staticClass: ["btn"],
+    on: {
+      "click": function($event) {
+        _vm.handleCancel('popupYears')
+      }
+    }
+  }, [_vm._v("取消")]), _c('text', {
+    staticClass: ["btn"],
+    on: {
+      "click": function($event) {
+        _vm.handleFinish('popupYears')
+      }
+    }
+  }, [_vm._v("完成")])]), _c('wx-picker', {
+    attrs: {
+      "data": _vm.years,
+      "visible": _vm.visibleYears
+    },
+    on: {
+      "wxChange": _vm.changeYear
+    }
+  })], 1)])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

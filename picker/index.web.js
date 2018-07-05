@@ -8563,14 +8563,49 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+console.log(_data.YEARS);
 exports.default = {
     data: function data() {
         return {
             data: _data.PICKER_DATA,
+            years: _data.YEARS,
             visible: false,
             visible3: false,
+            visibleYears: false,
             selectedData: _data.PICKER_DATA.defaultValue,
+            selectedYear: _data.YEARS.defaultValue,
             address: '',
             defaultAddress: ['湖南省', '长沙市', '开福区']
         };
@@ -8587,11 +8622,11 @@ exports.default = {
         handleChange: function handleChange(data) {
             this.selectedData = data;
         },
-        handleCancel: function handleCancel() {
-            this.$refs.wxPopup.hide();
+        handleCancel: function handleCancel(ref) {
+            this.$refs[ref].hide();
         },
-        handleFinish: function handleFinish() {
-            this.$refs.wxPopup.hide();
+        handleFinish: function handleFinish(ref) {
+            this.$refs[ref].hide();
         },
         handleChangeAddress: function handleChangeAddress(address) {
             this.address = address.join('/');
@@ -8602,6 +8637,12 @@ exports.default = {
         },
         cancelAddressPicker: function cancelAddressPicker() {
             this.visible3 = false;
+        },
+        showYears: function showYears(visible) {
+            this.visibleYears = visible;
+        },
+        changeYear: function changeYear(data) {
+            this.selectedYear = data;
         }
     },
     components: { WxPicker: _index.WxPicker, WxButton: _index.WxButton, WxPopup: _index.WxPopup, Picker3: _picker2.default, WxField: _index.WxField }
@@ -8826,6 +8867,19 @@ var PICKER_DATA = exports.PICKER_DATA = {
     }
 };
 
+var year = new Date().getFullYear();
+var arr = [];
+for (var i = year - 50; i < year + 50; i++) {
+    arr.push(i);
+}
+var YEARS = exports.YEARS = {
+    list: arr,
+    defaultValue: year,
+    displayValue: function displayValue(year) {
+        return year;
+    }
+};
+
 /***/ }),
 /* 201 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8863,7 +8917,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-demo[data-v-0b055ff2] {\n}\n.wrap[data-v-0b055ff2] {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.button[data-v-0b055ff2] {\n    margin-top: 0.8rem;\n}\n.btn-wrap[data-v-0b055ff2] {\n    background-color: #ccc;\n    height: 1.17333rem;\n    font-size: 0.50667rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.btn[data-v-0b055ff2] {\n    line-height: 1.17333rem;\n    height: 1.17333rem;\n    width: 1.33333rem;\n    text-align: center;\n    color: #007aff;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/picker/index.vue?26f5ffc0"],"names":[],"mappings":";AAsDA;CACA;AAEA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,mBAAA;CACA;AAEA;IACA,uBAAA;IACA,mBAAA;IACA,sBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,wBAAA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-popup \n            :visible=\"visible\" \n            position=\"bottom\" \n            :hasOverley=\"true\"\n            height=\"488px\"\n            ref=\"wxPopup\"\n            @wxChange=\"handleBottom\">\n            <div>\n                <div class=\"btn-wrap\">\n                    <text class=\"btn\" @click=\"handleCancel\">取消</text>\n                    <text class=\"btn\" @click=\"handleFinish\">完成</text>\n                </div>\n                <wx-picker :data=\"data\" :visible=\"visible\" @wxChange=\"handleChange\"></wx-picker>\n            </div>\n        </wx-popup>\n\n        <Picker3\n            :defaultValue=\"defaultAddress\"\n            :visible=\"visible3\"\n            @wxCancel=\"cancelAddressPicker\"\n            @wxConfirm=\"confirmAddressPicker\"\n            @wxChange=\"handleChangeAddress\">\n        </Picker3>\n\n        <div class=\"wrap\">\n            <wx-field\n                label=\"最喜欢的电影\"\n                labelPosition=\"top\"\n                placeholder=\"请选择电影\"\n                width=\"690px\"\n                :disabled=\"true\"\n                :hasArrow=\"true\"\n                @wxClick=\"visible=true\"\n                v-model=\"selectedData.name\"\n                height=\"200px\">\n            </wx-field>\n\n            <wx-field\n                label=\"通讯地址\"\n                labelPosition=\"top\"\n                placeholder=\"请选择地址\"\n                width=\"690px\"\n                :disabled=\"true\"\n                :hasArrow=\"true\"\n                @wxClick=\"visible3=true\"\n                v-model=\"address\"\n                height=\"200px\">\n            </wx-field>\n        </div>\n    </div>\n</template>\n<style scoped>\n    .wx-demo {\n    }\n\n    .wrap {\n        flex-direction: column;\n        align-items: center;\n    }\n\n    .button {\n        margin-top: 60px;\n    }\n\n    .btn-wrap {\n        background-color: #ccc;\n        height: 88px;\n        font-size: 38px;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n    }\n\n    .btn {\n        line-height: 88px;\n        height: 88px;\n        width: 100px;\n        text-align: center;\n        color: #007aff;\n        font-size: 32px;\n    }\n</style>\n<script>\n    import { WxPicker, WxButton, WxPopup, WxField } from '../../index';\n    import { PICKER_DATA } from './data';\n    import { provins, citys, areas } from './address';\n    import Picker3 from './picker-3.vue';\n\n    export default {\n        data () {\n            return {\n                data: PICKER_DATA,\n                visible: false,\n                visible3: false,\n                selectedData: PICKER_DATA.defaultValue,\n                address: '',\n                defaultAddress: ['湖南省','长沙市','开福区'],\n            }\n        },\n\n        created () {\n            this.address = this.defaultAddress.join('/')\n        },\n\n        methods: {\n            handleBottom (visible) {\n                this.visible = visible;\n            },\n\n            handleChange (data) {\n                this.selectedData = data;\n            },\n\n            handleCancel () {\n                this.$refs.wxPopup.hide();\n            },\n\n            handleFinish () {\n                this.$refs.wxPopup.hide();\n            },\n\n            handleChangeAddress (address) {\n                this.address = address.join('/');\n            },\n\n            confirmAddressPicker (address) {\n                this.visible3= false;\n                this.address = address.join('/');\n            },\n\n            cancelAddressPicker () {\n                this.visible3 = false;\n            },\n        },\n        components: { WxPicker, WxButton, WxPopup, Picker3, WxField }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-demo[data-v-0b055ff2] {\n}\n.wrap[data-v-0b055ff2] {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.button[data-v-0b055ff2] {\n    margin-top: 0.8rem;\n}\n.btn-wrap[data-v-0b055ff2] {\n    background-color: #ccc;\n    height: 1.17333rem;\n    font-size: 0.50667rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.btn[data-v-0b055ff2] {\n    line-height: 1.17333rem;\n    height: 1.17333rem;\n    width: 1.33333rem;\n    text-align: center;\n    color: #007aff;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/picker/index.vue?1dec428a"],"names":[],"mappings":";AAqFA;CACA;AAEA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,mBAAA;CACA;AAEA;IACA,uBAAA;IACA,mBAAA;IACA,sBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,wBAAA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,eAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-popup \n            :visible=\"visible\" \n            position=\"bottom\" \n            :hasOverley=\"true\"\n            height=\"488px\"\n            ref=\"wxPopup\"\n            @wxChange=\"handleBottom\">\n            <div>\n                <div class=\"btn-wrap\">\n                    <text class=\"btn\" @click=\"handleCancel('wxPopup')\">取消</text>\n                    <text class=\"btn\" @click=\"handleFinish('wxPopup')\">完成</text>\n                </div>\n                <wx-picker :data=\"data\" :visible=\"visible\" @wxChange=\"handleChange\"></wx-picker>\n            </div>\n        </wx-popup>\n\n        <Picker3\n            :defaultValue=\"defaultAddress\"\n            :visible=\"visible3\"\n            @wxCancel=\"cancelAddressPicker\"\n            @wxConfirm=\"confirmAddressPicker\"\n            @wxChange=\"handleChangeAddress\">\n        </Picker3>\n\n        <div class=\"wrap\">\n            <wx-field\n                label=\"最喜欢的电影\"\n                labelPosition=\"top\"\n                placeholder=\"请选择电影\"\n                width=\"690px\"\n                :disabled=\"true\"\n                :hasArrow=\"true\"\n                @wxClick=\"visible=true\"\n                v-model=\"selectedData.name\"\n                height=\"200px\">\n            </wx-field>\n\n            <wx-field\n                label=\"通讯地址\"\n                labelPosition=\"top\"\n                placeholder=\"请选择地址\"\n                width=\"690px\"\n                :disabled=\"true\"\n                :hasArrow=\"true\"\n                @wxClick=\"visible3=true\"\n                v-model=\"address\"\n                height=\"200px\">\n            </wx-field>\n\n            <wx-field\n                label=\"年份\"\n                labelPosition=\"top\"\n                placeholder=\"请选择年\"\n                width=\"690px\"\n                :disabled=\"true\"\n                :hasArrow=\"true\"\n                @wxClick=\"visibleYears=true\"\n                v-model=\"selectedYear\"\n                height=\"200px\">\n            </wx-field>\n        </div>\n\n\n        <wx-popup \n            :visible=\"visibleYears\" \n            position=\"bottom\" \n            :hasOverley=\"true\"\n            height=\"488px\"\n            ref=\"popupYears\"\n            @wxChange=\"showYears\">\n            <div>\n                <div class=\"btn-wrap\">\n                    <text class=\"btn\" @click=\"handleCancel('popupYears')\">取消</text>\n                    <text class=\"btn\" @click=\"handleFinish('popupYears')\">完成</text>\n                </div>\n                <wx-picker :data=\"years\" :visible=\"visibleYears\" @wxChange=\"changeYear\"></wx-picker>\n            </div>\n        </wx-popup>\n\n\n    </div>\n</template>\n<style scoped>\n    .wx-demo {\n    }\n\n    .wrap {\n        flex-direction: column;\n        align-items: center;\n    }\n\n    .button {\n        margin-top: 60px;\n    }\n\n    .btn-wrap {\n        background-color: #ccc;\n        height: 88px;\n        font-size: 38px;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n    }\n\n    .btn {\n        line-height: 88px;\n        height: 88px;\n        width: 100px;\n        text-align: center;\n        color: #007aff;\n        font-size: 32px;\n    }\n</style>\n<script>\n    import { WxPicker, WxButton, WxPopup, WxField } from '../../index';\n    import { PICKER_DATA, YEARS } from './data';\n    import { provins, citys, areas } from './address';\n    import Picker3 from './picker-3.vue';\n    console.log(YEARS)\n    export default {\n        data () {\n            return {\n                data: PICKER_DATA,\n                years: YEARS,\n                visible: false,\n                visible3: false,\n                visibleYears: false,\n                selectedData: PICKER_DATA.defaultValue,\n                selectedYear: YEARS.defaultValue,\n                address: '',\n                defaultAddress: ['湖南省','长沙市','开福区'],\n            }\n        },\n\n        created () {\n            this.address = this.defaultAddress.join('/')\n        },\n\n        methods: {\n            handleBottom (visible) {\n                this.visible = visible;\n            },\n\n            handleChange (data) {\n                this.selectedData = data;\n            },\n\n            handleCancel (ref) {\n                this.$refs[ref].hide();\n            },\n\n            handleFinish (ref) {\n                this.$refs[ref].hide();\n            },\n\n            handleChangeAddress (address) {\n                this.address = address.join('/');\n            },\n\n            confirmAddressPicker (address) {\n                this.visible3= false;\n                this.address = address.join('/');\n            },\n\n            cancelAddressPicker () {\n                this.visible3 = false;\n            },\n\n\n            showYears (visible) {\n                this.visibleYears = visible;\n            },\n\n            changeYear (data) {\n                this.selectedYear = data;\n            },\n\n        },\n        components: { WxPicker, WxButton, WxPopup, Picker3, WxField }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -8979,13 +9033,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "weex$tap": function($event) {
         $event.stopPropagation();
-        return _vm.handleCancel($event)
+        _vm.handleCancel('wxPopup')
       }
     },
     nativeOn: {
       "weex$tap": function($event) {
         $event.stopPropagation();
-        return _vm.handleCancel($event)
+        _vm.handleCancel('wxPopup')
       }
     }
   }, [_vm._v("取消")]), _vm._v(" "), _c('p', {
@@ -8996,13 +9050,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "weex$tap": function($event) {
         $event.stopPropagation();
-        return _vm.handleFinish($event)
+        _vm.handleFinish('wxPopup')
       }
     },
     nativeOn: {
       "weex$tap": function($event) {
         $event.stopPropagation();
-        return _vm.handleFinish($event)
+        _vm.handleFinish('wxPopup')
       }
     }
   }, [_vm._v("完成")])]), _vm._v(" "), _c('wx-picker', {
@@ -9094,7 +9148,99 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "address"
     }
-  })], 1)], 1)
+  }), _vm._v(" "), _c('wx-field', {
+    attrs: {
+      "label": "年份",
+      "labelPosition": "top",
+      "placeholder": "请选择年",
+      "width": "690px",
+      "disabled": true,
+      "hasArrow": true,
+      "height": "200px",
+      "data-evt-wxClick": ""
+    },
+    on: {
+      "wxClick": function($event) {
+        _vm.visibleYears = true
+      }
+    },
+    nativeOn: {
+      "wxClick": function($event) {
+        _vm.visibleYears = true
+      }
+    },
+    model: {
+      value: (_vm.selectedYear),
+      callback: function($$v) {
+        _vm.selectedYear = $$v
+      },
+      expression: "selectedYear"
+    }
+  })], 1), _vm._v(" "), _c('wx-popup', {
+    ref: "popupYears",
+    attrs: {
+      "visible": _vm.visibleYears,
+      "position": "bottom",
+      "hasOverley": true,
+      "height": "488px",
+      "data-evt-wxChange": ""
+    },
+    on: {
+      "wxChange": _vm.showYears
+    },
+    nativeOn: {
+      "wxChange": _vm.showYears
+    }
+  }, [_c('div', [_c('div', {
+    staticClass: "btn-wrap weex-ct",
+    attrs: {}
+  }, [_c('p', {
+    staticClass: "btn weex-el weex-text",
+    attrs: {
+      "data-evt-click": ""
+    },
+    on: {
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.handleCancel('popupYears')
+      }
+    },
+    nativeOn: {
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.handleCancel('popupYears')
+      }
+    }
+  }, [_vm._v("取消")]), _vm._v(" "), _c('p', {
+    staticClass: "btn weex-el weex-text",
+    attrs: {
+      "data-evt-click": ""
+    },
+    on: {
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.handleFinish('popupYears')
+      }
+    },
+    nativeOn: {
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.handleFinish('popupYears')
+      }
+    }
+  }, [_vm._v("完成")])]), _vm._v(" "), _c('wx-picker', {
+    attrs: {
+      "data": _vm.years,
+      "visible": _vm.visibleYears,
+      "data-evt-wxChange": ""
+    },
+    on: {
+      "wxChange": _vm.changeYear
+    },
+    nativeOn: {
+      "wxChange": _vm.changeYear
+    }
+  })], 1)])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
