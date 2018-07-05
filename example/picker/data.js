@@ -20,15 +20,47 @@ export const PICKER_DATA = {
 };
 
 
-let year = new Date().getFullYear();
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth() + 1;
+let currentDay = new Date().getDate();
 let arr = [];
-for (let i = year - 50; i < year + 50; i++ ) {
+for (let i = currentYear - 50; i < currentYear + 50; i++ ) {
     arr.push(i);
 }
+
 export const YEARS = {
     list: arr,
-    defaultValue: year,
-    displayValue (year) {
-        return year;
+    defaultValue: currentYear,
+    displayValue (y) {
+        return y;
     }
 }
+
+export const MONTHS = {
+    list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    defaultValue: currentMonth,
+    displayValue (m) {
+        return m;
+    }
+}
+
+export const getDays = (y, m, d) => {
+    const maxDay = getMaxDay(y || YEARS.defaultValue, m || MONTHS.defaultValue);
+    const arr = [];
+    for (let i = 0; i < maxDay; i++) {
+        arr.push(i + 1);
+    }
+    return {
+        list: arr,
+        defaultValue: d || currentDay,
+        displayValue (m) {
+            return m;
+        }
+    }
+}
+
+export const getMaxDay = (y, m) => {
+    const d = new Date(y, m, 0);
+    return d.getDate();
+}
+

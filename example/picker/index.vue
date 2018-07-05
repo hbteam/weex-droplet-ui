@@ -61,6 +61,7 @@
                 height="200px">
             </wx-field>
         </div>
+        <PickerDate></PickerDate>
 
 
         <wx-popup 
@@ -118,7 +119,7 @@
     import { PICKER_DATA, YEARS } from './data';
     import { provins, citys, areas } from './address';
     import Picker3 from './picker-3.vue';
-    console.log(YEARS)
+    import PickerDate from './picker-date.vue';
     export default {
         data () {
             return {
@@ -178,6 +179,13 @@
             },
 
         },
-        components: { WxPicker, WxButton, WxPopup, Picker3, WxField }
+        components: { 
+            WxPicker, 
+            WxButton, 
+            WxPopup, 
+            Picker3, 
+            WxField, 
+            PickerDate 
+        }
     }
 </script>
