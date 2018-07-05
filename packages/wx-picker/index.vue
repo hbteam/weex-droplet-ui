@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-picker-wrapper" v-if="visible">
+    <div class="wx-picker-wrapper" v-if="visible" @touchstart="preventDefault">
         <div class="wx-picker" @panstart="ontouchstart" @panend="ontouchend" @panmove="ontouchmove" >
             <div class="wrapper" ref="wrapper">
                 <text 
@@ -68,6 +68,7 @@
 </style>
 <script type="text/javascript">
     import is from '../utils/is';
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     const getIndex = (list, item) => {
@@ -87,6 +88,7 @@
     };
 
     export default {
+        mixins:[mixins],
         props: {
             visible: {
                 type: Boolean,
@@ -150,6 +152,7 @@
             },
 
             ontouchstart (e) {
+                this.preventDefault(e);
                 if (this.data.list.length <= 1) {
                     return;
                 }
@@ -157,6 +160,7 @@
             },
 
             ontouchmove (e) {
+                this.preventDefault(e);
                 if (this.data.list.length <= 1) {
                   return;
                 }
@@ -167,6 +171,7 @@
             },
 
             ontouchend (e) {
+                this.preventDefault(e);
                 if (this.data.list.length <= 1) {
                   return;
                 }

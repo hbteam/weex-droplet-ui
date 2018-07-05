@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-container">
+    <div class="wx-container" @touchstart="preventDefault">
         <div class="mask wx-overlay" ref="overlay" v-if="visible && hasOverley" @click="hide('event')"></div>
         <div class="wx-popup" v-if="visible" :style="popupStyles" ref="popup">
             <slot></slot>
@@ -23,8 +23,10 @@
     }
 </style>
 <script>
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
     export default {
+        mixins:[mixins],
         props: {
             width: {
                 type: String,
