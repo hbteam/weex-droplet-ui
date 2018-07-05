@@ -8,7 +8,6 @@
 <style type="text/css">
     .wx-demo {
         margin-top: 100px;
-        overflow: hidden;
         background-color: #fff;
     }
 </style>
