@@ -13,7 +13,7 @@ npm i weex-droplet-ui -S
 [https://houbank.github.io/dropletui-docs](https://houbank.github.io/dropletui-docs)
 
 ## 配置
-因未编译成ES5发布到npm，所以webpack需要配置排除node_modules下包含weex的文件。
+因未编译成ES5发布到npm，所以webpack.config.js需要配置排除node_modules下包含weex的文件。
 ```
 {
     test: /\.js$/,
@@ -21,6 +21,25 @@ npm i weex-droplet-ui -S
       loader: 'babel-loader',
     }],
     exclude: /node_modules(?!\/.*(weex).*)/
+}
+```
+
+## UI组件代码按需加载
+npm i babel-preset-stage-0 babel-plugin-component -D
+```
+{
+    "presets": ["es2015", "stage-0"],
+    "plugins": [
+        [
+            "component",
+            {
+                "libraryName": "weex-droplet-ui",
+                "libDir": "packages",
+                "style": false
+            },
+            ...其他UI，如weex-ui
+        ]
+    ]
 }
 ```
 
