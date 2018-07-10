@@ -4400,7 +4400,8 @@ exports.default = {
             currentY: 0,
             itemHeight: 72,
             selectedIndex: 0,
-            _defaultValue: null
+            _defaultValue: null,
+            _startTime: 0
         };
     },
     created: function created() {
@@ -4440,6 +4441,7 @@ exports.default = {
                 return;
             }
             this.startY = e.changedTouches[0].screenY;
+            this._startTime = new Date().getTime();
         },
         ontouchmove: function ontouchmove(e) {
             this.preventDefault(e);
@@ -4459,6 +4461,11 @@ exports.default = {
             this.endY = e.changedTouches[0].screenY;
             // 实际滚动距离
             var v = parseInt(this.endY - this.startY);
+            // 如果快速滑动，实际滑动距离放大3.5倍
+            var endTime = new Date().getTime();
+            if (endTime - this._startTime < 200) {
+                v = v * 3.5;
+            }
             var value = v % this.itemHeight;
             // 计算出每次拖动的36px整倍数
             this.currentY += v - value;
@@ -6320,7 +6327,7 @@ module.exports = {
     "borderBottomStyle": "solid",
     "borderBottomColor": "#DCDCDC",
     "position": "absolute",
-    "top": "180",
+    "top": "176",
     "left": 0,
     "zIndex": 100,
     "justifyContent": "center",
