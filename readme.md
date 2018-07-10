@@ -25,7 +25,8 @@ npm i weex-droplet-ui -S
 ```
 
 ## UI组件代码按需加载
-npm i babel-preset-stage-0 babel-plugin-component -D
+-1 npm i babel-preset-stage-0 babel-plugin-component -D  
+-2 .babelrc配置如下  
 ```
 {
     "presets": ["es2015", "stage-0"],
