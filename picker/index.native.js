@@ -6678,7 +6678,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       class: [_vm.selectedTab.index === item.index ? 'selected' : 'noselected'],
       style: {
         color: _vm.selectedTab.index === item.index ? (item.selectedColor || '#4676FF') : (item.titleColor) || '#7A818B',
-        'font-size': item.titleSize
+        'font-size': item.titleSize || '32px'
       }
     }, [_vm._v(_vm._s(item.title))])])
   })), (!_vm.vif) ? _c('div', {
@@ -7301,9 +7301,13 @@ var areas = exports.areas = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var ls = [];
+for (var i = 0; i < 100; i++) {
+    ls.push({ name: '普罗米修斯' + i, value: i });
+}
 var PICKER_DATA = exports.PICKER_DATA = {
-    list: [{ name: '2012', value: 0 }, { name: '后天', value: 1 }, { name: '星际穿越', value: 2 }, { name: '星际迷航', value: 3 }, { name: 'X战警', value: 4 }, { name: '盗梦空间', value: 5 }, { name: '源代码', value: 6 }, { name: '黑客帝国', value: 7 }, { name: '超验骇客', value: 8 }, { name: '火星救援', value: 9 }, { name: '阿凡达', value: 10 }, { name: '普罗米修斯', value: 11 }],
-    defaultValue: { name: '盗梦空间', value: 6 },
+    list: ls,
+    defaultValue: { name: '普罗米修斯5', value: 5 },
     displayValue: function displayValue(item) {
         return item.name;
     }
@@ -7313,8 +7317,8 @@ var currentYear = new Date().getFullYear();
 var currentMonth = new Date().getMonth() + 1;
 var currentDay = new Date().getDate();
 var arr = [];
-for (var i = currentYear - 50; i < currentYear + 50; i++) {
-    arr.push(i);
+for (var _i = currentYear - 50; _i < currentYear + 50; _i++) {
+    arr.push(_i);
 }
 
 var YEARS = exports.YEARS = {
@@ -7336,8 +7340,8 @@ var MONTHS = exports.MONTHS = {
 var getDays = exports.getDays = function getDays(y, m, d) {
     var maxDay = getMaxDay(y || YEARS.defaultValue, m || MONTHS.defaultValue);
     var arr = [];
-    for (var _i = 0; _i < maxDay; _i++) {
-        arr.push(_i + 1);
+    for (var _i2 = 0; _i2 < maxDay; _i2++) {
+        arr.push(_i2 + 1);
     }
     return {
         list: arr,

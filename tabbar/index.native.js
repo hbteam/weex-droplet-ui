@@ -6678,7 +6678,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       class: [_vm.selectedTab.index === item.index ? 'selected' : 'noselected'],
       style: {
         color: _vm.selectedTab.index === item.index ? (item.selectedColor || '#4676FF') : (item.titleColor) || '#7A818B',
-        'font-size': item.titleSize
+        'font-size': item.titleSize || '32px'
       }
     }, [_vm._v(_vm._s(item.title))])])
   })), (!_vm.vif) ? _c('div', {
