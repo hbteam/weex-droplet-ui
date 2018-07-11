@@ -435,7 +435,7 @@ exports.default = {
         },
         url: {
             type: String,
-            default: 'http://p285sfed1.bkt.clouddn.com/loading.gif'
+            default: 'https://p285sfed1.bkt.clouddn.com/loading.gif'
         }
     },
     data: function data() {
