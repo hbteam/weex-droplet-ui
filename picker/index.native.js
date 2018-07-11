@@ -105,17 +105,6 @@ var mixins = {
         preventDefault: function preventDefault(e) {
             e.preventDefault && e.preventDefault();
             e.stopPropagation && e.stopPropagation();
-        },
-
-
-        // px -> 32px
-        px2rem: function px2rem(px) {
-            if (platform !== 'web') {
-                return px;
-            } else {
-                px = Number(px.replace('px', ''));
-                return px / 75 + 'rem';
-            }
         }
     }
 };
@@ -399,7 +388,7 @@ exports.default = {
         },
         textFontSize: {
             type: String,
-            default: '36px'
+            default: '32px'
         }
     },
     data: function data() {
@@ -4282,6 +4271,12 @@ exports.default = {
                 needLayout: false,
                 delay: 0 //ms
             });
+        },
+        getTitleStyle: function getTitleStyle(item) {
+            return {
+                color: this.selectedTab.index === item.index ? item.selectedColor || '#4676FF' : item.titleColor || '#7A818B',
+                'font-size': item.titleSize || '32px'
+            };
         }
     }
 };
@@ -4478,10 +4473,10 @@ exports.default = {
             this.endY = e.changedTouches[0].screenY;
             // 实际滚动距离
             var v = parseInt(this.endY - this.startY);
-            // 如果快速滑动，实际滑动距离放大3.5倍
+            // 如果快速滑动，实际滑动距离放大5倍
             var endTime = new Date().getTime();
             if (endTime - this._startTime < 200) {
-                v = v * 3.5;
+                v = v * 5;
             }
             var value = v % this.itemHeight;
             // 计算出每次拖动的36px整倍数
@@ -5675,7 +5670,7 @@ exports.default = {
         },
         getTitleStyle: function getTitleStyle(item) {
             return {
-                'font-size': item.fontSize || '28px',
+                'font-size': item.fontSize || '32px',
                 'color': this.selectedTab.index === item.index ? item.selectedColor : item.titleColor
             };
         }
@@ -6720,10 +6715,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('text', {
       staticClass: ["wx-title"],
       class: [_vm.selectedTab.index === item.index ? 'selected' : 'noselected'],
-      style: {
-        color: _vm.selectedTab.index === item.index ? (item.selectedColor || '#4676FF') : (item.titleColor) || '#7A818B',
-        'font-size': _vm.px2rem(item.titleSize || '32px')
-      }
+      style: _vm.getTitleStyle(item)
     }, [_vm._v(_vm._s(item.title))])])
   })), (!_vm.vif) ? _c('div', {
     staticClass: ["tab-component"],

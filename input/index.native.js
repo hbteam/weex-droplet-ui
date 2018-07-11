@@ -106,17 +106,6 @@ var mixins = {
         preventDefault: function preventDefault(e) {
             e.preventDefault && e.preventDefault();
             e.stopPropagation && e.stopPropagation();
-        },
-
-
-        // px -> 32px
-        px2rem: function px2rem(px) {
-            if (platform !== 'web') {
-                return px;
-            } else {
-                px = Number(px.replace('px', ''));
-                return px / 75 + 'rem';
-            }
         }
     }
 };
