@@ -700,7 +700,7 @@ exports.default = {
     beforeCreate: function beforeCreate() {
         dom.addRule('fontFace', {
             'fontFamily': "dropletUiIconfont",
-            'src': "url('http://at.alicdn.com/t/font_534309_4czzlr17zdw2vs4i.ttf')"
+            'src': "url('https://at.alicdn.com/t/font_534309_4czzlr17zdw2vs4i.ttf')"
         });
     },
     created: function created() {
