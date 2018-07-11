@@ -4860,46 +4860,52 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var animation = weex.requireModule('animation');
+var _mixins = __webpack_require__(3);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var animation = weex.requireModule('animation'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         width: {
             type: String,
@@ -4985,10 +4991,12 @@ exports.default = {
 
 
         ontouchstart: function ontouchstart(e) {
+            this.preventDefault(e);
             this.startX = e.changedTouches[0].screenX;
         },
 
         ontouchmove: function ontouchmove(e) {
+            this.preventDefault(e);
             var x = Math.floor(e.changedTouches[0].screenX - this.startX);
             if (this.moveX + x > this.data.width) {
                 this.move(this.$refs.circle, this.data.width);
@@ -5011,6 +5019,7 @@ exports.default = {
 
 
         ontouchend: function ontouchend(e) {
+            this.preventDefault(e);
             // 结束点(即圆圈在x轴移动的距离)
             var endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);
             if (endPot <= 0) {
@@ -5340,11 +5349,12 @@ exports.default = {
     data: function data() {
         return {
             checked: false,
-            blkStyle: {}
+            blkStyle: {},
+            corestyle: {}
         };
     },
     created: function created() {
-        this.initBlkStyle();
+        this.initStyle();
     },
     mounted: function mounted() {
         this.checked = this.value;
@@ -5400,7 +5410,7 @@ exports.default = {
 
 
         // android不支持阴影
-        initBlkStyle: function initBlkStyle() {
+        initStyle: function initStyle() {
             var platform = weex.config.env.platform.toLowerCase();
             if (platform === 'android') {
                 this.blkStyle = {
@@ -5410,8 +5420,17 @@ exports.default = {
                 };
             } else {
                 this.blkStyle = {
-                    'box-shadow': '0 1px 3px rgba(0,0,0,.4)'
+                    'box-shadow': '0 1px 3px rgba(0,0,0,.4)',
+                    top: '5px'
                 };
+                if (platform === 'web') {
+                    this.corestyle = {
+                        width: '100px',
+                        height: '60px',
+                        'border-radius': '60px'
+                    };
+                    this.blkStyle.top = '4px';
+                }
             }
         }
     }
@@ -5653,7 +5672,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-switch[data-v-0eb8f05d] {\n    position: relative;\n    width: 1.38667rem;\n    height: 0.85333rem;\n    border-radius: 0.85333rem;\n    border-width: 1px;\n    border-style: solid;\n    border-color: #ddd;\n    background-color: #d9d9d9;\n}\n.blk[data-v-0eb8f05d] {\n    position: absolute;\n    top: 0.06667rem;\n    left: 0px;\n    z-index: 100;\n    height: 0.69333rem;\n    width: 0.74667rem;\n    background-color: #fff;\n    border-radius: 0.69333rem;\n}\n.switch-core[data-v-0eb8f05d] {\n    position: absolute;\n    top: 0;\n    width: 1.36rem;\n    height: 0.82667rem;\n    background-color: #fdfdfd;\n    border-radius: 0.82667rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-switch/index.vue?a733036c"],"names":[],"mappings":";AASA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,0BAAA;IACA,kBAAA;IACA,oBAAA;IACA,mBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,UAAA;IACA,aAAA;IACA,mBAAA;IACA,kBAAA;IACA,uBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,OAAA;IACA,eAAA;IACA,mBAAA;IACA,0BAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-switch\" \n        :style=\"{'background-color': checked ? checkedColor : '#d9d9d9'}\"\n        @click=\"handleClick\">\n        <text ref=\"switchCore\" class=\"switch-core\"></text>\n        <text class=\"blk\" ref=\"blk\" :style=\"blkStyle\"></text> \n    </div>\n</template>\n<style scoped>\n    .wx-switch {\n        position: relative;\n        width: 104px;\n        height: 64px;\n        border-radius: 64px;\n        border-width: 1px;\n        border-style: solid;\n        border-color: #ddd;\n        background-color: #d9d9d9;\n    }\n    \n    .blk {\n        position: absolute;\n        top: 5px;\n        left: 0px;\n        z-index: 100;\n        height: 52px;\n        width: 56px;\n        background-color: #fff;\n        border-radius: 52px;\n    }\n\n    .switch-core {\n        position: absolute;\n        top: 0;\n        width: 102px;\n        height: 62px;\n        background-color: #fdfdfd;\n        border-radius: 62px;\n    }\n\n</style>\n<script>\n    import mixins from '../utils/mixins';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        mixins:[mixins],\n        props: {\n            value: {\n                type: Boolean,\n            },\n            disabled: {\n                type: Boolean,\n            },\n\n            checkedColor: {\n                type: String,\n                default: '#027FF3',\n            }\n        },\n\n        data () {\n            return {\n                checked: false,\n                blkStyle: {},\n            }\n        },\n\n        created () {\n            this.initBlkStyle();\n        },\n\n        mounted () {\n            this.checked = this.value;\n            this.blkAnimation(true);\n            this.animation(true);\n        },\n\n        methods: {\n            handleClick (e) {\n                this.preventDefault(e);\n                if (this.disabled) return;\n                this.checked = !this.checked;\n                this.animation();\n                this.blkAnimation();\n            },\n\n            animation (isInit = false) {\n                let el = this.$refs.switchCore;\n                // 设置为0.1 解决奇怪的Y轴会覆盖点击问题\n                let s = this.checked ? '0.1' : '1';\n                animation.transition(el, {\n                    styles: {\n                        transform: `scale(${s})`\n                    },\n                    duration: isInit ? 0 : 300,\n                    timingFunction: 'linear',\n                    needLayout: false,\n                    delay: 0\n                });\n            },\n\n            blkAnimation (isInit = false) {\n                let el = this.$refs.blk;\n                let x = this.checked ? '42px' : '0px';\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${x})`\n                    },\n                    duration: isInit ? 0 : 300,\n                    timingFunction: 'linear',\n                    needLayout: false,\n                    delay: 0\n                }, () => {\n                    this.$emit('wxChange', this.checked);\n                    this.$emit('input', this.checked);\n                });\n            },\n\n            // android不支持阴影\n            initBlkStyle () {\n                const platform = weex.config.env.platform.toLowerCase();\n                if (platform === 'android') {\n                    this.blkStyle = {\n                        'border-width': '1px',\n                        'border-style': 'solid',\n                        'border-color': '#d9d9d9',\n                    }\n                } else {\n                    this.blkStyle = {\n                        'box-shadow': '0 1px 3px rgba(0,0,0,.4)',\n                    }\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-switch[data-v-0eb8f05d] {\n    position: relative;\n    width: 1.38667rem;\n    height: 0.85333rem;\n    border-radius: 0.85333rem;\n    border-width: 1px;\n    border-style: solid;\n    border-color: #ddd;\n    background-color: #d9d9d9;\n}\n.blk[data-v-0eb8f05d] {\n    position: absolute;\n    top: 0.06667rem;\n    left: 0px;\n    z-index: 100;\n    height: 0.69333rem;\n    width: 0.74667rem;\n    background-color: #fff;\n    border-radius: 0.69333rem;\n}\n.switch-core[data-v-0eb8f05d] {\n    position: absolute;\n    top: 0;\n    width: 1.36rem;\n    height: 0.82667rem;\n    background-color: #fdfdfd;\n    border-radius: 0.82667rem;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-switch/index.vue?448ea9e5"],"names":[],"mappings":";AASA;IACA,mBAAA;IACA,kBAAA;IACA,mBAAA;IACA,0BAAA;IACA,kBAAA;IACA,oBAAA;IACA,mBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,UAAA;IACA,aAAA;IACA,mBAAA;IACA,kBAAA;IACA,uBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,OAAA;IACA,eAAA;IACA,mBAAA;IACA,0BAAA;IACA,0BAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-switch\" \n        :style=\"{'background-color': checked ? checkedColor : '#d9d9d9'}\"\n        @click=\"handleClick\">\n        <text ref=\"switchCore\" class=\"switch-core\" :style=\"corestyle\"></text>\n        <text class=\"blk\" ref=\"blk\" :style=\"blkStyle\"></text> \n    </div>\n</template>\n<style scoped>\n    .wx-switch {\n        position: relative;\n        width: 104px;\n        height: 64px;\n        border-radius: 64px;\n        border-width: 1px;\n        border-style: solid;\n        border-color: #ddd;\n        background-color: #d9d9d9;\n    }\n    \n    .blk {\n        position: absolute;\n        top: 5px;\n        left: 0px;\n        z-index: 100;\n        height: 52px;\n        width: 56px;\n        background-color: #fff;\n        border-radius: 52px;\n    }\n\n    .switch-core {\n        position: absolute;\n        top: 0;\n        width: 102px;\n        height: 62px;\n        background-color: #fdfdfd;\n        border-radius: 62px;\n    }\n\n</style>\n<script>\n    import mixins from '../utils/mixins';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        mixins:[mixins],\n        props: {\n            value: {\n                type: Boolean,\n            },\n            disabled: {\n                type: Boolean,\n            },\n\n            checkedColor: {\n                type: String,\n                default: '#027FF3',\n            }\n        },\n\n        data () {\n            return {\n                checked: false,\n                blkStyle: {},\n                corestyle: {},\n            }\n        },\n\n        created () {\n            this.initStyle();\n        },\n\n        mounted () {\n            this.checked = this.value;\n            this.blkAnimation(true);\n            this.animation(true);\n        },\n\n        methods: {\n            handleClick (e) {\n                this.preventDefault(e);\n                if (this.disabled) return;\n                this.checked = !this.checked;\n                this.animation();\n                this.blkAnimation();\n            },\n\n            animation (isInit = false) {\n                let el = this.$refs.switchCore;\n                // 设置为0.1 解决奇怪的Y轴会覆盖点击问题\n                let s = this.checked ? '0.1' : '1';\n                animation.transition(el, {\n                    styles: {\n                        transform: `scale(${s})`\n                    },\n                    duration: isInit ? 0 : 300,\n                    timingFunction: 'linear',\n                    needLayout: false,\n                    delay: 0\n                });\n            },\n\n            blkAnimation (isInit = false) {\n                let el = this.$refs.blk;\n                let x = this.checked ? '42px' : '0px';\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${x})`\n                    },\n                    duration: isInit ? 0 : 300,\n                    timingFunction: 'linear',\n                    needLayout: false,\n                    delay: 0\n                }, () => {\n                    this.$emit('wxChange', this.checked);\n                    this.$emit('input', this.checked);\n                });\n            },\n\n            // android不支持阴影\n            initStyle () {\n                const platform = weex.config.env.platform.toLowerCase();\n                if (platform === 'android') {\n                    this.blkStyle = {\n                        'border-width': '1px',\n                        'border-style': 'solid',\n                        'border-color': '#d9d9d9',\n                    }\n                } else {\n                    this.blkStyle = {\n                        'box-shadow': '0 1px 3px rgba(0,0,0,.4)',\n                        top: '5px'\n                    }\n                    if (platform === 'web') {\n                        this.corestyle = {\n                            width: '100px',\n                            height: '60px',\n                            'border-radius': '60px',\n                        }\n                        this.blkStyle.top = '4px';\n                    }\n                }\n            }\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -5807,7 +5826,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #fff;\n    position: relative;\n}\n.range-inner[data-v-b2f7c96c] {\n    position: relative;\n    overflow: hidden;\n    background-color: #1890ff;\n}\n.range-outer[data-v-b2f7c96c] {\n    position: absolute;\n    z-index: 100;\n    background-color: #1890ff;\n}\n.circle[data-v-b2f7c96c] {\n    background-color: #f5f5f5;\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: 100;\n    -webkit-box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n            box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-range/index.vue?8e625c62"],"names":[],"mappings":";AASA;IACA,uBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,iBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;IACA,mBAAA;IACA,QAAA;IACA,OAAA;IACA,aAAA;IACA,iDAAA;YAAA,yCAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-range\" :style=\"_wrapStyle\">\n        <div class=\"range-inner\" :style=\"_innerStyle\">\n            <div class=\"range-outer\" ref=\"rangeOuter\" :style=\"_outerStyle\"></div>\n        </div>\n        <div ref=\"circle\" :style=\"_circleStyle\" class=\"circle\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-range {\n        background-color: #fff;\n        position: relative;\n    }\n\n    .range-inner {\n        position: relative;\n        overflow: hidden;\n        background-color: #1890ff;\n    }\n\n    .range-outer {\n        position: absolute;\n        z-index: 100;\n        background-color: #1890ff;\n    }\n\n    .circle {\n        background-color: #f5f5f5;\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 100;\n        box-shadow: 0 1px 3px rgba(0,0,0,.4);\n    }\n\n</style>\n<script>\n    const animation = weex.requireModule('animation');\n\n    export default {\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            height: {\n                type: String,\n                default: '10px'\n            },\n            circleStyle: {\n                type: Object,\n                default: function () {\n                    return {\n                        \n                    }\n                }\n            },\n            innerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            outerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n        },\n\n        data () {\n            return {\n                startX: 0,\n                moveX: 0,\n                _circleStyle: {},\n                _innerStyle: {},\n                _outerStyle: {},\n                _wrapStyle: {},\n                data: {\n                    width: 0,\n                },\n                circleSize: '60px'\n            }\n        },\n\n        created () {\n            this.initStyle();\n        },\n\n        methods: {\n\n            initStyle () {\n                this.circleStyle.width = this.circleStyle.width || this.circleSize;\n                this.circleStyle.height = this.circleStyle.height || this.circleSize;\n                const circleSize = Number(this.circleStyle.width.replace('px', ''));\n                const v = circleSize / 2;\n\n                const h = Number(this.height.replace('px', ''));\n\n                // _innerStyle\n                const base = {width: this.width, height: this.height, 'margin-top': v - h/2 +'px', 'margin-left': v + 'px' };\n                this._innerStyle = Object.assign({}, this.innerStyle, base);\n                console.log(this._innerStyle)\n                this.data.width = Number(this._innerStyle.width.replace('px', ''));\n\n                // _circleStyle\n                this._circleStyle = Object.assign({}, this.circleStyle, {\n                    width: this.circleStyle.width,\n                    height: this.circleStyle.height,\n                    'border-radius': v + 'px',\n                });\n\n                // _outerStyle\n                this._outerStyle = Object.assign({}, this.outerStyle, {\n                    left: '-' + this._innerStyle.width,\n                    width: this._innerStyle.width,\n                    height: this._innerStyle.height,\n                });\n                this._wrapStyle = {\n                    width: this.data.width + circleSize + 'px',\n                    height: this._circleStyle.height,\n                    'background-color': '#fff',\n                }\n            },\n\n            ontouchstart:function(e) {\n                this.startX = e.changedTouches[0].screenX;\n            },\n\n            ontouchmove:function(e) {\n                const x = Math.floor(e.changedTouches[0].screenX - this.startX);\n                if (this.moveX + x > this.data.width) {\n                    this.move(this.$refs.circle, this.data.width);\n                    this.move(this.$refs.rangeOuter, this.data.width);\n                    return;\n                }\n                if (this.moveX + x < 0) {\n                    this.move(this.$refs.circle, 0);\n                    this.move(this.$refs.rangeOuter, 0);\n                    return;\n                }\n                this.move(this.$refs.circle, this.moveX + x);\n                this.move(this.$refs.rangeOuter, this.moveX + x);\n                this.$emit('input', this.getRange(this.moveX + x));\n            },\n\n            getRange (value) {\n                return Math.floor(value / this.data.width * 100);\n            },\n\n            ontouchend: function(e) {\n                // 结束点(即圆圈在x轴移动的距离)\n                let endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);\n                if (endPot <= 0) {\n                    endPot = 0;\n                }\n                if (endPot > this.data.width) {\n                    endPot = this.data.width;\n                }\n                this.moveX = endPot;\n                this.$emit('input', this.getRange(this.moveX));\n                this.$emit('wxChange', this.getRange(this.moveX));\n                // this.move(endPot);\n            },\n\n            move (el, progress) {\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${progress}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 0,\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            /**\n             * 设置范围\n             * @param {Int} range 0-100数字\n             */\n            setRange (range) {\n                let x = this.data.width * range / 100;\n                if (x <= 0) {\n                    x = 0;\n                }\n                if (x > this.data.width) {\n                    x = this.data.width;\n                }\n                this.moveX = x;\n                this.move(this.$refs.circle, x);\n                this.move(this.$refs.rangeOuter, x);\n                this.$emit('input', range);\n                this.$emit('wxChange', range);\n            },\n\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-range[data-v-b2f7c96c] {\n    background-color: #fff;\n    position: relative;\n}\n.range-inner[data-v-b2f7c96c] {\n    position: relative;\n    overflow: hidden;\n    background-color: #1890ff;\n}\n.range-outer[data-v-b2f7c96c] {\n    position: absolute;\n    z-index: 100;\n    background-color: #1890ff;\n}\n.circle[data-v-b2f7c96c] {\n    background-color: #f5f5f5;\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: 100;\n    -webkit-box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n            box-shadow: 0 1px 0.04rem rgba(0,0,0,.4);\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-range/index.vue?4eb7fea7"],"names":[],"mappings":";AASA;IACA,uBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,iBAAA;IACA,0BAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,0BAAA;CACA;AAEA;IACA,0BAAA;IACA,mBAAA;IACA,QAAA;IACA,OAAA;IACA,aAAA;IACA,iDAAA;YAAA,yCAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-range\" @touchstart=\"preventDefault\" @touchmove=\"preventDefault\" :style=\"_wrapStyle\">\n        <div class=\"range-inner\" :style=\"_innerStyle\">\n            <div class=\"range-outer\" ref=\"rangeOuter\" :style=\"_outerStyle\"></div>\n        </div>\n        <div ref=\"circle\" :style=\"_circleStyle\" class=\"circle\" @panstart=\"ontouchstart\" @panend=\"ontouchend\" @panmove=\"ontouchmove\"></div>\n    </div>\n</template>\n<style scoped>\n    .wx-range {\n        background-color: #fff;\n        position: relative;\n    }\n\n    .range-inner {\n        position: relative;\n        overflow: hidden;\n        background-color: #1890ff;\n    }\n\n    .range-outer {\n        position: absolute;\n        z-index: 100;\n        background-color: #1890ff;\n    }\n\n    .circle {\n        background-color: #f5f5f5;\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 100;\n        box-shadow: 0 1px 3px rgba(0,0,0,.4);\n    }\n\n</style>\n<script>\n    import mixins from '../utils/mixins';\n    const animation = weex.requireModule('animation');\n\n    export default {\n        mixins:[mixins],\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            height: {\n                type: String,\n                default: '10px'\n            },\n            circleStyle: {\n                type: Object,\n                default: function () {\n                    return {\n                        \n                    }\n                }\n            },\n            innerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n            outerStyle: {\n                type: Object,\n                default: function () {\n                    return {}\n                }\n            },\n        },\n\n        data () {\n            return {\n                startX: 0,\n                moveX: 0,\n                _circleStyle: {},\n                _innerStyle: {},\n                _outerStyle: {},\n                _wrapStyle: {},\n                data: {\n                    width: 0,\n                },\n                circleSize: '60px'\n            }\n        },\n\n        created () {\n            this.initStyle();\n        },\n\n        methods: {\n\n            initStyle () {\n                this.circleStyle.width = this.circleStyle.width || this.circleSize;\n                this.circleStyle.height = this.circleStyle.height || this.circleSize;\n                const circleSize = Number(this.circleStyle.width.replace('px', ''));\n                const v = circleSize / 2;\n\n                const h = Number(this.height.replace('px', ''));\n\n                // _innerStyle\n                const base = {width: this.width, height: this.height, 'margin-top': v - h/2 +'px', 'margin-left': v + 'px' };\n                this._innerStyle = Object.assign({}, this.innerStyle, base);\n                console.log(this._innerStyle)\n                this.data.width = Number(this._innerStyle.width.replace('px', ''));\n\n                // _circleStyle\n                this._circleStyle = Object.assign({}, this.circleStyle, {\n                    width: this.circleStyle.width,\n                    height: this.circleStyle.height,\n                    'border-radius': v + 'px',\n                });\n\n                // _outerStyle\n                this._outerStyle = Object.assign({}, this.outerStyle, {\n                    left: '-' + this._innerStyle.width,\n                    width: this._innerStyle.width,\n                    height: this._innerStyle.height,\n                });\n                this._wrapStyle = {\n                    width: this.data.width + circleSize + 'px',\n                    height: this._circleStyle.height,\n                    'background-color': '#fff',\n                }\n            },\n\n            ontouchstart:function(e) {\n                this.preventDefault(e);\n                this.startX = e.changedTouches[0].screenX;\n            },\n\n            ontouchmove:function(e) {\n                this.preventDefault(e);\n                const x = Math.floor(e.changedTouches[0].screenX - this.startX);\n                if (this.moveX + x > this.data.width) {\n                    this.move(this.$refs.circle, this.data.width);\n                    this.move(this.$refs.rangeOuter, this.data.width);\n                    return;\n                }\n                if (this.moveX + x < 0) {\n                    this.move(this.$refs.circle, 0);\n                    this.move(this.$refs.rangeOuter, 0);\n                    return;\n                }\n                this.move(this.$refs.circle, this.moveX + x);\n                this.move(this.$refs.rangeOuter, this.moveX + x);\n                this.$emit('input', this.getRange(this.moveX + x));\n            },\n\n            getRange (value) {\n                return Math.floor(value / this.data.width * 100);\n            },\n\n            ontouchend: function(e) {\n                this.preventDefault(e);\n                // 结束点(即圆圈在x轴移动的距离)\n                let endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);\n                if (endPot <= 0) {\n                    endPot = 0;\n                }\n                if (endPot > this.data.width) {\n                    endPot = this.data.width;\n                }\n                this.moveX = endPot;\n                this.$emit('input', this.getRange(this.moveX));\n                this.$emit('wxChange', this.getRange(this.moveX));\n                // this.move(endPot);\n            },\n\n            move (el, progress) {\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateX(${progress}px)`,\n                        transformOrigin: 'center center'\n                    },\n                    duration: 0,\n                    needLayout: false,\n                    delay: 0 //ms\n                });\n            },\n\n            /**\n             * 设置范围\n             * @param {Int} range 0-100数字\n             */\n            setRange (range) {\n                let x = this.data.width * range / 100;\n                if (x <= 0) {\n                    x = 0;\n                }\n                if (x > this.data.width) {\n                    x = this.data.width;\n                }\n                this.moveX = x;\n                this.move(this.$refs.circle, x);\n                this.move(this.$refs.rangeOuter, x);\n                this.$emit('input', range);\n                this.$emit('wxChange', range);\n            },\n\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -6762,6 +6781,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('p', {
     ref: "switchCore",
     staticClass: "switch-core weex-el weex-text",
+    style: (_vm._processExclusiveStyle(_vm.corestyle, 75, 'text')),
     attrs: {}
   }), _vm._v(" "), _c('p', {
     ref: "blk",
@@ -7471,7 +7491,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "wx-range weex-ct",
     style: (_vm._px2rem(_vm._wrapStyle, 75)),
-    attrs: {}
+    attrs: {
+      "data-evt-touchstart": "",
+      "data-evt-touchmove": ""
+    },
+    on: {
+      "touchstart": function($event) {
+        $event.stopPropagation();
+        return _vm.preventDefault($event)
+      },
+      "touchmove": function($event) {
+        $event.stopPropagation();
+        return _vm.preventDefault($event)
+      }
+    },
+    nativeOn: {
+      "touchstart": function($event) {
+        $event.stopPropagation();
+        return _vm.preventDefault($event)
+      },
+      "touchmove": function($event) {
+        $event.stopPropagation();
+        return _vm.preventDefault($event)
+      }
+    }
   }, [_c('div', {
     staticClass: "range-inner weex-ct",
     style: (_vm._px2rem(_vm._innerStyle, 75)),

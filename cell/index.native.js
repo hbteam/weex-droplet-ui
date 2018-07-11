@@ -4946,46 +4946,52 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var animation = weex.requireModule('animation');
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var animation = weex.requireModule('animation'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         width: {
             type: String,
@@ -5071,10 +5077,12 @@ exports.default = {
 
 
         ontouchstart: function ontouchstart(e) {
+            this.preventDefault(e);
             this.startX = e.changedTouches[0].screenX;
         },
 
         ontouchmove: function ontouchmove(e) {
+            this.preventDefault(e);
             var x = Math.floor(e.changedTouches[0].screenX - this.startX);
             if (this.moveX + x > this.data.width) {
                 this.move(this.$refs.circle, this.data.width);
@@ -5097,6 +5105,7 @@ exports.default = {
 
 
         ontouchend: function ontouchend(e) {
+            this.preventDefault(e);
             // 结束点(即圆圈在x轴移动的距离)
             var endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);
             if (endPot <= 0) {
@@ -5426,11 +5435,12 @@ exports.default = {
     data: function data() {
         return {
             checked: false,
-            blkStyle: {}
+            blkStyle: {},
+            corestyle: {}
         };
     },
     created: function created() {
-        this.initBlkStyle();
+        this.initStyle();
     },
     mounted: function mounted() {
         this.checked = this.value;
@@ -5486,7 +5496,7 @@ exports.default = {
 
 
         // android不支持阴影
-        initBlkStyle: function initBlkStyle() {
+        initStyle: function initStyle() {
             var platform = weex.config.env.platform.toLowerCase();
             if (platform === 'android') {
                 this.blkStyle = {
@@ -5496,8 +5506,17 @@ exports.default = {
                 };
             } else {
                 this.blkStyle = {
-                    'box-shadow': '0 1px 3px rgba(0,0,0,.4)'
+                    'box-shadow': '0 1px 3px rgba(0,0,0,.4)',
+                    top: '5px'
                 };
+                if (platform === 'web') {
+                    this.corestyle = {
+                        width: '100px',
+                        height: '60px',
+                        'border-radius': '60px'
+                    };
+                    this.blkStyle.top = '4px';
+                }
             }
         }
     }
@@ -6350,7 +6369,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('text', {
     ref: "switchCore",
-    staticClass: ["switch-core"]
+    staticClass: ["switch-core"],
+    style: _vm.corestyle
   }), _c('text', {
     ref: "blk",
     staticClass: ["blk"],
@@ -6854,7 +6874,11 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wx-range"],
-    style: _vm._wrapStyle
+    style: _vm._wrapStyle,
+    on: {
+      "touchstart": _vm.preventDefault,
+      "touchmove": _vm.preventDefault
+    }
   }, [_c('div', {
     staticClass: ["range-inner"],
     style: _vm._innerStyle
