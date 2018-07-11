@@ -7083,11 +7083,17 @@ exports.default = {
 
     methods: {
         go: function go(componentName) {
-            var url = this.url + (componentName + '/index.native.js');
-            navigator.push({
-                url: url,
-                animated: "true"
-            }, function (event) {});
+            var platform = weex.config.env.platform.toLowerCase();
+            if (platform !== 'web') {
+                var url = this.url + (componentName + '/index.native.js');
+                navigator.push({
+                    url: url,
+                    animated: "true"
+                });
+            } else {
+                var _url = this.url + (componentName + '/index.html');
+                window.location.href = _url;
+            }
         }
     }
 };
