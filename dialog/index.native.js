@@ -105,6 +105,17 @@ var mixins = {
         preventDefault: function preventDefault(e) {
             e.preventDefault && e.preventDefault();
             e.stopPropagation && e.stopPropagation();
+        },
+
+
+        // px -> 32px
+        px2rem: function px2rem(px) {
+            if (platform !== 'web') {
+                return px;
+            } else {
+                px = Number(px.replace('px', ''));
+                return px / 75 + 'rem';
+            }
         }
     }
 };
@@ -4038,96 +4049,102 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var animation = weex.requireModule('animation');
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var animation = weex.requireModule('animation'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
+    mixins: [_mixins2.default],
     props: {
         // titleColor默认4D4D4D，titleSize默认32px
         tabItems: {
@@ -6705,7 +6722,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       class: [_vm.selectedTab.index === item.index ? 'selected' : 'noselected'],
       style: {
         color: _vm.selectedTab.index === item.index ? (item.selectedColor || '#4676FF') : (item.titleColor) || '#7A818B',
-        'font-size': item.titleSize || '32px'
+        'font-size': _vm.px2rem(item.titleSize || '32px')
       }
     }, [_vm._v(_vm._s(item.title))])])
   })), (!_vm.vif) ? _c('div', {
