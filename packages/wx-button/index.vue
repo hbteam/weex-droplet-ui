@@ -59,7 +59,7 @@
             },
             textFontSize: {
                 type: String,
-                default: '36px'
+                default: '32px'
             }
         },
         data () {

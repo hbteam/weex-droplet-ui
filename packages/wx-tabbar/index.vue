@@ -128,7 +128,7 @@
 
             getTitleStyle (item) {
                 return {
-                    'font-size': item.fontSize || '28px',
+                    'font-size': item.fontSize || '32px',
                     'color': this.selectedTab.index === item.index ? item.selectedColor : item.titleColor,
                 }
             },

@@ -6,7 +6,7 @@
                 v-for="item in tabItems" 
                 @click="changeTab(item)">
                 <text 
-                    :style="{color: selectedTab.index === item.index ? (item.selectedColor || '#4676FF') :(item.titleColor) || '#7A818B', 'font-size': px2rem(item.titleSize || '32px')}"
+                    :style="getTitleStyle(item)"
                     :class="[selectedTab.index === item.index ? 'selected' : 'noselected']"
                     class="wx-title">{{ item.title }}</text>
             </div>
@@ -227,6 +227,13 @@
                     needLayout: false,
                     delay: 0 //ms
                 });
+            },
+
+            getTitleStyle (item) {
+                return {
+                    color: this.selectedTab.index === item.index ? (item.selectedColor || '#4676FF') :(item.titleColor) || '#7A818B', 
+                    'font-size': item.titleSize || '32px'
+                };
             }
         }
     }
