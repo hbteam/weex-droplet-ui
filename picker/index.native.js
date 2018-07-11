@@ -8111,6 +8111,7 @@ exports.default = {
             var d = selectedDay;
             if (selectedDay > maxDay) {
                 d = maxDay;
+                this.selectedDate[2] = d;
             }
             this.days = (0, _data.getDays)(this.selectedDate[0], m, d);
             this.formate();
