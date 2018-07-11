@@ -180,10 +180,10 @@
                 this.endY = e.changedTouches[0].screenY;
                 // 实际滚动距离
                 let v = parseInt(this.endY - this.startY);
-                // 如果快速滑动，实际滑动距离放大3.5倍
+                // 如果快速滑动，实际滑动距离放大5倍
                 const endTime = new Date().getTime();
                 if (endTime - this._startTime < 200) {
-                    v = v * 3.5;
+                    v = v * 5;
                 }
                 let value = v % this.itemHeight;
                 // 计算出每次拖动的36px整倍数
