@@ -6,7 +6,7 @@
                 v-for="item in tabItems" 
                 @click="changeTab(item)">
                 <text 
-                    :style="{color: selectedTab.index === item.index ? (item.selectedColor || '#4676FF') :(item.titleColor) || '#7A818B', 'font-size': item.titleSize || '32px'}"
+                    :style="{color: selectedTab.index === item.index ? (item.selectedColor || '#4676FF') :(item.titleColor) || '#7A818B', 'font-size': px2rem(item.titleSize || '32px')}"
                     :class="[selectedTab.index === item.index ? 'selected' : 'noselected']"
                     class="wx-title">{{ item.title }}</text>
             </div>
@@ -85,9 +85,11 @@
 
 </style>
 <script>
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     export default {
+        mixins:[mixins],
         props: {
             // titleColor默认4D4D4D，titleSize默认32px
             tabItems: {
@@ -225,7 +227,7 @@
                     needLayout: false,
                     delay: 0 //ms
                 });
-            },
+            }
         }
     }
 </script>
