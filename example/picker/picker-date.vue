@@ -115,6 +115,7 @@
                 let d = selectedDay;
                 if (selectedDay > maxDay) {
                     d = maxDay;
+                    this.selectedDate[2] = d;
                 }
                 this.days = getDays(this.selectedDate[0], m, d);
                 this.formate();
