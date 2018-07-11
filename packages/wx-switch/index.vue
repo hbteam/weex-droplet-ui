@@ -2,7 +2,7 @@
     <div class="wx-switch" 
         :style="{'background-color': checked ? checkedColor : '#d9d9d9'}"
         @click="handleClick">
-        <text ref="switchCore" class="switch-core"></text>
+        <text ref="switchCore" class="switch-core" :style="corestyle"></text>
         <text class="blk" ref="blk" :style="blkStyle"></text> 
     </div>
 </template>
@@ -63,11 +63,12 @@
             return {
                 checked: false,
                 blkStyle: {},
+                corestyle: {},
             }
         },
 
         created () {
-            this.initBlkStyle();
+            this.initStyle();
         },
 
         mounted () {
@@ -118,7 +119,7 @@
             },
 
             // android不支持阴影
-            initBlkStyle () {
+            initStyle () {
                 const platform = weex.config.env.platform.toLowerCase();
                 if (platform === 'android') {
                     this.blkStyle = {
@@ -129,6 +130,15 @@
                 } else {
                     this.blkStyle = {
                         'box-shadow': '0 1px 3px rgba(0,0,0,.4)',
+                        top: '5px'
+                    }
+                    if (platform === 'web') {
+                        this.corestyle = {
+                            width: '100px',
+                            height: '60px',
+                            'border-radius': '60px',
+                        }
+                        this.blkStyle.top = '4px';
                     }
                 }
             }
