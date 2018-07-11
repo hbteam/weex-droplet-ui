@@ -9,11 +9,11 @@ npm i weex-droplet-ui -S
 ## HTML5 demo演示
 [https://hbteam.github.io/weex-droplet-ui/index/index.html](https://hbteam.github.io/weex-droplet-ui/index/index.html)
 
-## 联系我们
-如您在使用我们的“水滴UI”，有任何问题可以添加微信号springalsky，或者给我们提issue。
-
 ## 关于文档
 [https://houbank.github.io/dropletui-docs](https://houbank.github.io/dropletui-docs)
+
+## 联系我们
+如您在使用我们的“水滴UI”，有任何问题可以添加微信号springalsky，或者给我们提issue。
 
 ## 配置
 因未编译成ES5发布到npm，所以webpack.config.js需要配置排除node_modules下包含weex的文件。
