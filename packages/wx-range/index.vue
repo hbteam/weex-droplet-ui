@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-range" :style="_wrapStyle">
+    <div class="wx-range" @touchstart="preventDefault" @touchmove="preventDefault" :style="_wrapStyle">
         <div class="range-inner" :style="_innerStyle">
             <div class="range-outer" ref="rangeOuter" :style="_outerStyle"></div>
         </div>
@@ -35,9 +35,11 @@
 
 </style>
 <script>
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     export default {
+        mixins:[mixins],
         props: {
             width: {
                 type: String,
@@ -125,10 +127,12 @@
             },
 
             ontouchstart:function(e) {
+                this.preventDefault(e);
                 this.startX = e.changedTouches[0].screenX;
             },
 
             ontouchmove:function(e) {
+                this.preventDefault(e);
                 const x = Math.floor(e.changedTouches[0].screenX - this.startX);
                 if (this.moveX + x > this.data.width) {
                     this.move(this.$refs.circle, this.data.width);
@@ -150,6 +154,7 @@
             },
 
             ontouchend: function(e) {
+                this.preventDefault(e);
                 // 结束点(即圆圈在x轴移动的距离)
                 let endPot = Math.floor(e.changedTouches[0].screenX - this.startX + this.moveX);
                 if (endPot <= 0) {

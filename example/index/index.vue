@@ -39,13 +39,18 @@
 
         methods: {
             go (componentName) {
-                const url = this.url + `${componentName}/index.native.js`;
-                navigator.push({
-                    url: url,
-                    animated: "true"
-                },event => {
-                    
-                });
+                const platform = weex.config.env.platform.toLowerCase();
+                if (platform !== 'web') {
+                    const url = this.url + `${componentName}/index.native.js`;
+                    navigator.push({
+                        url: url,
+                        animated: "true"
+                    });
+                } else {
+                    const url = this.url + `${componentName}/index.html`;
+                    window.location.href = url;
+                }
+                
             }
         }
     }

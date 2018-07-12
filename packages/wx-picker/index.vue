@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-picker-wrapper" v-if="visible">
+    <div class="wx-picker-wrapper" v-if="visible" @touchstart="preventDefault">
         <div class="wx-picker" @panstart="ontouchstart" @panend="ontouchend" @panmove="ontouchmove" >
             <div class="wrapper" ref="wrapper">
                 <text 
@@ -56,7 +56,7 @@
         border-bottom-style: solid;
         border-bottom-color: #DCDCDC;
         position: absolute;
-        top: 180px;
+        top: 176px;
         left: 0;
         z-index: 100;
         width: 750px;
@@ -68,6 +68,7 @@
 </style>
 <script type="text/javascript">
     import is from '../utils/is';
+    import mixins from '../utils/mixins';
     const animation = weex.requireModule('animation');
 
     const getIndex = (list, item) => {
@@ -87,6 +88,7 @@
     };
 
     export default {
+        mixins:[mixins],
         props: {
             visible: {
                 type: Boolean,
@@ -109,6 +111,7 @@
                 itemHeight: 72,
                 selectedIndex: 0,
                 _defaultValue: null,
+                _startTime: 0,
             }
         },
         created () {
@@ -150,13 +153,16 @@
             },
 
             ontouchstart (e) {
+                this.preventDefault(e);
                 if (this.data.list.length <= 1) {
                     return;
                 }
                 this.startY = e.changedTouches[0].screenY;
+                this._startTime = new Date().getTime();
             },
 
             ontouchmove (e) {
+                this.preventDefault(e);
                 if (this.data.list.length <= 1) {
                   return;
                 }
@@ -167,12 +173,18 @@
             },
 
             ontouchend (e) {
+                this.preventDefault(e);
                 if (this.data.list.length <= 1) {
                   return;
                 }
                 this.endY = e.changedTouches[0].screenY;
                 // 实际滚动距离
                 let v = parseInt(this.endY - this.startY);
+                // 如果快速滑动，实际滑动距离放大5倍
+                const endTime = new Date().getTime();
+                if (endTime - this._startTime < 200) {
+                    v = v * 5;
+                }
                 let value = v % this.itemHeight;
                 // 计算出每次拖动的36px整倍数
                 this.currentY += (v - value);

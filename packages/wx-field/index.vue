@@ -230,14 +230,12 @@
 
             blur (e) {
                 this.preventDefault(e);
-                this.$emit('wxBlur', this.inputValue);
+                this.$emit('wxBlur', e.target.attr.value);
             },
 
             clickHandler(){
                 if (this.disabled){
                     this.$emit('wxClick')
-                }else {
-                    return
                 }
             }
         }
