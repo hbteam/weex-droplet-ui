@@ -1,21 +1,38 @@
 <template>
-    <div class="wx-marquee" ref="wxMarquee" @click="init">
-        <text class="marquee" ref="marquee1">{{ 'A知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型A。' }}</text>
-        <text class="marquee" ref="marquee2">{{ 'B知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型B。' }}</text>
+    <div class="wx-marquee" ref="wxMarquee">
+        <div class="marquee1" ref="marquee1" :style="marquee1">
+            <text class="wx-text">{{ 'A知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型A。。' }}</text>
+        </div>
+        <div class="marquee2" ref="marquee2" :style="marquee2">
+            <text class="wx-text">{{ 'B知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型B。。' }}</text>
+        </div>
     </div>
 </template>
 <style>
     .wx-marquee {
         width: 750px;
-        flex-direction: row;
+        height: 100px;
         background-color: red;
         overflow: hidden;
+        position: relative;
     }
 
-    .marquee {
-        /*width: 1180px;*/
-        /*white-space:nowrap;*/
-        /*height: 100px;*/
+    .marquee1 {
+        position: absolute;
+        left: 0px;
+        transform: translateX(0px);
+        flex-direction: row;
+        height: 100px;
+        align-items: center;
+    }
+
+    .marquee2 {
+        position: absolute;
+        left: 430px;
+        transform: translateX(750px);
+        flex-direction: row;
+        height: 100px;
+        align-items: center;
     }
 
 </style>
@@ -48,52 +65,63 @@
                 base:{ 
                     x: 1180, 
                     t: 5000 
-                }
+                },
+                marquee1: {},
+                marquee2: {},
             }
         },
 
-        created () {
-
-        },
-
         mounted () {
-            let v = 1180 / 5000;
-            let c = 1180 % 750;
-            let r = Math.floor(1180 / 750);
-            // 滚动一屏需要的时间
-            let t = v * 750;
-            this.init();
+            this.start('marquee1');
         },
         
         methods: {
-            init () {
-                this.end('marquee2')
-                this.start(this.base.x, 'marquee1', this.base.t);
-                this.es('marquee2');
-            },
-
-            es (ref) {
+            start (ref) {
                 setTimeout(() => {
-                    let c2 = (1180 * 2) * (5000 / 1180);
-                    this.start(1180 * 2, ref, c2);
-                },10);
+                    this.animation1('marquee1');
+                    this.animation2('marquee2');
+                }, 10);
             },
 
-            start (w, ref, t) {
+            animation1 (ref) {
                 let el = this.$refs[ref];
                 animation.transition(el, {
                     styles: {
-                        transform: `translateX(-${w}px)`
+                        transform: `translateX(-${this.base.x}px)`
                     },
-                    duration: t,
+                    duration: this.base.t,
                     timingFunction: 'linear',
                 }, () => {
                     this.end(ref);
-                    this.es(ref)
+                    setTimeout(() => {
+                        this.animation2(ref);
+                    }, 10);
+                });
+            },
+
+            animation2 (ref) {
+                let el = this.$refs[ref];
+                let x = this.base.x + 430;
+                let d = this.base.t + (this.base.t / this.base.x * (430+750));
+                animation.transition(el, {
+                    styles: {
+                        transform: `translateX(-${x}px)`
+                    },
+                    duration: d,
+                    timingFunction: 'linear',
+                }, () => {
+                    this.end(ref);
+                    setTimeout(() => {
+                        this.animation2(ref);
+                    }, 10);
                 });
             },
 
             end (ref) {
+                this[ref] = {
+                    left: '430px',
+                    transform: 'translateX(750px)',
+                }
                 let el = this.$refs[ref];
                 animation.transition(el, {
                     styles: {
@@ -102,9 +130,6 @@
                     duration: 0,
                 });
             },
-        },
-        watch: {
-            
         }
     }
 </script>
