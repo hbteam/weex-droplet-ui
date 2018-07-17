@@ -19,7 +19,6 @@
 
     .marquee1 {
         position: absolute;
-        left: 0px;
         transform: translateX(0px);
         flex-direction: row;
         height: 100px;
@@ -28,8 +27,7 @@
 
     .marquee2 {
         position: absolute;
-        left: 430px;
-        transform: translateX(750px);
+        transform: translateX(1180px);
         flex-direction: row;
         height: 100px;
         align-items: center;
@@ -101,8 +99,8 @@
 
             animation2 (ref) {
                 let el = this.$refs[ref];
-                let x = this.base.x + 430;
-                let d = this.base.t + (this.base.t / this.base.x * (430+750));
+                let x = this.base.x;
+                let d = this.base.t * 2;
                 animation.transition(el, {
                     styles: {
                         transform: `translateX(-${x}px)`
@@ -119,13 +117,12 @@
 
             end (ref) {
                 this[ref] = {
-                    left: '430px',
-                    transform: 'translateX(750px)',
+                    transform: 'translateX(1180px)',
                 }
                 let el = this.$refs[ref];
                 animation.transition(el, {
                     styles: {
-                        transform: `translateX(750px)`
+                        transform: `translateX(1180px)`
                     },
                     duration: 0,
                 });
