@@ -76,7 +76,7 @@
                 setTimeout(() => {
                     this.animation1('marquee1');
                     this.animation2('marquee2');
-                }, 10);
+                }, 2000);
             },
 
             animation1 (ref) {
