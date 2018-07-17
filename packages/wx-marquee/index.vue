@@ -58,8 +58,6 @@
         },
         data () {
             return {
-                datatext: [],
-                time: 0,
                 base:{ 
                     x: 1180, 
                     t: 5000 
