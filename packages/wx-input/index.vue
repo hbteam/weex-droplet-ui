@@ -5,7 +5,8 @@
         </div>
         <slot name="left"></slot>
         <input 
-            class="wx-input-text" 
+            class="input"
+            :style="{'background-color': bgColor}"
             :type="type" 
             :placeholder="placeholder" 
             :value="value"
@@ -56,17 +57,19 @@
             tailStyle: {
                 type: Object
             },
-            tailStyle: {
-                type: Object
-            },
             width: {
                 type: String
-            }
+            },
+            bgColor: {
+                type: String,
+                default: '#f8f8f8'
+            },
         },
         data(){
             return {
                 style: {
-                    width: this.width
+                    width: this.width,
+                    'background-color': this.bgColor
                 },
                 inputValue: '',
             }
@@ -90,7 +93,6 @@
         display: flex;
         width: 670px;
         height: 100px;
-        background-color: #f8f8f8;
         flex-direction: row;
     }
 
@@ -100,7 +102,7 @@
         justify-content: center;
     }
 
-    .wx-input-text {
+    .input {
         flex: 1;
     }
 </style>
