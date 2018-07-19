@@ -1,7 +1,6 @@
 <template>
     <div class="wx-demo">
-        <wx-marquee text="通知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型A。">
-        </wx-marquee>
+        <wx-marquee :text="text" bgColor="red" :duration="5000"></wx-marquee>
     </div>
 </template>
 
@@ -21,13 +20,11 @@
         },
         data () {
             return {
-                visible: false
+                text: '通知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型A  '
             }
         },
         methods: {
-            openLoading () {
-               
-            }
+
         }
     }
 </script>

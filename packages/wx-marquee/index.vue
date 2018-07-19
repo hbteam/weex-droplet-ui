@@ -1,18 +1,21 @@
 <template>
-    <div class="wx-marquee" ref="wxMarquee">
-        <div class="marquee1" ref="marquee1" :style="marquee1">
-            <text class="wx-text">{{ 'A知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型A。。' }}</text>
-        </div>
-        <div class="marquee2" ref="marquee2" :style="marquee2">
-            <text class="wx-text">{{ 'B知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型B。。' }}</text>
+    <div class="wx-marquee" ref="wxMarquee" :style="baseStyle">
+        <div class="wrap" v-if="direction === 'row'" :style="baseStyle">
+            <div class="marquee1" ref="marquee1" :style="marquee1">
+                <text :style="textStyle" class="wx-text">{{ text }}</text>
+            </div>
+            <div class="marquee2" ref="marquee2" :style="marquee2">
+                <text :style="textStyle"class="wx-text">{{ text }}</text>
+            </div>
         </div>
     </div>
 </template>
 <style>
     .wx-marquee {
-        width: 750px;
-        height: 100px;
-        background-color: red;
+        overflow: hidden;
+    }
+
+    .wrap {
         overflow: hidden;
         position: relative;
     }
@@ -21,7 +24,6 @@
         position: absolute;
         transform: translateX(0px);
         flex-direction: row;
-        height: 100px;
         align-items: center;
     }
 
@@ -29,46 +31,73 @@
         position: absolute;
         transform: translateX(1180px);
         flex-direction: row;
-        height: 100px;
         align-items: center;
     }
 
 </style>
 <script type="text/javascript">
     const animation = weex.requireModule('animation');
-    const dom = weex.requireModule('dom')
-    const modal = weex.requireModule('modal')
+    const dom = weex.requireModule('dom');
 
     export default {
         props: {
-            visible: {
-                type: Boolean,
-                default: false
+            width: {
+                type: String,
+                default: '750px'
+            },
+            height: {
+                type: String,
+                default: '80px'
             },
             direction: {
                 type: String,
+                // or column
                 default: 'row'
-            },
-            type: {
-                type: String,
             },
             text: {
                 type: String
+            },
+            fontSize: {
+                type: String,
+                default: '32px'
+            },
+            textColor: {
+                type: String,
+                default: '#333'
+            },
+            bgColor: {
+                type: String,
+                default: '#fff'
+            },
+            duration: {
+                type: Number,
+                default: 5000
             },
         },
         data () {
             return {
                 base:{ 
-                    x: 1180, 
-                    t: 5000 
+                    x: 0, 
+                    t: 0 
                 },
-                marquee1: {},
-                marquee2: {},
+                marquee1: {width: this.width, height: this.height},
+                marquee2: {width: this.width, height: this.height},
+                baseStyle: {},
             }
         },
 
+        created () {
+            const fz = Number(this.fontSize.replace('px',''));
+            this.base.x = fz * this.text.length;
+            this.base.t = this.duration;
+            this.baseStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
+            this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
+        },
+
         mounted () {
-            this.start('marquee1');
+            if (this.base.x > 750) {
+                this.start('marquee1');
+            }
         },
         
         methods: {
@@ -115,12 +144,14 @@
 
             end (ref) {
                 this[ref] = {
-                    transform: 'translateX(1180px)',
+                    transform: `translateX(${this.base.x}px)`,
+                    width: this.width,
+                    height: this.height
                 }
                 let el = this.$refs[ref];
                 animation.transition(el, {
                     styles: {
-                        transform: `translateX(1180px)`
+                        transform: `translateX(${this.base.x}px)`
                     },
                     duration: 0,
                 });
