@@ -24,26 +24,24 @@
 
     .marquee1 {
         position: absolute;
-        width: 1450px;
-        /*flex-direction: row;*/
-        /*align-items: center;*/
-        white-space: nowrap;
+        flex-direction: row;
+        align-items: center;
     }
 
     .marquee2 {
-        width: 1450px;
         position: absolute;
-        white-space: nowrap;
-        /*flex-direction: row;*/
-        /*align-items: center;*/
+        flex-direction: row;
+        align-items: center;
     }
 
 </style>
 <script type="text/javascript">
     const animation = weex.requireModule('animation');
     const dom = weex.requireModule('dom');
+    import mixins from '../utils/mixins';
 
     export default {
+        mixins:[mixins],
         props: {
             width: {
                 type: String,
@@ -90,8 +88,8 @@
                     x: Number(this.width.replace('px','')),
                     t: this.duration,
                 },
-                marquee1: {width: this.width, height: this.height},
-                marquee2: {width: this.width, height: this.height},
+                marquee1: {},
+                marquee2: {},
                 baseStyle: {},
                 textStyle: {},
             }
@@ -112,16 +110,22 @@
             initStyle () {
                 this.baseStyle = { height: this.height, 'background-color': this.bgColor };
                 this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
-                this.marquee1 = {
-                    // transform: `translateX(0px)`,
-                    height: this.height,
-                    left: '0px',
-                };
-                this.marquee2 = {
-                    // transform: `translateX(${this.base.x}px)`,
-                    height: this.height,
-                    left: `${this.base.x}px`
-                };
+                let base = {height: this.height,width: this.width};
+                if (this.$data.$env.isWeb) {
+                    this.marquee1 = Object.assign({
+                        left: '0px'
+                    }, base);
+                    this.marquee2 = Object.assign({
+                        left: `${this.base.x}px`
+                    }, base);
+                } else {
+                    this.marquee1 = Object.assign({
+                        transform: `translateX(0px)`
+                    }, base);
+                    this.marquee2 = Object.assign({
+                        transform: `translateX(${this.base.x}px)`
+                    }, base);
+                }
             },
 
             start (ref) {
@@ -133,10 +137,14 @@
 
             animation1 (ref) {
                 let el = this.$refs[ref];
+                debugger
+                let styles = this.$data.$env.isWeb ? {
+                        left: `-${this.base.x}px`,
+                    } : {
+                        transform: `translateX(-${this.base.x}px)`,
+                    }
                 animation.transition(el, {
-                    styles: {
-                        left: `-${this.base.x}px`
-                    },
+                    styles: styles,
                     duration: this.base.t,
                     timingFunction: 'linear',
                 }, () => {
@@ -148,10 +156,13 @@
                 let el = this.$refs[ref];
                 let x = this.base.x;
                 let d = this.base.t * 2;
+                let styles = this.$data.$env.isWeb ? {
+                        left: `-${x}px`,
+                    } : {
+                        transform: `translateX(-${x}px)`,
+                    }
                 animation.transition(el, {
-                    styles: {
-                        left: `-${x}px`
-                    },
+                    styles: styles,
                     duration: d,
                     timingFunction: 'linear',
                 }, () => {
@@ -161,10 +172,13 @@
 
             end (ref) {
                 let el = this.$refs[ref];
+                let styles = this.$data.$env.isWeb ? {
+                        left: `${this.base.x}px`,
+                    } : {
+                        transform: `translateX(${this.base.x}px)`,
+                    }
                 animation.transition(el, {
-                    styles: {
-                        left: `${this.base.x}px`
-                    },
+                    styles: styles,
                     duration: 0,
                 });
                 setTimeout(() => {
