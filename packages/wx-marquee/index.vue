@@ -89,29 +89,35 @@
                 marquee1: {width: this.width, height: this.height},
                 marquee2: {width: this.width, height: this.height},
                 baseStyle: {},
+                textStyle: {},
             }
         },
 
         created () {
-            this.baseStyle = { height: this.height, 'background-color': this.bgColor };
-            this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
+            
         },
 
         mounted () {
-            this.marquee1 = {
-                transform: `translateX(0px)`,
-                height: this.height
-            };
-            this.marquee2 = {
-                transform: `translateX(${this.base.x}px)`,
-                height: this.height
-            };
+            this.initStyle();
             if (this.base.x > 750) {
                 this.start('marquee1');
             }
         },
         
         methods: {
+            initStyle () {
+                this.baseStyle = { height: this.height, 'background-color': this.bgColor };
+                this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
+                this.marquee1 = {
+                    transform: `translateX(0px)`,
+                    height: this.height
+                };
+                this.marquee2 = {
+                    transform: `translateX(${this.base.x}px)`,
+                    height: this.height
+                };
+            },
+
             start (ref) {
                 setTimeout(() => {
                     this.animation1('marquee1');
@@ -154,11 +160,6 @@
             },
 
             end (ref) {
-                this[ref] = {
-                    transform: `translateX(${this.base.x}px)`,
-                    width: this.width,
-                    height: this.height
-                }
                 let el = this.$refs[ref];
                 animation.transition(el, {
                     styles: {
