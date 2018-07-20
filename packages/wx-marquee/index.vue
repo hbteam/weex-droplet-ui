@@ -24,14 +24,18 @@
 
     .marquee1 {
         position: absolute;
-        flex-direction: row;
-        align-items: center;
+        width: 1450px;
+        /*flex-direction: row;*/
+        /*align-items: center;*/
+        white-space: nowrap;
     }
 
     .marquee2 {
+        width: 1450px;
         position: absolute;
-        flex-direction: row;
-        align-items: center;
+        white-space: nowrap;
+        /*flex-direction: row;*/
+        /*align-items: center;*/
     }
 
 </style>
@@ -109,12 +113,14 @@
                 this.baseStyle = { height: this.height, 'background-color': this.bgColor };
                 this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
                 this.marquee1 = {
-                    transform: `translateX(0px)`,
-                    height: this.height
+                    // transform: `translateX(0px)`,
+                    height: this.height,
+                    left: '0px',
                 };
                 this.marquee2 = {
-                    transform: `translateX(${this.base.x}px)`,
-                    height: this.height
+                    // transform: `translateX(${this.base.x}px)`,
+                    height: this.height,
+                    left: `${this.base.x}px`
                 };
             },
 
@@ -129,15 +135,12 @@
                 let el = this.$refs[ref];
                 animation.transition(el, {
                     styles: {
-                        transform: `translateX(-${this.base.x}px)`
+                        left: `-${this.base.x}px`
                     },
                     duration: this.base.t,
                     timingFunction: 'linear',
                 }, () => {
                     this.end(ref);
-                    setTimeout(() => {
-                        this.animation2(ref);
-                    }, 0);
                 });
             },
 
@@ -147,15 +150,12 @@
                 let d = this.base.t * 2;
                 animation.transition(el, {
                     styles: {
-                        transform: `translateX(-${x}px)`
+                        left: `-${x}px`
                     },
                     duration: d,
                     timingFunction: 'linear',
                 }, () => {
                     this.end(ref);
-                    setTimeout(() => {
-                        this.animation2(ref);
-                    }, 0);
                 });
             },
 
@@ -163,10 +163,13 @@
                 let el = this.$refs[ref];
                 animation.transition(el, {
                     styles: {
-                        transform: `translateX(${this.base.x}px)`
+                        left: `${this.base.x}px`
                     },
                     duration: 0,
                 });
+                setTimeout(() => {
+                    this.animation2(ref);
+                }, 20);
             },
         }
     }
