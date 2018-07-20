@@ -12,24 +12,24 @@
 </template>
 <style>
     .wx-marquee {
+        width: 750px;
         overflow: hidden;
     }
 
     .wrap {
+        width: 750px;
         overflow: hidden;
         position: relative;
     }
 
     .marquee1 {
         position: absolute;
-        transform: translateX(0px);
         flex-direction: row;
         align-items: center;
     }
 
     .marquee2 {
         position: absolute;
-        transform: translateX(1180px);
         flex-direction: row;
         align-items: center;
     }
@@ -43,7 +43,7 @@
         props: {
             width: {
                 type: String,
-                default: '750px'
+                required: true,
             },
             height: {
                 type: String,
@@ -71,14 +71,20 @@
             },
             duration: {
                 type: Number,
+                // ms
                 default: 5000
+            },
+            delay: {
+                type: Number,
+                // ms
+                default: 2000
             },
         },
         data () {
             return {
                 base:{ 
-                    x: 0, 
-                    t: 0 
+                    x: Number(this.width.replace('px','')),
+                    t: this.duration,
                 },
                 marquee1: {width: this.width, height: this.height},
                 marquee2: {width: this.width, height: this.height},
@@ -87,14 +93,19 @@
         },
 
         created () {
-            const fz = Number(this.fontSize.replace('px',''));
-            this.base.x = fz * this.text.length;
-            this.base.t = this.duration;
-            this.baseStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
+            this.baseStyle = { height: this.height, 'background-color': this.bgColor };
             this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
         },
 
         mounted () {
+            this.marquee1 = {
+                transform: `translateX(0px)`,
+                height: this.height
+            };
+            this.marquee2 = {
+                transform: `translateX(${this.base.x}px)`,
+                height: this.height
+            };
             if (this.base.x > 750) {
                 this.start('marquee1');
             }
@@ -105,7 +116,7 @@
                 setTimeout(() => {
                     this.animation1('marquee1');
                     this.animation2('marquee2');
-                }, 2000);
+                }, this.delay);
             },
 
             animation1 (ref) {
@@ -120,7 +131,7 @@
                     this.end(ref);
                     setTimeout(() => {
                         this.animation2(ref);
-                    }, 10);
+                    }, 0);
                 });
             },
 
@@ -138,7 +149,7 @@
                     this.end(ref);
                     setTimeout(() => {
                         this.animation2(ref);
-                    }, 10);
+                    }, 0);
                 });
             },
 

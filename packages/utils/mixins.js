@@ -1,10 +1,16 @@
 const width = weex.config.env.deviceWidth;
 const height = weex.config.env.deviceHeight;
 const platform = weex.config.env.platform.toLowerCase();
-const isWeb = platform === 'web';
 const appName = weex.config.env.appName;
 
 const mixins = {
+    data () {
+        return {
+            $env: {
+                isWeb: platform === 'web',
+            },
+        }
+    },
     methods: {
 
         getPageHeight () {

@@ -1,6 +1,13 @@
 <template>
     <div class="wx-demo">
-        <wx-marquee :text="text" bgColor="red" :duration="5000"></wx-marquee>
+        <wx-marquee 
+            width="1450px" 
+            :text="text" 
+            bgColor="#4676FF" 
+            textColor="#fff" 
+            :duration="8000"
+            :delay="2000">
+        </wx-marquee>
     </div>
 </template>
 
@@ -20,7 +27,7 @@
         },
         data () {
             return {
-                text: '通知存款按照确定通知时间的不同，分为1天通知存款和7天通知存款两种类型A  '
+                text: '我要这天再遮不住我眼，我要这地再埋不了我心，我要这众生都明白我意，我要这诸佛都烟消云散！'
             }
         },
         methods: {
