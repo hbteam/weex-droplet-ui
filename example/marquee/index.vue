@@ -23,9 +23,8 @@
                 <wx-icon name="search" :styles="iconSearchStyle"></wx-icon>
             </div>
         </div>
-        
+
         <wx-marquee 
-            width="1420px"
             height="60px"
             :text="textArray"
             direction="column" 
@@ -93,7 +92,7 @@
                     'width': '44px',
                     'margin-left': '10px',
                 },
-                textArray: ['1.我要这天再遮不住我眼', '2.我要这地再埋不了我心', '3.我要这众生都明白我意', '4.我要这诸佛都烟消云散']
+                textArray: ['1.我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼', '2.我要这地再埋不了我心', '3.我要这众生都明白我意', '4.我要这诸佛都烟消云散']
             }
         },
         methods: {

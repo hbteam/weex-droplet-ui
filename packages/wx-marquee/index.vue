@@ -20,12 +20,10 @@
 </template>
 <style>
     .wx-marquee {
-        width: 750px;
         overflow: hidden;
     }
 
     .wrap {
-        width: 750px;
         overflow: hidden;
         position: relative;
     }
@@ -43,15 +41,20 @@
     }
 
     .wrap-column {
-        width: 750px;
     }
 
     .wrap-column-text {
-        width: 750px;
         justify-content: center;
-        /*align-items: center;*/
+        align-items: center;
+        overflow: hidden;
+        flex-direction: row;
     }
     .text-item {
+        lines: 1;
+        width: 750px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
 </style>
@@ -65,7 +68,7 @@
         props: {
             width: {
                 type: String,
-                required: true,
+                default: '750px'
             },
             height: {
                 type: String,
@@ -116,8 +119,12 @@
         },
 
         created () {
-            this.baseStyle = { width:'750px', height: this.height, 'background-color': this.bgColor };
-            this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
+            this.baseStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
+            let textStyle = { width: this.width, 'font-size': this.fontSize, 'color': this.textColor };
+            if (this.$data.$env.isWeb) {
+                textStyle.display = 'block';
+            }
+            this.textStyle = textStyle;
         },
 
         mounted () {
