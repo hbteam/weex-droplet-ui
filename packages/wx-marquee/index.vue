@@ -1,5 +1,5 @@
 <template>
-    <div class="wx-marquee" ref="wxMarquee" :style="baseStyle">
+    <div class="wx-marquee" ref="wxMarquee" :style="wrapStyle">
         <div class="wrap" v-if="direction === 'row'" :style="baseStyle">
             <div class="marquee1" ref="marquee1" :style="marquee1">
                 <text :style="textStyle" class="wx-text">{{ text }}</text>
@@ -51,7 +51,6 @@
     }
     .text-item {
         lines: 1;
-        width: 750px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -70,6 +69,11 @@
                 type: String,
                 default: '750px'
             },
+            textWidth: {
+                type: String,
+                default: '750px'
+            },
+            
             height: {
                 type: String,
                 default: '80px'
@@ -108,22 +112,23 @@
         data () {
             return {
                 base:{ 
-                    x: Number(this.width.replace('px','')),
+                    x: Number(this.textWidth.replace('px','')),
                     t: this.duration,
                 },
                 marquee1: {},
                 marquee2: {},
+                wrapStyle: {},
                 baseStyle: {},
                 textStyle: {},
             }
         },
 
         created () {
-            this.baseStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
-            let textStyle = { width: this.width, 'font-size': this.fontSize, 'color': this.textColor };
-            if (this.$data.$env.isWeb) {
-                textStyle.display = 'block';
-            }
+            this.wrapStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
+            let width = this.direction === 'row' ? this.textWidth : this.width;
+            this.baseStyle = { width: width, height: this.height, 'background-color': this.bgColor };
+            let textStyle = { width: width, 'font-size': this.fontSize, 'color': this.textColor };
+            if (this.$data.$env.isWeb) textStyle.display = 'block';
             this.textStyle = textStyle;
         },
 

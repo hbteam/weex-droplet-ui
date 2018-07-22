@@ -1,7 +1,8 @@
 <template>
     <div class="wx-demo">
-        <wx-marquee 
-            width="1420px" 
+        <wx-marquee
+            width="750px"
+            textWidth="1420px" 
             :text="text" 
             bgColor="#4676FF" 
             textColor="#fff" 
@@ -10,21 +11,21 @@
         </wx-marquee>
 
         <div class="wrap">
+            <wx-icon name="search" :styles="iconSearchStyle"></wx-icon>
             <wx-marquee 
-                class="marquee"
-                width="1420px" 
+                width="690px"
+                textWidth="1420px" 
                 :text="text" 
                 bgColor="#fff" 
                 textColor="#333" 
                 :duration="8000"
                 :delay="2000">
             </wx-marquee>
-            <div class="icon">
-                <wx-icon name="search" :styles="iconSearchStyle"></wx-icon>
-            </div>
+            
         </div>
 
         <wx-marquee 
+            width="750px"
             height="60px"
             :text="textArray"
             direction="column" 
@@ -43,7 +44,7 @@
     }
 
     .wrap {
-        position: relative;
+        width: 750px;
         height: 82px;
         border-top-width: 1px;
         border-top-style: solid;
@@ -53,20 +54,6 @@
         border-bottom-color: #DCDCDC;
         margin-top: 40px;
         margin-bottom: 40px;
-    }
-
-    .marquee {
-        position: absolute;
-        left: 60px;
-    }
-
-    .icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: #fff;
-        width: 60px;
-        height: 80px;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -90,7 +77,7 @@
                     'color': '#ccc',
                     'height': '34px',
                     'width': '44px',
-                    'margin-left': '10px',
+                    'margin-left': '8px',
                 },
                 textArray: ['1.我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼', '2.我要这地再埋不了我心', '3.我要这众生都明白我意', '4.我要这诸佛都烟消云散']
             }
