@@ -137,7 +137,6 @@
 
             animation1 (ref) {
                 let el = this.$refs[ref];
-                debugger
                 let styles = this.$data.$env.isWeb ? {
                         left: `-${this.base.x}px`,
                     } : {
