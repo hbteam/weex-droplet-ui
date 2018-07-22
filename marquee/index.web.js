@@ -6,9 +6,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["npm/weex-droplet-ui/example/radio/index"] = factory();
+		exports["npm/weex-droplet-ui/example/marquee/index"] = factory();
 	else
-		root["npm/weex-droplet-ui/example/radio/index"] = factory();
+		root["npm/weex-droplet-ui/example/marquee/index"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 214);
+/******/ 	return __webpack_require__(__webpack_require__.s = 209);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -8514,32 +8514,27 @@ if(false) {
 /* 158 */,
 /* 159 */,
 /* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(286)
+  __webpack_require__(283)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(191),
+  __webpack_require__(184),
   /* template */
-  __webpack_require__(262),
+  __webpack_require__(259),
   /* styles */
   injectStyle,
   /* scopeId */
-  "data-v-7261566d",
+  "data-v-52027c14",
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/radio/index.vue"
+Component.options.__file = "/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/marquee/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -8550,9 +8545,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7261566d", Component.options)
+    hotAPI.createRecord("data-v-52027c14", Component.options)
   } else {
-    hotAPI.reload("data-v-7261566d", Component.options)
+    hotAPI.reload("data-v-52027c14", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -8563,6 +8558,11 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
 /* 167 */,
 /* 168 */,
 /* 169 */,
@@ -8580,14 +8580,7 @@ module.exports = Component.exports
 /* 181 */,
 /* 182 */,
 /* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8599,116 +8592,98 @@ Object.defineProperty(exports, "__esModule", {
 
 var _index = __webpack_require__(28);
 
-var modal = weex.requireModule('modal'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 exports.default = {
     components: {
-        WxRadio: _index.WxRadio
+        WxMarquee: _index.WxMarquee,
+        WxIcon: _index.WxIcon
     },
     data: function data() {
         return {
-            options1: [{ title: '爱看电影', value: 1, checked: false, disabled: true }, { title: '爱看小说', value: 2, checked: false }, { title: '爱玩游戏', value: 3, checked: false }],
-            options2: [{ title: '爱看电影', value: 1, checked: false }, { title: '爱看小说', value: 2, checked: true }, { title: '爱玩游戏', value: 3, checked: false }],
-            selected1: null,
-            selected2: null
+            text: '我要这天再遮不住我眼，我要这地再埋不了我心，我要这众生都明白我意，我要这诸佛都烟消云散！',
+            iconSearchStyle: {
+                'font-size': '32px',
+                'color': '#ccc',
+                'height': '34px',
+                'width': '44px',
+                'margin-left': '8px'
+            },
+            textArray: ['1.我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼', '2.我要这地再埋不了我心', '3.我要这众生都明白我意', '4.我要这诸佛都烟消云散']
         };
     },
-    created: function created() {},
 
-    methods: {
-        handleChange: function handleChange(value) {}
-    }
-};
+    methods: {}
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
 /* 192 */,
 /* 193 */,
 /* 194 */,
@@ -8726,12 +8701,7 @@ exports.default = {
 /* 206 */,
 /* 207 */,
 /* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8741,7 +8711,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(166);
+var _index = __webpack_require__(161);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -8751,6 +8721,11 @@ _index2.default.el = '#root';
 exports.default = new Vue(_index2.default);
 
 /***/ }),
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
 /* 215 */,
 /* 216 */,
 /* 217 */,
@@ -8769,10 +8744,7 @@ exports.default = new Vue(_index2.default);
 /* 230 */,
 /* 231 */,
 /* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(true);
@@ -8780,12 +8752,15 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-demo[data-v-7261566d] {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.radio1[data-v-7261566d] {\n    height: 2rem;\n    background-color: #fff;\n}\n.radio2[data-v-7261566d] {\n    background-color: #fff;\n}\n.title[data-v-7261566d] {\n    width: 10rem;\n    background-color: #fafafa;\n    color: #888;\n    height: 1.33333rem;\n    line-height: 1.33333rem;\n    padding-left: 0.26667rem;\n}\n.selected[data-v-7261566d] {\n    width: 10rem;\n    padding-left: 0.53333rem;\n    padding-right: 0.53333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    height: 1.06667rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    background-color: #fafafa;\n    margin-top: 0.26667rem;\n    margin-bottom: 0.53333rem;\n}\n.name[data-v-7261566d] {\n    color: #4d4d4d;\n    font-size: 0.42667rem;\n}\n.value[data-v-7261566d] {\n    color: #888;\n    font-size: 0.42667rem;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/radio/index.vue?02c2cdba"],"names":[],"mappings":";AA2CA;IACA,6BAAA;IAAA,8BAAA;IAAA,+BAAA;YAAA,uBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,aAAA;IACA,uBAAA;CACA;AAEA;IACA,uBAAA;CACA;AAEA;IACA,aAAA;IACA,0BAAA;IACA,YAAA;IACA,mBAAA;IACA,wBAAA;IACA,yBAAA;CACA;AAEA;IACA,aAAA;IACA,yBAAA;IACA,0BAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,uCAAA;YAAA,+BAAA;IACA,mBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IACA,uBAAA;IACA,0BAAA;CACA;AAEA;IACA,eAAA;IACA,sBAAA;CACA;AAEA;IACA,YAAA;IACA,sBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n\n        <text class=\"title\">row</text>\n        <wx-radio \n            checkedColor=\"#027FF3\"\n            class=\"radio1\"\n            size=\"44px\"\n            width=\"670px\"\n            align=\"right\"\n            textColor=\"#4D4D4D\"\n            textFontSize=\"32px\"\n            direction=\"row\"\n            v-model=\"selected1\"\n            :options=\"options1\"\n            @wxChange=\"handleChange\">\n        </wx-radio>\n        <div class=\"selected\">\n            <text class=\"name\">选中的value</text>\n            <text class=\"value\">{{ selected1 }}</text>\n        </div>\n\n\n        <text class=\"title\">column</text>\n        <wx-radio \n            class=\"radio2\"\n            checkedColor=\"#027FF3\"\n            size=\"44px\"\n            align=\"left\"\n            textColor=\"#4D4D4D\"\n            textFontSize=\"32px\"\n            direction=\"column\"\n            v-model=\"selected2\"\n            :options=\"options2\"\n            @wxChange=\"handleChange\">\n        </wx-radio>\n        <div class=\"selected\">\n            <text class=\"name\">选中的value</text>\n            <text class=\"value\">{{ selected2 }}</text>\n        </div>\n    </div>\n</template>\n<style type=\"text/css\" scoped>\n    .wx-demo {\n        flex-direction: column;\n        align-items: center;\n    }\n\n    .radio1 {\n        height: 150px;\n        background-color: #fff;\n    }\n\n    .radio2 {\n        background-color: #fff;\n    }\n\n    .title {\n        width: 750px;\n        background-color: #fafafa;\n        color: #888;\n        height: 100px;\n        line-height: 100px;\n        padding-left: 20px;\n    }\n\n    .selected {\n        width: 750px;\n        padding-left: 40px;\n        padding-right: 40px;\n        flex-direction: row;\n        justify-content: space-between;\n        height: 80px;\n        align-items: center;\n        background-color: #fafafa;\n        margin-top: 20px;\n        margin-bottom: 40px;\n    }\n\n    .name {\n        color: #4d4d4d;\n        font-size: 32px;\n    }\n\n    .value {\n        color: #888;\n        font-size: 32px;\n    }\n</style>\n<script>\n    import { WxRadio } from '../../index';\n    const modal = weex.requireModule('modal');\n    export default {\n        components: {\n            WxRadio,\n        },\n        data () {\n            return {\n                 options1: [\n                    {title: '爱看电影', value: 1, checked: false, disabled: true},\n                    {title: '爱看小说', value: 2, checked: false},\n                    {title: '爱玩游戏', value: 3, checked: false},\n                 ],\n                 options2: [\n                    {title: '爱看电影', value: 1, checked: false},\n                    {title: '爱看小说', value: 2, checked: true},\n                    {title: '爱玩游戏', value: 3, checked: false},\n                 ],\n                 selected1: null,\n                 selected2: null,\n            }\n        },\n        created () {\n            \n        },\n        methods: {\n            handleChange (value) {\n\n            },\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-demo[data-v-52027c14] {\n    margin-top: 1.33333rem;\n    background-color: #fff;\n}\n.wrap[data-v-52027c14] {\n    width: 10rem;\n    height: 1.09333rem;\n    border-top-width: 1px;\n    border-top-style: solid;\n    border-top-color: #DCDCDC;\n    border-bottom-width: 1px;\n    border-bottom-style: solid;\n    border-bottom-color: #DCDCDC;\n    margin-top: 0.53333rem;\n    margin-bottom: 0.53333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/example/marquee/index.vue?4281e2a2"],"names":[],"mappings":";AAwCA;IACA,uBAAA;IACA,uBAAA;CACA;AAEA;IACA,aAAA;IACA,mBAAA;IACA,sBAAA;IACA,wBAAA;IACA,0BAAA;IACA,yBAAA;IACA,2BAAA;IACA,6BAAA;IACA,uBAAA;IACA,0BAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-demo\">\n        <wx-marquee\n            width=\"750px\"\n            textWidth=\"1420px\" \n            :text=\"text\" \n            bgColor=\"#4676FF\" \n            textColor=\"#fff\" \n            :duration=\"8000\"\n            :delay=\"2000\">\n        </wx-marquee>\n\n        <div class=\"wrap\">\n            <wx-icon name=\"search\" :styles=\"iconSearchStyle\"></wx-icon>\n            <wx-marquee \n                width=\"690px\"\n                textWidth=\"1420px\" \n                :text=\"text\" \n                bgColor=\"#fff\" \n                textColor=\"#333\" \n                :duration=\"8000\"\n                :delay=\"2000\">\n            </wx-marquee>\n            \n        </div>\n\n        <wx-marquee \n            width=\"750px\"\n            height=\"60px\"\n            :text=\"textArray\"\n            direction=\"column\" \n            bgColor=\"#4676FF\" \n            textColor=\"#fff\" \n            :duration=\"1000\"\n            :delay=\"4000\">\n        </wx-marquee>\n    </div>\n</template>\n\n<style type=\"text/css\" scoped>\n    .wx-demo {\n        margin-top: 100px;\n        background-color: #fff;\n    }\n\n    .wrap {\n        width: 750px;\n        height: 82px;\n        border-top-width: 1px;\n        border-top-style: solid;\n        border-top-color: #DCDCDC;\n        border-bottom-width: 1px;\n        border-bottom-style: solid;\n        border-bottom-color: #DCDCDC;\n        margin-top: 40px;\n        margin-bottom: 40px;\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n    }\n\n</style>\n\n<script>\n    import { WxMarquee, WxIcon } from '../../index';\n\n    export default {\n        components: {\n            WxMarquee,\n            WxIcon\n        },\n        data () {\n            return {\n                text: '我要这天再遮不住我眼，我要这地再埋不了我心，我要这众生都明白我意，我要这诸佛都烟消云散！',\n                iconSearchStyle: {\n                    'font-size': '32px',\n                    'color': '#ccc',\n                    'height': '34px',\n                    'width': '44px',\n                    'margin-left': '8px',\n                },\n                textArray: ['1.我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼我要这天再遮不住我眼', '2.我要这地再埋不了我心', '3.我要这众生都明白我意', '4.我要这诸佛都烟消云散']\n            }\n        },\n        methods: {\n\n        }\n    }\n</script>\n"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
+/* 234 */,
+/* 235 */,
+/* 236 */,
 /* 237 */,
 /* 238 */,
 /* 239 */,
@@ -8808,102 +8783,66 @@ exports.push([module.i, "\n.wx-demo[data-v-7261566d] {\n    -webkit-box-orient: 
 /* 256 */,
 /* 257 */,
 /* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "wx-demo weex-ct",
     attrs: {}
-  }, [_c('p', {
-    staticClass: "title weex-el weex-text",
-    attrs: {}
-  }, [_vm._v("row")]), _vm._v(" "), _c('wx-radio', {
-    staticClass: "radio1",
+  }, [_c('wx-marquee', {
     attrs: {
-      "checkedColor": "#027FF3",
-      "size": "44px",
-      "width": "670px",
-      "align": "right",
-      "textColor": "#4D4D4D",
-      "textFontSize": "32px",
-      "direction": "row",
-      "options": _vm.options1,
-      "data-evt-wxChange": ""
-    },
-    on: {
-      "wxChange": _vm.handleChange
-    },
-    nativeOn: {
-      "wxChange": _vm.handleChange
-    },
-    model: {
-      value: (_vm.selected1),
-      callback: function($$v) {
-        _vm.selected1 = $$v
-      },
-      expression: "selected1"
+      "width": "750px",
+      "textWidth": "1420px",
+      "text": _vm.text,
+      "bgColor": "#4676FF",
+      "textColor": "#fff",
+      "duration": 8000,
+      "delay": 2000
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "selected weex-ct",
+    staticClass: "wrap weex-ct",
     attrs: {}
-  }, [_c('p', {
-    staticClass: "name weex-el weex-text",
-    attrs: {}
-  }, [_vm._v("选中的value")]), _vm._v(" "), _c('p', {
-    staticClass: "value weex-el weex-text",
-    attrs: {}
-  }, [_vm._v(_vm._s(_vm.selected1))])]), _vm._v(" "), _c('p', {
-    staticClass: "title weex-el weex-text",
-    attrs: {}
-  }, [_vm._v("column")]), _vm._v(" "), _c('wx-radio', {
-    staticClass: "radio2",
+  }, [_c('wx-icon', {
     attrs: {
-      "checkedColor": "#027FF3",
-      "size": "44px",
-      "align": "left",
-      "textColor": "#4D4D4D",
-      "textFontSize": "32px",
+      "name": "search",
+      "styles": _vm.iconSearchStyle
+    }
+  }), _vm._v(" "), _c('wx-marquee', {
+    attrs: {
+      "width": "690px",
+      "textWidth": "1420px",
+      "text": _vm.text,
+      "bgColor": "#fff",
+      "textColor": "#333",
+      "duration": 8000,
+      "delay": 2000
+    }
+  })], 1), _vm._v(" "), _c('wx-marquee', {
+    attrs: {
+      "width": "750px",
+      "height": "60px",
+      "text": _vm.textArray,
       "direction": "column",
-      "options": _vm.options2,
-      "data-evt-wxChange": ""
-    },
-    on: {
-      "wxChange": _vm.handleChange
-    },
-    nativeOn: {
-      "wxChange": _vm.handleChange
-    },
-    model: {
-      value: (_vm.selected2),
-      callback: function($$v) {
-        _vm.selected2 = $$v
-      },
-      expression: "selected2"
+      "bgColor": "#4676FF",
+      "textColor": "#fff",
+      "duration": 1000,
+      "delay": 4000
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "selected weex-ct",
-    attrs: {}
-  }, [_c('p', {
-    staticClass: "name weex-el weex-text",
-    attrs: {}
-  }, [_vm._v("选中的value")]), _vm._v(" "), _c('p', {
-    staticClass: "value weex-el weex-text",
-    attrs: {}
-  }, [_vm._v(_vm._s(_vm.selected2))])])], 1)
+  })], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7261566d", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-52027c14", module.exports)
   }
 }
 
 /***/ }),
+/* 260 */,
+/* 261 */,
+/* 262 */,
 /* 263 */,
 /* 264 */,
 /* 265 */,
@@ -8924,26 +8863,23 @@ if (false) {
 /* 280 */,
 /* 281 */,
 /* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(236);
+var content = __webpack_require__(233);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("290460c4", content, false);
+var update = __webpack_require__(2)("2f0391d6", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7261566d\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7261566d\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52027c14\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52027c14\",\"scoped\":true,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });

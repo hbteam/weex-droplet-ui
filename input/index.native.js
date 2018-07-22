@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 149);
+/******/ 	return __webpack_require__(__webpack_require__.s = 155);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -92,10 +92,19 @@ Object.defineProperty(exports, "__esModule", {
 var width = weex.config.env.deviceWidth;
 var height = weex.config.env.deviceHeight;
 var platform = weex.config.env.platform.toLowerCase();
-var isWeb = platform === 'web';
 var appName = weex.config.env.appName;
 
 var mixins = {
+    data: function data() {
+        return {
+            $env: {
+                isWeb: platform === 'web',
+                isAndroid: platform === 'android',
+                isIos: platform === 'ios'
+            }
+        };
+    },
+
     methods: {
         getPageHeight: function getPageHeight() {
             if (platform === 'android') {
@@ -163,21 +172,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 127:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(199)
+__vue_styles__.push(__webpack_require__(207)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(173)
+__vue_exports__ = __webpack_require__(180)
 
 /* template */
-var __vue_template__ = __webpack_require__(221)
+var __vue_template__ = __webpack_require__(230)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -231,7 +240,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 149:
+/***/ 155:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -241,7 +250,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(127);
+var _index = __webpack_require__(132);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -252,7 +261,7 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 173:
+/***/ 180:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -360,7 +369,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 199:
+/***/ 207:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -381,7 +390,113 @@ module.exports = {
 
 /***/ }),
 
-/***/ 221:
+/***/ 23:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _mixins = __webpack_require__(0);
+
+var _mixins2 = _interopRequireDefault(_mixins);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    mixins: [_mixins2.default],
+    props: {
+        type: {
+            type: String,
+            default: 'text'
+        },
+        icon: {
+            type: String
+        },
+        tail: {
+            type: String
+        },
+        placeholder: {
+            type: String
+        },
+        value: {
+            type: String
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        autofocus: {
+            type: Boolean,
+            default: false
+        },
+        maxlength: {
+            type: String
+        },
+        iconStyle: {
+            type: Object
+        },
+        tailStyle: {
+            type: Object
+        },
+        width: {
+            type: String
+        },
+        bgColor: {
+            type: String,
+            default: '#f8f8f8'
+        }
+    },
+    data: function data() {
+        return {
+            style: {
+                width: this.width,
+                'background-color': this.bgColor
+            },
+            inputValue: ''
+        };
+    },
+
+    methods: {
+        blur: function blur(e) {
+            this.preventDefault(e);
+            this.$emit('wxBlur', this.inputValue);
+        },
+        input: function input(e) {
+            this.preventDefault(e);
+            this.inputValue = e.value;
+            this.$emit('input', e.value);
+            this.$emit('wxInput', this.inputValue);
+        }
+    }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+
+/***/ 230:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -417,111 +532,6 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _props;
-
-var _mixins = __webpack_require__(0);
-
-var _mixins2 = _interopRequireDefault(_mixins);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    mixins: [_mixins2.default],
-    props: (_props = {
-        type: {
-            type: String,
-            default: 'text'
-        },
-        icon: {
-            type: String
-        },
-        tail: {
-            type: String
-        },
-        placeholder: {
-            type: String
-        },
-        value: {
-            type: String
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        autofocus: {
-            type: Boolean,
-            default: false
-        },
-        maxlength: {
-            type: String
-        },
-        iconStyle: {
-            type: Object
-        },
-        tailStyle: {
-            type: Object
-        }
-    }, _defineProperty(_props, 'tailStyle', {
-        type: Object
-    }), _defineProperty(_props, 'width', {
-        type: String
-    }), _props),
-    data: function data() {
-        return {
-            style: {
-                width: this.width
-            },
-            inputValue: ''
-        };
-    },
-
-    methods: {
-        blur: function blur(e) {
-            this.preventDefault(e);
-            this.$emit('wxBlur', this.inputValue);
-        },
-        input: function input(e) {
-            this.preventDefault(e);
-            this.inputValue = e.value;
-            this.$emit('input', e.value);
-            this.$emit('wxInput', this.inputValue);
-        }
-    }
-};
-
-/***/ }),
-
 /***/ 28:
 /***/ (function(module, exports) {
 
@@ -530,7 +540,6 @@ module.exports = {
     "display": "flex",
     "width": "670",
     "height": "100",
-    "backgroundColor": "#f8f8f8",
     "flexDirection": "row"
   },
   "wx-input-icon": {
@@ -538,7 +547,7 @@ module.exports = {
     "alignItems": "center",
     "justifyContent": "center"
   },
-  "wx-input-text": {
+  "input": {
     "flex": 1
   }
 }
@@ -560,7 +569,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "src": _vm.icon
     }
   })]) : _vm._e(), _vm._t("left"), _c('input', {
-    staticClass: ["wx-input-text"],
+    staticClass: ["input"],
+    style: {
+      'background-color': _vm.bgColor
+    },
     attrs: {
       "type": _vm.type,
       "placeholder": _vm.placeholder,

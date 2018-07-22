@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 150);
+/******/ 	return __webpack_require__(__webpack_require__.s = 156);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -92,10 +92,19 @@ Object.defineProperty(exports, "__esModule", {
 var width = weex.config.env.deviceWidth;
 var height = weex.config.env.deviceHeight;
 var platform = weex.config.env.platform.toLowerCase();
-var isWeb = platform === 'web';
 var appName = weex.config.env.appName;
 
 var mixins = {
+    data: function data() {
+        return {
+            $env: {
+                isWeb: platform === 'web',
+                isAndroid: platform === 'android',
+                isIos: platform === 'ios'
+            }
+        };
+    },
+
     methods: {
         getPageHeight: function getPageHeight() {
             if (platform === 'android') {
@@ -131,21 +140,40 @@ module.exports = {
 
 /***/ }),
 
-/***/ 128:
+/***/ 13:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wx-button"],
+    style: _vm.buttonStyles,
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_c('text', {
+    staticClass: ["wx-text"],
+    style: _vm.textStyles
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 133:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(196)
+__vue_styles__.push(__webpack_require__(204)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(174)
+__vue_exports__ = __webpack_require__(181)
 
 /* template */
-var __vue_template__ = __webpack_require__(218)
+var __vue_template__ = __webpack_require__(227)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -176,25 +204,6 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 13:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wx-button"],
-    style: _vm.buttonStyles,
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_c('text', {
-    staticClass: ["wx-text"],
-    style: _vm.textStyles
-  }, [_vm._t("default")], 2)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
 /***/ 15:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -218,7 +227,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 150:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -228,7 +237,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(128);
+var _index = __webpack_require__(133);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -239,7 +248,7 @@ exports.default = new Vue(_index2.default);
 
 /***/ }),
 
-/***/ 174:
+/***/ 181:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -296,18 +305,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ 196:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wx-demo": {
-    "marginLeft": "30",
-    "marginTop": "60"
-  }
-}
-
-/***/ }),
-
 /***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -353,7 +350,19 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 218:
+/***/ 204:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wx-demo": {
+    "marginLeft": "30",
+    "marginTop": "60"
+  }
+}
+
+/***/ }),
+
+/***/ 227:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
