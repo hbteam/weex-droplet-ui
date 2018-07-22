@@ -5,7 +5,15 @@
                 <text :style="textStyle" class="wx-text">{{ text }}</text>
             </div>
             <div class="marquee2" ref="marquee2" :style="marquee2">
-                <text :style="textStyle"class="wx-text">{{ text }}</text>
+                <text :style="textStyle" class="wx-text">{{ text }}</text>
+            </div>
+        </div>
+        <div class="wrap-column" ref="wrapColumn" v-if="direction === 'column'" :style="baseStyle">
+            <div :style="baseStyle" class="wrap-column-text" v-for="txt in text">
+                <text class="text-item" :style="textStyle">{{ txt }}</text>
+            </div>
+            <div :style="baseStyle" class="wrap-column-text">
+                <text class="text-item" :style="textStyle">{{ this.text[0] }}</text>
             </div>
         </div>
     </div>
@@ -34,6 +42,18 @@
         align-items: center;
     }
 
+    .wrap-column {
+        width: 750px;
+    }
+
+    .wrap-column-text {
+        width: 750px;
+        justify-content: center;
+        /*align-items: center;*/
+    }
+    .text-item {
+    }
+
 </style>
 <script type="text/javascript">
     const animation = weex.requireModule('animation');
@@ -57,7 +77,7 @@
                 default: 'row'
             },
             text: {
-                type: String
+                type: [String, Array]
             },
             fontSize: {
                 type: String,
@@ -79,7 +99,7 @@
             delay: {
                 type: Number,
                 // ms
-                default: 2000
+                default: 0
             },
         },
         data () {
@@ -96,21 +116,22 @@
         },
 
         created () {
-            
+            this.baseStyle = { width:'750px', height: this.height, 'background-color': this.bgColor };
+            this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
         },
 
         mounted () {
-            this.initStyle();
-            if (this.base.x > 750) {
-                this.start('marquee1');
+            if (this.direction === 'row' && this.base.x > 750) {
+                this.initStyle();
+                this.startRow('marquee1');
+            } else if (this.direction === 'column') {
+                this.startCol();
             }
         },
         
         methods: {
             initStyle () {
-                this.baseStyle = { height: this.height, 'background-color': this.bgColor };
-                this.textStyle = { 'font-size': this.fontSize, 'color': this.textColor };
-                let base = {height: this.height,width: this.width};
+                let base = {height: this.height, width: this.width};
                 if (this.$data.$env.isWeb) {
                     this.marquee1 = Object.assign({
                         left: '0px'
@@ -128,22 +149,36 @@
                 }
             },
 
-            start (ref) {
+            startRow (ref) {
                 setTimeout(() => {
                     this.animation1('marquee1');
                     this.animation2('marquee2');
                 }, this.delay);
             },
 
+            startCol () {
+                let index = 0;
+                let d = this.duration;
+                let next = () => {
+                  if (index > this.text.length - 1) {
+                    index = d = 0;
+                    this.animationCol(0, 0);
+                  } else {
+                    d = this.duration;
+                    index ++;
+                    this.animationCol(this.duration, `${-1 * index * 100}%`);
+                  }
+                  setTimeout(next, d);
+                }
+                setTimeout(() => {
+                    next();
+                }, this.delay);
+            },
+
             animation1 (ref) {
                 let el = this.$refs[ref];
-                let styles = this.$data.$env.isWeb ? {
-                        left: `-${this.base.x}px`,
-                    } : {
-                        transform: `translateX(-${this.base.x}px)`,
-                    }
                 animation.transition(el, {
-                    styles: styles,
+                    styles: this.getStyles(-this.base.x),
                     duration: this.base.t,
                     timingFunction: 'linear',
                 }, () => {
@@ -151,17 +186,20 @@
                 });
             },
 
+            getStyles (x) {
+                if (this.$data.$env.isWeb) {
+                    return {left: `${x}px`};
+                } else {
+                    return {transform: `translateX(${x}px)`};
+                }
+            },
+
             animation2 (ref) {
                 let el = this.$refs[ref];
                 let x = this.base.x;
                 let d = this.base.t * 2;
-                let styles = this.$data.$env.isWeb ? {
-                        left: `-${x}px`,
-                    } : {
-                        transform: `translateX(-${x}px)`,
-                    }
                 animation.transition(el, {
-                    styles: styles,
+                    styles: this.getStyles(-x),
                     duration: d,
                     timingFunction: 'linear',
                 }, () => {
@@ -171,18 +209,30 @@
 
             end (ref) {
                 let el = this.$refs[ref];
-                let styles = this.$data.$env.isWeb ? {
-                        left: `${this.base.x}px`,
-                    } : {
-                        transform: `translateX(${this.base.x}px)`,
-                    }
                 animation.transition(el, {
-                    styles: styles,
+                    styles: this.getStyles(this.base.x),
                     duration: 0,
                 });
                 setTimeout(() => {
                     this.animation2(ref);
                 }, 20);
+            },
+
+            animationCol (duration, y) {
+                var el = this.$refs.wrapColumn;
+                if (this.$data.$env.isWeb) {
+                    el.style.transitionDuration = duration + 'ms';
+                    el.style.transitionTimingFunction = 'ease';
+                    el.style.transform = `translate3d(0, ${y}, 0)`
+                    return;
+                }
+                animation.transition(el, {
+                    styles: {
+                        transform: `translateY(${y})`
+                    },
+                    duration: duration,
+                    timingFunction: 'ease'
+                });
             },
         }
     }

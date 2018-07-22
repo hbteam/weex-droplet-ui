@@ -23,6 +23,17 @@
                 <wx-icon name="search" :styles="iconSearchStyle"></wx-icon>
             </div>
         </div>
+        
+        <wx-marquee 
+            width="1420px"
+            height="60px"
+            :text="textArray"
+            direction="column" 
+            bgColor="#4676FF" 
+            textColor="#fff" 
+            :duration="1000"
+            :delay="4000">
+        </wx-marquee>
     </div>
 </template>
 
@@ -42,6 +53,7 @@
         border-bottom-style: solid;
         border-bottom-color: #DCDCDC;
         margin-top: 40px;
+        margin-bottom: 40px;
     }
 
     .marquee {
@@ -80,7 +92,8 @@
                     'height': '34px',
                     'width': '44px',
                     'margin-left': '10px',
-                }
+                },
+                textArray: ['1.我要这天再遮不住我眼', '2.我要这地再埋不了我心', '3.我要这众生都明白我意', '4.我要这诸佛都烟消云散']
             }
         },
         methods: {

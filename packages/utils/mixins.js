@@ -8,6 +8,8 @@ const mixins = {
         return {
             $env: {
                 isWeb: platform === 'web',
+                isAndroid: platform === 'android',
+                isIos: platform === 'ios',
             },
         }
     },
