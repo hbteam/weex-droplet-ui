@@ -8,11 +8,9 @@
                 <text :style="textStyle" class="wx-text">{{ text }}</text>
             </div>
         </div>
-        <div class="wrap-column" ref="wrapColumn" v-if="direction === 'column'" :style="baseStyle">
-            <div :style="baseStyle" class="wrap-column-text" v-for="txt in text">
-                <text class="text-item" :style="textStyle">{{ txt }}</text>
-            </div>
-            <div :style="baseStyle" class="wrap-column-text">
+        <div v-if="direction === 'column'" :style="baseStyle">
+            <div ref="wrapColumn" :style="baseStyleWrap">
+                <text v-for="txt in text" class="text-item" :style="textStyle">{{ txt }}</text>
                 <text class="text-item" :style="textStyle">{{ this.text[0] }}</text>
             </div>
         </div>
@@ -40,15 +38,6 @@
         align-items: center;
     }
 
-    .wrap-column {
-    }
-
-    .wrap-column-text {
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        flex-direction: row;
-    }
     .text-item {
         lines: 1;
         overflow: hidden;
@@ -114,6 +103,7 @@
                 base:{ 
                     x: Number(this.textWidth.replace('px','')),
                     t: this.duration,
+                    h: Number(this.height.replace('px',''))
                 },
                 marquee1: {},
                 marquee2: {},
@@ -127,7 +117,12 @@
             this.wrapStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
             let width = this.direction === 'row' ? this.textWidth : this.width;
             this.baseStyle = { width: width, height: this.height, 'background-color': this.bgColor };
-            let textStyle = { width: width, 'font-size': this.fontSize, 'color': this.textColor };
+
+            this.baseStyleWrap = Object.assign({}, this.baseStyle, {
+                height: this.base.h * (this.text.length + 1) + 'px'});
+
+            let textStyle = { height: this.height, width: width, 'font-size': this.fontSize, 'color': this.textColor, 'line-height': this.height };
+
             if (this.$data.$env.isWeb) textStyle.display = 'block';
             this.textStyle = textStyle;
         },
@@ -173,12 +168,14 @@
                 let d = this.duration;
                 let next = () => {
                   if (index > this.text.length - 1) {
-                    index = d = 0;
+                    index = 0;
+                    // 处理浏览器兼容，设置停留100ms
+                    d = 100;
                     this.animationCol(0, 0);
                   } else {
                     d = this.duration;
                     index ++;
-                    this.animationCol(this.duration, `${-1 * index * 100}%`);
+                    this.animationCol(this.duration, `${-1 * index * 100 / (this.text.length + 1)}%`);
                   }
                   setTimeout(next, d);
                 }

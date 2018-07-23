@@ -32,7 +32,7 @@
             bgColor="#4676FF" 
             textColor="#fff" 
             :duration="1000"
-            :delay="4000">
+            :delay="2000">
         </wx-marquee>
     </div>
 </template>
