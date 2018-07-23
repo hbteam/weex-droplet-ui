@@ -135,7 +135,7 @@
         mounted () {
             if (this.direction === 'row' && this.base.x > 750) {
                 this.initStyle();
-                this.startRow('marquee1');
+                this.startRow();
             } else if (this.direction === 'column') {
                 this.startCol();
             }
@@ -143,7 +143,7 @@
         
         methods: {
             initStyle () {
-                let base = {height: this.height, width: this.width};
+                let base = {height: this.height, width: this.textWidth};
                 if (this.$data.$env.isWeb) {
                     this.marquee1 = Object.assign({
                         left: '0px'
@@ -161,7 +161,7 @@
                 }
             },
 
-            startRow (ref) {
+            startRow () {
                 setTimeout(() => {
                     this.animation1('marquee1');
                     this.animation2('marquee2');
