@@ -13,14 +13,16 @@
             :disabled="disabled" 
             :autofocus="autofocus" 
             :maxlength="maxlength"
-            @input="input" @blur="blur" />
+            @input="oninput" @blur="onblur" @focus="onfocus" />
         <div class="wx-input-icon" v-if="tail">
             <image :style="tailStyle" :src="tail"></image>
         </div>
     </div>
 </template>
 <script>
-    import mixins from '../utils/mixins'
+    import mixins from '../utils/mixins';
+    const modal = weex.requireModule('modal');
+
     export default {
         mixins:[mixins],
         props: {
@@ -75,16 +77,21 @@
             }
         },
         methods: {
-            blur (e) {
+            onblur (e) {
                 this.preventDefault(e);
                 this.$emit('wxBlur', this.inputValue);
             },
-            input (e) {
+            oninput (e) {
                 this.preventDefault(e);
                 this.inputValue = e.value;
                 this.$emit('input', e.value)
                 this.$emit('wxInput', this.inputValue);
-            }
+            },
+
+            onfocus (e) {
+                this.preventDefault(e);
+                this.$emit('wxFocus', this.inputValue);
+            },
         }
     }
 </script>
