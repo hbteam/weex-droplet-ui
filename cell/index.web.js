@@ -1208,6 +1208,28 @@ var _mixins2 = _interopRequireDefault(_mixins);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var modal = weex.requireModule('modal'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
     mixins: [_mixins2.default],
     props: {
@@ -1263,38 +1285,22 @@ exports.default = {
     },
 
     methods: {
-        blur: function blur(e) {
+        onblur: function onblur(e) {
             this.preventDefault(e);
             this.$emit('wxBlur', this.inputValue);
         },
-        input: function input(e) {
+        oninput: function oninput(e) {
             this.preventDefault(e);
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
+        },
+        onfocus: function onfocus(e) {
+            this.preventDefault(e);
+            this.$emit('wxFocus', this.inputValue);
         }
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 25 */
@@ -1795,7 +1801,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-input {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    width: 8.93333rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-input-icon {\n    width: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.input {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-input/index.vue?22fd744f"],"names":[],"mappings":";AA2FA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,kBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-input\" :style=\"style\">\n        <div class=\"wx-input-icon\" v-if=\"icon\">\n            <image :style=\"iconStyle\" :src=\"icon\"></image>\n        </div>\n        <slot name=\"left\"></slot>\n        <input \n            class=\"input\"\n            :style=\"{'background-color': bgColor}\"\n            :type=\"type\" \n            :placeholder=\"placeholder\" \n            :value=\"value\"\n            :disabled=\"disabled\" \n            :autofocus=\"autofocus\" \n            :maxlength=\"maxlength\"\n            @input=\"input\" @blur=\"blur\" />\n        <div class=\"wx-input-icon\" v-if=\"tail\">\n            <image :style=\"tailStyle\" :src=\"tail\"></image>\n        </div>\n    </div>\n</template>\n<script>\n    import mixins from '../utils/mixins'\n    export default {\n        mixins:[mixins],\n        props: {\n            type: {\n                type: String,\n                default: 'text'\n            },\n            icon: {\n                type: String\n            },\n            tail: {\n                type: String\n            },\n            placeholder: {\n                type: String\n            },\n            value: {\n                type: String\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            maxlength: {\n                type: String\n            },\n            iconStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            width: {\n                type: String\n            },\n            bgColor: {\n                type: String,\n                default: '#f8f8f8'\n            },\n        },\n        data(){\n            return {\n                style: {\n                    width: this.width,\n                    'background-color': this.bgColor\n                },\n                inputValue: '',\n            }\n        },\n        methods: {\n            blur (e) {\n                this.preventDefault(e);\n                this.$emit('wxBlur', this.inputValue);\n            },\n            input (e) {\n                this.preventDefault(e);\n                this.inputValue = e.value;\n                this.$emit('input', e.value)\n                this.$emit('wxInput', this.inputValue);\n            }\n        }\n    }\n</script>\n<style>\n    .wx-input {\n        display: flex;\n        width: 670px;\n        height: 100px;\n        flex-direction: row;\n    }\n\n    .wx-input-icon {\n        width: 100px;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .input {\n        flex: 1;\n    }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-input {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    width: 8.93333rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-input-icon {\n    width: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.input {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-input/index.vue?7d96e800"],"names":[],"mappings":";AAkGA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,kBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-input\" :style=\"style\">\n        <div class=\"wx-input-icon\" v-if=\"icon\">\n            <image :style=\"iconStyle\" :src=\"icon\"></image>\n        </div>\n        <slot name=\"left\"></slot>\n        <input \n            class=\"input\"\n            :style=\"{'background-color': bgColor}\"\n            :type=\"type\" \n            :placeholder=\"placeholder\" \n            :value=\"value\"\n            :disabled=\"disabled\" \n            :autofocus=\"autofocus\" \n            :maxlength=\"maxlength\"\n            @input=\"oninput\" @blur=\"onblur\" @focus=\"onfocus\" />\n        <div class=\"wx-input-icon\" v-if=\"tail\">\n            <image :style=\"tailStyle\" :src=\"tail\"></image>\n        </div>\n    </div>\n</template>\n<script>\n    import mixins from '../utils/mixins';\n    const modal = weex.requireModule('modal');\n\n    export default {\n        mixins:[mixins],\n        props: {\n            type: {\n                type: String,\n                default: 'text'\n            },\n            icon: {\n                type: String\n            },\n            tail: {\n                type: String\n            },\n            placeholder: {\n                type: String\n            },\n            value: {\n                type: String\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            maxlength: {\n                type: String\n            },\n            iconStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            width: {\n                type: String\n            },\n            bgColor: {\n                type: String,\n                default: '#f8f8f8'\n            },\n        },\n        data(){\n            return {\n                style: {\n                    width: this.width,\n                    'background-color': this.bgColor\n                },\n                inputValue: '',\n            }\n        },\n        methods: {\n            onblur (e) {\n                this.preventDefault(e);\n                this.$emit('wxBlur', this.inputValue);\n            },\n            oninput (e) {\n                this.preventDefault(e);\n                this.inputValue = e.value;\n                this.$emit('input', e.value)\n                this.$emit('wxInput', this.inputValue);\n            },\n\n            onfocus (e) {\n                this.preventDefault(e);\n                this.$emit('wxFocus', this.inputValue);\n            },\n        }\n    }\n</script>\n<style>\n    .wx-input {\n        display: flex;\n        width: 670px;\n        height: 100px;\n        flex-direction: row;\n    }\n\n    .wx-input-icon {\n        width: 100px;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .input {\n        flex: 1;\n    }\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -2052,7 +2058,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "autofocus": _vm.autofocus,
       "maxlength": _vm.maxlength,
       "data-evt-input": "",
-      "data-evt-blur": ""
+      "data-evt-blur": "",
+      "data-evt-focus": ""
     },
     domProps: {
       "value": _vm.value
@@ -2060,21 +2067,29 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "input": function($event) {
         $event.stopPropagation();
-        return _vm.input($event)
+        return _vm.oninput($event)
       },
       "blur": function($event) {
         $event.stopPropagation();
-        return _vm.blur($event)
+        return _vm.onblur($event)
+      },
+      "focus": function($event) {
+        $event.stopPropagation();
+        return _vm.onfocus($event)
       }
     },
     nativeOn: {
       "input": function($event) {
         $event.stopPropagation();
-        return _vm.input($event)
+        return _vm.oninput($event)
       },
       "blur": function($event) {
         $event.stopPropagation();
-        return _vm.blur($event)
+        return _vm.onblur($event)
+      },
+      "focus": function($event) {
+        $event.stopPropagation();
+        return _vm.onfocus($event)
       }
     }
   }), _vm._v(" "), (_vm.tail) ? _c('div', {
@@ -4044,17 +4059,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var animation = weex.requireModule('animation');
 var dom = weex.requireModule('dom');
@@ -4109,7 +4113,8 @@ exports.default = {
         return {
             base: {
                 x: Number(this.textWidth.replace('px', '')),
-                t: this.duration
+                t: this.duration,
+                h: Number(this.height.replace('px', ''))
             },
             marquee1: {},
             marquee2: {},
@@ -4122,14 +4127,19 @@ exports.default = {
         this.wrapStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
         var width = this.direction === 'row' ? this.textWidth : this.width;
         this.baseStyle = { width: width, height: this.height, 'background-color': this.bgColor };
-        var textStyle = { width: width, 'font-size': this.fontSize, 'color': this.textColor };
+
+        this.baseStyleWrap = Object.assign({}, this.baseStyle, {
+            height: this.base.h * (this.text.length + 1) + 'px' });
+
+        var textStyle = { height: this.height, width: width, 'font-size': this.fontSize, 'color': this.textColor, 'line-height': this.height };
+
         if (this.$data.$env.isWeb) textStyle.display = 'block';
         this.textStyle = textStyle;
     },
     mounted: function mounted() {
         if (this.direction === 'row' && this.base.x > 750) {
             this.initStyle();
-            this.startRow('marquee1');
+            this.startRow();
         } else if (this.direction === 'column') {
             this.startCol();
         }
@@ -4138,7 +4148,7 @@ exports.default = {
 
     methods: {
         initStyle: function initStyle() {
-            var base = { height: this.height, width: this.width };
+            var base = { height: this.height, width: this.textWidth };
             if (this.$data.$env.isWeb) {
                 this.marquee1 = Object.assign({
                     left: '0px'
@@ -4155,7 +4165,7 @@ exports.default = {
                 }, base);
             }
         },
-        startRow: function startRow(ref) {
+        startRow: function startRow() {
             var _this = this;
 
             setTimeout(function () {
@@ -4170,12 +4180,15 @@ exports.default = {
             var d = this.duration;
             var next = function next() {
                 if (index > _this2.text.length - 1) {
-                    index = d = 0;
+                    index = 0;
+                    // 处理浏览器兼容，设置停留100ms
+                    d = 100;
                     _this2.animationCol(0, 0);
                 } else {
                     d = _this2.duration;
                     index++;
-                    _this2.animationCol(_this2.duration, -1 * index * 100 + '%');
+                    var y = -1 * index * 100 / (_this2.text.length + 1) + '%';
+                    _this2.animationCol(_this2.duration, y);
                 }
                 setTimeout(next, d);
             };
@@ -6157,7 +6170,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-marquee {\n    overflow: hidden;\n}\n.wrap {\n    overflow: hidden;\n    position: relative;\n}\n.marquee1 {\n    position: absolute;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.marquee2 {\n    position: absolute;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.wrap-column {\n}\n.wrap-column-text {\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    overflow: hidden;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.text-item {\n    lines: 1;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-marquee/index.vue?164d7451"],"names":[],"mappings":";AAqBA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;CACA;AAEA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,iBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AACA;IACA,SAAA;IACA,iBAAA;IACA,oBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-marquee\" ref=\"wxMarquee\" :style=\"wrapStyle\">\n        <div class=\"wrap\" v-if=\"direction === 'row'\" :style=\"baseStyle\">\n            <div class=\"marquee1\" ref=\"marquee1\" :style=\"marquee1\">\n                <text :style=\"textStyle\" class=\"wx-text\">{{ text }}</text>\n            </div>\n            <div class=\"marquee2\" ref=\"marquee2\" :style=\"marquee2\">\n                <text :style=\"textStyle\" class=\"wx-text\">{{ text }}</text>\n            </div>\n        </div>\n        <div class=\"wrap-column\" ref=\"wrapColumn\" v-if=\"direction === 'column'\" :style=\"baseStyle\">\n            <div :style=\"baseStyle\" class=\"wrap-column-text\" v-for=\"txt in text\">\n                <text class=\"text-item\" :style=\"textStyle\">{{ txt }}</text>\n            </div>\n            <div :style=\"baseStyle\" class=\"wrap-column-text\">\n                <text class=\"text-item\" :style=\"textStyle\">{{ this.text[0] }}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style>\n    .wx-marquee {\n        overflow: hidden;\n    }\n\n    .wrap {\n        overflow: hidden;\n        position: relative;\n    }\n\n    .marquee1 {\n        position: absolute;\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .marquee2 {\n        position: absolute;\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .wrap-column {\n    }\n\n    .wrap-column-text {\n        justify-content: center;\n        align-items: center;\n        overflow: hidden;\n        flex-direction: row;\n    }\n    .text-item {\n        lines: 1;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n    }\n\n</style>\n<script type=\"text/javascript\">\n    const animation = weex.requireModule('animation');\n    const dom = weex.requireModule('dom');\n    import mixins from '../utils/mixins';\n\n    export default {\n        mixins:[mixins],\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            textWidth: {\n                type: String,\n                default: '750px'\n            },\n            \n            height: {\n                type: String,\n                default: '80px'\n            },\n            direction: {\n                type: String,\n                // or column\n                default: 'row'\n            },\n            text: {\n                type: [String, Array]\n            },\n            fontSize: {\n                type: String,\n                default: '32px'\n            },\n            textColor: {\n                type: String,\n                default: '#333'\n            },\n            bgColor: {\n                type: String,\n                default: '#fff'\n            },\n            duration: {\n                type: Number,\n                // ms\n                default: 5000\n            },\n            delay: {\n                type: Number,\n                // ms\n                default: 0\n            },\n        },\n        data () {\n            return {\n                base:{ \n                    x: Number(this.textWidth.replace('px','')),\n                    t: this.duration,\n                },\n                marquee1: {},\n                marquee2: {},\n                wrapStyle: {},\n                baseStyle: {},\n                textStyle: {},\n            }\n        },\n\n        created () {\n            this.wrapStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };\n            let width = this.direction === 'row' ? this.textWidth : this.width;\n            this.baseStyle = { width: width, height: this.height, 'background-color': this.bgColor };\n            let textStyle = { width: width, 'font-size': this.fontSize, 'color': this.textColor };\n            if (this.$data.$env.isWeb) textStyle.display = 'block';\n            this.textStyle = textStyle;\n        },\n\n        mounted () {\n            if (this.direction === 'row' && this.base.x > 750) {\n                this.initStyle();\n                this.startRow('marquee1');\n            } else if (this.direction === 'column') {\n                this.startCol();\n            }\n        },\n        \n        methods: {\n            initStyle () {\n                let base = {height: this.height, width: this.width};\n                if (this.$data.$env.isWeb) {\n                    this.marquee1 = Object.assign({\n                        left: '0px'\n                    }, base);\n                    this.marquee2 = Object.assign({\n                        left: `${this.base.x}px`\n                    }, base);\n                } else {\n                    this.marquee1 = Object.assign({\n                        transform: `translateX(0px)`\n                    }, base);\n                    this.marquee2 = Object.assign({\n                        transform: `translateX(${this.base.x}px)`\n                    }, base);\n                }\n            },\n\n            startRow (ref) {\n                setTimeout(() => {\n                    this.animation1('marquee1');\n                    this.animation2('marquee2');\n                }, this.delay);\n            },\n\n            startCol () {\n                let index = 0;\n                let d = this.duration;\n                let next = () => {\n                  if (index > this.text.length - 1) {\n                    index = d = 0;\n                    this.animationCol(0, 0);\n                  } else {\n                    d = this.duration;\n                    index ++;\n                    this.animationCol(this.duration, `${-1 * index * 100}%`);\n                  }\n                  setTimeout(next, d);\n                }\n                setTimeout(() => {\n                    next();\n                }, this.delay);\n            },\n\n            animation1 (ref) {\n                let el = this.$refs[ref];\n                animation.transition(el, {\n                    styles: this.getStyles(-this.base.x),\n                    duration: this.base.t,\n                    timingFunction: 'linear',\n                }, () => {\n                    this.end(ref);\n                });\n            },\n\n            getStyles (x) {\n                if (this.$data.$env.isWeb) {\n                    return {left: `${x}px`};\n                } else {\n                    return {transform: `translateX(${x}px)`};\n                }\n            },\n\n            animation2 (ref) {\n                let el = this.$refs[ref];\n                let x = this.base.x;\n                let d = this.base.t * 2;\n                animation.transition(el, {\n                    styles: this.getStyles(-x),\n                    duration: d,\n                    timingFunction: 'linear',\n                }, () => {\n                    this.end(ref);\n                });\n            },\n\n            end (ref) {\n                let el = this.$refs[ref];\n                animation.transition(el, {\n                    styles: this.getStyles(this.base.x),\n                    duration: 0,\n                });\n                setTimeout(() => {\n                    this.animation2(ref);\n                }, 20);\n            },\n\n            animationCol (duration, y) {\n                var el = this.$refs.wrapColumn;\n                if (this.$data.$env.isWeb) {\n                    el.style.transitionDuration = duration + 'ms';\n                    el.style.transitionTimingFunction = 'ease';\n                    el.style.transform = `translate3d(0, ${y}, 0)`\n                    return;\n                }\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateY(${y})`\n                    },\n                    duration: duration,\n                    timingFunction: 'ease'\n                });\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-marquee {\n    overflow: hidden;\n}\n.wrap {\n    overflow: hidden;\n    position: relative;\n}\n.marquee1 {\n    position: absolute;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.marquee2 {\n    position: absolute;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n}\n.text-item {\n    lines: 1;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n}\n\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-marquee/index.vue?4acab063"],"names":[],"mappings":";AAmBA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,SAAA;IACA,iBAAA;IACA,oBAAA;IACA,wBAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-marquee\" ref=\"wxMarquee\" :style=\"wrapStyle\">\n        <div class=\"wrap\" v-if=\"direction === 'row'\" :style=\"baseStyle\">\n            <div class=\"marquee1\" ref=\"marquee1\" :style=\"marquee1\">\n                <text :style=\"textStyle\" class=\"wx-text\">{{ text }}</text>\n            </div>\n            <div class=\"marquee2\" ref=\"marquee2\" :style=\"marquee2\">\n                <text :style=\"textStyle\" class=\"wx-text\">{{ text }}</text>\n            </div>\n        </div>\n        <div v-if=\"direction === 'column'\" :style=\"baseStyle\">\n            <div ref=\"wrapColumn\" :style=\"baseStyleWrap\">\n                <text v-for=\"txt in text\" class=\"text-item\" :style=\"textStyle\">{{ txt }}</text>\n                <text class=\"text-item\" :style=\"textStyle\">{{ this.text[0] }}</text>\n            </div>\n        </div>\n    </div>\n</template>\n<style>\n    .wx-marquee {\n        overflow: hidden;\n    }\n\n    .wrap {\n        overflow: hidden;\n        position: relative;\n    }\n\n    .marquee1 {\n        position: absolute;\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .marquee2 {\n        position: absolute;\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .text-item {\n        lines: 1;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n    }\n\n</style>\n<script type=\"text/javascript\">\n    const animation = weex.requireModule('animation');\n    const dom = weex.requireModule('dom');\n    import mixins from '../utils/mixins';\n\n    export default {\n        mixins:[mixins],\n        props: {\n            width: {\n                type: String,\n                default: '750px'\n            },\n            textWidth: {\n                type: String,\n                default: '750px'\n            },\n            \n            height: {\n                type: String,\n                default: '80px'\n            },\n            direction: {\n                type: String,\n                // or column\n                default: 'row'\n            },\n            text: {\n                type: [String, Array]\n            },\n            fontSize: {\n                type: String,\n                default: '32px'\n            },\n            textColor: {\n                type: String,\n                default: '#333'\n            },\n            bgColor: {\n                type: String,\n                default: '#fff'\n            },\n            duration: {\n                type: Number,\n                // ms\n                default: 5000\n            },\n            delay: {\n                type: Number,\n                // ms\n                default: 0\n            },\n        },\n        data () {\n            return {\n                base:{ \n                    x: Number(this.textWidth.replace('px','')),\n                    t: this.duration,\n                    h: Number(this.height.replace('px',''))\n                },\n                marquee1: {},\n                marquee2: {},\n                wrapStyle: {},\n                baseStyle: {},\n                textStyle: {},\n            }\n        },\n\n        created () {\n            this.wrapStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };\n            let width = this.direction === 'row' ? this.textWidth : this.width;\n            this.baseStyle = { width: width, height: this.height, 'background-color': this.bgColor };\n\n            this.baseStyleWrap = Object.assign({}, this.baseStyle, {\n                height: this.base.h * (this.text.length + 1) + 'px'});\n\n            let textStyle = { height: this.height, width: width, 'font-size': this.fontSize, 'color': this.textColor, 'line-height': this.height };\n\n            if (this.$data.$env.isWeb) textStyle.display = 'block';\n            this.textStyle = textStyle;\n        },\n\n        mounted () {\n            if (this.direction === 'row' && this.base.x > 750) {\n                this.initStyle();\n                this.startRow();\n            } else if (this.direction === 'column') {\n                this.startCol();\n            }\n        },\n        \n        methods: {\n            initStyle () {\n                let base = {height: this.height, width: this.textWidth};\n                if (this.$data.$env.isWeb) {\n                    this.marquee1 = Object.assign({\n                        left: '0px'\n                    }, base);\n                    this.marquee2 = Object.assign({\n                        left: `${this.base.x}px`\n                    }, base);\n                } else {\n                    this.marquee1 = Object.assign({\n                        transform: `translateX(0px)`\n                    }, base);\n                    this.marquee2 = Object.assign({\n                        transform: `translateX(${this.base.x}px)`\n                    }, base);\n                }\n            },\n\n            startRow () {\n                setTimeout(() => {\n                    this.animation1('marquee1');\n                    this.animation2('marquee2');\n                }, this.delay);\n            },\n\n            startCol () {\n                let index = 0;\n                let d = this.duration;\n                let next = () => {\n                  if (index > this.text.length - 1) {\n                    index = 0;\n                    // 处理浏览器兼容，设置停留100ms\n                    d = 100;\n                    this.animationCol(0, 0);\n                  } else {\n                    d = this.duration;\n                    index ++;\n                    let y = `${-1 * index * 100 / (this.text.length + 1)}%`;\n                    this.animationCol(this.duration, y);\n                  }\n                  setTimeout(next, d);\n                }\n                setTimeout(() => {\n                    next();\n                }, this.delay);\n            },\n\n            animation1 (ref) {\n                let el = this.$refs[ref];\n                animation.transition(el, {\n                    styles: this.getStyles(-this.base.x),\n                    duration: this.base.t,\n                    timingFunction: 'linear',\n                }, () => {\n                    this.end(ref);\n                });\n            },\n\n            getStyles (x) {\n                if (this.$data.$env.isWeb) {\n                    return {left: `${x}px`};\n                } else {\n                    return {transform: `translateX(${x}px)`};\n                }\n            },\n\n            animation2 (ref) {\n                let el = this.$refs[ref];\n                let x = this.base.x;\n                let d = this.base.t * 2;\n                animation.transition(el, {\n                    styles: this.getStyles(-x),\n                    duration: d,\n                    timingFunction: 'linear',\n                }, () => {\n                    this.end(ref);\n                });\n            },\n\n            end (ref) {\n                let el = this.$refs[ref];\n                animation.transition(el, {\n                    styles: this.getStyles(this.base.x),\n                    duration: 0,\n                });\n                setTimeout(() => {\n                    this.animation2(ref);\n                }, 20);\n            },\n\n            animationCol (duration, y) {\n                var el = this.$refs.wrapColumn;\n                if (this.$data.$env.isWeb) {\n                    el.style.transitionDuration = duration + 'ms';\n                    el.style.transitionTimingFunction = 'ease';\n                    el.style.transform = `translate3d(0, ${y}, 0)`\n                    return;\n                }\n                animation.transition(el, {\n                    styles: {\n                        transform: `translateY(${y})`\n                    },\n                    duration: duration,\n                    timingFunction: 'ease'\n                });\n            },\n        }\n    }\n</script>"],"sourceRoot":""}]);
 
 // exports
 
@@ -7976,29 +7989,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     style: (_vm._processExclusiveStyle(_vm.textStyle, 75, 'text')),
     attrs: {}
   }, [_vm._v(_vm._s(_vm.text))])])]) : _vm._e(), _vm._v(" "), (_vm.direction === 'column') ? _c('div', {
-    ref: "wrapColumn",
-    staticClass: "wrap-column weex-ct",
+    staticClass: " weex-ct",
     style: (_vm._px2rem(_vm.baseStyle, 75)),
     attrs: {}
+  }, [_c('div', {
+    ref: "wrapColumn",
+    staticClass: " weex-ct",
+    style: (_vm._px2rem(_vm.baseStyleWrap, 75)),
+    attrs: {}
   }, [_vm._l((_vm.text), function(txt) {
-    return _c('div', {
-      staticClass: "wrap-column-text weex-ct",
-      style: (_vm._px2rem(_vm.baseStyle, 75)),
-      attrs: {}
-    }, [_c('p', {
+    return _c('p', {
       staticClass: "text-item weex-el weex-text",
       style: (_vm._processExclusiveStyle(_vm.textStyle, 75, 'text')),
       attrs: {}
-    }, [_vm._v(_vm._s(txt))])])
-  }), _vm._v(" "), _c('div', {
-    staticClass: "wrap-column-text weex-ct",
-    style: (_vm._px2rem(_vm.baseStyle, 75)),
-    attrs: {}
-  }, [_c('p', {
+    }, [_vm._v(_vm._s(txt))])
+  }), _vm._v(" "), _c('p', {
     staticClass: "text-item weex-el weex-text",
     style: (_vm._processExclusiveStyle(_vm.textStyle, 75, 'text')),
     attrs: {}
-  }, [_vm._v(_vm._s(this.text[0]))])])], 2) : _vm._e()])
+  }, [_vm._v(_vm._s(this.text[0]))])], 2)]) : _vm._e()])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

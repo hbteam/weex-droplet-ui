@@ -1000,6 +1000,28 @@ var _mixins2 = _interopRequireDefault(_mixins);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var modal = weex.requireModule('modal'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
     mixins: [_mixins2.default],
     props: {
@@ -1055,38 +1077,22 @@ exports.default = {
     },
 
     methods: {
-        blur: function blur(e) {
+        onblur: function onblur(e) {
             this.preventDefault(e);
             this.$emit('wxBlur', this.inputValue);
         },
-        input: function input(e) {
+        oninput: function oninput(e) {
             this.preventDefault(e);
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
+        },
+        onfocus: function onfocus(e) {
+            this.preventDefault(e);
+            this.$emit('wxFocus', this.inputValue);
         }
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 24 */
@@ -1609,8 +1615,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "maxlength": _vm.maxlength
     },
     on: {
-      "input": _vm.input,
-      "blur": _vm.blur
+      "input": _vm.oninput,
+      "blur": _vm.onblur,
+      "focus": _vm.onfocus
     }
   }), (_vm.tail) ? _c('div', {
     staticClass: ["wx-input-icon"]
@@ -4173,17 +4180,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var animation = weex.requireModule('animation');
 var dom = weex.requireModule('dom');
@@ -4238,7 +4234,8 @@ exports.default = {
         return {
             base: {
                 x: Number(this.textWidth.replace('px', '')),
-                t: this.duration
+                t: this.duration,
+                h: Number(this.height.replace('px', ''))
             },
             marquee1: {},
             marquee2: {},
@@ -4251,14 +4248,19 @@ exports.default = {
         this.wrapStyle = { width: this.width, height: this.height, 'background-color': this.bgColor };
         var width = this.direction === 'row' ? this.textWidth : this.width;
         this.baseStyle = { width: width, height: this.height, 'background-color': this.bgColor };
-        var textStyle = { width: width, 'font-size': this.fontSize, 'color': this.textColor };
+
+        this.baseStyleWrap = Object.assign({}, this.baseStyle, {
+            height: this.base.h * (this.text.length + 1) + 'px' });
+
+        var textStyle = { height: this.height, width: width, 'font-size': this.fontSize, 'color': this.textColor, 'line-height': this.height };
+
         if (this.$data.$env.isWeb) textStyle.display = 'block';
         this.textStyle = textStyle;
     },
     mounted: function mounted() {
         if (this.direction === 'row' && this.base.x > 750) {
             this.initStyle();
-            this.startRow('marquee1');
+            this.startRow();
         } else if (this.direction === 'column') {
             this.startCol();
         }
@@ -4267,7 +4269,7 @@ exports.default = {
 
     methods: {
         initStyle: function initStyle() {
-            var base = { height: this.height, width: this.width };
+            var base = { height: this.height, width: this.textWidth };
             if (this.$data.$env.isWeb) {
                 this.marquee1 = Object.assign({
                     left: '0px'
@@ -4284,7 +4286,7 @@ exports.default = {
                 }, base);
             }
         },
-        startRow: function startRow(ref) {
+        startRow: function startRow() {
             var _this = this;
 
             setTimeout(function () {
@@ -4299,12 +4301,15 @@ exports.default = {
             var d = this.duration;
             var next = function next() {
                 if (index > _this2.text.length - 1) {
-                    index = d = 0;
+                    index = 0;
+                    // 处理浏览器兼容，设置停留100ms
+                    d = 100;
                     _this2.animationCol(0, 0);
                 } else {
                     d = _this2.duration;
                     index++;
-                    _this2.animationCol(_this2.duration, -1 * index * 100 + '%');
+                    var y = -1 * index * 100 / (_this2.text.length + 1) + '%';
+                    _this2.animationCol(_this2.duration, y);
                 }
                 setTimeout(next, d);
             };
@@ -6358,12 +6363,6 @@ module.exports = {
     "flexDirection": "row",
     "alignItems": "center"
   },
-  "wrap-column-text": {
-    "justifyContent": "center",
-    "alignItems": "center",
-    "overflow": "hidden",
-    "flexDirection": "row"
-  },
   "text-item": {
     "lines": 1,
     "overflow": "hidden",
@@ -7034,24 +7033,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["wx-text"],
     style: _vm.textStyle
   }, [_vm._v(_vm._s(_vm.text))])])]) : _vm._e(), (_vm.direction === 'column') ? _c('div', {
-    ref: "wrapColumn",
-    staticClass: ["wrap-column"],
     style: _vm.baseStyle
+  }, [_c('div', {
+    ref: "wrapColumn",
+    style: _vm.baseStyleWrap
   }, [_vm._l((_vm.text), function(txt) {
-    return _c('div', {
-      staticClass: ["wrap-column-text"],
-      style: _vm.baseStyle
-    }, [_c('text', {
+    return _c('text', {
       staticClass: ["text-item"],
       style: _vm.textStyle
-    }, [_vm._v(_vm._s(txt))])])
-  }), _c('div', {
-    staticClass: ["wrap-column-text"],
-    style: _vm.baseStyle
-  }, [_c('text', {
+    }, [_vm._v(_vm._s(txt))])
+  }), _c('text', {
     staticClass: ["text-item"],
     style: _vm.textStyle
-  }, [_vm._v(_vm._s(this.text[0]))])])], 2) : _vm._e()])
+  }, [_vm._v(_vm._s(this.text[0]))])], 2)]) : _vm._e()])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
