@@ -175,7 +175,8 @@
                   } else {
                     d = this.duration;
                     index ++;
-                    this.animationCol(this.duration, `${-1 * index * 100 / (this.text.length + 1)}%`);
+                    let y = `${-1 * index * 100 / (this.text.length + 1)}%`;
+                    this.animationCol(this.duration, y);
                   }
                   setTimeout(next, d);
                 }
