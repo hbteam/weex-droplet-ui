@@ -7,10 +7,10 @@
   "type": "weex",
   "repository": "https://github.com/houbank/weex-droplet-ui",
   "scripts": {
-    "build": "webpack --progress",
+    "build": "cross-env NODE_ENV=production webpack --progress",
     "watch": "webpack --progress --watch",
     "serve": "anywhere -d build/example/ -p 8111",
-    "start": "npm run build && (npm run serve & npm run watch)",
+    "start": "webpack --progress && (npm run serve & npm run watch)",
     "gh-pages": "node_modules/.bin/gh-pages -d build/example"
   },
   "keywords": [
@@ -39,6 +39,7 @@
     "babel-runtime": "^6.26.0",
     "clean-webpack-plugin": "~0.1.17",
     "copy-webpack-plugin": "~4.0.1",
+    "cross-env": "^5.2.0",
     "css-loader": "~0.28.7",
     "eslint": "^4.11.0",
     "eslint-config-vue": "^2.0.2",

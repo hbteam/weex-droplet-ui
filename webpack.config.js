@@ -6,6 +6,8 @@ const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+var isProd = process.env.NODE_ENV === 'production';
+
 console.log('Building..., Please wait a moment.');
 
 const getEntry = dir => {
@@ -34,7 +36,7 @@ const getCopyConfig = () => {
           to: scriptPath
       })
       ret.push({
-          from: path.join(__dirname, 'node_modules/weex-vue-render/dist/index.js'),
+          from: path.join(__dirname, 'node_modules/weex-vue-render/dist/index.min.js'),
           to: scriptPath
       })
 
@@ -66,6 +68,12 @@ const plugins = [
   }),
   new CopyWebpackPlugin(getCopyConfig(), { copyUnmodified: true })
 ];
+
+if (isProd) {
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin()
+  )
+}
 
 const needClean = process.argv.indexOf('--watch') > -1;
 needClean && plugins.shift();
