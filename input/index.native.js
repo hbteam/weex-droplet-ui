@@ -406,28 +406,6 @@ var _mixins2 = _interopRequireDefault(_mixins);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var modal = weex.requireModule('modal'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 exports.default = {
     mixins: [_mixins2.default],
     props: {
@@ -483,22 +461,38 @@ exports.default = {
     },
 
     methods: {
-        onblur: function onblur(e) {
+        blur: function blur(e) {
             this.preventDefault(e);
             this.$emit('wxBlur', this.inputValue);
         },
-        oninput: function oninput(e) {
+        input: function input(e) {
             this.preventDefault(e);
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
-        },
-        onfocus: function onfocus(e) {
-            this.preventDefault(e);
-            this.$emit('wxFocus', this.inputValue);
         }
     }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -588,9 +582,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "maxlength": _vm.maxlength
     },
     on: {
-      "input": _vm.oninput,
-      "blur": _vm.onblur,
-      "focus": _vm.onfocus
+      "input": _vm.input,
+      "blur": _vm.blur
     }
   }), (_vm.tail) ? _c('div', {
     staticClass: ["wx-input-icon"]

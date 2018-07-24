@@ -792,28 +792,6 @@ var _mixins2 = _interopRequireDefault(_mixins);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var modal = weex.requireModule('modal'); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 exports.default = {
     mixins: [_mixins2.default],
     props: {
@@ -869,22 +847,38 @@ exports.default = {
     },
 
     methods: {
-        onblur: function onblur(e) {
+        blur: function blur(e) {
             this.preventDefault(e);
             this.$emit('wxBlur', this.inputValue);
         },
-        oninput: function oninput(e) {
+        input: function input(e) {
             this.preventDefault(e);
             this.inputValue = e.value;
             this.$emit('input', e.value);
             this.$emit('wxInput', this.inputValue);
-        },
-        onfocus: function onfocus(e) {
-            this.preventDefault(e);
-            this.$emit('wxFocus', this.inputValue);
         }
     }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -965,7 +959,7 @@ exports = module.exports = __webpack_require__(1)(true);
 
 
 // module
-exports.push([module.i, "\n.wx-input {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    width: 8.93333rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-input-icon {\n    width: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.input {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-input/index.vue?7d96e800"],"names":[],"mappings":";AAkGA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,kBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-input\" :style=\"style\">\n        <div class=\"wx-input-icon\" v-if=\"icon\">\n            <image :style=\"iconStyle\" :src=\"icon\"></image>\n        </div>\n        <slot name=\"left\"></slot>\n        <input \n            class=\"input\"\n            :style=\"{'background-color': bgColor}\"\n            :type=\"type\" \n            :placeholder=\"placeholder\" \n            :value=\"value\"\n            :disabled=\"disabled\" \n            :autofocus=\"autofocus\" \n            :maxlength=\"maxlength\"\n            @input=\"oninput\" @blur=\"onblur\" @focus=\"onfocus\" />\n        <div class=\"wx-input-icon\" v-if=\"tail\">\n            <image :style=\"tailStyle\" :src=\"tail\"></image>\n        </div>\n    </div>\n</template>\n<script>\n    import mixins from '../utils/mixins';\n    const modal = weex.requireModule('modal');\n\n    export default {\n        mixins:[mixins],\n        props: {\n            type: {\n                type: String,\n                default: 'text'\n            },\n            icon: {\n                type: String\n            },\n            tail: {\n                type: String\n            },\n            placeholder: {\n                type: String\n            },\n            value: {\n                type: String\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            maxlength: {\n                type: String\n            },\n            iconStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            width: {\n                type: String\n            },\n            bgColor: {\n                type: String,\n                default: '#f8f8f8'\n            },\n        },\n        data(){\n            return {\n                style: {\n                    width: this.width,\n                    'background-color': this.bgColor\n                },\n                inputValue: '',\n            }\n        },\n        methods: {\n            onblur (e) {\n                this.preventDefault(e);\n                this.$emit('wxBlur', this.inputValue);\n            },\n            oninput (e) {\n                this.preventDefault(e);\n                this.inputValue = e.value;\n                this.$emit('input', e.value)\n                this.$emit('wxInput', this.inputValue);\n            },\n\n            onfocus (e) {\n                this.preventDefault(e);\n                this.$emit('wxFocus', this.inputValue);\n            },\n        }\n    }\n</script>\n<style>\n    .wx-input {\n        display: flex;\n        width: 670px;\n        height: 100px;\n        flex-direction: row;\n    }\n\n    .wx-input-icon {\n        width: 100px;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .input {\n        flex: 1;\n    }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wx-input {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    width: 8.93333rem;\n    height: 1.33333rem;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n}\n.wx-input-icon {\n    width: 1.33333rem;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.input {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n}\n", "", {"version":3,"sources":["/Users/yangquan/Documents/workspace/github/weex-droplet-ui/packages/wx-input/index.vue?22fd744f"],"names":[],"mappings":";AA2FA;IACA,qBAAA;IAAA,sBAAA;IAAA,cAAA;IACA,kBAAA;IACA,mBAAA;IACA,+BAAA;IAAA,8BAAA;IAAA,4BAAA;YAAA,oBAAA;CACA;AAEA;IACA,kBAAA;IACA,0BAAA;IAAA,4BAAA;YAAA,oBAAA;IACA,yBAAA;IAAA,gCAAA;YAAA,wBAAA;CACA;AAEA;IACA,oBAAA;IAAA,gBAAA;YAAA,QAAA;CACA","file":"index.vue","sourcesContent":["<template>\n    <div class=\"wx-input\" :style=\"style\">\n        <div class=\"wx-input-icon\" v-if=\"icon\">\n            <image :style=\"iconStyle\" :src=\"icon\"></image>\n        </div>\n        <slot name=\"left\"></slot>\n        <input \n            class=\"input\"\n            :style=\"{'background-color': bgColor}\"\n            :type=\"type\" \n            :placeholder=\"placeholder\" \n            :value=\"value\"\n            :disabled=\"disabled\" \n            :autofocus=\"autofocus\" \n            :maxlength=\"maxlength\"\n            @input=\"input\" @blur=\"blur\" />\n        <div class=\"wx-input-icon\" v-if=\"tail\">\n            <image :style=\"tailStyle\" :src=\"tail\"></image>\n        </div>\n    </div>\n</template>\n<script>\n    import mixins from '../utils/mixins'\n    export default {\n        mixins:[mixins],\n        props: {\n            type: {\n                type: String,\n                default: 'text'\n            },\n            icon: {\n                type: String\n            },\n            tail: {\n                type: String\n            },\n            placeholder: {\n                type: String\n            },\n            value: {\n                type: String\n            },\n            disabled: {\n                type: Boolean,\n                default: false\n            },\n            autofocus: {\n                type: Boolean,\n                default: false\n            },\n            maxlength: {\n                type: String\n            },\n            iconStyle: {\n                type: Object\n            },\n            tailStyle: {\n                type: Object\n            },\n            width: {\n                type: String\n            },\n            bgColor: {\n                type: String,\n                default: '#f8f8f8'\n            },\n        },\n        data(){\n            return {\n                style: {\n                    width: this.width,\n                    'background-color': this.bgColor\n                },\n                inputValue: '',\n            }\n        },\n        methods: {\n            blur (e) {\n                this.preventDefault(e);\n                this.$emit('wxBlur', this.inputValue);\n            },\n            input (e) {\n                this.preventDefault(e);\n                this.inputValue = e.value;\n                this.$emit('input', e.value)\n                this.$emit('wxInput', this.inputValue);\n            }\n        }\n    }\n</script>\n<style>\n    .wx-input {\n        display: flex;\n        width: 670px;\n        height: 100px;\n        flex-direction: row;\n    }\n\n    .wx-input-icon {\n        width: 100px;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .input {\n        flex: 1;\n    }\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -1093,8 +1087,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "autofocus": _vm.autofocus,
       "maxlength": _vm.maxlength,
       "data-evt-input": "",
-      "data-evt-blur": "",
-      "data-evt-focus": ""
+      "data-evt-blur": ""
     },
     domProps: {
       "value": _vm.value
@@ -1102,29 +1095,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "input": function($event) {
         $event.stopPropagation();
-        return _vm.oninput($event)
+        return _vm.input($event)
       },
       "blur": function($event) {
         $event.stopPropagation();
-        return _vm.onblur($event)
-      },
-      "focus": function($event) {
-        $event.stopPropagation();
-        return _vm.onfocus($event)
+        return _vm.blur($event)
       }
     },
     nativeOn: {
       "input": function($event) {
         $event.stopPropagation();
-        return _vm.oninput($event)
+        return _vm.input($event)
       },
       "blur": function($event) {
         $event.stopPropagation();
-        return _vm.onblur($event)
-      },
-      "focus": function($event) {
-        $event.stopPropagation();
-        return _vm.onfocus($event)
+        return _vm.blur($event)
       }
     }
   }), _vm._v(" "), (_vm.tail) ? _c('div', {
