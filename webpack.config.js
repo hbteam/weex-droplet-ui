@@ -70,9 +70,7 @@ const plugins = [
 ];
 
 if (isProd) {
-  plugins.push(
-    new webpack.optimize.UglifyJsPlugin()
-  )
+  plugins.splice(1, 0, new webpack.optimize.UglifyJsPlugin());
 }
 
 const needClean = process.argv.indexOf('--watch') > -1;
