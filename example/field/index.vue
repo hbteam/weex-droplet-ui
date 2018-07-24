@@ -2,8 +2,8 @@
     <div>
         <div style="margin-right: 25px; margin-left: 25px;">
             <wx-field
-                    label="用户名"
-                    placeholder="请输入用户名"
+                    label="备用资金"
+                    placeholder="备用资金"
                     type="text"
                     :autofocus="false"
                     :disabled="false"
@@ -11,23 +11,25 @@
                     width="700px"
                     height="200px"
                     unit="元"
-                    v-model="password1"></wx-field>
+                    v-model="amount"></wx-field>
             <wx-field
                     label="密码"
                     placeholder="请输入密码"
                     width="700px"
+                    type="password"
                     labelPosition="top"
-                    :value="password2"
+                    v-model="password"
                     :hasArrow="true"
                     height="200px"></wx-field>
             <wx-field
                     label="电话"
                     placeholder="请输入电话号码"
                     type="tel"
+                    maxlength="11"
                     width="700px"
                     :inputStyles="inputStyles"
                     :styles="{'border-bottom-width': 0}"
-                    v-model="password3"
+                    v-model="mobile"
                     height="110px"></wx-field>
         </div>
         <div class="wrap-button">
@@ -52,11 +54,11 @@
         components: {WxField, WxButton},
         data () {
             return {
-                password1: '',
-                password2: '',
-                password3: '',
+                amount: '',
+                password: '',
+                mobile: '',
                 inputStyles: {
-                    'text-align': 'center'
+                    'text-indent': '140px'
                 },
                 noBorder: {
                     'border-bottom-width': 0
@@ -65,7 +67,7 @@
         },
         methods: {
             wxClickHandle () {
-                const value = this.password1 + this.password2 + this.password3
+                const value = this.amount + this.password + this.mobile
                 modal.toast({
                     message: value
                 })

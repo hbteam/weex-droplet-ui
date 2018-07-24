@@ -4,8 +4,7 @@
         <div class="wx-content">
             <input
                     v-if="!disabled"
-                    @input="handleChange"
-                    @blur="blur"
+                    @input="oninput" @blur="onblur" @focus="onfocus"
                     class="wx-input"
                     :type="type"
                     :style="inputStyles"
@@ -43,9 +42,9 @@
         font-size: 32px;
         color: #333333;
         height: 110px;
-        line-height: 110px;
         flex: 3;
         text-align: left;
+        outline: none;
     }
 
     .wx-content {
@@ -168,6 +167,7 @@
             return {
                 fieldStyles: {},
                 textTitleStyles: {},
+                inputValue: '',
             }
         },
 
@@ -186,19 +186,13 @@
 
         methods: {
             setStyle () {
-
+                let h = Number(this.height.replace('px', '')) + 1;
                 // fieldStyles 样式
                 const baseCss = {
-                    height: this.height,
+                    height: h + 'px',
                     width: this.width,
                 }
                 this.fieldStyles = Object.assign({},  baseCss, this.styles)
-
-//                if(this.disabled){
-//                    modal.toast({
-//                        message: this.width.replace('px','') - 26 + 'px'
-//                    })
-//                }
 
                 // cliTextStyles样式
                 let width = ''
@@ -223,17 +217,25 @@
 
             },
 
-            handleChange (e) {
+            oninput (e) {
                 this.preventDefault(e);
-                this.$emit('input', e.value)
+                this.inputValue = e.value;
+                this.$emit('input', this.inputValue);
+                this.$emit('wxInput', this.inputValue);
             },
 
-            blur (e) {
+            onblur (e) {
                 this.preventDefault(e);
-                this.$emit('wxBlur', e.target.attr.value);
+                this.$emit('wxBlur', this.inputValue);
             },
 
-            clickHandler(){
+            onfocus (e) {
+                this.preventDefault(e);
+                this.$emit('wxFocus', this.inputValue);
+            },
+
+            clickHandler(e){
+                this.preventDefault(e);
                 if (this.disabled){
                     this.$emit('wxClick')
                 }
