@@ -168,9 +168,7 @@
                 let d = this.duration;
                 let next = () => {
                   if (index > this.text.length - 1) {
-                    index = 0;
-                    // 处理浏览器兼容，设置停留100ms
-                    d = 100;
+                    index = d = 0;
                     this.animationCol(0, 0);
                   } else {
                     d = this.duration;
@@ -178,7 +176,8 @@
                     let y = `${-1 * index * 100 / (this.text.length + 1)}%`;
                     this.animationCol(this.duration, y);
                   }
-                  setTimeout(next, d);
+                  // 在动画结束后延迟100ms执行，解决莫名其妙的兼容性bug
+                  setTimeout(next, d + 100);
                 }
                 setTimeout(() => {
                     next();
