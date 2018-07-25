@@ -7,7 +7,7 @@ npm i weex-droplet-ui -S
 ![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-url.png)
 
 ## HTML5 demo演示
-[https://hbteam.github.io/weex-droplet-ui/index/index.html](https://hbteam.github.io/weex-droplet-ui/index/index.html)
+[https://hbteam.github.io/weex-droplet-ui/index/index.html](https://hbteam.github.io/weex-droplet-ui/index/index.html)  
 ![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-weburl.png)
 
 
