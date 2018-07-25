@@ -8,6 +8,8 @@ npm i weex-droplet-ui -S
 
 ## HTML5 demo演示
 [https://hbteam.github.io/weex-droplet-ui/index/index.html](https://hbteam.github.io/weex-droplet-ui/index/index.html)
+![扫一扫](https://www.houbank.com/weex/hulu/images/weex-droplet-ui-weburl.png.png)
+
 
 ## 关于文档
 [https://houbank.github.io/dropletui-docs](https://houbank.github.io/dropletui-docs)
