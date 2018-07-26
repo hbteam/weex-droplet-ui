@@ -44,5 +44,6 @@ export {
     WxProgress,
     WxRange,
     WxPicker,
+    WxSwitch,
     WxMarquee
 };
