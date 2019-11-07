@@ -1,7 +1,7 @@
 <template>
     <div class="wx-radio-items" :style="{'flex-direction': direction, 'width': width}">
         <div class="wx-radio-item" 
-            v-for="item in options" 
+            v-for="item in optionsData" 
             :style="rowStyle"
             @click="handleClick(item)">
             <text :style="textStyles" v-if="align === 'left'" class="wx-radio-label-right">{{ item.title }}</text>
@@ -105,14 +105,22 @@
                 checkedStyle: {},
                 textStyles: {},
                 rowStyle: {},
+                optionsData: [],
             }
         },
 
         created () {
+            this.optionsData = JSON.parse(JSON.stringify(this.options));
             this.setCheckedStyle();
             this.setTextStyle();
             this.setRowStyle();
             this.initChecked();
+        },
+
+        watch: {
+            options () {
+                this.optionsData = JSON.parse(JSON.stringify(this.options));
+            }
         },
 
         methods: {
@@ -162,7 +170,7 @@
             },
 
             initChecked () {
-                this.options.forEach(item => {
+                this.optionsData.forEach(item => {
                     if (item.checked) {
                         this.$emit('wxChange', item.value);
                         this.$emit('input', item.value);
@@ -172,7 +180,7 @@
 
             handleClick (item) {
                 if (item.checked || item.disabled) return;
-                this.options.forEach(el => {
+                this.optionsData.forEach(el => {
                     el.checked = false;
                 });
                 item.checked = true;
